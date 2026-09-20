@@ -777,3 +777,84 @@ h1 .spark, .wordmark span { text-shadow: 0 0 22px rgba(94,234,212,.6); }
   border-left: 2px solid #F2795B;
   padding-left: 12px;
 }
+
+/* ---------- pricing ---------- */
+
+.badge-launch {
+  align-self: flex-start;
+  padding: 8px 14px;
+  background: var(--brass-tint);
+  border: 1px solid rgba(245,194,107,.35);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+.price-grid.bundles { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 26px;
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  box-shadow: var(--sh-1);
+}
+.price-card h3 { font-size: 22px; }
+.price-blurb { color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
+.price-card ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.price-card .btn { margin-top: auto; align-self: stretch; }
+
+.price-tag { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.price-was {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.price-now {
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1;
+  color: var(--ink);
+  text-shadow: 0 0 26px rgba(94,234,212,.28);
+}
+
+.price-card.featured {
+  border-color: rgba(94,234,212,.5);
+  box-shadow: var(--sh-2), 0 0 32px -10px rgba(94,234,212,.45);
+}
+.badge-best {
+  position: absolute;
+  top: -11px; left: 26px;
+  padding: 4px 12px;
+  background: linear-gradient(180deg,#5EEAD4 0%, #34C9B4 100%);
+  color: #04221E;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.checklist li strong { color: var(--ink); font-weight: 600; }

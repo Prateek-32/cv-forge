@@ -7,13 +7,60 @@ No build step, no dependencies, no framework.
 index.html     Home
 fields.html    All fields, with a working filter
 finance.html   Field detail page, with tabs
-start.html     Intake form
+pricing.html   Prices and bundles
+start.html     Start page, with the brief form
 styles.css     All styling — design tokens are at the top
 site.js        Field filter, tabs, motion, form submission
 .nojekyll      Serves files as-is on GitHub Pages
 ```
 
 Live at https://prateek-32.github.io/cv-forge/
+
+## Positioning — read before editing the copy
+
+The site is written for a **₹99 launch price**. That constrains what the pages may
+claim, and the copy was deliberately rewritten to stay inside it:
+
+- No promise of an interview or a call. The pages say we build from the submitted brief.
+- No claim of a specialist writer who has worked in the reader's field. The claim is
+  field-specific *structure*, which is true.
+- **One** revision round, not two.
+- `pricing.html` carries a "What ₹99 does not buy" section stating the limits plainly.
+
+If prices go up later, that copy can and should become more ambitious again. If you edit
+the copy before then, keep it inside what ₹99 can actually deliver — a page that
+over-promises costs more in refunds and reviews than it wins in orders.
+
+## Pricing
+
+Launch rates, with the list price struck through:
+
+| Product | List | Launch |
+|---|---|---|
+| Resume health check | ₹99 | ₹49 |
+| Resume | ₹299 | ₹99 |
+| Curriculum vitae | ₹499 | ₹199 |
+| LinkedIn rewrite | ₹449 | ₹149 |
+| Portfolio site | ₹2,499 | ₹699 |
+
+| Bundle | Separately | Bundle |
+|---|---|---|
+| Job Ready (Resume + LinkedIn) | ₹248 | ₹199 |
+| Full Record (Resume + CV) | ₹298 | ₹249 |
+| Complete (all four) | ₹1,146 | ₹999 |
+
+The struck-through figures are presented as a real launch offer capped at the first 25
+clients, not a permanent fake discount. India's CCPA dark-pattern guidance treats a
+"was" price that was never charged as misleading — so when the 25 are done, raise the
+prices and say so on the page.
+
+Prices live in `PRODUCTS` near the bottom of the page source. Bundles list their
+components rather than a hard-coded total — the "separately" figure and the saving are
+computed from `PRODUCTS`, and the build fails if a bundle is ever priced above the sum of
+its parts. Change a product price and the bundles follow.
+
+Prices are also quoted on the home page cards, the finance page fact card and the footer
+tagline; those are plain text and need editing by hand.
 
 ## Design
 
