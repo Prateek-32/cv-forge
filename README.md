@@ -9,7 +9,7 @@ fields.html    All fields, with a working filter
 finance.html   Field detail page, with tabs
 start.html     Intake form
 styles.css     All styling — design tokens are at the top
-site.js        Field filter + deliverable tabs
+site.js        Field filter, tabs, motion, form submission
 .nojekyll      Serves files as-is on GitHub Pages
 ```
 
@@ -48,18 +48,50 @@ Search the files for `[` and replace each bracketed placeholder:
   rather than inventing figures
 - `[PRIVACY POLICY]` / `[TERMS]` in the footer
 
-## Making the form send
+## The intake form (your own, via Google Apps Script)
 
-GitHub Pages is static hosting and cannot receive a form submission. Create a free
-endpoint at [Formspree](https://formspree.io) (or Getform, Web3Forms, Basin) and paste it
-into the `action` attribute of the form in `start.html`:
+The form lives on your site, in your design. When someone submits it, the browser posts
+the answers to a small script you own, which writes one row into a Google Sheet in your
+own Drive. No Google Form, no Formspree, no submission cap, nothing branded.
 
-```html
-<form class="brief" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
-```
+**Setup, about five minutes:**
 
-Until then the Send button does nothing. The `mailto:` and `tel:` links work as soon as
-you fill in your details.
+1. Create a blank Google Sheet (name it anything).
+2. **Extensions → Apps Script.** Delete the sample code and paste in `apps-script/Code.gs`
+   from this folder.
+3. Optional: set `NOTIFY_EMAIL` at the top to your address, to get an email per brief.
+4. **Deploy → New deployment → gear → Web app.**
+   - Execute as: **Me**
+   - Who has access: **Anyone** — this must be "Anyone", not "Anyone with a Google account",
+     or visitors will hit a login wall.
+5. Authorise. Google warns that the app is unverified because you wrote it yourself:
+   **Advanced → Go to (project name) → Allow.**
+6. Copy the **Web app URL** (it ends in `/exec`) and paste it into `start.html`, replacing
+   `[YOUR APPS SCRIPT URL]`.
+
+**Check it worked:** open the `/exec` URL in a browser. You should see
+`{"ok":true,"message":"CV Forge endpoint is live"}`. Then send yourself a test brief and
+confirm a row appears in the Sheet.
+
+**If you edit `Code.gs` later**, you must redeploy: Deploy → Manage deployments → pencil →
+Version: **New version** → Deploy. Otherwise the site keeps hitting the old code.
+
+**What the form handles already:**
+
+- Required name and email, validated before anything is sent
+- File upload up to 8 MB, saved into a "CV Forge uploads" folder in your Drive, with the
+  link recorded in the row
+- A hidden honeypot field that silently drops bot submissions
+- An inline thank-you on success, without a page reload
+- On any failure: the form stays filled in and shows an email address to fall back to,
+  so an enquiry is never silently lost
+
+## Placeholders in the JavaScript
+
+Two placeholders live in `site.js`, not the HTML — easy to miss:
+
+- `[YOUR EMAIL]` in the error message shown if a submission fails
+- `[RESPONSE TIME]` in the on-screen thank-you
 
 ## Accessibility
 

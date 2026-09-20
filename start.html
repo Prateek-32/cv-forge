@@ -27,16 +27,14 @@
 <section class="wrap" style="padding-bottom:26px;">
   <span class="eyebrow">Commission</span>
   <h1 style="margin-top:12px;">Start a build</h1>
-  <p class="lede" style="margin-top:16px;">Roughly ten minutes. Nothing is charged until you
+  <p class="lede" style="margin-top:16px;">About ten minutes. Nothing is charged until you
   approve the quotation, and the first draft follows in [TURNAROUND].</p>
 </section>
 
 <section class="wrap" style="padding-top:0;">
 <div class="form-grid">
 
-  <!-- Static hosting cannot process a form. Create a free endpoint at formspree.io
-       (or getform.io / web3forms.com) and paste it into the action below. -->
-  <form class="brief" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST">
+  <form class="brief" id="brief-form" data-endpoint="https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec" novalidate>
 
     <div class="pair">
       <div class="field"><label for="name">Full name</label>
@@ -63,15 +61,16 @@
     <fieldset>
       <legend>What do you require?</legend>
       <label class="check" for="n1"><input id="n1" name="needs" value="Resume" type="checkbox"> Resume — the one-page document</label>
-      <label class="check" for="n2"><input id="n2" name="needs" value="CV" type="checkbox"> Curriculum vitae — the long-form record</label>
+      <label class="check" for="n2"><input id="n2" name="needs" value="Curriculum vitae" type="checkbox"> Curriculum vitae — the long-form record</label>
       <label class="check" for="n3"><input id="n3" name="needs" value="Portfolio" type="checkbox"> Portfolio — a hosted site for your work</label>
-      <label class="check" for="n4"><input id="n4" name="needs" value="Profile" type="checkbox"> Professional profile rewritten to match</label>
+      <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> Professional profile rewritten to match</label>
     </fieldset>
 
     <div class="field"><label for="upload">Current resume or CV (optional)</label>
-      <input id="upload" name="upload" type="file">
-      <span class="hint">PDF, DOCX or a photograph of a printout. Any state is fine — rough
-      notes are enough to begin.</span></div>
+      <input id="upload" name="upload" type="file"
+             accept=".pdf,.doc,.docx,.txt,.rtf,.odt,.png,.jpg,.jpeg">
+      <span class="hint">PDF, Word, or a photograph of a printout. Up to 8 MB. Any state is
+      fine — rough notes are enough to begin.</span></div>
 
     <div class="field"><label for="target">Appointments you are pursuing</label>
       <textarea id="target" name="target" rows="4"
@@ -81,10 +80,18 @@
       <textarea id="notes" name="notes" rows="4"
         placeholder="Career gaps, a change of field, confidentiality limits, a deadline — tell us early and we work around it."></textarea></div>
 
+    <!-- Spam trap: hidden from people, irresistible to bots. Leave it alone. -->
+    <div class="hp" aria-hidden="true">
+      <label for="website">Website</label>
+      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
     <div class="submit-row">
-      <button type="submit" class="btn">Send my brief</button>
+      <button type="submit" class="btn" id="brief-submit">Send my brief</button>
       <span class="hint">A quotation follows within [RESPONSE TIME].<br>Nothing is charged until you approve it.</span>
     </div>
+
+    <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
   </form>
 
   <aside style="display:flex;flex-direction:column;gap:20px;">

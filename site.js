@@ -222,3 +222,109 @@
     h1.classList.add('words-in');
   }
 })();
+
+/* ---------------------------------------------------------------
+   Brief form → your own Apps Script endpoint.
+
+   Posted as FormData with no custom headers, which keeps it a
+   "simple" CORS request and avoids the preflight that Apps Script
+   cannot answer. Any failure falls back to an email address rather
+   than swallowing the enquiry.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var form = document.getElementById('brief-form');
+  if (!form) return;
+
+  var statusEl = document.getElementById('brief-status');
+  var button = document.getElementById('brief-submit');
+  var fileInput = document.getElementById('upload');
+  var MAX_BYTES = 8 * 1024 * 1024;
+
+  function say(msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
+  }
+
+  function readFileAsBase64(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onerror = function () { reject(new Error('Could not read that file')); };
+      reader.onload = function () {
+        // strip the "data:<type>;base64," prefix
+        var result = String(reader.result);
+        resolve(result.slice(result.indexOf(',') + 1));
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var endpoint = form.getAttribute('data-endpoint') || '';
+    if (!endpoint || endpoint.charAt(0) === '[') {
+      say('This form is not connected yet. Please email us instead.', 'error');
+      return;
+    }
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var file = fileInput && fileInput.files && fileInput.files[0];
+    if (file && file.size > MAX_BYTES) {
+      say('That file is larger than 8 MB. Send the brief without it and email the document separately.', 'error');
+      return;
+    }
+
+    button.disabled = true;
+    say('Sending your brief…');
+
+    var data = new FormData();
+    data.append('name', form.name.value.trim());
+    data.append('email', form.email.value.trim());
+    data.append('field', form.field.value);
+    data.append('stage', form.stage.value);
+    data.append('target', form.target.value.trim());
+    data.append('notes', form.notes.value.trim());
+    data.append('website', form.website.value);   // honeypot
+
+    var needs = [];
+    form.querySelectorAll('input[name="needs"]:checked')
+        .forEach(function (c) { needs.push(c.value); });
+    data.append('needs', needs.join(', '));
+
+    var prepared = file
+      ? readFileAsBase64(file).then(function (b64) {
+          data.append('fileData', b64);
+          data.append('fileName', file.name);
+          data.append('fileType', file.type || 'application/octet-stream');
+        })
+      : Promise.resolve();
+
+    prepared
+      .then(function () {
+        return fetch(endpoint, { method: 'POST', body: data });
+      })
+      .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
+      .then(function (out) {
+        if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
+        form.innerHTML =
+          '<div class="card card-raised" style="gap:14px;">' +
+          '<span class="eyebrow">Received</span>' +
+          '<h2 style="font-size:clamp(24px,2.6vw,32px);">Thank you — your brief is with us.</h2>' +
+          '<p>We read every brief ourselves. Expect a fixed quotation and timeline within ' +
+          '[RESPONSE TIME], to the address you gave us.</p>' +
+          '<p class="hint">Nothing is charged until you approve it.</p></div>';
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function (err) {
+        button.disabled = false;
+        say('Something went wrong sending that — please email your brief to [YOUR EMAIL] and we will pick it up from there. (' + err.message + ')', 'error');
+      });
+  });
+})();

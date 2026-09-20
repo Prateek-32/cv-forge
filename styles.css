@@ -766,3 +766,14 @@ h1 .spark, .wordmark span { text-shadow: 0 0 22px rgba(94,234,212,.6); }
    drops the full-screen aurora wash, which is pure fill rate. */
 .low-power .aurora { display: none; }
 .low-power .tilt::after { display: none; }
+
+/* ---------- form status + spam trap ---------- */
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-status { font-size: 15px; line-height: 1.5; min-height: 1.2em; color: var(--ink-2); }
+.form-status.is-error {
+  color: #FFC9B8;
+  border-left: 2px solid #F2795B;
+  padding-left: 12px;
+}
