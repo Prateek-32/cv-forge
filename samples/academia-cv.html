@@ -3,167 +3,304 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prof. Sofía Reyes — Academia &amp; Research CV Sample — CV Forge</title>
+<title>Prof. Sofía Reyes — Academia CV Sample — CV Forge</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #060916; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #17191C; padding: 40px 20px 80px; min-height: 100vh; }
+
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
   .page-shell { max-width: 780px; margin: 0 auto; }
-  .back-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; gap: 16px; flex-wrap: wrap; }
-  .back-bar a { color: #5EEAD4; text-decoration: none; font-size: 14px; font-family: monospace; }
-  .print-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%); color: #04221E; border: none; border-radius: 3px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
-  .notice { background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3); border-radius: 4px; padding: 12px 16px; color: #9CCCC2; font-size: 13px; margin-bottom: 28px; font-family: monospace; }
-  .cv { background: #fff; border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,.5); padding: 52px 56px; font-size: 11pt; line-height: 1.6; color: #17191C; }
+
+  .back-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; gap: 16px; flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4; text-decoration: none; font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px; padding: 12px 16px; color: #9CCCC2;
+    font-size: 13px; margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: .04em;
+  }
+
+  .cv {
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C;
+  }
+
   .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
-  .cv-name { font-size: 22pt; font-weight: 700; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
-  .cv-contact { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 9.5pt; color: #3E444C; margin-top: 8px; }
-  .cv-section { margin-bottom: 20px; }
-  .cv-section-title { font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px; }
-  .metrics-strip { display: flex; flex-wrap: wrap; gap: 8px 0; border: 1px solid #DDD7CA; border-radius: 3px; overflow: hidden; margin-bottom: 14px; }
-  .metric-item { flex: 1; min-width: 110px; padding: 8px 14px; border-right: 1px solid #DDD7CA; font-size: 9pt; }
-  .metric-item:last-child { border-right: none; }
-  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
-  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #17191C;
+    border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px;
+  }
+
   .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
-  .cv-role { margin-bottom: 14px; }
-  .cv-role-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .cv-role-title { font-weight: 700; font-size: 10.5pt; }
-  .cv-role-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
-  .cv-role-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
-  .cv-role ul { padding-left: 16px; }
-  .cv-role li { font-size: 10pt; margin-bottom: 3px; line-height: 1.5; }
-  .pub-list { list-style: none; padding: 0; }
-  .pub-list li { font-size: 10pt; color: #3E444C; margin-bottom: 7px; padding-left: 16px; text-indent: -16px; line-height: 1.55; }
-  .pub-list li strong { color: #17191C; }
+
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px; overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px; padding: 8px 14px;
+    border-right: 1px solid #DDD7CA; font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Publication entry */
+  .pub-entry { margin-bottom: 9px; padding-left: 16px; position: relative; }
+  .pub-entry::before { content: '·'; position: absolute; left: 4px; }
+  .pub-entry .pub-title { font-style: italic; font-size: 10pt; }
+  .pub-entry .pub-meta { font-size: 9.5pt; color: #3E444C; }
+
   .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
   .cv-skills li { list-style: none; color: #3E444C; }
   .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
   .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
   .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
   .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
-  .cv-edu-school { font-size: 10pt; color: #3E444C; margin-bottom: 10px; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
   @media print {
     body { background: #fff !important; padding: 0 !important; }
-    .back-bar, .notice { display: none !important; }
-    .cv { box-shadow: none !important; border-radius: 0 !important; padding: 18mm 18mm !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important; border-radius: 0 !important;
+      padding: 18mm 18mm !important; font-size: 10.5pt !important;
+    }
     .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
   }
 </style>
 </head>
 <body>
+
 <div class="page-shell">
+
   <div class="back-bar">
-    <a href="../academia.html">← Back to Academia &amp; Research</a>
+    <a href="../academia.html">← Back to Academia</a>
     <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
   </div>
+
   <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
   <div class="cv">
+
     <div class="cv-header">
       <div class="cv-name">Prof. Sofía Reyes</div>
-      <div class="cv-title">Associate Professor — Computational Biology &amp; Genomics</div>
+      <div class="cv-title">Associate Professor, Computational Biology</div>
       <div class="cv-contact">
         <span>s.reyes@upm.es</span>
-        <span>+34 91 234 5678</span>
+        <span>+34 91 900 1234</span>
         <span>Madrid, Spain</span>
         <span>orcid.org/0000-0002-1234-5678</span>
-        <span>scholar.google.com/citations?user=sreyes</span>
       </div>
     </div>
 
     <div class="cv-section">
       <div class="cv-section-title">Research Metrics</div>
-      <div class="metrics-strip">
-        <div class="metric-item"><span class="m-val">47</span><span class="m-lbl">Peer-reviewed publications</span></div>
-        <div class="metric-item"><span class="m-val">h-index 19</span><span class="m-lbl">Google Scholar</span></div>
-        <div class="metric-item"><span class="m-val">€2.1M</span><span class="m-lbl">Grant funding secured</span></div>
-        <div class="metric-item"><span class="m-val">6</span><span class="m-lbl">PhD students supervised</span></div>
-        <div class="metric-item"><span class="m-val">2</span><span class="m-lbl">Patents filed</span></div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">47</span>
+          <span class="d-lbl">Peer-reviewed publications</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">19</span>
+          <span class="d-lbl">h-index (Google Scholar)</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">€2.1M</span>
+          <span class="d-lbl">Total grant funding</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">6</span>
+          <span class="d-lbl">PhD students supervised</span>
+        </div>
       </div>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Research Summary</div>
-      <p class="cv-summary">Computational biologist specialising in single-cell genomics, multi-omics data integration, and machine learning for disease biomarker discovery. Principal investigator of the RegenoLab at Universidad Politécnica de Madrid. ERC Starting Grant recipient 2021. 47 publications in Nature Methods, Cell Systems, Genome Biology, and Bioinformatics; h-index 19.</p>
+      <div class="cv-section-title">Research Profile</div>
+      <p class="cv-summary">Computational biologist specialising in single-cell genomics, gene-regulatory network inference, and integrative multi-omics. ERC Starting Grant holder. Collaborative research spanning genomics centres in the US, UK, and Europe. Committed to open-source tools and reproducible computational research.</p>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Academic Appointments</div>
-      <div class="cv-role">
-        <div class="cv-role-header">
-          <span class="cv-role-title">Associate Professor (Tenured)</span>
-          <span class="cv-role-dates">Sep 2022 – Present</span>
+      <div class="cv-section-title">Selected Funding</div>
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">ERC Starting Grant — Single-cell Regulatory Networks (SCRN)</span>
+          <span class="cv-job-dates">2021 – 2026</span>
         </div>
-        <div class="cv-role-org">Department of Biotechnology, Universidad Politécnica de Madrid</div>
+        <div class="cv-job-org">European Research Council</div>
         <ul>
-          <li>PI of RegenoLab — 6 PhD students, 2 postdocs, 1 research engineer; annual lab budget €380K.</li>
-          <li>Teaches Computational Genomics (MSc, 60 students/year) and Machine Learning for Life Sciences (BSc, 90 students/year); average teaching evaluation 4.7/5.0.</li>
-          <li>Director, MSc Bioinformatics Programme (2023–present); redesigned curriculum, enrolment up 35% in first year.</li>
+          <li>€1.5M — Principal Investigator. Developing probabilistic models for inferring gene-regulatory networks from scRNA-seq data at scale.</li>
         </ul>
       </div>
-      <div class="cv-role">
-        <div class="cv-role-header">
-          <span class="cv-role-title">Assistant Professor</span>
-          <span class="cv-role-dates">Sep 2018 – Aug 2022</span>
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Ramón y Cajal Fellowship</span>
+          <span class="cv-job-dates">2019 – 2024</span>
         </div>
-        <div class="cv-role-org">Department of Biotechnology, Universidad Politécnica de Madrid</div>
+        <div class="cv-job-org">Spanish Ministry of Science and Innovation</div>
         <ul>
-          <li>Established independent research programme; secured €1.4M in competitive funding within first 2 years.</li>
-          <li>Supervised 3 PhD students to completion; 2 published first-author papers in top-quartile journals.</li>
+          <li>€390K — Competitive tenure-track fellowship for outstanding early-career researchers returning to Spain.</li>
         </ul>
       </div>
-      <div class="cv-role">
-        <div class="cv-role-header">
-          <span class="cv-role-title">Postdoctoral Researcher</span>
-          <span class="cv-role-dates">Sep 2015 – Aug 2018</span>
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Plan Nacional Project — Multi-omics in Cancer</span>
+          <span class="cv-job-dates">2020 – 2023</span>
         </div>
-        <div class="cv-role-org">Broad Institute of MIT and Harvard, Cambridge MA</div>
+        <div class="cv-job-org">AEI / MINECO (PI: Reyes)</div>
         <ul>
-          <li>Developed single-cell RNA-seq analysis pipeline (scReges) — 2,400+ citations, widely adopted in field.</li>
-          <li>Co-first-author paper in Nature Methods (2017); featured in Nature Highlight.</li>
+          <li>€210K — Integrative analysis of transcriptomic and epigenomic alterations in colorectal cancer progression.</li>
         </ul>
       </div>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Selected Publications (47 total — full list available)</div>
-      <ul class="pub-list">
-        <li><strong>Reyes S</strong>, García M, Chen L et al. "Multi-omics integration reveals early Alzheimer's biomarkers in single-cell resolution." <em>Cell Systems</em>, 2025. IF 8.4.</li>
-        <li><strong>Reyes S</strong>, Kumar A et al. "scReges 2.0: scalable single-cell trajectory inference for 10M+ cells." <em>Genome Biology</em>, 2024. IF 10.7.</li>
-        <li>Martínez R, <strong>Reyes S</strong> et al. "Spatial transcriptomics reveals tumour microenvironment heterogeneity in PDAC." <em>Nature Cancer</em>, 2023. IF 22.7.</li>
-        <li><strong>Reyes S</strong>, Patel N et al. "scReges: a scalable framework for single-cell RNA trajectory analysis." <em>Nature Methods</em>, 2017. IF 28.1. — 2,400+ citations.</li>
-      </ul>
+      <div class="cv-section-title">Academic Positions</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Associate Professor, Computational Biology</span>
+          <span class="cv-job-dates">Sep 2022 – Present</span>
+        </div>
+        <div class="cv-job-org">Universidad Politécnica de Madrid (UPM), School of Computer Science</div>
+        <ul>
+          <li>Lead the Computational Genomics Laboratory (12 members: 6 PhD students, 3 postdocs, 3 research engineers).</li>
+          <li>Teach MSc Bioinformatics (60 students/year) and coordinate the Genomics Data Science module.</li>
+          <li>Member of UPM Research Commission; co-organised RECOMB Satellite Workshop on Regulatory Genomics 2024.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Assistant Professor, Computational Biology</span>
+          <span class="cv-job-dates">Sep 2018 – Aug 2022</span>
+        </div>
+        <div class="cv-job-org">Universidad Politécnica de Madrid (UPM)</div>
+        <ul>
+          <li>Established research group; secured ERC Starting Grant and Ramón y Cajal Fellowship in first three years.</li>
+          <li>Supervised 3 PhD completions; all graduates placed in postdoctoral or industry research positions.</li>
+          <li>Published 18 articles in this period, including first-author work in Nature Methods and Genome Biology.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Postdoctoral Research Fellow</span>
+          <span class="cv-job-dates">Oct 2015 – Aug 2018</span>
+        </div>
+        <div class="cv-job-org">Broad Institute of MIT and Harvard, Cambridge MA (Regev Lab)</div>
+        <ul>
+          <li>Developed scVI-Reg, a variational autoencoder for joint dimensionality reduction and regulatory network inference (3,200+ GitHub stars).</li>
+          <li>Co-first author on landmark Cell Systems paper on single-cell atlas of human embryonic development.</li>
+          <li>Collaborated with the Human Cell Atlas consortium; contributed to data processing pipelines for 1.2M cells.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Grants &amp; Awards</div>
+      <div class="cv-section-title">Selected Publications</div>
+      <div class="pub-entry">
+        <div class="pub-title">Probabilistic inference of gene-regulatory networks from single-cell multi-omics data</div>
+        <div class="pub-meta">Reyes S, Martínez A, et al. <em>Cell Systems</em> 15(4):312–328, 2024. DOI: 10.1016/j.cels.2024.01.004</div>
+      </div>
+      <div class="pub-entry">
+        <div class="pub-title">Integrative chromatin accessibility and gene expression profiling reveals lineage-specific regulators in haematopoiesis</div>
+        <div class="pub-meta">Reyes S*, García P*, et al. <em>Genome Biology</em> 24:89, 2023. DOI: 10.1186/s13059-023-02897-x (*equal contribution)</div>
+      </div>
+      <div class="pub-entry">
+        <div class="pub-title">scVI-Reg: Scalable variational inference for regulatory network reconstruction from single-cell RNA-seq</div>
+        <div class="pub-meta">Reyes S, Lopez-Bigas N, et al. <em>Nature Methods</em> 18:1124–1133, 2021. DOI: 10.1038/s41592-021-01168-8</div>
+      </div>
+      <div class="pub-entry">
+        <div class="pub-title">A single-cell transcriptomic atlas of human embryonic development</div>
+        <div class="pub-meta">Bloom J*, Reyes S*, et al. <em>Cell Systems</em> 9(3):214–228, 2019. DOI: 10.1016/j.cels.2019.06.005 (*co-first author)</div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Teaching &amp; Supervision</div>
       <ul class="cv-skills">
-        <li>ERC Starting Grant — €1.5M, 2021–2026 (PI)</li>
-        <li>Spanish National Research Agency (AEI) — €380K, 2022–2025 (PI)</li>
-        <li>Marie Skłodowska-Curie Fellowship — €180K, 2015–2018</li>
-        <li>ISCB Overton Prize — Emerging Researcher in Computational Biology, 2024</li>
-        <li>2 patents filed: single-cell deconvolution method (EP2024/034521) and AI-driven biomarker panel (PCT/ES2023/070612)</li>
+        <li>MSc Bioinformatics (module coordinator)</li>
+        <li>Genomics Data Science (60 students/year)</li>
+        <li>6 PhD students supervised (3 completed, 3 ongoing)</li>
+        <li>3 postdoctoral researchers mentored</li>
+        <li>Undergraduate Computational Biology projects (8 supervised)</li>
       </ul>
     </div>
 
     <div class="cv-section">
       <div class="cv-section-title">Education</div>
       <div class="cv-edu">
-        <span class="cv-edu-deg">PhD Computational Biology</span>
-        <span class="cv-edu-date">2011 – 2015</span>
+        <span class="cv-edu-deg">PhD, Computational Biology</span>
+        <span class="cv-edu-date">Sep 2011 – Sep 2015</span>
       </div>
-      <div class="cv-edu-school">ETH Zürich — Summa Cum Laude; advisor: Prof. Niko Beerenwinkel</div>
-      <div class="cv-edu">
-        <span class="cv-edu-deg">MSc Bioinformatics</span>
-        <span class="cv-edu-date">2009 – 2011</span>
+      <div class="cv-edu-school">ETH Zürich — Excellent (summa cum laude equivalent) · Advisor: Prof. Gunnar Rätsch</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">MSc Bioinformatics</span>
+          <span class="cv-edu-date">Sep 2009 – Jul 2011</span>
+        </div>
+        <div class="cv-edu-school">Universidad Autónoma de Madrid (UAM) — Distinction</div>
       </div>
-      <div class="cv-edu-school">Universidad Autónoma de Madrid — Premio Extraordinario (top graduate)</div>
-      <div class="cv-edu">
-        <span class="cv-edu-deg">BSc Biology (Biochemistry track)</span>
-        <span class="cv-edu-date">2005 – 2009</span>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">BSc Biology</span>
+          <span class="cv-edu-date">Sep 2005 – Jun 2009</span>
+        </div>
+        <div class="cv-edu-school">Universidad Complutense de Madrid (UCM) — First Class Honours</div>
       </div>
-      <div class="cv-edu-school">Universidad Complutense de Madrid — First Class, 9.2/10</div>
     </div>
+
   </div>
+
 </div>
 </body>
 </html>

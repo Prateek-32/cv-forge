@@ -6,79 +6,159 @@
 <title>Ryan O'Brien — Sales &amp; Marketing CV Sample — CV Forge</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #060916; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #17191C; padding: 40px 20px 80px; min-height: 100vh; }
+
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
   .page-shell { max-width: 780px; margin: 0 auto; }
-  .back-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; gap: 16px; flex-wrap: wrap; }
-  .back-bar a { color: #5EEAD4; text-decoration: none; font-size: 14px; font-family: monospace; letter-spacing: .06em; }
-  .print-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%); color: #04221E; border: none; border-radius: 3px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
-  .notice { background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3); border-radius: 4px; padding: 12px 16px; color: #9CCCC2; font-size: 13px; margin-bottom: 28px; font-family: monospace; letter-spacing: .04em; }
-  .cv { background: #fff; border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,.5); padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C; }
+
+  .back-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; gap: 16px; flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4; text-decoration: none; font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px; padding: 12px 16px; color: #9CCCC2;
+    font-size: 13px; margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: .04em;
+  }
+
+  .cv {
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C;
+  }
+
   .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
-  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
-  .cv-contact { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 9.5pt; color: #3E444C; margin-top: 8px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+
   .cv-section { margin-bottom: 18px; }
-  .cv-section-title { font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px; }
+  .cv-section-title {
+    font-size: 9pt; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #17191C;
+    border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px;
+  }
+
   .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
-  .quota-strip { display: flex; flex-wrap: wrap; gap: 8px 0; border: 1px solid #DDD7CA; border-radius: 3px; overflow: hidden; margin-bottom: 14px; }
-  .quota-item { flex: 1; min-width: 120px; padding: 8px 14px; border-right: 1px solid #DDD7CA; font-size: 9pt; }
-  .quota-item:last-child { border-right: none; }
-  .quota-item .q-val { font-weight: 700; font-size: 11pt; display: block; }
-  .quota-item .q-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Quota / metrics strip */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px; overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px; padding: 8px 14px;
+    border-right: 1px solid #DDD7CA; font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
   .cv-job { margin-bottom: 14px; }
-  .cv-job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
   .cv-job-title { font-weight: 700; font-size: 10.5pt; }
   .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
   .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
   .cv-job ul { padding-left: 16px; }
-  .cv-job li { font-size: 10pt; margin-bottom: 3px; line-height: 1.5; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
   .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
   .cv-skills li { list-style: none; color: #3E444C; }
   .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
   .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
   .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
   .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
   .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
   @media print {
     body { background: #fff !important; padding: 0 !important; }
-    .back-bar, .notice { display: none !important; }
-    .cv { box-shadow: none !important; border-radius: 0 !important; padding: 18mm 18mm !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important; border-radius: 0 !important;
+      padding: 18mm 18mm !important; font-size: 10.5pt !important;
+    }
     .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
   }
 </style>
 </head>
 <body>
+
 <div class="page-shell">
+
   <div class="back-bar">
     <a href="../sales.html">← Back to Sales &amp; Marketing</a>
     <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
   </div>
+
   <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
   <div class="cv">
+
     <div class="cv-header">
       <div class="cv-name">Ryan O'Brien</div>
-      <div class="cv-title">Vice President of Sales — EMEA</div>
+      <div class="cv-title">VP Sales EMEA</div>
       <div class="cv-contact">
         <span>ryan.obrien@email.com</span>
-        <span>+353 87 123 4567</span>
-        <span>Dublin, Ireland (EMEA travel ~40%)</span>
+        <span>+353 86 900 1234</span>
+        <span>Dublin, Ireland</span>
         <span>linkedin.com/in/ryanobrien</span>
       </div>
     </div>
 
     <div class="cv-section">
-      <div class="cv-section-title">Quota Performance — 5-Year Track Record</div>
-      <div class="quota-strip">
-        <div class="quota-item"><span class="q-val">€48M</span><span class="q-lbl">ARR closed, FY2025</span></div>
-        <div class="quota-item"><span class="q-val">134%</span><span class="q-lbl">Quota attainment, FY2025</span></div>
-        <div class="quota-item"><span class="q-val">€142M</span><span class="q-lbl">Total ARR, FY2021–FY2025</span></div>
-        <div class="quota-item"><span class="q-val">118%</span><span class="q-lbl">Average attainment, 5 years</span></div>
+      <div class="cv-section-title">Quota Performance</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">€48M</span>
+          <span class="d-lbl">ARR managed, FY2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">134%</span>
+          <span class="d-lbl">Quota attainment, FY2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">€12M</span>
+          <span class="d-lbl">Net new ARR, FY2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">18</span>
+          <span class="d-lbl">AEs managed across EMEA</span>
+        </div>
       </div>
     </div>
 
     <div class="cv-section">
       <div class="cv-section-title">Professional Summary</div>
-      <p class="cv-summary">VP Sales EMEA with 10 years in B2B SaaS, scaling regional revenue from €8M to €48M ARR. Built and led teams of up to 32 across 8 EMEA markets. Consistent quota overachievement — 118% average attainment across 5 years. Specialises in enterprise mid-market sales, channel partner strategy, and building high-retention sales cultures.</p>
+      <p class="cv-summary">Sales leader with 10+ years in B2B SaaS, specialising in building and scaling EMEA revenue organisations. Track record of consistent over-quota delivery, enterprise pipeline development, and team growth. Deep experience in HR-tech and sales productivity platforms, with a consultative approach to complex multi-stakeholder deals.</p>
     </div>
 
     <div class="cv-section">
@@ -86,52 +166,56 @@
 
       <div class="cv-job">
         <div class="cv-job-header">
-          <span class="cv-job-title">Vice President of Sales — EMEA</span>
+          <span class="cv-job-title">VP Sales, EMEA</span>
           <span class="cv-job-dates">Jan 2022 – Present</span>
         </div>
-        <div class="cv-job-org">Workpath Technologies (B2B SaaS, Series C), Dublin</div>
+        <div class="cv-job-org">Workpath Technologies, Dublin (Series C SaaS, HR-tech)</div>
         <ul>
-          <li>Scaled EMEA ARR from €18M to €48M in 3 years by expanding into 4 new markets (DACH, Benelux, Nordics, Spain).</li>
-          <li>Built team from 12 to 32 AEs, SDRs, and SEs; team attainment average 118% across FY2023–FY2025.</li>
-          <li>Closed 6 enterprise deals above €1M ACV including a €3.4M TCV deal with a FTSE 100 logistics group.</li>
-          <li>Launched partner channel programme generating 28% of new ARR within 18 months of launch.</li>
-          <li>Reduced average sales cycle from 94 to 61 days through revised qualification criteria and deal review cadence.</li>
+          <li>Built and scaled EMEA sales function from 4 to 18 AEs across UK, DACH, Benelux, and Nordics; own €48M ARR book.</li>
+          <li>Delivered 134% quota attainment in FY2024, up from 108% at hire; net new ARR grew 3.2× over tenure.</li>
+          <li>Closed 6 enterprise logos (>€500K ACV) including a FTSE 100 financial services firm and a DAX-listed manufacturer.</li>
+          <li>Implemented MEDDIC qualification framework across the team — reduced average sales cycle by 23% within 12 months.</li>
+          <li>Introduced Clari revenue intelligence; improved forecast accuracy to ±4% over 8 consecutive quarters.</li>
+          <li>Recruited and onboarded Head of Sales UK&amp;I and Regional Managers for DACH and Nordics; both exceeded ramp targets.</li>
         </ul>
       </div>
 
       <div class="cv-job">
         <div class="cv-job-header">
-          <span class="cv-job-title">Head of Sales — UK &amp; Ireland</span>
+          <span class="cv-job-title">Head of Sales, UK &amp; Ireland</span>
           <span class="cv-job-dates">Mar 2019 – Dec 2021</span>
         </div>
-        <div class="cv-job-org">Personio GmbH, Dublin / London</div>
+        <div class="cv-job-org">Personio, London/Dublin</div>
         <ul>
-          <li>Grew UK&amp;I revenue from €3.2M to €14M ARR; hired and managed team of 14 AEs and 4 SDRs.</li>
-          <li>Attainment: 141% FY2019, 128% FY2020, 122% FY2021.</li>
-          <li>Negotiated Personio's largest UK deal at time of signing — €1.1M TCV with a 2,800-person professional services firm.</li>
+          <li>Grew UK&amp;I ARR from £1.8M to £9.4M in 33 months, exceeding board plan by 22% in each full year.</li>
+          <li>Hired and managed a team of 8 AEs and 2 SDRs; team average attainment 117% in FY2021.</li>
+          <li>Closed Personio's first UK enterprise deal (>£400K ACV) — a 3,500-seat HR deployment for a professional services firm.</li>
+          <li>Partnered with marketing to launch UK-specific demand-gen programme; pipeline generated rose 58% YoY.</li>
         </ul>
       </div>
 
       <div class="cv-job">
         <div class="cv-job-header">
-          <span class="cv-job-title">Senior Account Executive</span>
-          <span class="cv-job-dates">Jun 2016 – Feb 2019</span>
+          <span class="cv-job-title">Account Executive, Mid-Market EMEA</span>
+          <span class="cv-job-dates">Jul 2016 – Feb 2019</span>
         </div>
-        <div class="cv-job-org">Salesforce, Dublin</div>
+        <div class="cv-job-org">Salesforce, London</div>
         <ul>
-          <li>Closed €6.2M TCV across 3 years; Presidents Club qualifier FY2018.</li>
-          <li>Managed 40-account enterprise book spanning financial services and professional services verticals.</li>
+          <li>Carried a £1.2M annual quota across CRM and Service Cloud; achieved 122%, 118%, and 109% in three consecutive years.</li>
+          <li>Named to President's Club FY2018; ranked 4th of 46 AEs in EMEA mid-market segment.</li>
+          <li>Managed a 120-account patch across financial services and professional services verticals.</li>
         </ul>
       </div>
 
       <div class="cv-job">
         <div class="cv-job-header">
-          <span class="cv-job-title">Account Executive</span>
-          <span class="cv-job-dates">Aug 2014 – May 2016</span>
+          <span class="cv-job-title">Account Executive, SMB</span>
+          <span class="cv-job-dates">Jun 2014 – Jun 2016</span>
         </div>
         <div class="cv-job-org">HubSpot, Dublin</div>
         <ul>
-          <li>Ramped to full quota within 4 months; finished top 10% of EMEA AE cohort in FY2015.</li>
+          <li>Consistently top-10 SMB AE globally; closed 140+ new logos across CRM and Marketing Hub.</li>
+          <li>Achieved 141% of quota in first full year; promoted to mid-market role after 18 months.</li>
         </ul>
       </div>
     </div>
@@ -139,28 +223,29 @@
     <div class="cv-section">
       <div class="cv-section-title">Skills &amp; Tools</div>
       <ul class="cv-skills">
-        <li>Enterprise B2B SaaS sales</li>
         <li>MEDDIC / MEDDPICC</li>
-        <li>Channel partner strategy</li>
-        <li>Pipeline forecasting</li>
-        <li>Territory planning</li>
         <li>Salesforce CRM</li>
-        <li>Gong</li>
-        <li>Clari</li>
-        <li>Outreach</li>
-        <li>ZoomInfo</li>
+        <li>Gong (call intelligence)</li>
+        <li>Clari (revenue intelligence)</li>
+        <li>Outreach.io</li>
+        <li>HubSpot</li>
+        <li>Territory &amp; quota planning</li>
+        <li>Enterprise pipeline development</li>
+        <li>Sales hiring &amp; onboarding</li>
       </ul>
     </div>
 
     <div class="cv-section">
       <div class="cv-section-title">Education</div>
       <div class="cv-edu">
-        <span class="cv-edu-deg">BA Business &amp; Marketing</span>
-        <span class="cv-edu-date">2010 – 2014</span>
+        <span class="cv-edu-deg">BA Business (Hons)</span>
+        <span class="cv-edu-date">Sep 2010 – May 2014</span>
       </div>
-      <div class="cv-edu-school">University College Dublin — Upper Second Class Honours (2.1)</div>
+      <div class="cv-edu-school">University College Dublin — 2:1</div>
     </div>
+
   </div>
+
 </div>
 </body>
 </html>
