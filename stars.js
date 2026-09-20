@@ -13,6 +13,13 @@
   var reduced = window.matchMedia &&
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Modest machines get a lighter sky, and lose the aurora wash entirely.
+  var lowPower = (navigator.hardwareConcurrency || 8) <= 2 ||
+                 (navigator.deviceMemory || 8) <= 2;
+  if (lowPower) {
+    document.documentElement.classList.add('low-power');
+  }
+
   var host = document.querySelector('[data-stars-host]') || document.body;
   var canvas = document.createElement('canvas');
   canvas.className = 'starfield';
@@ -26,6 +33,10 @@
   var W = 0, H = 0, DPR = 1;
   var layers = [];
   var shooting = [];
+  var trail = [];        // comet dust following the pointer
+  var sparks = [];       // burst thrown on click
+  var near = [];         // stars close to the pointer, for constellation lines
+  var px = -9999, py = -9999;   // pointer in canvas space
   var pointer = { x: 0, y: 0, active: false };
   var scrollY = 0;
   var t = 0;
@@ -39,6 +50,7 @@
   ];
 
   var TINTS = ['255,255,255', '206,222,255', '255,236,204', '178,240,230'];
+  var LEVELS = [0.42, 0.68, 0.95];   // quantised twinkle brightness
 
   function rand(a, b) { return a + Math.random() * (b - a); }
 
@@ -47,20 +59,26 @@
       ? { width: window.innerWidth, height: window.innerHeight }
       : host.getBoundingClientRect();
 
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
     W = Math.max(1, Math.floor(rect.width));
     H = Math.max(1, Math.floor(rect.height));
+
+    // Measured: capping the backing store below the CSS size is a false
+    // economy — the compositor then has to upscale the canvas every frame,
+    // which costs more than the pixels saved. Match the display instead.
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+
     canvas.width = Math.floor(W * DPR);
     canvas.height = Math.floor(H * DPR);
     canvas.style.width = W + 'px';
     canvas.style.height = H + 'px';
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 
-    // one star per ~2600 css px², capped so a huge monitor does not melt
-    var base = Math.min(Math.round((W * H) / 2600), 420);
+    // one star per ~3000 css px², capped so a large monitor does not melt
+    var base = Math.min(Math.round((W * H) / 3000), 320);
     if (window.innerWidth < 700) base = Math.round(base * 0.55);
+    if (lowPower) base = Math.round(base * 0.5);
 
-    layers = SPEC.map(function (s) {
+    layers = SPEC.map(function (s, li) {
       var n = Math.round(base * s.density);
       var stars = [];
       for (var i = 0; i < n; i++) {
@@ -69,12 +87,14 @@
           y: Math.random() * (H * 1.6),
           r: rand(s.rMin, s.rMax),
           a: s.alpha * rand(0.45, 1),
-          tint: TINTS[Math.floor(Math.random() * TINTS.length)],
+          ti: Math.floor(Math.random() * TINTS.length),
           phase: Math.random() * Math.PI * 2,
           tw: rand(0.6, 2.0)
         });
       }
-      return { spec: s, stars: stars };
+      var buckets = [];
+      for (var bq = 0; bq < TINTS.length * 3; bq++) buckets.push([]);
+      return { spec: s, stars: stars, buckets: buckets, bloom: [] };
     });
   }
 
@@ -92,37 +112,131 @@
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
+    near.length = 0;
 
+    // Every layer paints as a small set of batched paths. Twinkle is
+    // quantised into three brightness levels, so a few hundred stars cost
+    // roughly a dozen fills rather than one state change each.
     for (var li = 0; li < layers.length; li++) {
       var layer = layers[li];
       var s = layer.spec;
-      var offY = -(scrollY * s.par) % (H * 1.6);
+      var TH = H * 1.6;
+      var offY = -(scrollY * s.par) % TH;
       var offX = pointer.active ? (pointer.x - 0.5) * -26 * s.par * 4 : 0;
       var offYp = pointer.active ? (pointer.y - 0.5) * -18 * s.par * 4 : 0;
+
+      var buckets = layer.buckets;
+      for (var bi = 0; bi < buckets.length; bi++) buckets[bi].length = 0;
+      var bloom = layer.bloom; bloom.length = 0;
 
       for (var i = 0; i < layer.stars.length; i++) {
         var st = layer.stars[i];
         var y = st.y + offY + offYp;
-        y = ((y % (H * 1.6)) + H * 1.6) % (H * 1.6);
+        y = ((y % TH) + TH) % TH;
         if (y > H + 4) continue;
         var x = st.x + offX;
         if (x < -4 || x > W + 4) continue;
 
-        var tw = reduced ? 1 : 0.68 + 0.32 * Math.sin(t * 0.0016 * st.tw + st.phase);
-        ctx.globalAlpha = st.a * tw;
-        ctx.fillStyle = 'rgb(' + st.tint + ')';
-        ctx.beginPath();
-        ctx.arc(x, y, st.r, 0, Math.PI * 2);
-        ctx.fill();
+        if (!reduced && li > 0 && near.length < 18) {
+          var dxp = x - px, dyp = y - py;
+          if (dxp * dxp + dyp * dyp < 24000) near.push(x, y);
+        }
 
-        // the biggest stars get a soft bloom
-        if (st.r > 1.7) {
-          ctx.globalAlpha = st.a * tw * 0.16;
-          ctx.beginPath();
-          ctx.arc(x, y, st.r * 3.6, 0, Math.PI * 2);
-          ctx.fill();
+        var tw = reduced ? 1 : 0.68 + 0.32 * Math.sin(t * 0.0016 * st.tw + st.phase);
+        var lvl = tw < 0.80 ? 0 : (tw < 0.92 ? 1 : 2);
+        var bucket = buckets[st.ti * 3 + lvl];
+        bucket.push(x, y, st.r);
+        if (st.r > 1.7) bloom.push(x, y, st.r * 3.6);
+      }
+
+      for (var bj = 0; bj < buckets.length; bj++) {
+        var bk = buckets[bj];
+        if (!bk.length) continue;
+        ctx.globalAlpha = s.alpha * LEVELS[bj % 3];
+        ctx.fillStyle = 'rgb(' + TINTS[(bj / 3) | 0] + ')';
+        ctx.beginPath();
+        if (li === 0) {
+          for (var q1 = 0; q1 < bk.length; q1 += 3) {
+            ctx.rect(bk[q1] - bk[q1 + 2], bk[q1 + 1] - bk[q1 + 2], bk[q1 + 2] * 2, bk[q1 + 2] * 2);
+          }
+        } else {
+          for (var q2 = 0; q2 < bk.length; q2 += 3) {
+            ctx.moveTo(bk[q2] + bk[q2 + 2], bk[q2 + 1]);
+            ctx.arc(bk[q2], bk[q2 + 1], bk[q2 + 2], 0, Math.PI * 2);
+          }
+        }
+        ctx.fill();
+      }
+
+      if (bloom.length) {
+        ctx.globalAlpha = s.alpha * 0.14;
+        ctx.fillStyle = 'rgb(255,255,255)';
+        ctx.beginPath();
+        for (var q3 = 0; q3 < bloom.length; q3 += 3) {
+          ctx.moveTo(bloom[q3] + bloom[q3 + 2], bloom[q3 + 1]);
+          ctx.arc(bloom[q3], bloom[q3 + 1], bloom[q3 + 2], 0, Math.PI * 2);
+        }
+        ctx.fill();
+      }
+    }
+
+    // constellation: two batched paths rather than ~90 individual
+    // strokes — each stroke() is a state change, and that was the cost.
+    if (near.length && !reduced) {
+      var maxA = Math.min(near.length / 2, 9);
+      ctx.lineWidth = 0.7;
+      ctx.strokeStyle = 'rgba(94,234,212,1)';
+
+      ctx.globalAlpha = 0.30;
+      ctx.beginPath();
+      for (var a = 0; a < maxA; a++) {
+        ctx.moveTo(px, py);
+        ctx.lineTo(near[a * 2], near[a * 2 + 1]);
+      }
+      ctx.stroke();
+
+      ctx.globalAlpha = 0.14;
+      ctx.beginPath();
+      for (var a2 = 0; a2 < maxA; a2++) {
+        var ax = near[a2 * 2], ay = near[a2 * 2 + 1];
+        for (var c2 = a2 + 1; c2 < maxA; c2++) {
+          var ex = ax - near[c2 * 2], ey = ay - near[c2 * 2 + 1];
+          if (ex * ex + ey * ey < 8464) {
+            ctx.moveTo(ax, ay);
+            ctx.lineTo(near[c2 * 2], near[c2 * 2 + 1]);
+          }
         }
       }
+      ctx.stroke();
+    }
+
+    // pointer dust — one path, one fill
+    if (trail.length) {
+      ctx.globalAlpha = 0.45;
+      ctx.fillStyle = 'rgba(148,240,222,1)';
+      ctx.beginPath();
+      for (var d = trail.length - 1; d >= 0; d--) {
+        var tp = trail[d];
+        tp.life++;
+        if (tp.life > tp.max) { trail.splice(d, 1); continue; }
+        var tf = 1 - tp.life / tp.max;
+        ctx.moveTo(tp.x + tp.r * tf, tp.y);
+        ctx.arc(tp.x, tp.y, tp.r * tf, 0, Math.PI * 2);
+      }
+      ctx.fill();
+    }
+
+    // click sparks
+    for (var q = sparks.length - 1; q >= 0; q--) {
+      var sp = sparks[q];
+      sp.life++;
+      sp.x += sp.vx; sp.y += sp.vy;
+      sp.vx *= 0.96; sp.vy *= 0.96;
+      if (sp.life > sp.max) { sparks.splice(q, 1); continue; }
+      var sf = 1 - sp.life / sp.max;
+      ctx.globalAlpha = sf;
+      ctx.fillStyle = sp.gold ? 'rgba(245,194,107,1)' : 'rgba(126,244,225,1)';
+      ctx.beginPath(); ctx.arc(sp.x, sp.y, sp.r * sf, 0, Math.PI * 2); ctx.fill();
     }
 
     // shooting stars
@@ -192,6 +306,23 @@
       pointer.x = e.clientX / window.innerWidth;
       pointer.y = e.clientY / window.innerHeight;
       pointer.active = true;
+      px = e.clientX; py = e.clientY;
+      if (trail.length < 18 && Math.random() > 0.35) {
+        trail.push({ x: px + rand(-3, 3), y: py + rand(-3, 3),
+                     r: rand(0.8, 2.2), life: 0, max: rand(18, 34) });
+      }
+    }, { passive: true });
+
+    window.addEventListener('pointerdown', function (e) {
+      var n = 16;
+      for (var i = 0; i < n; i++) {
+        var ang = (Math.PI * 2 * i) / n + rand(-0.2, 0.2);
+        var sp = rand(1.4, 4.2);
+        sparks.push({ x: e.clientX, y: e.clientY,
+                      vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
+                      r: rand(1, 2.6), life: 0, max: rand(26, 46),
+                      gold: Math.random() > 0.65 });
+      }
     }, { passive: true });
 
     document.addEventListener('visibilitychange', function () {

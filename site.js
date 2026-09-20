@@ -118,3 +118,107 @@
     });
   }
 })();
+
+/* ---------------------------------------------------------------
+   Extra life: scroll progress, card tilt with a light sheen,
+   magnetic buttons, and a word-by-word hero entrance.
+   Appended as its own IIFE so a failure here cannot take out the
+   filter or the tabs above.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- scroll progress ------------------------------------------
+  var bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+
+  var ticking = false;
+  function updateBar() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.scrollY || window.pageYOffset) / h : 0;
+    bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)).toFixed(4) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(updateBar); }
+  }, { passive: true });
+  updateBar();
+
+  if (reduced) return;
+
+  // ---- 3D tilt + sheen on panels --------------------------------
+  // One delegated listener rather than one per card.
+  var TILTABLE = '.tile, .card, .fact-card, .aside-card, blockquote';
+  document.querySelectorAll(TILTABLE).forEach(function (el) { el.classList.add('tilt'); });
+
+  var activeTilt = null, tiltFrame = null, lastEvt = null;
+
+  function runTilt() {
+    tiltFrame = null;
+    if (!activeTilt || !lastEvt) return;
+    var r = activeTilt.getBoundingClientRect();
+    var cx = (lastEvt.clientX - r.left) / r.width;
+    var cy = (lastEvt.clientY - r.top) / r.height;
+    activeTilt.style.setProperty('--rx', ((0.5 - cy) * 7).toFixed(2) + 'deg');
+    activeTilt.style.setProperty('--ry', ((cx - 0.5) * 9).toFixed(2) + 'deg');
+    activeTilt.style.setProperty('--mx', (cx * 100).toFixed(1) + '%');
+    activeTilt.style.setProperty('--my', (cy * 100).toFixed(1) + '%');
+  }
+
+  document.addEventListener('pointermove', function (e) {
+    var el = e.target.closest ? e.target.closest(TILTABLE) : null;
+    if (el !== activeTilt) {
+      if (activeTilt) {
+        activeTilt.classList.remove('tilted');
+        activeTilt.style.removeProperty('--rx');
+        activeTilt.style.removeProperty('--ry');
+      }
+      activeTilt = el;
+      if (activeTilt) activeTilt.classList.add('tilted');
+    }
+    if (!activeTilt) return;
+    lastEvt = e;
+    if (!tiltFrame) tiltFrame = window.requestAnimationFrame(runTilt);
+  }, { passive: true });
+
+  // ---- magnetic buttons -----------------------------------------
+  var MAG = 9;
+  document.querySelectorAll('.btn').forEach(function (btn) {
+    var frame = null, ev = null;
+    btn.addEventListener('pointermove', function (e) {
+      ev = e;
+      if (frame) return;
+      frame = window.requestAnimationFrame(function () {
+        frame = null;
+        var r = btn.getBoundingClientRect();
+        var dx = (ev.clientX - (r.left + r.width / 2)) / (r.width / 2);
+        var dy = (ev.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        btn.style.transform = 'translate(' + (dx * MAG).toFixed(1) + 'px,' +
+                              (dy * MAG * 0.6).toFixed(1) + 'px)';
+      });
+    }, { passive: true });
+    btn.addEventListener('pointerleave', function () { btn.style.transform = ''; });
+  });
+
+  // ---- hero headline, word by word ------------------------------
+  var h1 = document.querySelector('.hero-copy h1');
+  if (h1 && !h1.querySelector('.w')) {
+    var words = h1.textContent.trim().split(/\s+/);
+    h1.textContent = '';
+    words.forEach(function (w, i) {
+      var span = document.createElement('span');
+      span.className = 'w';
+      span.style.setProperty('--wi', i);
+      span.textContent = w;
+      h1.appendChild(span);
+      if (i < words.length - 1) h1.appendChild(document.createTextNode(' '));
+    });
+    h1.classList.add('words-in');
+  }
+})();
