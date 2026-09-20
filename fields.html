@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fields we build for — CV Forge</title>
+<meta name="description" content="Every profession we build resumes, CVs and portfolios for, and what changes in each one — finance, engineering, healthcare, creative, academic, trades and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header wrap">
+  <a class="wordmark" href="index.html">CV FORGE</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="fields.html" aria-current="page">Fields</a>
+    <a href="finance.html">Sample</a>
+    <a href="index.html">Home</a>
+    <a class="btn btn-sm" href="start.html">Start my build</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="wrap stack sec-ink">
+  <span class="badge">Services by field</span>
+  <h1>Every field,<br>its own <span style="color:var(--lime)">rulebook</span></h1>
+  <p style="max-width:60ch;font-size:clamp(17px,1.6vw,20px);">A hiring manager in finance wants numbers in the first three lines. A gallery wants images before words. A hospital wants licences and hours. Filter to your field and see exactly what we change.</p>
+</section>
+
+<section class="wrap stack">
+  <div class="filters" role="group" aria-label="Filter fields by group">
+    <span class="mono" style="margin-right:8px;">Filter</span>
+    <button type="button" class="pill" data-group="All" aria-pressed="true">All</button>
+    <button type="button" class="pill" data-group="Business" aria-pressed="false">Business</button>
+    <button type="button" class="pill" data-group="Technical" aria-pressed="false">Technical</button>
+    <button type="button" class="pill" data-group="Creative" aria-pressed="false">Creative</button>
+    <button type="button" class="pill" data-group="Care" aria-pressed="false">Care &amp; public</button>
+    <button type="button" class="pill" data-group="Academic" aria-pressed="false">Academic</button>
+  </div>
+
+  <div class="field-list" id="field-list">
+
+    <a class="field-row" href="finance.html" data-group="Business">
+      <span class="idx">01</span>
+      <span class="name">Finance &amp; banking</span>
+      <span class="blurb">Deal sheets, AUM, P&amp;L ownership and risk scope in the first third of the page — the numbers a managing director scans for.</span>
+      <span class="chips">Deal sheet · Series licences · Modelling stack</span>
+      <span class="go">View →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Business">
+      <span class="idx">02</span>
+      <span class="name">Sales &amp; marketing</span>
+      <span class="blurb">Quota against attainment, pipeline size, channel mix and the campaigns you can actually name and attribute.</span>
+      <span class="chips">Quota history · Campaign proof · Tooling</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Business">
+      <span class="idx">03</span>
+      <span class="name">Law &amp; compliance</span>
+      <span class="blurb">Bar admissions, matter types, jurisdictions and reported cases, in the order firms and in-house teams expect.</span>
+      <span class="chips">Admissions · Matter list · Publications</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Business">
+      <span class="idx">04</span>
+      <span class="name">Consulting &amp; operations</span>
+      <span class="blurb">Engagements framed as problem, intervention and measured result, without breaking client confidentiality.</span>
+      <span class="chips">Engagement log · Sector mix · Savings</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Technical">
+      <span class="idx">05</span>
+      <span class="name">Engineering &amp; tech</span>
+      <span class="blurb">Systems you owned, scale you ran them at, and a portfolio that links to code a reviewer can open in one click.</span>
+      <span class="chips">Stack · Scale numbers · Repo links</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Technical">
+      <span class="idx">06</span>
+      <span class="name">Data &amp; analytics</span>
+      <span class="blurb">Models shipped, decisions they changed, and notebooks turned into short readable case studies.</span>
+      <span class="chips">Model cards · Dashboards · Methods</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Technical">
+      <span class="idx">07</span>
+      <span class="name">Skilled trades &amp; field ops</span>
+      <span class="blurb">Certifications, tickets, equipment and safety record up top, with jobs listed by site and scope rather than prose.</span>
+      <span class="chips">Tickets · Equipment · Safety record</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Creative">
+      <span class="idx">08</span>
+      <span class="name">Art, design &amp; creative</span>
+      <span class="blurb">Images lead, words support. A portfolio built around the work, plus a one-page CV that galleries and studios accept.</span>
+      <span class="chips">Image-first site · Exhibitions · Process</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Creative">
+      <span class="idx">09</span>
+      <span class="name">Film, music &amp; performance</span>
+      <span class="blurb">Credits formatted the way your discipline lists them, reels embedded, and a résumé that survives a casting inbox.</span>
+      <span class="chips">Credit list · Reel · Repertoire</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Creative">
+      <span class="idx">10</span>
+      <span class="name">Writing &amp; media</span>
+      <span class="blurb">Clips organised by beat and outlet, with a pitch-ready one-pager editors can read in under a minute.</span>
+      <span class="chips">Clip index · Beats · Bylines</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Care">
+      <span class="idx">11</span>
+      <span class="name">Healthcare &amp; medicine</span>
+      <span class="blurb">Licences, registrations, clinical hours, procedures and rotations — the compliance facts first, the narrative second.</span>
+      <span class="chips">Licences · Clinical hours · Procedures</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Care">
+      <span class="idx">12</span>
+      <span class="name">Teaching &amp; public service</span>
+      <span class="blurb">Grade bands, subjects, cohort outcomes and programme work, written for a hiring panel rather than a recruiter.</span>
+      <span class="chips">Certifications · Cohorts · Programmes</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+    <a class="field-row" href="start.html" data-group="Academic">
+      <span class="idx">13</span>
+      <span class="name">Academia &amp; research</span>
+      <span class="blurb">The full CV: publications, grants, supervision, teaching and service, in your discipline's citation style.</span>
+      <span class="chips">Publications · Grants · Teaching</span>
+      <span class="go">Enquire →</span>
+    </a>
+
+  </div>
+
+  <p>Field not listed? <a href="start.html" style="text-decoration:underline;text-underline-offset:4px;">Tell us what you do</a> — we build for it and add it here.</p>
+</section>
+
+<section class="wrap stack sec-lime">
+  <div class="split">
+    <h2>In every package,<br>whatever your field</h2>
+    <p>The field changes the structure and the language. These stay the same.</p>
+  </div>
+  <div class="grid-4">
+    <div class="card card-flat"><span class="kicker">01</span><h3 style="font-size:22px;">Real interview</h3><p>We ask about your actual work before writing a word. No form-filling into a template.</p></div>
+    <div class="card card-flat"><span class="kicker">02</span><h3 style="font-size:22px;">Machine readable</h3><p>Tested against applicant tracking systems so the layout survives the upload.</p></div>
+    <div class="card card-flat"><span class="kicker">03</span><h3 style="font-size:22px;">Editable files</h3><p>PDF, DOCX and the portfolio source. You keep them and can change them yourself.</p></div>
+    <div class="card card-flat"><span class="kicker">04</span><h3 style="font-size:22px;">Two edit rounds</h3><p>Included, not an upsell. Anything factual we got wrong is fixed for free.</p></div>
+  </div>
+</section>
+
+<section class="wrap sec-accent">
+  <div class="cta-band">
+    <h2>Found your field? Let's build it.</h2>
+    <a class="btn btn-dark" href="start.html">Start my build</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer wrap">
+  <div class="footer-top">
+    <div class="footer-col">
+      <span class="wordmark">CV FORGE</span>
+      <p class="blurb">Resumes, CVs and portfolios built by people who have worked in your field.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <span class="kicker">Site</span>
+        <a href="index.html">Home</a>
+        <a href="finance.html">Sample field</a>
+        <a href="start.html">Start a build</a>
+      </div>
+      <div class="footer-col">
+        <span class="kicker">Contact</span>
+        <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        <a href="tel:[YOUR PHONE]">[YOUR PHONE]</a>
+        <span>[YOUR CITY]</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 [YOUR BUSINESS NAME]</span>
+    <span>[PRIVACY POLICY] · [TERMS]</span>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

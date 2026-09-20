@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start my build — CV Forge</title>
+<meta name="description" content="Send your brief: your field, the roles you are targeting and your current resume. You get a fixed quote back, and nothing is charged until you approve it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site-header wrap">
+  <a class="wordmark" href="index.html">CV FORGE</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="fields.html">Fields</a>
+    <a href="finance.html">Sample</a>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="wrap" style="display:flex;gap:clamp(24px,4vw,56px);align-items:flex-end;justify-content:space-between;flex-wrap:wrap;">
+  <h1>Start my <span class="mark-lime">build</span></h1>
+  <p class="side-note">Takes about ten minutes.<br>No payment until you approve the quote.<br>First draft in [TURNAROUND].</p>
+</section>
+
+<section class="wrap" style="border-bottom:0;">
+<div class="form-layout">
+
+  <!-- Static hosting cannot process a form on its own.
+       Sign up at formspree.io (free tier) or getform.io, then paste your endpoint
+       into the action below. Until you do, the form will not send anything. -->
+  <form class="brief" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST">
+
+    <div class="field-pair">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="As it should appear on the document" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+      </div>
+    </div>
+
+    <div class="field-pair">
+      <div class="field">
+        <label for="field">Your field</label>
+        <select id="field" name="field">
+          <option>Finance &amp; banking</option>
+          <option>Sales &amp; marketing</option>
+          <option>Law &amp; compliance</option>
+          <option>Consulting &amp; operations</option>
+          <option>Engineering &amp; tech</option>
+          <option>Data &amp; analytics</option>
+          <option>Skilled trades &amp; field ops</option>
+          <option>Art, design &amp; creative</option>
+          <option>Film, music &amp; performance</option>
+          <option>Writing &amp; media</option>
+          <option>Healthcare &amp; medicine</option>
+          <option>Teaching &amp; public service</option>
+          <option>Academia &amp; research</option>
+          <option>Something else — I'll explain below</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="stage">Career stage</label>
+        <select id="stage" name="stage">
+          <option>Student or first job</option>
+          <option>Early career (1–4 years)</option>
+          <option>Mid career (5–12 years)</option>
+          <option>Senior or executive</option>
+          <option>Changing fields</option>
+        </select>
+      </div>
+    </div>
+
+    <fieldset>
+      <legend>What do you need?</legend>
+      <label class="check" for="need-resume"><input id="need-resume" name="needs" value="Resume" type="checkbox"> Resume — the one-pager</label>
+      <label class="check" for="need-cv"><input id="need-cv" name="needs" value="CV" type="checkbox"> CV — the long form</label>
+      <label class="check" for="need-portfolio"><input id="need-portfolio" name="needs" value="Portfolio" type="checkbox"> Portfolio — a live site for my work</label>
+      <label class="check" for="need-profile"><input id="need-profile" name="needs" value="Profile rewrite" type="checkbox"> Profile rewrite to match</label>
+    </fieldset>
+
+    <div class="field">
+      <label for="upload">Current resume or CV (optional)</label>
+      <input id="upload" name="upload" type="file">
+      <span class="hint">PDF, DOCX or a photo of a printout. Any state is fine — rough notes are enough to start.</span>
+    </div>
+
+    <div class="field">
+      <label for="target">Roles you are going for</label>
+      <textarea id="target" name="target" rows="4" placeholder="Job titles, companies, or links to two or three postings you would apply to today."></textarea>
+    </div>
+
+    <div class="field">
+      <label for="notes">Anything we should know</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Career gaps, a field change, confidentiality limits, a deadline — tell us early and we work around it."></textarea>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn">Send my brief</button>
+      <span class="mono">You get a quote within [RESPONSE TIME].<br>Nothing is charged until you approve it.</span>
+    </div>
+
+  </form>
+
+  <aside class="next">
+    <div class="next-panel">
+      <span class="kicker" style="color:var(--lime)">What happens next</span>
+      <div class="item"><span>1</span><p>We read your brief and send a fixed quote and timeline. No call unless you want one.</p></div>
+      <div class="item"><span>2</span><p>You approve, we pair you with a writer who has worked in your field.</p></div>
+      <div class="item"><span>3</span><p>First draft in [TURNAROUND], then two rounds of edits before handover.</p></div>
+    </div>
+    <div class="contact-panel">
+      <span class="kicker">Rather just talk?</span>
+      <a class="big" href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+      <a href="tel:[YOUR PHONE]">[YOUR PHONE]</a>
+      <span class="hint">[YOUR CITY] · Replies [YOUR HOURS]</span>
+    </div>
+  </aside>
+
+</div>
+</section>
+
+</main>
+
+<footer class="site-footer wrap">
+  <div class="footer-top">
+    <div class="footer-col">
+      <span class="wordmark">CV FORGE</span>
+      <p class="blurb">Resumes, CVs and portfolios built by people who have worked in your field.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <span class="kicker">Site</span>
+        <a href="index.html">Home</a>
+        <a href="fields.html">Fields</a>
+        <a href="finance.html">Sample field</a>
+      </div>
+      <div class="footer-col">
+        <span class="kicker">Contact</span>
+        <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
+        <a href="tel:[YOUR PHONE]">[YOUR PHONE]</a>
+        <span>[YOUR CITY]</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 [YOUR BUSINESS NAME]</span>
+    <span>[PRIVACY POLICY] · [TERMS]</span>
+  </div>
+</footer>
+
+</body>
+</html>
