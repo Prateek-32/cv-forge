@@ -368,3 +368,100 @@ input[type="checkbox"] { width: 19px; height: 19px; min-height: 0; padding: 0; a
   html { scroll-behavior: auto; }
   .btn, .tile, .field-row, input, select, textarea { transition: none; }
 }
+
+/* =====================================================================
+   MOTION
+   All of it is gated behind .js on <html> so the page renders fully
+   when JavaScript is unavailable, and disabled entirely under
+   prefers-reduced-motion.
+   ===================================================================== */
+
+/* --- isometric objects: assemble, levitate, drift ------------------- */
+
+.io { transition: transform .45s cubic-bezier(.2,.7,.3,1); }
+
+@keyframes iso-assemble {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes iso-drift {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* hero scene builds itself on load, then drifts gently */
+.js .hero-art .io {
+  animation: iso-assemble .6s cubic-bezier(.2,.7,.3,1) backwards;
+  animation-delay: calc(var(--i) * 65ms + 250ms);
+}
+.js .hero-art .iso {
+  animation: iso-drift 7s ease-in-out 1.6s infinite;
+}
+
+/* tiles: the stack pulls apart as the pointer arrives — objects higher in
+   the stack travel further, so the scene visibly expands in depth */
+.tile:hover .io,
+.tile:focus-visible .io { transform: translateY(calc(var(--i) * -1.5px - 2px)); }
+.field-row:hover .io { transform: translateY(calc(var(--i) * -1.1px - 1px)); }
+
+/* and the whole scene leans in. .in wins on specificity, so match it. */
+.js .tile.in:hover .iso,
+.js .tile.in:focus-within .iso { transform: scale(1.06) translateY(-2px); }
+.tile .iso { transition: transform .4s cubic-bezier(.2,.7,.3,1); }
+
+/* scenes fade up when their tile scrolls in.
+   This animates the whole svg, not the individual objects: a `forwards`
+   animation on .io would pin its transform and kill the hover lift. */
+.js .tile .iso {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .5s cubic-bezier(.2,.7,.3,1), transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.js .tile.in .iso { opacity: 1; transform: none; }
+
+/* --- pointer tilt on the hero artwork ------------------------------- */
+
+.hero-art {
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  will-change: transform;
+}
+.hero-art.tilting { transition: transform .08s linear; }
+
+/* --- scroll reveals -------------------------------------------------- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s cubic-bezier(.2,.7,.3,1), transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .55s cubic-bezier(.2,.7,.3,1), transform .55s cubic-bezier(.2,.7,.3,1);
+}
+.js .reveal-stagger.in > * { opacity: 1; transform: none; }
+.js .reveal-stagger.in > *:nth-child(1) { transition-delay: 0ms; }
+.js .reveal-stagger.in > *:nth-child(2) { transition-delay: 70ms; }
+.js .reveal-stagger.in > *:nth-child(3) { transition-delay: 140ms; }
+.js .reveal-stagger.in > *:nth-child(4) { transition-delay: 210ms; }
+.js .reveal-stagger.in > *:nth-child(5) { transition-delay: 280ms; }
+.js .reveal-stagger.in > *:nth-child(6) { transition-delay: 350ms; }
+.js .reveal-stagger.in > *:nth-child(7) { transition-delay: 420ms; }
+.js .reveal-stagger.in > *:nth-child(8) { transition-delay: 490ms; }
+
+/* --- accent rule that draws itself in -------------------------------- */
+
+.js .eyebrow { position: relative; }
+
+/* --- everything off when the visitor asks for less motion ------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero-art .io,
+  .js .hero-art .iso { animation: none !important; }
+  .js .tile .iso { opacity: 1; transform: none; transition: none; }
+  .js .reveal, .js .reveal-stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-art, .io { transition: none !important; }
+  .tile:hover .io, .field-row:hover .io { transform: none; }
+}
