@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arjun Mehta — Finance &amp; Banking CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Deal tombstone */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../finance.html">← Back to Finance &amp; Banking</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Arjun Mehta</div>
+      <div class="cv-title">Vice President, Mergers &amp; Acquisitions Advisory</div>
+      <div class="cv-contact">
+        <span>arjun.mehta@email.com</span>
+        <span>+44 7700 900 142</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/arjunmehta</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Licences &amp; Certifications</div>
+      <div class="cv-licenses">
+        <span><strong>CFA Charterholder</strong> — CFA Institute, 2021</span>
+        <span><strong>Series 79</strong> — FINRA, 2019</span>
+        <span><strong>Series 63</strong> — FINRA, 2019</span>
+        <span><strong>FRM Part I &amp; II</strong> — GARP, 2020</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">M&amp;A advisory professional with 8 years of experience across cross-border transactions in technology, industrials, and financial services. Advised on £4.2bn in aggregate deal value. Proven in origination, execution, and client management across buy-side and sell-side mandates in the UK, India, and UAE.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Selected Transaction Experience</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">£1.4bn</span>
+          <span class="d-lbl">Buy-side acquisition advisory — UK fintech, 2025</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">£820m</span>
+          <span class="d-lbl">Sell-side mandate — Industrial conglomerate, 2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">£640m</span>
+          <span class="d-lbl">Cross-border JV — UK/UAE infrastructure, 2023</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">£4.2bn</span>
+          <span class="d-lbl">Aggregate deal value, 2018–2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Vice President — M&amp;A Advisory</span>
+          <span class="cv-job-dates">Mar 2022 – Present</span>
+        </div>
+        <div class="cv-job-org">Rothmore Capital Partners, London</div>
+        <ul>
+          <li>Led end-to-end execution of 6 transactions totalling £2.9bn, including the £1.4bn acquisition of PayCore Technologies by a FTSE 100 financial group.</li>
+          <li>Managed client relationships across 4 active mandates simultaneously; 100% client retention over 3-year tenure at VP level.</li>
+          <li>Built and reviewed financial models for DCF, LBO, and comparable company analysis across 14 live engagements.</li>
+          <li>Mentored and assessed 6 analysts and associates; 2 promoted to Associate within 18 months of joining the team.</li>
+          <li>Expanded coverage of Indian mid-market — originated 3 new mandates worth £380m from Mumbai relationships.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Associate — Investment Banking</span>
+          <span class="cv-job-dates">Jul 2019 – Feb 2022</span>
+        </div>
+        <div class="cv-job-org">Barclays Capital, London</div>
+        <ul>
+          <li>Executed 4 sell-side advisory mandates and 2 equity raises totalling £1.1bn across technology and healthcare sectors.</li>
+          <li>Prepared marketing materials, information memoranda, and management presentations for 9 completed transactions.</li>
+          <li>Reduced model build time by 30% by standardising LBO and merger model templates adopted team-wide.</li>
+          <li>Coordinated due diligence process across legal, tax, and financial workstreams for a £640m cross-border acquisition.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Analyst — Corporate Finance</span>
+          <span class="cv-job-dates">Jun 2017 – Jun 2019</span>
+        </div>
+        <div class="cv-job-org">ICICI Securities, Mumbai</div>
+        <ul>
+          <li>Supported 7 IPO and QIP transactions raising ₹4,800 crore for clients in industrials and consumer goods.</li>
+          <li>Built detailed sector models covering 22 listed companies; reports distributed to 140+ institutional investors.</li>
+          <li>Ranked top 5% in annual analyst review both years; promoted to London office rotation after 18 months.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technical Skills</div>
+      <ul class="cv-skills">
+        <li>Financial modelling (DCF, LBO, M&amp;A accretion/dilution)</li>
+        <li>Valuation (comparable companies, precedent transactions)</li>
+        <li>Bloomberg Terminal</li>
+        <li>Capital IQ</li>
+        <li>FactSet</li>
+        <li>Excel (advanced — VBA, Power Query)</li>
+        <li>PowerPoint (pitch books, IMs)</li>
+        <li>Dealogic</li>
+        <li>Mergermarket</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">MBA, Finance &amp; Strategy</span>
+        <span class="cv-edu-date">Sep 2015 – Jun 2017</span>
+      </div>
+      <div class="cv-edu-school">London Business School — Distinction</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">B.Com (Hons), Accounting &amp; Finance</span>
+          <span class="cv-edu-date">Jul 2011 – May 2015</span>
+        </div>
+        <div class="cv-edu-school">Shri Ram College of Commerce, University of Delhi — First Class, 87th percentile</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>
