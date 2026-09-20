@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yui Tanaka — Consulting &amp; Operations CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Deal tombstone */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../consulting.html">← Back to Consulting &amp; Operations</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Yui Tanaka</div>
+      <div class="cv-title">Operations Manager — Process Transformation &amp; AI Automation</div>
+      <div class="cv-contact">
+        <span>yui.tanaka@email.com</span>
+        <span>+44 7700 900 884</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/yuitanaka</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Certifications</div>
+      <div class="cv-licenses">
+        <span><strong>Lean Six Sigma Black Belt</strong> — ASQ, 2023</span>
+        <span><strong>Google Professional ML Engineer</strong> — Google Cloud, 2024</span>
+        <span><strong>PMP</strong> — PMI, 2022</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Operations Manager with 6 years of process transformation experience, spanning EY in Tokyo and Accenture in London. Specialises in applying AI and automation to complex operational workflows in financial services, insurance, and logistics. Has automated over 1.2 million annual process steps across client engagements, reducing headcount requirements by an average of 28% without redundancies.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Key Impact Metrics</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">1.2m</span>
+          <span class="d-lbl">Annual process steps automated across clients</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">£7.4m</span>
+          <span class="d-lbl">Annual savings — UK insurer AI programme, 2025</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">28%</span>
+          <span class="d-lbl">Avg. FTE requirement reduction, automation projects</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">6</span>
+          <span class="d-lbl">Countries — client delivery across Japan, UK, US, SG</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Operations Manager — Intelligent Automation</span>
+          <span class="cv-job-dates">Aug 2023 – Present</span>
+        </div>
+        <div class="cv-job-org">Accenture, London</div>
+        <ul>
+          <li>A UK insurer was processing 4,200 claims daily through 14 manual handoffs, resulting in £7.4m in annual excess staffing cost and a 9-day average settlement time; designed and deployed an LLM-powered triage and RPA automation layer, reducing handoffs to 3, cutting settlement time to 2.8 days, and saving £7.4m annually.</li>
+          <li>Global logistics client had no real-time visibility into warehouse labour allocation across 22 UK sites, causing consistent over-staffing on off-peak shifts; built an ML demand-forecasting model integrated with shift-planning software, reducing over-staffing by 19% and saving £2.1m per year.</li>
+          <li>Change-management resistance was stalling an automation rollout across 6 operational teams; designed a 12-week upskilling programme for 80 employees transitioning to oversight roles, achieving 94% programme completion and zero involuntary redundancies.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Consultant → Senior Consultant, Operations Advisory</span>
+          <span class="cv-job-dates">Apr 2020 – Jul 2023</span>
+        </div>
+        <div class="cv-job-org">Ernst &amp; Young Advisory, Tokyo</div>
+        <ul>
+          <li>A Japanese regional bank had a loan-origination process requiring 22 days end-to-end due to paper-based verification; mapped 180 process steps, introduced e-KYC and automated credit scoring, compressing origination to 4 days and increasing monthly loan volume by 37%.</li>
+          <li>Manufacturing client's procurement team was spending 3,400 hours per quarter on purchase-order matching due to ERP fragmentation; implemented RPA bots for 3-way matching across 2 ERP systems, recovering 2,900 hours per quarter and redeploying staff to strategic sourcing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technical Skills</div>
+      <ul class="cv-skills">
+        <li>RPA (UiPath, Automation Anywhere)</li>
+        <li>LLM integration (Azure OpenAI, LangChain)</li>
+        <li>Process mining (Celonis)</li>
+        <li>Python &amp; SQL</li>
+        <li>Lean Six Sigma (Black Belt)</li>
+        <li>Power Platform (Power Automate)</li>
+        <li>Change management</li>
+        <li>Japanese (native), English (fluent)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">MBA, Strategy &amp; Operations</span>
+        <span class="cv-edu-date">Apr 2017 – Mar 2019</span>
+      </div>
+      <div class="cv-edu-school">Keio Business School, Tokyo — Top 10% of cohort</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">B.Eng, Industrial Engineering</span>
+          <span class="cv-edu-date">Apr 2013 – Mar 2017</span>
+        </div>
+        <div class="cv-edu-school">Waseda University, Tokyo — GPA 3.8 / 4.0, Academic Excellence Scholarship</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

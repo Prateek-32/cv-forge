@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amara Diallo — Consulting &amp; Operations CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Deal tombstone */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../consulting.html">← Back to Consulting &amp; Operations</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Amara Diallo</div>
+      <div class="cv-title">Strategy Director, Financial Services</div>
+      <div class="cv-contact">
+        <span>amara.diallo@email.com</span>
+        <span>+27 82 900 6543</span>
+        <span>Johannesburg, South Africa</span>
+        <span>linkedin.com/in/amaradiallo</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Strategy Director at Oliver Wyman with 10 years shaping financial services strategy across Sub-Saharan Africa, East Africa, and MENA. Led 3 full bank restructurings — each returning to profitability within 18 months of programme close. Deep expertise in regulatory response, capital allocation, and retail banking operating model design. Trusted by regulators and board-level clients across 8 African markets.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Select Engagement Metrics</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">3</span>
+          <span class="d-lbl">Bank restructurings led to full profitability</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">$420m</span>
+          <span class="d-lbl">NPL reduction — East African bank, 2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">8</span>
+          <span class="d-lbl">African markets served across career</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">41%</span>
+          <span class="d-lbl">Avg. cost-to-income improvement, restructuring mandates</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Strategy Director — Financial Services</span>
+          <span class="cv-job-dates">Apr 2021 – Present</span>
+        </div>
+        <div class="cv-job-org">Oliver Wyman, Johannesburg</div>
+        <ul>
+          <li>A Pan-African bank with operations in 6 countries had a cost-to-income ratio of 78% and rising NPL book of $420m; designed and led a 14-month restructuring programme covering branch rationalisation, credit policy reform, and a new retail segmentation model, bringing cost-to-income to 61% and resolving $280m in NPLs through an asset-management vehicle.</li>
+          <li>Regulatory capital requirements under Basel III left a mid-sized South African bank with a CET1 shortfall of R3.4bn; developed a capital optimisation roadmap including risk-weighted asset compression and a subordinated debt issuance, closing the gap within 9 months and avoiding a supervisory intervention.</li>
+          <li>East African retail bank was losing 12% of its SME customers annually to fintechs; led a full product redesign and digital channel build, cutting SME churn to 4% and growing SME loan book by 34% within 2 years.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Senior Consultant → Manager</span>
+          <span class="cv-job-dates">Jan 2016 – Mar 2021</span>
+        </div>
+        <div class="cv-job-org">Oliver Wyman, Johannesburg</div>
+        <ul>
+          <li>A West African development finance institution had no structured methodology for portfolio monitoring, resulting in 22% of loans past due undetected until arrears exceeded 90 days; built a real-time early-warning system and retrained 40 credit officers, reducing late detection from 22% to 3% within 6 months.</li>
+          <li>Nigerian insurance group was operating 11 product lines with combined ratio above 110%; conducted a line-by-line profitability analysis and recommended exiting 4 unprofitable lines, improving group combined ratio to 96% and freeing $18m of capital for redeployment.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Skills &amp; Expertise</div>
+      <ul class="cv-skills">
+        <li>Bank restructuring &amp; turnaround</li>
+        <li>Credit risk &amp; NPL management</li>
+        <li>Regulatory strategy (Basel III/IV, IFRS 9)</li>
+        <li>Retail banking operating models</li>
+        <li>Capital optimisation</li>
+        <li>Board-level advisory</li>
+        <li>Financial modelling &amp; scenario analysis</li>
+        <li>English, French (fluent)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">MSc Risk &amp; Finance</span>
+        <span class="cv-edu-date">Sep 2013 – Jun 2015</span>
+      </div>
+      <div class="cv-edu-school">London School of Economics — Distinction</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">BCom (Hons), Finance &amp; Accounting</span>
+          <span class="cv-edu-date">Feb 2009 – Nov 2012</span>
+        </div>
+        <div class="cv-edu-school">University of Cape Town — First Class Honours, Golden Key Society</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

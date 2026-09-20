@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Elena Kovač — Foundation Year 2 Doctor CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licence block */
+  .cv-licence-block {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licence-block span { color: #3E444C; }
+  .cv-licence-block strong { color: #17191C; }
+
+  /* Rotations table */
+  .cv-rotations {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-bottom: 4px;
+  }
+  .cv-rotations th {
+    text-align: left;
+    font-size: 8.5pt;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #3E444C;
+    padding: 0 12px 6px 0;
+  }
+  .cv-rotations td {
+    padding: 4px 12px 4px 0;
+    vertical-align: top;
+    color: #17191C;
+    border-top: 1px solid #ECEAE6;
+  }
+  .cv-rotations td:last-child { color: #3E444C; font-size: 9.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../healthcare.html">← Back to Healthcare &amp; Medicine</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Dr. Elena Kovač</div>
+      <div class="cv-title">Foundation Year 2 Doctor — NHS London Deanery</div>
+      <div class="cv-contact">
+        <span>elena.kovac@email.com</span>
+        <span>+44 7800 567 890</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/elenakovac</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Registration &amp; Licences</div>
+      <div class="cv-licence-block">
+        <span><strong>GMC No. 7654321</strong> — General Medical Council, Full Registration with Licence to Practise, 2024</span>
+        <span><strong>MRCP Part 1</strong> — Royal College of Physicians, Passed 2025</span>
+        <span><strong>ALS Provider</strong> — Resuscitation Council UK, 2024</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Motivated Foundation Year 2 doctor completing training within the NHS London Deanery. Broad clinical exposure across emergency medicine, cardiology, and psychiatry rotations. Demonstrates adaptability in high-pressure environments, strong clinical reasoning, and a commitment to patient safety. MRCP Part 1 passed ahead of schedule. Aiming to pursue Core Medical Training with a view to a cardiology career.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Foundation Rotations</div>
+      <table class="cv-rotations">
+        <thead>
+          <tr>
+            <th style="width:22%">Rotation</th>
+            <th style="width:30%">Placement</th>
+            <th style="width:24%">Trust</th>
+            <th>Period</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Accident &amp; Emergency</td>
+            <td>King's College Hospital</td>
+            <td>King's College Hospital NHS FT</td>
+            <td>Aug 2024 – Dec 2024</td>
+          </tr>
+          <tr>
+            <td>Cardiology</td>
+            <td>St Thomas' Hospital</td>
+            <td>Guy's and St Thomas' NHS FT</td>
+            <td>Jan 2025 – Apr 2025</td>
+          </tr>
+          <tr>
+            <td>Psychiatry (Liaison)</td>
+            <td>Maudsley Hospital</td>
+            <td>South London &amp; Maudsley NHS FT</td>
+            <td>May 2025 – Aug 2025</td>
+          </tr>
+          <tr>
+            <td>Acute Medicine</td>
+            <td>University College Hospital</td>
+            <td>UCLH NHS FT</td>
+            <td>Aug 2023 – Jan 2024</td>
+          </tr>
+          <tr>
+            <td>Respiratory Medicine</td>
+            <td>Royal Free Hospital</td>
+            <td>Royal Free London NHS FT</td>
+            <td>Jan 2024 – Apr 2024</td>
+          </tr>
+          <tr>
+            <td>General Surgery</td>
+            <td>Whittington Hospital</td>
+            <td>Whittington Health NHS Trust</td>
+            <td>Apr 2024 – Aug 2024</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Key Clinical Achievements</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">A&amp;E Rotation — King's College Hospital</span>
+          <span class="cv-job-dates">Aug – Dec 2024</span>
+        </div>
+        <ul>
+          <li>Managed undifferentiated presentations across majors and resus bays with a 4-hour target performance rate of 78%.</li>
+          <li>Clerked and initiated management for 15–20 patients per shift; supervised procedural skills including lumbar puncture and joint aspiration.</li>
+          <li>Contributed to departmental audit on sepsis six bundle compliance, identifying a 22% documentation gap and presenting findings to the clinical governance committee.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Cardiology Rotation — St Thomas' Hospital</span>
+          <span class="cv-job-dates">Jan – Apr 2025</span>
+        </div>
+        <ul>
+          <li>Participated in daily catheterisation laboratory lists, clerking 8–12 pre-procedure patients per day and assisting with post-procedure care for PPCI and coronary angiography cases.</li>
+          <li>Presented 3 cases at weekly cardiology grand round; received consultant commendation for structured approach to STEMI pathway discussion.</li>
+          <li>Enrolled in advanced ECG interpretation course through the British Cardiovascular Society; completed 40 CME hours.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Liaison Psychiatry Rotation — Maudsley Hospital</span>
+          <span class="cv-job-dates">May – Aug 2025</span>
+        </div>
+        <ul>
+          <li>Assessed 6–10 mental health liaison referrals daily across SLAM acute wards; conducted Mental Capacity Act assessments under consultant supervision.</li>
+          <li>Co-led a quality improvement project to reduce referral-to-assessment times from 4.2 hours to 2.8 hours using a structured triage checklist.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Clinical Skills &amp; Procedures</div>
+      <ul class="cv-skills">
+        <li>Arterial blood gas sampling</li>
+        <li>Central venous access (supervised)</li>
+        <li>Lumbar puncture</li>
+        <li>Pleural aspiration</li>
+        <li>ECG acquisition &amp; interpretation</li>
+        <li>Airway management (BVM, LMA)</li>
+        <li>Joint aspiration</li>
+        <li>Mental Capacity Act assessments</li>
+        <li>E-prescribing (EPMA)</li>
+        <li>PACS / radiology reporting</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">Doctor of Medicine (MD)</span>
+        <span class="cv-edu-date">Oct 2017 – Jun 2023</span>
+      </div>
+      <div class="cv-edu-school">University of Ljubljana Faculty of Medicine, Slovenia — GPA 9.1/10.0 (Distinction)</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">IELTS Academic — Overall 8.0</span>
+          <span class="cv-edu-date">2023</span>
+        </div>
+        <div class="cv-edu-school">British Council — GMC English Language requirement met</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">UK Foundation Programme (FY1 &amp; FY2)</span>
+          <span class="cv-edu-date">Aug 2023 – Aug 2025</span>
+        </div>
+        <div class="cv-edu-school">NHS London Deanery — Foundation Competencies signed off</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

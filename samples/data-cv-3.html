@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luke Zhang — ML Engineer CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Stack strip — chip badges */
+  .stack-strip {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .stack-chip {
+    background: #F3F4F6;
+    border: 1px solid #DDE0E4;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 9pt;
+    color: #3E444C;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .03em;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../data.html">← Back to Data &amp; Analytics</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Luke Zhang</div>
+      <div class="cv-title">Machine Learning Engineer</div>
+      <div class="cv-contact">
+        <span>luke.zhang@email.com</span>
+        <span>+65 9123 4567</span>
+        <span>Singapore</span>
+        <span>linkedin.com/in/lukezhang</span>
+        <span>github.com/lukezhang-ml</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">ML Engineer with 4 years of experience building and deploying large-scale recommendation and personalisation systems at ByteDance Singapore. Specialises in the full model lifecycle — from offline feature engineering and training on Spark to real-time serving at low latency with Redis and Kubernetes. Proven track record shipping models that move engagement metrics for tens of millions of daily active users.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Impact Highlights</div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="m-val">14 M</span>
+          <span class="m-lbl">Daily active users served by models</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">+22%</span>
+          <span class="m-lbl">Click-through rate lift, reco v3</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">38 ms</span>
+          <span class="m-lbl">p99 inference latency, prod serving</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">4 TB/day</span>
+          <span class="m-lbl">Feature pipeline throughput</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technology Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">PyTorch</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">Spark</span>
+        <span class="stack-chip">Redis</span>
+        <span class="stack-chip">Kubernetes</span>
+        <span class="stack-chip">Docker</span>
+        <span class="stack-chip">Kafka</span>
+        <span class="stack-chip">Triton Inference Server</span>
+        <span class="stack-chip">MLflow</span>
+        <span class="stack-chip">Airflow</span>
+        <span class="stack-chip">HDFS</span>
+        <span class="stack-chip">Hive</span>
+        <span class="stack-chip">Git</span>
+        <span class="stack-chip">Helm</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Senior Machine Learning Engineer</span>
+          <span class="cv-job-dates">Mar 2024 – Present</span>
+        </div>
+        <div class="cv-job-org">ByteDance, Singapore</div>
+        <ul>
+          <li><strong>Business question:</strong> Could a two-tower retrieval model replace heuristic candidate generation and improve downstream ranking quality? <strong>Approach:</strong> Designed and trained a FAISS-backed two-tower model on 90 days of interaction history; shadow-tested against the heuristic for 3 weeks. <strong>Outcome:</strong> Adopted in production — recall@100 improved 18%, contributing to a 22% CTR lift on the recommendations surface.</li>
+          <li><strong>Business question:</strong> Was GPU over-provisioning inflating serving costs? <strong>Approach:</strong> Profiled inference jobs, identified 40% idle GPU time, migrated batching logic to Triton dynamic batching with auto-scaling on Kubernetes. <strong>Outcome:</strong> Serving cost reduced 29% while p99 latency fell from 72 ms to 38 ms.</li>
+          <li>Lead engineer for the feature store migration from Redis Cluster v5 to v7; coordinated zero-downtime cutover for 14M DAU traffic.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Machine Learning Engineer</span>
+          <span class="cv-job-dates">Jul 2022 – Feb 2024</span>
+        </div>
+        <div class="cv-job-org">ByteDance, Singapore</div>
+        <ul>
+          <li><strong>Business question:</strong> How could we reduce model training time to enable daily retraining at scale? <strong>Approach:</strong> Rewrote the Spark feature pipeline to use delta tables with incremental processing, cutting full-scan jobs. <strong>Outcome:</strong> Training cycle shortened from 11 hours to 3.5 hours, enabling same-day model freshness.</li>
+          <li><strong>Business question:</strong> Was the ranking model underperforming for new users with sparse history? <strong>Approach:</strong> Added a cold-start branch using content-based embeddings blended with collaborative signals via a gating network. <strong>Outcome:</strong> New-user 7-day retention improved 9 percentage points in A/B test across 620,000 users.</li>
+          <li>Built and maintained MLflow experiment tracking infrastructure; standardised model cards for 12 production models.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Data Scientist (Graduate)</span>
+          <span class="cv-job-dates">Aug 2021 – Jun 2022</span>
+        </div>
+        <div class="cv-job-org">ByteDance, Singapore</div>
+        <ul>
+          <li><strong>Business question:</strong> Could watch-time prediction be improved over the existing click-based model? <strong>Approach:</strong> Explored watch-time regression with position-bias correction on logged data; ran offline evaluation using NDCG@10. <strong>Outcome:</strong> Model selected for A/B test; average session length increased 7% over 4-week test.</li>
+          <li>Authored internal wiki covering feature engineering best practices adopted by 3 squads.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Additional Skills</div>
+      <ul class="cv-skills">
+        <li>Recommender systems design</li>
+        <li>A/B testing &amp; experimentation</li>
+        <li>Distributed training (DDP)</li>
+        <li>Feature store architecture</li>
+        <li>System design interviews</li>
+        <li>English (fluent), Mandarin (native)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">BSc Computer Science</span>
+        <span class="cv-edu-date">Sep 2017 – May 2021</span>
+      </div>
+      <div class="cv-edu-school">Hong Kong University of Science and Technology (HKUST) — First Class Honours, Dean's List 2019–2021</div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

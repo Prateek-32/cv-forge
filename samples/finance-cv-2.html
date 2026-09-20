@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priya Sharma — Finance &amp; Banking CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Achievements strip (academic/awards) */
+  .cv-achievements {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .cv-achievement-item {
+    flex: 1; min-width: 140px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .cv-achievement-item:last-child { border-right: none; }
+  .cv-achievement-item .a-val { font-weight: 700; font-size: 11pt; display: block; }
+  .cv-achievement-item .a-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../finance.html">← Back to Finance &amp; Banking</a>
+    <button class="print-btn" onclick="window.print()">⬇ Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Priya Sharma</div>
+      <div class="cv-title">Investment Banking Analyst</div>
+      <div class="cv-contact">
+        <span>priya.sharma@email.com</span>
+        <span>+44 7911 223 445</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/priyasharma-ib</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+
+      <div class="cv-edu">
+        <span class="cv-edu-deg">Post Graduate Programme in Management (MBA), Finance</span>
+        <span class="cv-edu-date">Jun 2022 – Mar 2024</span>
+      </div>
+      <div class="cv-edu-school">Indian Institute of Management Ahmedabad — Gold Medallist, Top 3% cohort</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">B.Sc. (Hons), Mathematics &amp; Statistics</span>
+          <span class="cv-edu-date">Jul 2018 – May 2022</span>
+        </div>
+        <div class="cv-edu-school">Lady Shri Ram College, University of Delhi — 9.4 / 10 CGPA, University Rank 2</div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Academic &amp; Professional Highlights</div>
+      <div class="cv-achievements">
+        <div class="cv-achievement-item">
+          <span class="a-val">Top 3%</span>
+          <span class="a-lbl">IIM Ahmedabad PGP cohort, 2024</span>
+        </div>
+        <div class="cv-achievement-item">
+          <span class="a-val">2 Offers</span>
+          <span class="a-lbl">Goldman Sachs Mumbai &amp; London, 2024</span>
+        </div>
+        <div class="cv-achievement-item">
+          <span class="a-val">Gold Medal</span>
+          <span class="a-lbl">Best outgoing finance student, IIMA</span>
+        </div>
+        <div class="cv-achievement-item">
+          <span class="a-val">Rank 2</span>
+          <span class="a-lbl">BSc Mathematics, University of Delhi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Investment Banking Analyst at Goldman Sachs with 2 years of experience across M&amp;A advisory and equity capital markets in Mumbai and London. Combines rigorous quantitative training with strong client-facing communication skills. Recognised for precision financial modelling and the ability to manage multiple live transactions simultaneously as a junior team member.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Investment Banking Analyst — Technology, Media &amp; Telecom</span>
+          <span class="cv-job-dates">Jul 2024 – Present</span>
+        </div>
+        <div class="cv-job-org">Goldman Sachs International, London</div>
+        <ul>
+          <li>Supported execution of 3 live M&amp;A mandates in European TMT sector; contributed to financial models, management presentations, and due diligence coordination.</li>
+          <li>Built DCF and comparable company analysis models for a €680m software acquisition; flagged a £12m deferred revenue normalisation adjustment independently.</li>
+          <li>Prepared pitch books and sector tearsheets presented to FTSE 100 and DAX clients across 6 new business meetings.</li>
+          <li>Rotated through ECM desk for 3 months — assisted bookrunning team on a £240m follow-on equity offering.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Investment Banking Analyst — Financial Institutions Group</span>
+          <span class="cv-job-dates">Apr 2024 – Jun 2024</span>
+        </div>
+        <div class="cv-job-org">Goldman Sachs India, Mumbai</div>
+        <ul>
+          <li>Onboarded into FIG coverage, supporting senior bankers on 2 domestic NBFC mandates and 1 cross-border FIG transaction.</li>
+          <li>Built precedent transaction and trading comparable databases covering 30+ listed Indian financial institutions.</li>
+          <li>Drafted executive summary sections of 2 information memoranda reviewed and approved by MD with minimal edits.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Investment Banking Summer Intern</span>
+          <span class="cv-job-dates">Apr 2023 – Jun 2023</span>
+        </div>
+        <div class="cv-job-org">Goldman Sachs India, Mumbai</div>
+        <ul>
+          <li>Completed 10-week summer internship in the FIG coverage team; received return offer with London placement option.</li>
+          <li>Independently modelled a merger accretion/dilution analysis for a hypothetical mid-cap banking consolidation scenario used in an internal strategy paper.</li>
+          <li>Ranked 1st among 8 summer analysts in end-of-internship presentation to division heads.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technical Skills</div>
+      <ul class="cv-skills">
+        <li>Financial modelling (DCF, merger accretion/dilution, LBO basics)</li>
+        <li>Comparable company &amp; precedent transaction analysis</li>
+        <li>Bloomberg Terminal</li>
+        <li>Capital IQ</li>
+        <li>Excel (advanced — array formulas, Power Query)</li>
+        <li>PowerPoint (pitch books, sector tearsheets)</li>
+        <li>VBA (basic macros for model automation)</li>
+        <li>Python (pandas, data wrangling — personal projects)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Certifications &amp; Tests</div>
+      <div class="cv-licenses">
+        <span><strong>CFA Level I</strong> — Passed, CFA Institute, May 2023</span>
+        <span><strong>Bloomberg Market Concepts (BMC)</strong> — Bloomberg, 2022</span>
+        <span><strong>NSE Certified Capital Markets Professional (NCCMP)</strong> — NSE Academy, 2022</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

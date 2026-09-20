@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Carlos Mendez — Consultant Cardiologist CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell { max-width: 780px; margin: 0 auto; }
+
+  .back-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; gap: 16px; flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4; text-decoration: none; font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px; padding: 12px 16px; color: #9CCCC2;
+    font-size: 13px; margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .04em;
+  }
+
+  .cv {
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C;
+  }
+
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 9.5pt; color: #3E444C; margin-top: 8px; }
+
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #17191C; border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px;
+  }
+
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  .cv-licence-block { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 9.5pt; }
+  .cv-licence-block span { color: #3E444C; }
+  .cv-licence-block strong { color: #17191C; }
+
+  /* Metrics strip */
+  .metric-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 110px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  .cv-pub { font-size: 10pt; color: #3E444C; padding-left: 16px; border-left: 2px solid #DDD7CA; margin-bottom: 6px; line-height: 1.6; }
+  .cv-pub strong { color: #17191C; }
+
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv { box-shadow: none !important; border-radius: 0 !important; padding: 18mm 18mm !important; font-size: 10.5pt !important; }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../healthcare.html">← Back to Healthcare &amp; Medicine</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Dr. Carlos Mendez</div>
+      <div class="cv-title">Consultant Cardiologist — Interventional Cardiology &amp; Heart Failure</div>
+      <div class="cv-contact">
+        <span>c.mendez@email.com</span>
+        <span>+34 93 555 0178</span>
+        <span>Barcelona, Spain</span>
+        <span>linkedin.com/in/drcarlosmendez</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Registration &amp; Licences</div>
+      <div class="cv-licence-block">
+        <span><strong>Colegio de Médicos No. 98765</strong> — Col·legi de Metges de Barcelona, Full Licence</span>
+        <span><strong>FESC</strong> — Fellow of the European Society of Cardiology, 2018</span>
+        <span><strong>EAPCI Certified Interventionalist</strong> — European Association of Percutaneous Cardiovascular Interventions, 2017</span>
+        <span><strong>Advanced Life Support</strong> — ERC Provider, 2025</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Consultant Cardiologist with 12 years of post-specialisation experience in interventional cardiology and heart failure management at Hospital Universitari Vall d'Hebron, Barcelona. Performs over 200 diagnostic and interventional catheterisations annually including primary PCI, complex coronary intervention, and structural heart procedures. Active researcher with 18 peer-reviewed publications and an h-index of 12. Visiting fellow and trainer at three European catheterisation laboratories.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Clinical Metrics</div>
+      <div class="metric-strip">
+        <div class="metric-item">
+          <span class="m-val">200+</span>
+          <span class="m-lbl">Catheterisations per year</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">18</span>
+          <span class="m-lbl">Peer-reviewed publications</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">h-12</span>
+          <span class="m-lbl">Hirsch index (Scopus)</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">320+</span>
+          <span class="m-lbl">Primary PCI procedures (lifetime)</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">98.1%</span>
+          <span class="m-lbl">PPCI procedural success rate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Consultant Cardiologist — Interventional &amp; Heart Failure</span>
+          <span class="cv-job-dates">Jan 2014 – Present</span>
+        </div>
+        <div class="cv-job-org">Hospital Universitari Vall d'Hebron, Barcelona</div>
+        <ul>
+          <li>Lead cardiologist for the 24/7 primary PCI programme; co-chair of departmental STEMI protocol committee overseeing door-to-balloon time targets (&lt;90 min, currently 78 min median).</li>
+          <li>Perform 200+ coronary angiography and intervention cases annually, including complex bifurcation PCI, chronic total occlusion (CTO) recanalisation, and TAVI work-up procedures.</li>
+          <li>Clinical lead for the hospital's Heart Failure Unit (62-bed capacity); introduced NT-proBNP-guided diuresis protocol adopted nationally by Societat Catalana de Cardiologia in 2022.</li>
+          <li>Principal investigator on 3 multicentre RCTs (EuroCTO Club, VALIDATE-SWEDEHEART contributor); recruited 84 eligible patients.</li>
+          <li>Supervise and mentor 4 cardiology registrars annually; 6 former trainees have achieved independent consultant posts in Spain and France.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Interventional Cardiology Fellow</span>
+          <span class="cv-job-dates">Sep 2012 – Dec 2013</span>
+        </div>
+        <div class="cv-job-org">Hammersmith Hospital, Imperial College Healthcare NHS Trust, London</div>
+        <ul>
+          <li>Completed advanced interventional fellowship under Prof. D. Foale, performing 180 supervised coronary interventions and 40 structural heart cases.</li>
+          <li>Attained EAPCI Level 3 competency in complex PCI; passed EAPCI certification examination with distinction.</li>
+          <li>Collaborated on a registry study of drug-coated balloon use in de novo small-vessel disease; data published in EuroIntervention (2014).</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Cardiology Registrar (MIR Residency)</span>
+          <span class="cv-job-dates">May 2008 – Aug 2012</span>
+        </div>
+        <div class="cv-job-org">Hospital Clínic de Barcelona</div>
+        <ul>
+          <li>Completed 4-year accredited cardiology residency covering general cardiology, echocardiography, electrophysiology, and diagnostic catheterisation.</li>
+          <li>Awarded best resident paper prize by the Sociedad Española de Cardiología (SEC) for a study on hs-troponin utilisation in chest pain pathways, 2011.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Selected Publications</div>
+      <div class="cv-pub">
+        <strong>Mendez C</strong>, García-Pavia P, Ribas N, et al. "NT-proBNP-guided diuretic optimisation in acute heart failure: a prospective multicentre cohort." <em>European Journal of Heart Failure</em>, 25(4):612–621, 2023.
+      </div>
+      <div class="cv-pub">
+        <strong>Mendez C</strong>, Foale D, Serrano M. "Drug-coated balloon versus second-generation DES for de novo small-vessel coronary artery disease: 2-year registry outcomes." <em>EuroIntervention</em>, 10(8):912–919, 2014.
+      </div>
+      <div style="font-size:9.5pt; color:#666C74; padding-left:16px;">+ 16 additional publications in European Heart Journal, Circulation, JACC Cardiovascular Interventions, and Heart. Full list available on ORCID: 0000-0002-1234-5678.</div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Clinical Skills</div>
+      <ul class="cv-skills">
+        <li>Coronary angiography &amp; PCI</li>
+        <li>Primary PCI / PPCI</li>
+        <li>CTO recanalisation</li>
+        <li>Bifurcation &amp; left main PCI</li>
+        <li>TAVI work-up &amp; team management</li>
+        <li>Intravascular imaging (OCT, IVUS)</li>
+        <li>Transthoracic &amp; TOE echocardiography</li>
+        <li>Temporary pacing wire insertion</li>
+        <li>Heart failure device optimisation (CRT, ICD)</li>
+        <li>Clinical trial design &amp; biostatistics</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">Licenciatura en Medicina y Cirugía (MD equivalent)</span>
+        <span class="cv-edu-date">Sep 2001 – Jun 2007</span>
+      </div>
+      <div class="cv-edu-school">Universitat de Barcelona, Facultat de Medicina — Summa Cum Laude (9.4/10)</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">Interventional Cardiology Fellowship</span>
+          <span class="cv-edu-date">Sep 2012 – Dec 2013</span>
+        </div>
+        <div class="cv-edu-school">Hammersmith Hospital / Imperial College London — EAPCI Level 3 Certification</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">MSc Clinical Research (part-time)</span>
+          <span class="cv-edu-date">2015 – 2017</span>
+        </div>
+        <div class="cv-edu-school">Universitat Autònoma de Barcelona — Distinction</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

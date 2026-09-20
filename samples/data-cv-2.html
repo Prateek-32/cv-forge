@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sofia Reyes — Data Analyst CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Stack strip — chip badges */
+  .stack-strip {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .stack-chip {
+    background: #F3F4F6;
+    border: 1px solid #DDE0E4;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 9pt;
+    color: #3E444C;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .03em;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../data.html">← Back to Data &amp; Analytics</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Sofia Reyes</div>
+      <div class="cv-title">Data Analyst</div>
+      <div class="cv-contact">
+        <span>sofia.reyes@email.com</span>
+        <span>+34 612 345 678</span>
+        <span>Madrid, Spain</span>
+        <span>linkedin.com/in/sofiareyes</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Data Analyst with 2 years of experience at Santander Spain, turning raw transactional and customer data into actionable reporting and dashboards. Skilled in SQL, Python, and Power BI, with a focus on automating repetitive analytical workflows to free up stakeholder time for decision-making. Comfortable working across finance, marketing, and operations teams.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Key Metrics</div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="m-val">12 hrs/wk</span>
+          <span class="m-lbl">Saved via report automation</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">3</span>
+          <span class="m-lbl">Monthly reports fully automated</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">40%</span>
+          <span class="m-lbl">Reduction in ad-hoc data requests</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">6</span>
+          <span class="m-lbl">Live Power BI dashboards owned</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technology Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">SQL</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">pandas</span>
+        <span class="stack-chip">Power BI</span>
+        <span class="stack-chip">DAX</span>
+        <span class="stack-chip">Excel</span>
+        <span class="stack-chip">Azure Data Studio</span>
+        <span class="stack-chip">Git</span>
+        <span class="stack-chip">Confluence</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Data Analyst</span>
+          <span class="cv-job-dates">Sep 2024 – Present</span>
+        </div>
+        <div class="cv-job-org">Santander España, Madrid</div>
+        <ul>
+          <li><strong>Business question:</strong> Could manual monthly reporting be eliminated for the retail credit team? <strong>Approach:</strong> Audited 3 existing Excel reports, rewrote them as parameterised SQL queries feeding a Power BI service dataset. <strong>Outcome:</strong> Eliminated 12 hours of analyst time per week across the team.</li>
+          <li><strong>Business question:</strong> Which customer segments were at highest churn risk in Q4 2024? <strong>Approach:</strong> Built a cohort analysis in Python using 18 months of transaction history and modelled early-warning signals with logistic regression. <strong>Outcome:</strong> Retention campaign targeted 4,200 at-risk customers; 31% conversion rate on re-engagement offers.</li>
+          <li><strong>Business question:</strong> Why were branch managers submitting duplicate data-quality tickets? <strong>Approach:</strong> Traced root cause to mismatched column mappings in the ETL job; patched the transformation and added a reconciliation check. <strong>Outcome:</strong> Duplicate ticket volume fell 94% in the following cycle.</li>
+          <li>Maintained and documented 6 production Power BI dashboards used by 80+ business users in retail banking operations.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Junior Data Analyst (Internship → Permanent)</span>
+          <span class="cv-job-dates">Feb 2023 – Aug 2024</span>
+        </div>
+        <div class="cv-job-org">Santander España, Madrid</div>
+        <ul>
+          <li><strong>Business question:</strong> How could the ops team track SLA compliance in near-real time? <strong>Approach:</strong> Designed a Power BI dashboard pulling from Azure SQL with 15-minute refresh; added conditional formatting alerts for breached SLAs. <strong>Outcome:</strong> Average SLA breach response time dropped from 4.2 hours to 47 minutes.</li>
+          <li>Wrote and maintained 20+ SQL stored procedures supporting monthly regulatory reporting submissions to Banco de España.</li>
+          <li>Supported A/B test analysis for 2 product campaigns; communicated results to non-technical stakeholders via structured slide decks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Additional Skills</div>
+      <ul class="cv-skills">
+        <li>Statistical analysis &amp; hypothesis testing</li>
+        <li>Data cleaning &amp; wrangling</li>
+        <li>Dashboard design &amp; UX</li>
+        <li>Stakeholder communication</li>
+        <li>Agile / Jira</li>
+        <li>Spanish (native), English (C1)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">BSc Statistics</span>
+        <span class="cv-edu-date">Sep 2019 – Jun 2023</span>
+      </div>
+      <div class="cv-edu-school">Universidad Carlos III de Madrid — GPA 8.4/10, Honours mention in Statistical Computing</div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

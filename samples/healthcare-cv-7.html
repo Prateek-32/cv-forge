@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Yuki Sato — Junior Doctor IMT1 CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell { max-width: 780px; margin: 0 auto; }
+
+  .back-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; gap: 16px; flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4; text-decoration: none; font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px; padding: 12px 16px; color: #9CCCC2;
+    font-size: 13px; margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .04em;
+  }
+
+  .cv {
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C;
+  }
+
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 9.5pt; color: #3E444C; margin-top: 8px; }
+
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: #17191C; border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px;
+  }
+
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  .cv-licence-block { display: flex; flex-wrap: wrap; gap: 6px 24px; font-size: 9.5pt; }
+  .cv-licence-block span { color: #3E444C; }
+  .cv-licence-block strong { color: #17191C; }
+
+  /* Timeline table for career path */
+  .cv-timeline { width: 100%; font-size: 10pt; border-collapse: collapse; margin-bottom: 4px; }
+  .cv-timeline td { padding: 5px 10px 5px 0; vertical-align: top; border-top: 1px solid #ECEAE6; }
+  .cv-timeline td:first-child { font-weight: 600; white-space: nowrap; width: 15%; color: #17191C; }
+  .cv-timeline td:nth-child(2) { width: 30%; color: #17191C; }
+  .cv-timeline td:last-child { color: #3E444C; font-size: 9.5pt; }
+
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv { box-shadow: none !important; border-radius: 0 !important; padding: 18mm 18mm !important; font-size: 10.5pt !important; }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../healthcare.html">← Back to Healthcare &amp; Medicine</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Dr. Yuki Sato</div>
+      <div class="cv-title">Internal Medicine Trainee Year 1 (IMT1) — NHS Wales</div>
+      <div class="cv-contact">
+        <span>yuki.sato@email.com</span>
+        <span>+44 7700 123 456</span>
+        <span>Cardiff, Wales, United Kingdom</span>
+        <span>linkedin.com/in/yukisato-md</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Registration &amp; Licences</div>
+      <div class="cv-licence-block">
+        <span><strong>GMC No. 8765432</strong> — General Medical Council, Full Registration with Licence to Practise, 2025</span>
+        <span><strong>Japan Medical License No. JML-2023-084512</strong> — Ministry of Health, Labour and Welfare, Japan, 2023</span>
+        <span><strong>PLAB 1 &amp; PLAB 2</strong> — GMC Professional and Linguistic Assessments Board, Passed 2024 &amp; 2025</span>
+        <span><strong>ALS Provider</strong> — Resuscitation Council UK, 2025</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Dual-registered junior doctor with 1 year of clinical experience at Osaka University Hospital followed by ongoing Internal Medicine Training (IMT1) within NHS Wales. Proficient in Japanese and UK healthcare systems. Passed PLAB 1 and PLAB 2 on first attempt. Strong academic foundation in internal medicine with exposure to gastroenterology, nephrology, and general medicine rotations. Committed to delivering compassionate, safe, and evidence-based care within a multicultural NHS environment.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Clinical Rotations</div>
+      <table class="cv-timeline">
+        <tbody>
+          <tr>
+            <td>Aug 2025 –<br>Present</td>
+            <td>General Medicine (IMT1)</td>
+            <td>University Hospital of Wales, Cardiff — NHS Wales; acute medical takes, ward rounds, MDT participation</td>
+          </tr>
+          <tr>
+            <td>Jan 2025 –<br>Jul 2025</td>
+            <td>Cardiology (IMT1)</td>
+            <td>Royal Gwent Hospital, Newport — coronary care, heart failure, 24-hr on-call</td>
+          </tr>
+          <tr>
+            <td>Apr 2024 –<br>Dec 2024</td>
+            <td>Junior Doctor (Foundation equivalent)</td>
+            <td>Osaka University Hospital — general medicine floor, nephrology ward, outpatient clinics</td>
+          </tr>
+          <tr>
+            <td>Apr 2023 –<br>Mar 2024</td>
+            <td>Postgraduate Clinical Year</td>
+            <td>Osaka University Hospital — mandatory supervised post-graduation year (相当); gastroenterology, emergency medicine</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience Highlights</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">IMT1 — Cardiology &amp; General Medicine</span>
+          <span class="cv-job-dates">Jan 2025 – Present</span>
+        </div>
+        <div class="cv-job-org">NHS Wales — Royal Gwent Hospital &amp; University Hospital of Wales</div>
+        <ul>
+          <li>Participate in daily acute medical take covering 25–35 new admissions per shift; clerks and initiates management plans under registrar and consultant supervision.</li>
+          <li>Achieved competency sign-off in 14 of 24 IMT1 core procedural skills within 8 months, ahead of deanery benchmark timeline.</li>
+          <li>Completed quality improvement project on VTE prophylaxis compliance: identified a 19% documentation gap and implemented a ward-based checklist resulting in 97% compliance at re-audit.</li>
+          <li>Adapted rapidly to NHS electronic systems (Trakcare, Welsh Clinical Portal) having previously worked in Japanese hospital information systems (HIS).</li>
+          <li>Presented at departmental journal club on SGLT2 inhibitor use in acute heart failure (EMPULSE trial); commended by cardiology consultant for evidence appraisal skills.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Junior Doctor — General Medicine &amp; Nephrology</span>
+          <span class="cv-job-dates">Apr 2023 – Dec 2024</span>
+        </div>
+        <div class="cv-job-org">Osaka University Hospital, Osaka, Japan</div>
+        <ul>
+          <li>Completed mandatory post-graduation supervised clinical year across general medicine, nephrology, and gastroenterology wards (combined 400+ beds).</li>
+          <li>Assisted with renal biopsy procedures and interpreted 60+ renal histology reports under nephrology attending supervision.</li>
+          <li>Managed overnight emergency calls independently after 3-month supervised period; escalation rate of 12% (within departmental norms).</li>
+          <li>Co-authored a case report on IgA nephropathy with atypical presentation; submitted to Clinical Kidney Journal (under review, 2025).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Clinical Skills &amp; Procedures</div>
+      <ul class="cv-skills">
+        <li>Arterial blood gas sampling</li>
+        <li>IV cannulation &amp; venepuncture</li>
+        <li>Urinary catheterisation</li>
+        <li>Nasogastric tube insertion</li>
+        <li>ECG acquisition &amp; interpretation</li>
+        <li>Renal biopsy assistance</li>
+        <li>Ascitic tap (supervised)</li>
+        <li>Airway management (BVM)</li>
+        <li>Welsh Clinical Portal / Trakcare EPR</li>
+        <li>JMDC / Japanese hospital HIS</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Languages</div>
+      <ul class="cv-skills">
+        <li>Japanese (native)</li>
+        <li>English (professional proficiency — IELTS 7.5)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">Doctor of Medicine (MD — 医学部医学科)</span>
+        <span class="cv-edu-date">Apr 2017 – Mar 2023</span>
+      </div>
+      <div class="cv-edu-school">Osaka University School of Medicine — GPA 3.8/4.0; ranked 4th of 98 graduates</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">PLAB 1 — GMC Professional Linguistic Assessments</span>
+          <span class="cv-edu-date">Sep 2024</span>
+        </div>
+        <div class="cv-edu-school">General Medical Council — Passed first attempt (score: 524 / pass mark 500)</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">PLAB 2 — OSCE Clinical Assessment</span>
+          <span class="cv-edu-date">Feb 2025</span>
+        </div>
+        <div class="cv-edu-school">General Medical Council, Manchester — Passed first attempt; GMC registration granted March 2025</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

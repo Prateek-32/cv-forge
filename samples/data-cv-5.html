@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Park — Data Engineer CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Stack strip — chip badges */
+  .stack-strip {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .stack-chip {
+    background: #F3F4F6;
+    border: 1px solid #DDE0E4;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 9pt;
+    color: #3E444C;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .03em;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../data.html">← Back to Data &amp; Analytics</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">James Park</div>
+      <div class="cv-title">Senior Data Engineer</div>
+      <div class="cv-contact">
+        <span>james.park@email.com</span>
+        <span>+44 7891 234 567</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/jamespark-de</span>
+        <span>github.com/jpark-data</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Data Engineer with 3 years of experience building high-throughput ELT pipelines and cloud data platforms at Kakao Corp and Wise. Specialises in Spark-based batch and streaming architectures, Snowflake data modelling, and infrastructure-as-code with Terraform. Comfortable owning pipelines end-to-end — from ingestion to analyst-ready data models — in environments where reliability is non-negotiable.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Pipeline &amp; Platform Metrics</div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="m-val">2.4 bn</span>
+          <span class="m-lbl">Events processed per day</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">99.96%</span>
+          <span class="m-lbl">Pipeline uptime over 18 months</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">55%</span>
+          <span class="m-lbl">Snowflake compute cost reduction</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">8 min</span>
+          <span class="m-lbl">Avg end-to-end latency (was 3 hrs)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technology Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">Apache Spark</span>
+        <span class="stack-chip">Apache Airflow</span>
+        <span class="stack-chip">Snowflake</span>
+        <span class="stack-chip">Terraform</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">SQL</span>
+        <span class="stack-chip">dbt</span>
+        <span class="stack-chip">Kafka</span>
+        <span class="stack-chip">AWS (S3, Glue, EMR)</span>
+        <span class="stack-chip">GCP (BigQuery, Pub/Sub)</span>
+        <span class="stack-chip">Docker</span>
+        <span class="stack-chip">Kubernetes</span>
+        <span class="stack-chip">Scala</span>
+        <span class="stack-chip">Git</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Senior Data Engineer</span>
+          <span class="cv-job-dates">Feb 2024 – Present</span>
+        </div>
+        <div class="cv-job-org">Wise, London</div>
+        <ul>
+          <li><strong>Business question:</strong> Could the monolithic nightly batch job be replaced to give finance and compliance teams intraday data? <strong>Approach:</strong> Redesigned the ELT architecture using Kafka + Spark Structured Streaming into Snowflake; rewrote 60 Airflow DAGs to micro-batch with 15-minute windows. <strong>Outcome:</strong> End-to-end data latency dropped from 3 hours to 8 minutes, enabling same-day FX reconciliation for the finance team.</li>
+          <li><strong>Business question:</strong> Was Snowflake compute spend growing disproportionate to data volume? <strong>Approach:</strong> Audited warehouse usage, identified 12 large scans caused by missing clustering keys; implemented automated clustering and query result caching policies. <strong>Outcome:</strong> Monthly compute cost reduced 55%, saving approximately £18,000/month.</li>
+          <li>Built and open-sourced an internal Terraform module for Snowflake RBAC provisioning; adopted by 3 squads within 2 months.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Data Engineer</span>
+          <span class="cv-job-dates">Jul 2022 – Jan 2024</span>
+        </div>
+        <div class="cv-job-org">Kakao Corp, Seoul</div>
+        <ul>
+          <li><strong>Business question:</strong> How could the KakaoTalk analytics team ingest 2.4 billion daily events without pipeline failures during peak hours? <strong>Approach:</strong> Rebuilt the ingestion layer with Kafka partitioned by user region and a Spark job on EMR with auto-scaling; added dead-letter queue handling and alerting. <strong>Outcome:</strong> Pipeline achieved 99.96% uptime over 18 months with zero data-loss incidents during 3 peak promotional events.</li>
+          <li><strong>Business question:</strong> Could data engineers self-provision infrastructure without raising tickets to the cloud ops team? <strong>Approach:</strong> Authored Terraform modules and CI/CD pipelines (GitHub Actions) covering EMR, Glue, and S3 lifecycle policies. <strong>Outcome:</strong> Provisioning time for new data pipelines fell from 5 days to 4 hours.</li>
+          <li>Mentored 2 junior engineers; co-led the data engineering guild (12 members) driving Python coding standards across the team.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Junior Data Engineer</span>
+          <span class="cv-job-dates">Sep 2021 – Jun 2022</span>
+        </div>
+        <div class="cv-job-org">Kakao Corp, Seoul</div>
+        <ul>
+          <li><strong>Business question:</strong> Were legacy PySpark scripts slowing down the weekly reporting batch? <strong>Approach:</strong> Profiled job execution plans, replaced 8 wide shuffles with broadcast joins and partition pruning. <strong>Outcome:</strong> Weekly batch runtime reduced from 4.5 hours to 1.1 hours, freeing cluster capacity for additional workloads.</li>
+          <li>Contributed to the migration of 35 on-premise Hadoop jobs to AWS EMR; all migrated jobs passed acceptance testing within schedule.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Additional Skills</div>
+      <ul class="cv-skills">
+        <li>Data modelling (Kimball, Data Vault)</li>
+        <li>Stream processing architecture</li>
+        <li>Cost optimisation &amp; FinOps</li>
+        <li>CI/CD for data pipelines</li>
+        <li>Data contracts &amp; schema governance</li>
+        <li>Korean (native), English (fluent)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">BSc Computer Science</span>
+        <span class="cv-edu-date">Mar 2017 – Feb 2021</span>
+      </div>
+      <div class="cv-edu-school">Korea Advanced Institute of Science and Technology (KAIST) — Top 10% of cohort, Specialisation in Systems &amp; Distributed Computing</div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

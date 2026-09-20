@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priya Singh — Consulting &amp; Operations CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Deal tombstone */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../consulting.html">← Back to Consulting &amp; Operations</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Priya Singh</div>
+      <div class="cv-title">Business Analyst, Digital Transformation — Banking &amp; Financial Services</div>
+      <div class="cv-contact">
+        <span>priya.singh@email.com</span>
+        <span>+91 98200 54321</span>
+        <span>Bangalore, India</span>
+        <span>linkedin.com/in/priyas</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Certifications</div>
+      <div class="cv-licenses">
+        <span><strong>AWS Certified Cloud Practitioner</strong> — Amazon Web Services, 2024</span>
+        <span><strong>Lean Six Sigma Yellow Belt</strong> — ASQ, 2023</span>
+        <span><strong>Agile Scrum Master</strong> — Scrum Alliance, 2024</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Business analyst at Deloitte specialising in digital transformation for Indian and South Asian banking clients. Two years of hands-on delivery across core banking modernisation, API integration, and process automation. Bridges technical and business stakeholders to convert ambiguous requirements into working solutions on time and under budget.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Impact at a Glance</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">₹14cr</span>
+          <span class="d-lbl">Annual ops cost saved — private sector bank, 2025</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">68%</span>
+          <span class="d-lbl">Reduction in loan-processing TAT — NBFC client, 2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">4</span>
+          <span class="d-lbl">Transformation programmes delivered end-to-end</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">Top 5%</span>
+          <span class="d-lbl">Analyst cohort ranking, Deloitte India FY2025</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Business Analyst — Technology &amp; Transformation</span>
+          <span class="cv-job-dates">Jul 2024 – Present</span>
+        </div>
+        <div class="cv-job-org">Deloitte Consulting, Bangalore</div>
+        <ul>
+          <li>A private-sector bank ran 12 disconnected legacy systems for retail operations, generating ₹14cr in annual reconciliation costs; mapped 340 process flows, defined API contracts, and coordinated a phased decommission that consolidated to 3 integrated platforms and eliminated the cost entirely.</li>
+          <li>Client's digital onboarding funnel had a 61% drop-off rate due to friction in KYC; redesigned the UX workflow and automated document verification using an AI-OCR integration, reducing drop-off to 27% and onboarding 18,000 new accounts in the first quarter post-launch.</li>
+          <li>Business and IT teams were misaligned on sprint priorities, causing 3-week delivery delays each release cycle; introduced a structured backlog-grooming cadence and RACI matrix that cut average release delay to under 4 days.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Analyst — Financial Services Consulting</span>
+          <span class="cv-job-dates">Jul 2023 – Jun 2024</span>
+        </div>
+        <div class="cv-job-org">Deloitte Consulting, Bangalore</div>
+        <ul>
+          <li>An NBFC client was processing loan applications in 9 days on average due to manual credit-bureau calls; automated bureau integration and built a rules-based decisioning engine, compressing TAT to 2.9 days — a 68% reduction — across 14,000 monthly applications.</li>
+          <li>Regulatory reporting required 3 FTEs working overtime each quarter; templated 22 RBI-format reports in Power BI with live CBS data feeds, freeing all 3 FTEs for higher-value work and eliminating ₹26L in quarterly overtime costs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technical Skills</div>
+      <ul class="cv-skills">
+        <li>Core banking systems (Finacle, Temenos)</li>
+        <li>API design &amp; integration (REST, Swagger)</li>
+        <li>Python (pandas, automation scripts)</li>
+        <li>SQL &amp; Power BI</li>
+        <li>Agile / Scrum delivery</li>
+        <li>Process mapping (BPMN, Visio)</li>
+        <li>Jira &amp; Confluence</li>
+        <li>AWS (EC2, S3, Lambda basics)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">B.Tech, Computer Science &amp; Engineering</span>
+        <span class="cv-edu-date">Jul 2019 – May 2023</span>
+      </div>
+      <div class="cv-edu-school">Indian Institute of Technology Bombay — CGPA 8.7 / 10, Silver Medal (Department Rank 2)</div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomas Novak — Consulting &amp; Operations CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Licenses strip */
+  .cv-licenses {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-licenses span { color: #3E444C; }
+  .cv-licenses strong { color: #17191C; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Deal tombstone */
+  .deal-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .deal-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .deal-item:last-child { border-right: none; }
+  .deal-item .d-val { font-weight: 700; font-size: 11pt; display: block; }
+  .deal-item .d-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../consulting.html">← Back to Consulting &amp; Operations</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Tomas Novak</div>
+      <div class="cv-title">Consultant, Strategy &amp; Financial Services</div>
+      <div class="cv-contact">
+        <span>tomas.novak@email.com</span>
+        <span>+44 7700 900 231</span>
+        <span>London, United Kingdom</span>
+        <span>linkedin.com/in/tomasnovak</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Strategy consultant with 3 years at BCG advising financial services and retail clients across Central Europe and the UK. Delivered 5 engagements spanning cost transformation, market entry, and operating model redesign. Combines rigorous analytical frameworks with hands-on client management in fast-paced, multilingual environments.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Selected Engagement Highlights</div>
+      <div class="deal-strip">
+        <div class="deal-item">
+          <span class="d-val">€38m</span>
+          <span class="d-lbl">Cost reduction identified — Czech retail bank, 2025</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">22%</span>
+          <span class="d-lbl">Revenue uplift — UK specialty retailer, 2024</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">5</span>
+          <span class="d-lbl">Engagements delivered across 3 countries</span>
+        </div>
+        <div class="deal-item">
+          <span class="d-val">3.9</span>
+          <span class="d-lbl">GPA — Charles University Prague</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Consultant</span>
+          <span class="cv-job-dates">Sep 2023 – Present</span>
+        </div>
+        <div class="cv-job-org">Boston Consulting Group, London</div>
+        <ul>
+          <li>A Czech retail bank faced €60m+ in cost overruns from siloed back-office operations; led a 10-week diagnostic and redesigned 4 shared-service functions, identifying €38m in sustainable annual savings.</li>
+          <li>UK specialty retailer was losing market share to online competitors; built a full market-entry model for 3 European markets and recommended a 2-country phased rollout that management approved, projecting 22% revenue uplift by Year 2.</li>
+          <li>Cross-functional team of 6 analysts across London and Prague were operating without a common data governance framework; standardised reporting templates and KPI definitions, cutting weekly reporting prep time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Junior Consultant</span>
+          <span class="cv-job-dates">Sep 2022 – Aug 2023</span>
+        </div>
+        <div class="cv-job-org">Boston Consulting Group, Prague</div>
+        <ul>
+          <li>A Visegrad-region insurer had no quantified view of digital channel ROI; conducted a channel-performance analysis across 180,000 policies and identified digital as 2.4× more profitable per policy, reshaping a €12m reinvestment plan.</li>
+          <li>Client C-suite lacked a structured post-merger integration roadmap following a €90m acquisition; developed a 120-day IMO plan covering HR, IT, and operations, enabling on-time close with zero Day-1 business disruption.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Skills &amp; Expertise</div>
+      <ul class="cv-skills">
+        <li>Operating model design</li>
+        <li>Cost transformation</li>
+        <li>Market entry strategy</li>
+        <li>Post-merger integration</li>
+        <li>Financial modelling</li>
+        <li>Stakeholder management</li>
+        <li>Excel &amp; PowerPoint (advanced)</li>
+        <li>Python (data analysis)</li>
+        <li>Czech, Slovak, English, German (conversational)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">MSc Business Administration</span>
+        <span class="cv-edu-date">Exchange, Jan 2022 – Jun 2022</span>
+      </div>
+      <div class="cv-edu-school">Bocconi University, Milan — Exchange Programme</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">BSc Economics &amp; Business</span>
+          <span class="cv-edu-date">Sep 2018 – Jun 2022</span>
+        </div>
+        <div class="cv-edu-school">Charles University, Prague — GPA 3.9 / 4.0, Dean's List all semesters</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amina Diallo — Head of Analytics CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Stack strip — chip badges */
+  .stack-strip {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .stack-chip {
+    background: #F3F4F6;
+    border: 1px solid #DDE0E4;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 9pt;
+    color: #3E444C;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .03em;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../data.html">← Back to Data &amp; Analytics</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Amina Diallo</div>
+      <div class="cv-title">Head of Analytics</div>
+      <div class="cv-contact">
+        <span>amina.diallo@email.com</span>
+        <span>+372 5123 4567</span>
+        <span>Tallinn, Estonia</span>
+        <span>linkedin.com/in/aminadiallo</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Analytics leader with 8 years of experience scaling data functions at high-growth tech companies in Africa and Europe. Built and managed a team of 11 analysts and analytics engineers from zero. Expert in modern analytics stack (dbt, BigQuery, Looker) and in translating ambiguous business problems into governed, self-serve data products. Track record of materially improving driver supply, customer retention, and operational efficiency through data.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Leadership &amp; Impact</div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="m-val">11</span>
+          <span class="m-lbl">Analytics team built from scratch</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">340+</span>
+          <span class="m-lbl">dbt models in production</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">62%</span>
+          <span class="m-lbl">Reduction in ad-hoc reporting load</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">14%</span>
+          <span class="m-lbl">Driver supply lift, Lagos market</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technology Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">SQL</span>
+        <span class="stack-chip">dbt</span>
+        <span class="stack-chip">BigQuery</span>
+        <span class="stack-chip">Looker</span>
+        <span class="stack-chip">Airflow</span>
+        <span class="stack-chip">Fivetran</span>
+        <span class="stack-chip">Segment</span>
+        <span class="stack-chip">Tableau</span>
+        <span class="stack-chip">Terraform</span>
+        <span class="stack-chip">dbt Cloud</span>
+        <span class="stack-chip">Git</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Head of Analytics</span>
+          <span class="cv-job-dates">Jan 2023 – Present</span>
+        </div>
+        <div class="cv-job-org">Bolt, Tallinn (Remote from Lagos until Mar 2024, then relocated)</div>
+        <ul>
+          <li><strong>Business question:</strong> How could Bolt reduce dependency on the central analytics team for day-to-day market reporting? <strong>Approach:</strong> Led migration of 340 ad-hoc SQL queries into a governed dbt project with documented models and Looker dashboards; trained market managers in self-serve. <strong>Outcome:</strong> Ad-hoc analytics requests to the central team fell 62% within 6 months of launch.</li>
+          <li><strong>Business question:</strong> Which driver cohorts were churning fastest in Eastern European markets? <strong>Approach:</strong> Built a driver lifetime value model segmenting by acquisition channel, city, and vehicle type; surfaced insights through a Looker dashboard for country managers. <strong>Outcome:</strong> Targeted retention nudges reduced 90-day driver churn by 17% in the Riga and Vilnius markets.</li>
+          <li>Grew the analytics team from 3 to 11 (including 4 analytics engineers and 3 product analysts); established hiring rubrics, onboarding, and career laddering used across the data org.</li>
+          <li>Defined and owned company-wide data quality SLAs; incident rate fell from 3.2 per week to 0.8 per week in the first year.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Senior Analytics Manager</span>
+          <span class="cv-job-dates">Aug 2020 – Dec 2022</span>
+        </div>
+        <div class="cv-job-org">Jumia, Lagos</div>
+        <ul>
+          <li><strong>Business question:</strong> Could better demand forecasting reduce warehouse stockout rates across 5 Nigerian cities? <strong>Approach:</strong> Built a time-series forecasting pipeline (Prophet + BigQuery ML) trained on 3 years of order history; integrated outputs into the inventory planning tool. <strong>Outcome:</strong> Stockout rate dropped from 18% to 9% across covered SKUs, reducing lost-sale revenue by an estimated ₦420M/quarter.</li>
+          <li><strong>Business question:</strong> Why did 34% of first-time buyers never place a second order? <strong>Approach:</strong> Ran a funnel analysis and exit survey correlation; identified payment failure at step 3 as the dominant blocker for 58% of churned users. <strong>Outcome:</strong> Product fix shipped within 6 weeks; second-order conversion improved from 66% to 79% over the following quarter.</li>
+          <li>Managed a team of 5 analysts; introduced weekly data reviews with C-suite that replaced a 40-page static monthly report.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Data Analyst → Analytics Lead</span>
+          <span class="cv-job-dates">Mar 2018 – Jul 2020</span>
+        </div>
+        <div class="cv-job-org">Andela, Lagos</div>
+        <ul>
+          <li><strong>Business question:</strong> How should Andela prioritise which engineers to place in which client engagements to maximise retention? <strong>Approach:</strong> Developed a match-score model using skills embeddings and historical engagement outcome data. <strong>Outcome:</strong> Model-assisted placements showed 23% higher 12-month engagement retention vs. manual matching baseline.</li>
+          <li>Established the first analytics function at Andela Nigeria; hired 2 junior analysts and built core KPI dashboards from scratch.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Additional Skills</div>
+      <ul class="cv-skills">
+        <li>Analytics engineering &amp; data modelling</li>
+        <li>OKR setting &amp; data strategy</li>
+        <li>Cross-functional stakeholder management</li>
+        <li>A/B testing &amp; causal inference</li>
+        <li>English (fluent), French (native), Yoruba (conversational)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">MSc Data Science</span>
+        <span class="cv-edu-date">Sep 2016 – Aug 2017</span>
+      </div>
+      <div class="cv-edu-school">University of Edinburgh — Distinction, Thesis: Demand Forecasting for Last-Mile Logistics in Emerging Markets</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">BSc Statistics &amp; Computer Science</span>
+          <span class="cv-edu-date">Sep 2012 – Jun 2016</span>
+        </div>
+        <div class="cv-edu-school">University of Lagos — First Class Honours</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

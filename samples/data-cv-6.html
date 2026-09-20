@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eva Müller — VP Head of Data CV Sample — CV Forge</title>
+<style>
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── SCREEN: paper card on dark background ── */
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .back-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    color: #9CCCC2;
+    font-size: 13px;
+    margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .04em;
+  }
+
+  /* ── THE CV PAPER ── */
+  .cv {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px;
+    font-size: 11pt;
+    line-height: 1.55;
+    color: #17191C;
+  }
+
+  /* Header */
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+  .cv-contact span::before { content: ''; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #17191C;
+    border-bottom: 1px solid #17191C;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  /* Certifications */
+  .cv-certs {
+    display: flex; flex-wrap: wrap; gap: 6px 24px;
+    font-size: 9.5pt;
+  }
+  .cv-certs span { color: #3E444C; }
+  .cv-certs strong { color: #17191C; }
+
+  /* Stack strip — chip badges */
+  .stack-strip {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .stack-chip {
+    background: #F3F4F6;
+    border: 1px solid #DDE0E4;
+    border-radius: 3px;
+    padding: 3px 10px;
+    font-size: 9pt;
+    color: #3E444C;
+    font-family: 'IBM Plex Mono', monospace, monospace;
+    letter-spacing: .03em;
+  }
+
+  /* Metrics strip */
+  .metrics-strip {
+    display: flex; flex-wrap: wrap; gap: 8px 0;
+    border: 1px solid #DDD7CA; border-radius: 3px;
+    overflow: hidden; margin-bottom: 14px;
+  }
+  .metric-item {
+    flex: 1; min-width: 120px;
+    padding: 8px 14px;
+    border-right: 1px solid #DDD7CA;
+    font-size: 9pt;
+  }
+  .metric-item:last-child { border-right: none; }
+  .metric-item .m-val { font-weight: 700; font-size: 11pt; display: block; }
+  .metric-item .m-lbl { color: #666C74; font-size: 8.5pt; }
+
+  /* Experience */
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  /* Skills */
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 10pt; }
+  .cv-skills li { list-style: none; color: #3E444C; }
+  .cv-skills li::before { content: '·  '; color: #17191C; font-weight: 700; }
+
+  /* Education */
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 18mm 18mm !important;
+      font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../data.html">← Back to Data &amp; Analytics</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <!-- ═══════════════════════ THE CV ═══════════════════════ -->
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Eva Müller</div>
+      <div class="cv-title">VP Data &amp; Head of Data Platform</div>
+      <div class="cv-contact">
+        <span>eva.mueller@email.com</span>
+        <span>+49 176 1234 5678</span>
+        <span>Berlin, Germany</span>
+        <span>linkedin.com/in/evamüller-data</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Certifications &amp; Executive Education</div>
+      <div class="cv-certs">
+        <span><strong>Executive Program in Data Strategy</strong> — Stanford Graduate School of Business, 2022</span>
+        <span><strong>Databricks Certified Associate Developer</strong> — Databricks, 2021</span>
+        <span><strong>dbt Certified Analytics Engineer</strong> — dbt Labs, 2023</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Senior data executive with 11 years of experience building data platforms and analytics organisations at scale. Joined N26 as its first dedicated data hire; scaled the function to 28 people across data engineering, analytics, and data science. Combines deep technical fluency (dbt, Databricks, Tableau) with board-level communication, product roadmap ownership, and regulatory compliance experience in the European fintech sector.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Platform &amp; Organisational Highlights</div>
+      <div class="metrics-strip">
+        <div class="metric-item">
+          <span class="m-val">200+</span>
+          <span class="m-lbl">Platform users scaled to (from 0)</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">78%</span>
+          <span class="m-lbl">Reduction in data incident rate</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">28</span>
+          <span class="m-lbl">Data team headcount built</span>
+        </div>
+        <div class="metric-item">
+          <span class="m-val">€2.1M</span>
+          <span class="m-lbl">Annual infra savings via platform consolidation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Technology Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">dbt</span>
+        <span class="stack-chip">Databricks</span>
+        <span class="stack-chip">Tableau</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">SQL</span>
+        <span class="stack-chip">Spark</span>
+        <span class="stack-chip">Snowflake</span>
+        <span class="stack-chip">Airflow</span>
+        <span class="stack-chip">Fivetran</span>
+        <span class="stack-chip">Terraform</span>
+        <span class="stack-chip">AWS</span>
+        <span class="stack-chip">Monte Carlo (data observability)</span>
+        <span class="stack-chip">Git</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">VP Data &amp; Head of Data Platform</span>
+          <span class="cv-job-dates">Jan 2021 – Present</span>
+        </div>
+        <div class="cv-job-org">N26, Berlin</div>
+        <ul>
+          <li><strong>Business question:</strong> How could N26 reduce the data incident rate that was eroding analyst trust in production dashboards? <strong>Approach:</strong> Deployed Monte Carlo data observability across 1,400 dbt models; established SLA tiers, on-call rota, and incident post-mortem culture. <strong>Outcome:</strong> Incident rate fell 78% within 9 months; analyst NPS for the data platform rose from 32 to 61.</li>
+          <li><strong>Business question:</strong> Was maintaining three separate BI tools (Tableau, Looker, Metabase) sustainable at scale? <strong>Approach:</strong> Led a platform consolidation project, migrating to a single Tableau + dbt semantic layer; ran change management with 9 product squads. <strong>Outcome:</strong> Consolidated to one platform saving €2.1M/year in licensing and reducing analyst onboarding time from 3 weeks to 5 days.</li>
+          <li><strong>Business question:</strong> How should the company demonstrate GDPR-compliant data lineage to BaFin regulators? <strong>Approach:</strong> Built end-to-end data lineage documentation using dbt's native graph and a custom metadata store; produced an audit pack reviewed by external counsel. <strong>Outcome:</strong> Passed BaFin data governance review with zero findings; process now used as a template for N26's expansion markets.</li>
+          <li>Scaled data team from 9 to 28 across 4 sub-teams; introduced levelling framework and data career ladder used across 3 European offices.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Director of Data Engineering</span>
+          <span class="cv-job-dates">Mar 2018 – Dec 2020</span>
+        </div>
+        <div class="cv-job-org">N26, Berlin</div>
+        <ul>
+          <li><strong>Business question:</strong> Could the data platform support 200 concurrent users from 3 users when N26 scaled from seed to Series D? <strong>Approach:</strong> Migrated from a single PostgreSQL instance to a Databricks + Snowflake architecture; introduced dbt for transformations and Fivetran for 22 source connectors. <strong>Outcome:</strong> Platform scaled to 200 active users with no degradation in query performance.</li>
+          <li><strong>Business question:</strong> Were manual data extractions creating compliance exposure for the finance team? <strong>Approach:</strong> Designed a governed data access layer using Snowflake row-level security; replaced 14 manual extraction scripts with monitored pipelines. <strong>Outcome:</strong> Eliminated all uncontrolled extractions; internal audit closed 6 open data-access findings in the following cycle.</li>
+          <li>Hired and developed the first 9 data engineers at N26; established engineering interview process and technical onboarding programme.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Senior Data Engineer → Lead Data Engineer</span>
+          <span class="cv-job-dates">Jun 2015 – Feb 2018</span>
+        </div>
+        <div class="cv-job-org">Zalando, Berlin</div>
+        <ul>
+          <li><strong>Business question:</strong> Could a unified customer 360 view be built from 7 disparate source systems to power personalisation? <strong>Approach:</strong> Designed a Spark-based data vault on AWS EMR integrating CRM, web, app, and logistics data; modelled 28 curated entities. <strong>Outcome:</strong> Customer 360 powered a personalisation engine that increased email campaign click-through by 19% across 14M active customers.</li>
+          <li>Led migration of 80 legacy Informatica jobs to Python + Spark; delivered on time and 15% under budget.</li>
+        </ul>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Data Analyst</span>
+          <span class="cv-job-dates">Sep 2013 – May 2015</span>
+        </div>
+        <div class="cv-job-org">Deutsche Telekom, Bonn</div>
+        <ul>
+          <li>Built churn prediction models for residential broadband; provided monthly scoring to the retention marketing team.</li>
+          <li><strong>Outcome:</strong> Retention campaign powered by model scores achieved 24% lower churn rate vs. control group in 6-month trial.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Additional Skills</div>
+      <ul class="cv-skills">
+        <li>Data governance &amp; GDPR compliance</li>
+        <li>C-suite &amp; board reporting</li>
+        <li>P&amp;L responsibility &amp; vendor management</li>
+        <li>Data mesh &amp; federated architecture</li>
+        <li>Executive hiring &amp; team building</li>
+        <li>German (native), English (C2), French (B2)</li>
+      </ul>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">Executive Program in Data Strategy</span>
+        <span class="cv-edu-date">2022</span>
+      </div>
+      <div class="cv-edu-school">Stanford Graduate School of Business</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">MSc Information Systems</span>
+          <span class="cv-edu-date">Oct 2011 – Sep 2013</span>
+        </div>
+        <div class="cv-edu-school">Humboldt-Universität zu Berlin — Summa Cum Laude, Thesis on Real-Time Stream Processing</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">BSc Business Informatics</span>
+          <span class="cv-edu-date">Oct 2008 – Jul 2011</span>
+        </div>
+        <div class="cv-edu-school">Humboldt-Universität zu Berlin — Magna Cum Laude</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end .cv -->
+
+</div>
+<!-- end .page-shell -->
+
+</body>
+</html>

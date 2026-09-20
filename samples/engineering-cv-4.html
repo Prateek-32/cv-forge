@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amir Hassan — Junior Developer CV Sample — CV Forge</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #060916;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: #17191C;
+    padding: 40px 20px 80px;
+    min-height: 100vh;
+  }
+
+  .page-shell { max-width: 780px; margin: 0 auto; }
+
+  .back-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; gap: 16px; flex-wrap: wrap;
+  }
+  .back-bar a {
+    color: #5EEAD4; text-decoration: none; font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .06em;
+  }
+  .back-bar a:hover { text-decoration: underline; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(180deg,#5EEAD4 0%,#34C9B4 100%);
+    color: #04221E; border: none; border-radius: 3px;
+    padding: 10px 20px; font-size: 14px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+  }
+  .print-btn:hover { opacity: .9; }
+
+  .notice {
+    background: rgba(94,234,212,.1);
+    border: 1px solid rgba(94,234,212,.3);
+    border-radius: 4px; padding: 12px 16px; color: #9CCCC2;
+    font-size: 13px; margin-bottom: 28px;
+    font-family: 'IBM Plex Mono', monospace, monospace; letter-spacing: .04em;
+  }
+
+  .cv {
+    background: #fff; border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    padding: 52px 56px; font-size: 11pt; line-height: 1.55; color: #17191C;
+  }
+
+  .cv-header { border-bottom: 2px solid #17191C; padding-bottom: 14px; margin-bottom: 18px; }
+  .cv-name { font-size: 22pt; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .cv-title { font-size: 12pt; color: #3E444C; margin-top: 3px; }
+  .cv-contact {
+    display: flex; flex-wrap: wrap; gap: 4px 20px;
+    font-size: 9.5pt; color: #3E444C; margin-top: 8px;
+  }
+
+  .cv-section { margin-bottom: 18px; }
+  .cv-section-title {
+    font-size: 9pt; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #17191C;
+    border-bottom: 1px solid #17191C; padding-bottom: 3px; margin-bottom: 10px;
+  }
+
+  .cv-summary { font-size: 10.5pt; color: #3E444C; line-height: 1.6; }
+
+  .stack-strip { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stack-chip {
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 9pt; background: #F4F5F6; border: 1px solid #D1D5DB;
+    border-radius: 3px; padding: 3px 10px; color: #17191C; white-space: nowrap;
+  }
+
+  .cv-job { margin-bottom: 14px; }
+  .cv-job-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .cv-job-title { font-weight: 700; font-size: 10.5pt; }
+  .cv-job-dates { font-size: 9.5pt; color: #3E444C; white-space: nowrap; }
+  .cv-job-org { font-size: 10pt; color: #3E444C; margin-bottom: 5px; }
+  .cv-job ul { padding-left: 16px; }
+  .cv-job li { font-size: 10pt; color: #17191C; margin-bottom: 3px; line-height: 1.5; }
+
+  .cv-project { margin-bottom: 10px; }
+  .cv-project-title { font-weight: 700; font-size: 10pt; }
+  .cv-project-desc { font-size: 10pt; color: #3E444C; margin-top: 2px; }
+
+  .cv-edu { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .cv-edu-deg { font-weight: 700; font-size: 10.5pt; }
+  .cv-edu-date { font-size: 9.5pt; color: #3E444C; }
+  .cv-edu-school { font-size: 10pt; color: #3E444C; }
+
+  @media print {
+    body { background: #fff !important; padding: 0 !important; }
+    .back-bar, .notice, .print-btn { display: none !important; }
+    .cv {
+      box-shadow: none !important; border-radius: 0 !important;
+      padding: 18mm 18mm !important; font-size: 10.5pt !important;
+    }
+    .page-shell { max-width: 100% !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-shell">
+
+  <div class="back-bar">
+    <a href="../engineering.html">← Back to Engineering &amp; Technology</a>
+    <button class="print-btn" onclick="window.print()">⬇ Download / Print to PDF</button>
+  </div>
+
+  <p class="notice">Sample document — fictional candidate for illustration purposes only. Your CV is prepared from your own record.</p>
+
+  <div class="cv">
+
+    <div class="cv-header">
+      <div class="cv-name">Amir Hassan</div>
+      <div class="cv-title">Junior Software Developer</div>
+      <div class="cv-contact">
+        <span>amir.hassan@email.com</span>
+        <span>+20 100 234 5678</span>
+        <span>Cairo, Egypt</span>
+        <span>linkedin.com/in/amirhassan-dev</span>
+        <span>github.com/amir-hassan</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Professional Summary</div>
+      <p class="cv-summary">Junior developer with 1 year of professional experience at Thoughtworks Cairo. Transitioned into software engineering via a Computer Science degree and Le Wagon full-stack bootcamp. Shipped two features to production in my first role — a client dashboard module and a CSV bulk-upload tool — within the first 6 months. Eager, fast learner with strong fundamentals in React, Node.js, and cloud basics. Looking to grow into a mid-level full-stack role.</p>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Tech Stack</div>
+      <div class="stack-strip">
+        <span class="stack-chip">React</span>
+        <span class="stack-chip">Node.js</span>
+        <span class="stack-chip">PostgreSQL</span>
+        <span class="stack-chip">AWS (EC2, S3, RDS)</span>
+        <span class="stack-chip">JavaScript (ES2023)</span>
+        <span class="stack-chip">TypeScript</span>
+        <span class="stack-chip">Express.js</span>
+        <span class="stack-chip">REST APIs</span>
+        <span class="stack-chip">Git</span>
+        <span class="stack-chip">Docker (basics)</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-job">
+        <div class="cv-job-header">
+          <span class="cv-job-title">Junior Software Developer</span>
+          <span class="cv-job-dates">Mar 2025 – Present</span>
+        </div>
+        <div class="cv-job-org">Thoughtworks, Cairo</div>
+        <ul>
+          <li>Built a React-based client dashboard module for a logistics SaaS platform, replacing a static report page — adopted by 3 enterprise clients within 4 weeks of launch.</li>
+          <li>Developed a CSV bulk-upload feature with validation and error reporting in Node.js/Express; reduced manual data-entry time for ops team by ~3 hours per week.</li>
+          <li>Paired with senior developers daily; completed 14 code review cycles and incorporated feedback to improve error-handling and component structure.</li>
+          <li>Fixed 8 production bugs across frontend and API layers, each resolved within 24 hours of filing.</li>
+          <li>Wrote unit and integration tests for both shipped features using Jest and React Testing Library; coverage on owned modules sits at 76%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Projects</div>
+
+      <div class="cv-project">
+        <div class="cv-project-title">TaskFlow — Personal Task Manager (2024)</div>
+        <div class="cv-project-desc">Full-stack app built during bootcamp: React frontend, Node.js/Express API, PostgreSQL. Deployed on AWS EC2 with RDS. Includes user auth, drag-and-drop boards, and email reminders. ~600 lines of backend code; live at github.com/amir-hassan/taskflow.</div>
+      </div>
+
+      <div class="cv-project">
+        <div class="cv-project-title">Cairo Transit Tracker — Open Data Hack (2024)</div>
+        <div class="cv-project-desc">Team of 3; built a React map interface over public GTFS transit data with a Node.js aggregation layer. Won "Best First-Time Hack" at Cairo Dev Hackathon, November 2024.</div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-edu">
+        <span class="cv-edu-deg">BSc Computer Science</span>
+        <span class="cv-edu-date">Sep 2020 – Jun 2024</span>
+      </div>
+      <div class="cv-edu-school">Cairo University, Faculty of Computers and Artificial Intelligence — Grade: Very Good (83%)</div>
+
+      <div style="margin-top:10px;">
+        <div class="cv-edu">
+          <span class="cv-edu-deg">Full-Stack Web Development Bootcamp</span>
+          <span class="cv-edu-date">Oct 2024 – Jan 2025</span>
+        </div>
+        <div class="cv-edu-school">Le Wagon, Cairo — Batch #1412; Ruby on Rails, JavaScript, React, PostgreSQL, AWS</div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Languages</div>
+      <p class="cv-summary">Arabic (native) · English (professional working proficiency) · French (basic)</p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
