@@ -1792,3 +1792,54 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .pf-screen, .pf-viewport iframe, .pf-promo, .pf-strip { transition: none; }
   .pf-screen:hover iframe { transform: scale(var(--s)); }
 }
+
+/* ---------- home: the four portfolios fanned out like cards ---------- */
+
+.pf-fan { display: flex; justify-content: center; align-items: flex-start; padding: 34px 0 56px; }
+.pf-fan-item {
+  --hue: 94, 234, 212;
+  position: relative; z-index: 1;
+  flex: 0 0 29%; margin-left: -5%;
+  transform: rotate(var(--r)) translateY(var(--y));
+  transform-origin: 50% 100%;
+  transition: transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .45s ease;
+}
+.pf-fan-item:first-child { margin-left: 0; }
+.pf-fan-item[data-tone="creative"]  { --hue: 244, 114, 182; }
+.pf-fan-item[data-tone="corporate"] { --hue: 245, 194, 107; }
+.pf-fan-item[data-tone="care"]      { --hue: 96, 165, 250; }
+.pf-fan-item:hover, .pf-fan-item:focus-visible {
+  z-index: 5;
+  transform: rotate(0deg) translateY(-18px) scale(1.07);
+  box-shadow: var(--sh-3), 0 0 80px -12px rgba(var(--hue), .8);
+}
+/* portrait windows: 1600px of each site showing, the rest travels on hover */
+.pf-fan-item .pf-viewport { aspect-ratio: 4 / 5; }
+.pf-fan-item:hover iframe { transform: translateY(calc(-1200px * var(--s))) scale(var(--s)); }
+.pf-fan-cap {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 16px;
+  background: rgba(19, 26, 51, .97);
+  border-top: 1px solid var(--line-2);
+}
+.pf-fan-cap strong { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--ink); }
+.pf-fan-cap em { font: normal 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--hue)); }
+.pf-home-all { align-self: center; }
+
+/* phones and tablets: a row you swipe through */
+@media (max-width: 900px) {
+  .pf-fan {
+    justify-content: flex-start; gap: 16px;
+    margin-inline: calc(var(--gutter) * -1); padding: 10px var(--gutter) 26px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  }
+  .pf-fan::-webkit-scrollbar { display: none; }
+  .pf-fan-item { flex: 0 0 74%; margin-left: 0; transform: none; scroll-snap-align: center; }
+  .pf-fan-item:first-child { margin-left: 0; }
+  .pf-fan-item:hover, .pf-fan-item:focus-visible { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-fan-item { transition: none; }
+  .pf-fan-item:hover iframe { transform: scale(var(--s)); }
+}
