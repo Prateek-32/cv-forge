@@ -116,16 +116,40 @@ To add a sample:
 3. Do the same in the field page's own sample section, and update the "Browse all N
    samples" total on every field page.
 
-## Before going live — placeholders to replace
+## Contact details — one place
 
-Search the files for `[` and replace each bracketed placeholder:
+There are no bracketed placeholders left on the site. Contact details live in one object
+at the top of `site.js`:
 
-- `[YOUR BUSINESS NAME]` and the `CV Forge` wordmark (a working name)
-- `[YOUR PRICE]`, `[TURNAROUND]`, `[RESPONSE TIME]`
-- `[YOUR EMAIL]`, `[YOUR PHONE]`, `[YOUR CITY]`, `[YOUR HOURS]`
-- The `[NUMBER]` statistics and both testimonials on the home page — delete these blocks
-  rather than inventing figures
-- `[PRIVACY POLICY]` / `[TERMS]` in the footer
+```js
+var CV_FORGE_CONTACT = {
+  email:    '',   // e.g. 'hello@cvforge.in'
+  phone:    '',   // as it should be shown, e.g. '+91 98765 43210'
+  whatsapp: '',   // digits only, country code first, e.g. '919876543210'
+  city:     '',
+  hours:    ''
+};
+```
+
+Every contact link — the footer's Contact column, the "Prefer to talk?" card on
+`start.html`, and the floating WhatsApp button — stays hidden until its value is set, so
+an empty field never shows as a placeholder. The form's failure message also falls back
+to `email` once it is set.
+
+The site deliberately states no turnaround time and shows no testimonials or order
+counts yet. When there is a real turnaround and real client quotes, add them back — the
+home page stats block (`.stats`) is the place for figures.
+
+## Home page extras
+
+- **Hero:** a CV that builds itself on load (Lena Kowalski's real sample figures), pure
+  CSS in the "home: the CV that forges itself" block of `styles.css`.
+- **Before / after:** a draggable comparison. The "after" side uses only facts from
+  `samples/finance-cv.html`; keep it that way if you edit it.
+- **Quick view:** on `sample-cvs.html` and the field pages, a sample card opens its CV
+  in a dialog with previous / next. Phones and modified clicks open the page itself.
+- **Link previews:** `og-image.png` (1200×630), `favicon.svg`, `apple-touch-icon.png`,
+  and `sitemap.xml` — submit the sitemap in Google Search Console.
 
 ## The intake form (your own, via Google Apps Script)
 
@@ -162,15 +186,8 @@ Version: **New version** → Deploy. Otherwise the site keeps hitting the old co
   link recorded in the row
 - A hidden honeypot field that silently drops bot submissions
 - An inline thank-you on success, without a page reload
-- On any failure: the form stays filled in and shows an email address to fall back to,
-  so an enquiry is never silently lost
-
-## Placeholders in the JavaScript
-
-Two placeholders live in `site.js`, not the HTML — easy to miss:
-
-- `[YOUR EMAIL]` in the error message shown if a submission fails
-- `[RESPONSE TIME]` in the on-screen thank-you
+- On any failure: the form stays filled in and shows the contact email to fall back to
+  (once `CV_FORGE_CONTACT.email` is set), so an enquiry is never silently lost
 
 ## Accessibility
 
