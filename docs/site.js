@@ -3,6 +3,20 @@
    Everything degrades: if this file fails to run, the page is still
    complete and readable. */
 
+/* ---------------------------------------------------------------
+   Contact details — the one place to set them.
+   Every contact link on the site (footer, start page, the WhatsApp
+   button) stays hidden until its value here is filled in, so an
+   empty field never shows up as a placeholder.
+   --------------------------------------------------------------- */
+var CV_FORGE_CONTACT = {
+  email:    '',   // e.g. 'hello@cvforge.in'
+  phone:    '',   // as it should be shown, e.g. '+91 98765 43210'
+  whatsapp: '',   // digits only, country code first, e.g. '919876543210'
+  city:     '',   // e.g. 'Pune'
+  hours:    ''    // e.g. 'Mon–Sat, 10am–7pm IST'
+};
+
 (function () {
   'use strict';
 
@@ -346,14 +360,208 @@
           '<div class="card card-raised" style="gap:14px;">' +
           '<span class="eyebrow">Received</span>' +
           '<h2 style="font-size:clamp(24px,2.6vw,32px);">Thank you — your brief is with us.</h2>' +
-          '<p>We read every brief ourselves. Expect a fixed quotation and timeline within ' +
-          '[RESPONSE TIME], to the address you gave us.</p>' +
+          '<p>We read every brief ourselves. Expect a fixed quotation and timeline by ' +
+          'email, to the address you gave us.</p>' +
           '<p class="hint">Nothing is charged until you approve it.</p></div>';
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       })
       .catch(function (err) {
         button.disabled = false;
-        say('Something went wrong sending that — please email your brief to [YOUR EMAIL] and we will pick it up from there. (' + err.message + ')', 'error');
+        var email = CV_FORGE_CONTACT.email;
+        say((email
+          ? 'Something went wrong sending that — please email your brief to ' + email +
+            ' and we will pick it up from there.'
+          : 'Something went wrong sending that. Your answers are still here — please try again in a minute.') +
+          ' (' + err.message + ')', 'error');
       });
+  });
+})();
+
+/* ---------------------------------------------------------------
+   Contact links and the WhatsApp button, from CV_FORGE_CONTACT.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var c = CV_FORGE_CONTACT;
+  var wa = (c.whatsapp || '').replace(/\D/g, '');
+  var waHref = wa ? 'https://wa.me/' + wa + '?text=' +
+    encodeURIComponent('Hi CV Forge, I have a question about getting my CV rebuilt.') : '';
+  var cityHours = [c.city, c.hours ? 'Replies ' + c.hours : ''].filter(Boolean).join(' · ');
+
+  var values = {
+    email:        c.email ? { href: 'mailto:' + c.email, text: c.email } : null,
+    phone:        c.phone ? { href: 'tel:' + c.phone.replace(/[^\d+]/g, ''), text: c.phone } : null,
+    whatsapp:     waHref ? { href: waHref, external: true } : null,
+    city:         c.city ? { text: c.city } : null,
+    'city-hours': cityHours ? { text: cityHours } : null
+  };
+
+  document.querySelectorAll('[data-contact]').forEach(function (el) {
+    var v = values[el.getAttribute('data-contact')];
+    if (!v) return;
+    if (v.href) el.setAttribute('href', v.href);
+    if (v.text) el.textContent = v.text;
+    if (v.external) { el.target = '_blank'; el.rel = 'noopener'; }
+    el.hidden = false;
+  });
+  document.querySelectorAll('[data-contact-block]').forEach(function (block) {
+    if (block.querySelector('[data-contact]:not([hidden])')) block.hidden = false;
+  });
+
+  if (waHref) {
+    var btn = document.createElement('a');
+    btn.className = 'wa-float';
+    btn.href = waHref;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">' +
+      '<path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.2L2.6 21.4l4.7-1.2A9.4 9.4 0 1 0 12 2.6z" ' +
+      'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>' +
+      '<path d="M8.6 7.4c.3-.3.8-.3 1 .1l1 1.6c.2.3.1.7-.1 1l-.6.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.6' +
+      'c.3-.3.7-.3 1-.1l1.6 1c.4.2.4.7.1 1l-.8.8c-.6.6-1.5.7-2.3.4-2.4-1-4.3-2.9-5.3-5.3' +
+      '-.3-.8-.2-1.7.4-2.3z" fill="currentColor"/></svg>';
+    document.body.appendChild(btn);
+  }
+})();
+
+/* ---------------------------------------------------------------
+   Mobile menu, before/after slider, counters and the sample quick
+   view. Each guards itself, so a page without the element is a no-op.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- mobile menu ------------------------------------------------
+  var header = document.querySelector('.site-header');
+  var toggle = header && header.querySelector('.nav-toggle');
+  if (toggle) {
+    var setOpen = function (open) {
+      header.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', function () {
+      setOpen(!header.classList.contains('nav-open'));
+    });
+    header.querySelectorAll('.site-nav a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 760) setOpen(false);
+    });
+  }
+
+  // ---- before / after ---------------------------------------------
+  document.querySelectorAll('.ba').forEach(function (ba) {
+    var range = ba.querySelector('.ba-range');
+    if (!range) return;
+    var update = function () { ba.style.setProperty('--pos', range.value + '%'); };
+    range.addEventListener('input', update);
+    update();
+  });
+
+  // ---- counters: 0 → n when the stats scroll into view -------------
+  var counters = document.querySelectorAll('.stat .figure[data-count]');
+  if (counters.length && !reduced && 'IntersectionObserver' in window) {
+    var run = function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var start = null;
+      var step = function (t) {
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / 1200);
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    };
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        seen.unobserve(entry.target);
+        run(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { seen.observe(el); });
+  }
+
+  // ---- sample quick view ------------------------------------------
+  // A card opens its CV in a dialog, with previous / next through the
+  // cards currently visible. Modified clicks, and phones, still follow
+  // the link to the full page.
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.cv-card'));
+  if (!cards.length || typeof HTMLDialogElement !== 'function') return;
+
+  var dlg = document.createElement('dialog');
+  dlg.className = 'qv';
+  dlg.setAttribute('aria-labelledby', 'qv-name');
+  dlg.innerHTML =
+    '<div class="qv-bar">' +
+      '<div class="qv-who"><span class="qv-name" id="qv-name"></span><span class="qv-role"></span></div>' +
+      '<div class="qv-actions">' +
+        '<button type="button" class="qv-btn qv-prev" aria-label="Previous sample">&larr;</button>' +
+        '<span class="qv-count" aria-live="polite"></span>' +
+        '<button type="button" class="qv-btn qv-next" aria-label="Next sample">&rarr;</button>' +
+        '<a class="qv-btn qv-open" target="_blank" rel="noopener">Open full page</a>' +
+        '<button type="button" class="qv-btn qv-close" aria-label="Close preview">&times;</button>' +
+      '</div>' +
+    '</div>' +
+    '<iframe class="qv-frame" title="Sample CV"></iframe>';
+  document.body.appendChild(dlg);
+
+  var frame = dlg.querySelector('.qv-frame');
+  var prev = dlg.querySelector('.qv-prev');
+  var next = dlg.querySelector('.qv-next');
+  var count = dlg.querySelector('.qv-count');
+  var list = [];
+  var index = 0;
+
+  var show = function (i) {
+    index = (i + list.length) % list.length;
+    var card = list[index];
+    dlg.querySelector('.qv-name').textContent = card.querySelector('.s-name').textContent;
+    dlg.querySelector('.qv-role').textContent = card.querySelector('.s-role').textContent;
+    dlg.querySelector('.qv-open').href = card.href;
+    count.textContent = (index + 1) + ' / ' + list.length;
+    prev.hidden = next.hidden = count.hidden = list.length < 2;
+    frame.src = card.getAttribute('href');
+  };
+
+  cards.forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (window.innerWidth < 640) return;
+      e.preventDefault();
+      list = cards.filter(function (c) { return c.offsetParent !== null; });
+      show(list.indexOf(card));
+      dlg.showModal();
+      document.documentElement.classList.add('qv-lock');
+    });
+  });
+
+  prev.addEventListener('click', function () { show(index - 1); });
+  next.addEventListener('click', function () { show(index + 1); });
+  dlg.querySelector('.qv-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function (e) {
+    if (list.length < 2) return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); show(index - 1); }
+  });
+  dlg.addEventListener('close', function () {
+    frame.src = 'about:blank';
+    document.documentElement.classList.remove('qv-lock');
   });
 })();

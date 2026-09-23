@@ -7,6 +7,19 @@
 <meta name="description" content="Resumes from ₹99, CVs from ₹199, portfolio sites from ₹699. Launch pricing, one revision included, no subscription.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://prateek-32.github.io/cv-forge/pricing.html">
+<meta name="theme-color" content="#060916">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CV Forge">
+<meta property="og:title" content="Pricing — CV Forge">
+<meta property="og:description" content="Resumes from ₹99, CVs from ₹199, portfolio sites from ₹699. Launch pricing, one revision included, no subscription.">
+<meta property="og:url" content="https://prateek-32.github.io/cv-forge/pricing.html">
+<meta property="og:image" content="https://prateek-32.github.io/cv-forge/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
@@ -14,7 +27,8 @@
 <header class="site-header">
   <div class="wrap bar">
     <a class="wordmark" href="index.html">CV&nbsp;Forge<span>.</span></a>
-    <nav class="site-nav" aria-label="Main">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="fields.html">Professions</a>
       <a href="sample-cvs.html">Sample CVs</a>
@@ -71,6 +85,62 @@
   </div>
 </section>
 
+<section class="wrap stack rule">
+  <div class="head-2">
+    <div><span class="eyebrow">Questions</span>
+    <h2>Before you order</h2></div>
+    <p>The things people ask most often, answered plainly.</p>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>What exactly do I get for &#8377;99?</summary>
+      <p>A one-page resume rebuilt on the structure your field uses, supplied as a PDF and
+      an editable DOCX, with one revision round included.</p>
+    </details>
+    <details>
+      <summary>Do I need a call or an interview?</summary>
+      <p>No. You fill in the brief and upload whatever you already have — an old resume,
+      rough notes, a profile export. We work only from that material.</p>
+    </details>
+    <details>
+      <summary>When do I pay?</summary>
+      <p>After we reply. We read your brief and confirm the price and the deadline by email
+      first, and nothing is charged before you agree.</p>
+    </details>
+    <details>
+      <summary>What if something in the draft is wrong?</summary>
+      <p>Tell us — one revision round is included and we correct what we misread. Further
+      rounds are charged.</p>
+    </details>
+    <details>
+      <summary>Will you invent achievements or figures?</summary>
+      <p>Never. If a line has no figure, we flag it so you can supply one. Everything on the
+      page comes from what you sent us.</p>
+    </details>
+    <details>
+      <summary>Can you guarantee me interviews?</summary>
+      <p>No, and anyone who promises that is selling something else. What you get is a
+      document structured the way readers in your field expect, that parses cleanly in
+      applicant tracking systems.</p>
+    </details>
+    <details>
+      <summary>What happens to the files I upload?</summary>
+      <p>Your brief is saved to a private Google Sheet and any upload to a private Google
+      Drive folder, both in our own account — not a third-party form service.</p>
+    </details>
+    <details>
+      <summary>Can I see examples first?</summary>
+      <p>Yes. There are 43 complete sample CVs across 13 professions —
+      <a href="sample-cvs.html">browse the samples</a>.</p>
+    </details>
+    <details>
+      <summary>My field is not listed. Can you still help?</summary>
+      <p>Very likely. Choose "Another field" on the brief and describe what you do; we tell
+      you in our reply whether we can take it on.</p>
+    </details>
+  </div>
+</section>
+
 <section class="sec-dark">
   <div class="wrap cta-band">
     <h2>Start with the &#8377;49 health check if you are unsure.</h2>
@@ -85,7 +155,7 @@
     <div class="footer-top">
       <div class="footer-col">
         <span class="wordmark">CV&nbsp;Forge<span>.</span></span>
-        <p>Resumes, CVs and portfolios structured for your field. From ₹99, back within [TURNAROUND].</p>
+        <p>Resumes, CVs and portfolios structured for your field. From ₹99, with one revision included.</p>
       </div>
       <div class="footer-col">
         <span class="h">Site</span>
@@ -95,16 +165,16 @@
         <a href="pricing.html">Pricing</a>
         <a href="start.html">Start a build</a>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" data-contact-block hidden>
         <span class="h">Contact</span>
-        <a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a>
-        <a href="tel:[YOUR PHONE]">[YOUR PHONE]</a>
-        <span style="font-size:15px;">[YOUR CITY]</span>
+        <a data-contact="email" hidden></a>
+        <a data-contact="phone" hidden></a>
+        <a data-contact="whatsapp" hidden>WhatsApp</a>
+        <span data-contact="city" hidden style="font-size:15px;"></span>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 [YOUR BUSINESS NAME]</span>
-      <span>[PRIVACY POLICY] · [TERMS]</span>
+      <span>© 2026 CV Forge</span>
     </div>
   </div>
 </footer>
