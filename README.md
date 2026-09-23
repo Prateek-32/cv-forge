@@ -7,13 +7,16 @@ intake form. No build step, no dependencies, no framework.
 docs/                   The website — everything GitHub Pages serves
   index.html            Home
   fields.html           All fields, with a working filter
+  sample-cvs.html       Every sample CV, grouped by field, with a field filter
+                        (sample-cvs.html#finance opens on one field)
   pricing.html          Prices and bundles
   start.html            Start page, with the brief form
-  academia.html …       Thirteen field pages, one per profession — each embeds a CV
-  writing.html          preview with a dark/paper toggle and links to its samples
-  samples/              Standalone printable CVs, named {field}-cv.html
+  academia.html …       Thirteen field pages, one per profession — each shows its
+  writing.html          sample CVs directly under the intro
+  samples/              The sample CVs themselves, named {field}-cv.html
                         (consulting, data, engineering, finance and healthcare also
                         have -cv-2 … -cv-7 variants)
+  samples/cv.css        One shared stylesheet for every sample CV
   styles.css            All styling — design tokens are at the top
   site.js               Field filter, tabs, CV toggle, motion, form submission
   stars.js              Starfield canvas
@@ -95,6 +98,23 @@ Retheme the whole site from the `:root` block at the top of `styles.css`:
 ```
 
 The `--iso-*` tokens below those drive the isometric scenes.
+
+## Sample CVs
+
+Every sample in `samples/` links `samples/cv.css` and nothing else, so restyling all of
+them is one edit there. The documents stay single column with real `<li>` bullets, so they
+still read like the ATS-safe CVs they demonstrate.
+
+To add a sample:
+
+1. Copy an existing sample in the same field to `samples/{field}-cv-N.html` and replace
+   the content. Keep the `cv-*` class names; `cv.css` covers every block the existing
+   samples use (metric strips, licence blocks, chips, credit tables, publications).
+2. Copy one `<a class="cv-card">` block in `sample-cvs.html` into that field's grid and
+   change the link, name, title, level and role. Update the counts in that field's pill
+   and heading, and the total in the page intro and meta description.
+3. Do the same in the field page's own sample section, and update the "Browse all N
+   samples" total on every field page.
 
 ## Before going live — placeholders to replace
 
