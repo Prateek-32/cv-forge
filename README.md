@@ -4,40 +4,29 @@ Static site: home, a fields index, thirteen field pages with sample CVs, pricing
 intake form. No build step, no dependencies, no framework.
 
 ```
-index.html          Home
-fields.html         All fields, with a working filter
-pricing.html        Prices and bundles
-start.html          Start page, with the brief form
+docs/                   The website — everything GitHub Pages serves
+  index.html            Home
+  fields.html           All fields, with a working filter
+  pricing.html          Prices and bundles
+  start.html            Start page, with the brief form
+  academia.html …       Thirteen field pages, one per profession — each embeds a CV
+  writing.html          preview with a dark/paper toggle and links to its samples
+  samples/              Standalone printable CVs, named {field}-cv.html
+                        (consulting, data, engineering, finance and healthcare also
+                        have -cv-2 … -cv-7 variants)
+  styles.css            All styling — design tokens are at the top
+  site.js               Field filter, tabs, CV toggle, motion, form submission
+  stars.js              Starfield canvas
+  .nojekyll             Serves files as-is on GitHub Pages
 
-academia.html       Field pages, one per profession — each embeds a CV preview
-consulting.html     with a dark/paper toggle and links to its printable samples
-creative.html
-data.html
-engineering.html
-film.html
-finance.html
-healthcare.html
-law.html
-sales.html
-teaching.html
-trades.html
-writing.html
-
-samples/            Standalone printable CVs, named {field}-cv.html
-                    (consulting, data, engineering, finance and healthcare also
-                    have -cv-2 … -cv-7 variants)
-
-styles.css          All styling — design tokens are at the top
-site.js             Field filter, tabs, CV toggle, motion, form submission
-stars.js            Starfield canvas
-
-apps-script/        Code.gs — the Google Apps Script backend for the form
-docs/               DECISIONS.md — why the samples are built the way they are
-.nojekyll           Serves files as-is on GitHub Pages
+apps-script/Code.gs     The Google Apps Script backend for the form
+DECISIONS.md            Why the samples are built the way they are
+README.md               This file
 ```
 
-The pages stay at the repository root on purpose: GitHub Pages serves them from there,
-and moving them would break every live URL (`/finance.html` and so on).
+GitHub Pages is set to serve from the `docs/` folder of `main` (Settings → Pages), so
+`docs/finance.html` is live at `/finance.html` — the same URLs as before the site moved
+into the folder. Every file named below lives in `docs/` unless the path says otherwise.
 
 Live at https://prateek-32.github.io/cv-forge/
 
