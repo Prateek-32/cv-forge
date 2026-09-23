@@ -1316,3 +1316,171 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .forge-scan { display: none; }
   .nav-toggle .bars, .nav-toggle .bars::before, .nav-toggle .bars::after, .faq summary::after { transition: none; }
 }
+
+/* =====================================================================
+   3D PROFESSION SCENES
+   The isometric scenes are stacks of <g class="io" style="--i:n">
+   layers. Three motions share each layer without fighting, because each
+   owns a different property:
+     drop-in on load  → transform (animation, finishes at the resting value)
+     pointer parallax → transform (the resting value, deeper layers move more)
+     idle float       → translate (the individual property, composes on top)
+   Units inside the SVG are user units: 1px here is ~7 screen pixels.
+   ===================================================================== */
+
+@keyframes scene-drop {
+  from { opacity: 0; transform: translateY(-7px); }
+  to   { opacity: 1; }
+}
+@keyframes scene-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -0.7px; }
+}
+@keyframes scene-glow {
+  0%, 100% { opacity: .75; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.06); }
+}
+@keyframes scene-orbit { to { transform: scaleY(.36) rotate(360deg); } }
+@keyframes scene-spark {
+  0%   { opacity: 0; transform: translateY(0) scale(.6); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-150px) scale(1); }
+}
+
+/* ---------- the stage on each field page ---------- */
+
+.scene {
+  --px: 0; --py: 0;
+  position: relative;
+  display: grid; place-items: center;
+  width: 100%; max-width: 460px; aspect-ratio: 1.2;
+  margin-top: 6px;
+  perspective: 900px;
+}
+.scene .iso {
+  position: relative; z-index: 2;
+  width: 86%; height: auto;
+  transform: rotateX(calc(var(--py) * -7deg)) rotateY(calc(var(--px) * 9deg));
+  transition: transform .5s cubic-bezier(.2,.7,.3,1);
+  filter: drop-shadow(0 26px 28px rgba(0, 0, 0, .5));
+}
+.scene .io {
+  transform: translate(calc(var(--px) * (var(--i) + 1) * .22px),
+                       calc(var(--py) * (var(--i) + 1) * .14px));
+}
+.js .scene .io {
+  animation: scene-drop .75s cubic-bezier(.2,.8,.3,1.25) backwards,
+             scene-float 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 95ms + 250ms), calc(var(--i) * -.7s);
+}
+.scene-glow {
+  position: absolute; left: 8%; right: 8%; bottom: 4%; height: 40%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(94,234,212,.34), rgba(129,90,230,.14) 62%, transparent);
+  animation: scene-glow 5s ease-in-out infinite;
+}
+.scene-orbit {
+  position: absolute; left: 50%; top: 50%;
+  width: 92%; aspect-ratio: 1; translate: -50% -32%;
+  border: 1px dashed rgba(94,234,212,.34); border-radius: 50%;
+  transform: scaleY(.36);
+  animation: scene-orbit 36s linear infinite;
+}
+.scene-orbit::after {
+  content: ""; position: absolute; top: -5px; left: 50%;
+  width: 10px; height: 10px; margin-left: -5px; border-radius: 50%;
+  background: #5EEAD4; box-shadow: 0 0 14px 3px rgba(94,234,212,.8);
+}
+.scene-sparks { position: absolute; inset: 0; pointer-events: none; }
+.scene-sparks i {
+  position: absolute; bottom: 22%;
+  width: 4px; height: 4px; border-radius: 50%;
+  background: #9FF5E6; box-shadow: 0 0 8px 2px rgba(94,234,212,.7);
+  opacity: 0;
+  animation: scene-spark 5.5s ease-out infinite;
+}
+.scene-sparks i:nth-child(1) { left: 22%; animation-delay: .4s; }
+.scene-sparks i:nth-child(2) { left: 38%; animation-delay: 2.1s; background: #F5C26B; box-shadow: 0 0 8px 2px rgba(245,194,107,.7); }
+.scene-sparks i:nth-child(3) { left: 55%; animation-delay: 3.6s; }
+.scene-sparks i:nth-child(4) { left: 70%; animation-delay: 1.2s; background: #B9A4FF; box-shadow: 0 0 8px 2px rgba(129,90,230,.7); }
+.scene-sparks i:nth-child(5) { left: 81%; animation-delay: 4.4s; }
+.scene-sparks i:nth-child(6) { left: 30%; animation-delay: 5s; }
+
+/* ---------- professions page: the 3D carousel ---------- */
+
+@keyframes carousel-spin { to { transform: rotateX(-8deg) rotateY(-360deg); } }
+
+.carousel {
+  position: relative;
+  height: 330px;
+  margin-top: 12px;
+  perspective: 1200px;
+}
+.carousel::after {
+  content: ""; position: absolute; left: 12%; right: 12%; bottom: 0; height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(94,234,212,.22), transparent);
+  pointer-events: none;
+}
+.carousel-ring {
+  --r: 390px;
+  position: absolute; top: 46px; left: 50%;
+  width: 156px; height: 196px; margin-left: -78px;
+  transform-style: preserve-3d;
+  transform: rotateX(-8deg);
+  animation: carousel-spin 54s linear infinite;
+}
+.carousel:hover .carousel-ring { animation-play-state: paused; }
+.carousel-item {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 14px 12px;
+  background: linear-gradient(170deg, rgba(31,41,79,.92) 0%, rgba(12,17,36,.92) 100%);
+  border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 18px 40px -12px rgba(0,0,0,.7);
+  color: var(--ink); text-decoration: none;
+  transform: rotateY(calc(var(--k) * 360deg / var(--n))) translateZ(var(--r));
+  backface-visibility: hidden;
+  transition: translate .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.carousel-item:hover {
+  translate: 0 -10px;
+  border-color: rgba(94,234,212,.6);
+  box-shadow: 0 24px 50px -12px rgba(0,0,0,.7), 0 0 30px -6px rgba(94,234,212,.55);
+  color: var(--ink);
+}
+.carousel-art {
+  display: grid; place-items: center;
+  width: 100%; aspect-ratio: 1.15;
+  border-radius: 10px;
+  background: radial-gradient(90% 80% at 50% 70%, rgba(94,234,212,.18), transparent 70%);
+}
+.carousel-art .iso { width: 92%; height: auto; }
+.carousel-item:hover .io { transform: translateY(calc(var(--i) * -1.3px - 1px)); }
+.carousel-name { font-family: var(--serif); font-size: 15px; line-height: 1.2; text-align: center; }
+/* the dark section tints every link teal; the carousel keeps its names white */
+.carousel .carousel-item, .carousel .carousel-item:hover { color: var(--ink); }
+
+@media (max-width: 700px) {
+  .carousel { height: 270px; perspective: 900px; }
+  .carousel-ring { --r: 250px; width: 118px; height: 160px; margin-left: -59px; top: 36px; }
+  .carousel-item { padding: 10px 8px; gap: 6px; }
+  .carousel-name { font-size: 12.5px; }
+}
+
+/* ---------- home tiles: the scenes breathe ---------- */
+
+.js .tile.in .io { animation: scene-float 5.5s ease-in-out infinite; animation-delay: calc(var(--i) * -.6s); }
+
+/* ---------- sample cards: the paper leans back, then stands up ---------- */
+
+.cv-thumb { perspective: 700px; }
+.cv-thumb .paper { transform: translateY(12px) rotateX(18deg); transform-origin: 50% 100%; }
+.cv-card:hover .paper, .cv-card:focus-visible .paper { transform: translateY(0) rotateX(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .scene .io, .scene-glow, .scene-orbit, .scene-sparks i,
+  .carousel-ring, .js .tile.in .io { animation: none !important; }
+  .scene-sparks { display: none; }
+  .scene .iso { transition: none; }
+}
