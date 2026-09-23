@@ -29,6 +29,35 @@
   }
 
   // ---------------------------------------------------------------
+  // Sample CV filter (sample-cvs.html) — also follows #field links,
+  // so a sample's "All sample CVs" link lands on its own profession.
+  // ---------------------------------------------------------------
+  var cvPills = document.querySelectorAll('.pill[data-field]');
+  var cvFields = document.querySelectorAll('.cv-field[data-field]');
+
+  if (cvPills.length && cvFields.length) {
+    var showField = function (field) {
+      var known = false;
+      cvFields.forEach(function (sec) { if (sec.dataset.field === field) known = true; });
+      if (!known) field = 'all';
+      cvPills.forEach(function (p) { p.setAttribute('aria-pressed', String(p.dataset.field === field)); });
+      cvFields.forEach(function (sec) {
+        sec.hidden = !(field === 'all' || sec.dataset.field === field);
+      });
+      return field;
+    };
+    cvPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var field = showField(pill.dataset.field);
+        if (window.history && history.replaceState) {
+          history.replaceState(null, '', field === 'all' ? location.pathname : '#' + field);
+        }
+      });
+    });
+    showField(location.hash.slice(1));
+  }
+
+  // ---------------------------------------------------------------
   // Deliverable tabs (finance.html)
   // ---------------------------------------------------------------
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab[role="tab"]'));

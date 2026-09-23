@@ -860,14 +860,111 @@ h1 .spark, .wordmark span { text-shadow: 0 0 22px rgba(94,234,212,.6); }
 .checklist li strong { color: var(--ink); font-weight: 600; }
 
 
-/* ── Sample CV cards ── */
-.sample-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
-.sample-card { background:var(--card); border:1px solid var(--line-2); border-radius:4px; padding:20px; display:flex; flex-direction:column; gap:8px; }
-.sample-card .s-level { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--brass); }
-.sample-card .s-name { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); line-height:1.2; }
-.sample-card .s-role { font-size:13px; color:var(--muted); line-height:1.4; }
-.sample-card .s-actions { display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; align-items:center; }
-.sample-card .s-view { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:3px; font-size:13px; text-decoration:none; font-weight:500; transition:background .15s; }
-.sample-card .s-view:hover { background:var(--accent-deep); color:#fff; }
-.sample-card .s-dl { display:inline-flex; align-items:center; gap:6px; padding:8px 12px; background:transparent; color:var(--muted); border:1px solid var(--line); border-radius:3px; font-size:12px; font-family:var(--mono); cursor:not-allowed; opacity:.45; pointer-events:none; }
-button.s-dl { font-family:var(--mono); }
+/* ---------- sample CV cards (sample-cvs.html and each field page) ---------- */
+
+/* Each profession group gets its own glow; the paper itself stays the same. */
+.cv-grid { --hue: 94, 234, 212; }
+.cv-grid[data-group="technical"] { --hue: 129, 140, 248; }
+.cv-grid[data-group="creative"]  { --hue: 244, 114, 182; }
+.cv-grid[data-group="care"]      { --hue: 96, 165, 250; }
+.cv-grid[data-group="academic"]  { --hue: 245, 194, 107; }
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+.cv-card {
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  box-shadow: var(--sh-1);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s ease, border-color .22s ease;
+}
+.cv-card:hover, .cv-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(var(--hue), .5);
+  box-shadow: var(--sh-3), 0 0 32px -8px rgba(var(--hue), .5);
+  color: var(--ink);
+}
+
+/* a miniature of the document, drawn in CSS */
+.cv-thumb {
+  display: block;
+  height: 184px;
+  padding: 22px 22px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(var(--hue), .24), transparent 70%),
+    rgba(10, 15, 33, .55);
+  border-bottom: 1px solid var(--line-2);
+}
+.cv-thumb .paper {
+  position: relative;
+  display: flex; flex-direction: column; gap: 6px;
+  height: 100%;
+  padding: 17px 16px 0;
+  background: #fff;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, .4);
+  transform: translateY(10px);
+  transition: transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.cv-thumb .paper::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(90deg, #0F766E 0%, #2DD4BF 45%, #815AE6 100%);
+}
+.cv-card:hover .paper, .cv-card:focus-visible .paper { transform: translateY(0); }
+.cv-thumb .t-name, .cv-thumb .t-title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.cv-thumb .t-name { font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.15; color: #14171C; }
+.cv-thumb .t-title { margin-bottom: 3px; font-size: 9.5px; font-weight: 500; color: #0F766E; }
+.cv-thumb .t-sec { width: 34%; height: 4px; margin-top: 5px; border-radius: 2px; background: #0F766E; opacity: .75; }
+.cv-thumb .t-line { width: 100%; height: 4px; border-radius: 2px; background: #E4E7EC; }
+.cv-thumb .t-line.m { width: 82%; }
+.cv-thumb .t-line.s { width: 62%; }
+.cv-thumb .t-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 2px 0; }
+.cv-thumb .t-boxes i { height: 20px; border-radius: 3px; background: #EAF6F3; border: 1px solid #CBE9E3; }
+
+.cv-card-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 18px; }
+.cv-card .s-level { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--hue)); }
+.cv-card .s-name { font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.2; color: var(--ink); }
+.cv-card .s-role { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
+.cv-card .s-go { margin-top: 6px; font-size: 14px; font-weight: 500; color: var(--accent); }
+.cv-card .s-go span { display: inline-block; transition: transform .2s ease; }
+.cv-card:hover .s-go span { transform: translateX(4px); }
+
+/* ---------- sample-cvs.html ---------- */
+
+.pill .n { margin-left: 4px; font-family: var(--mono); font-size: 12px; opacity: .7; }
+/* on a phone, fourteen wrapped pills fill the screen — scroll them in one row */
+@media (max-width: 640px) {
+  .cv-filters {
+    flex-wrap: nowrap; overflow-x: auto;
+    margin-inline: calc(var(--gutter) * -1); padding: 2px var(--gutter) 8px;
+    scrollbar-width: none;
+  }
+  .cv-filters::-webkit-scrollbar { display: none; }
+  .cv-filters .pill { flex: none; }
+}
+.cv-gallery { display: flex; flex-direction: column; gap: clamp(48px, 5vw, 76px); }
+.cv-field { scroll-margin-top: 100px; }
+.cv-field[hidden] { display: none; }
+.cv-field-head {
+  display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-bottom: 22px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-2);
+}
+.cv-field-head h2 { margin-top: 6px; font-size: clamp(24px, 2.6vw, 32px); }
+.cv-field-head a { font-size: 14.5px; color: var(--accent); text-decoration: none; }
+.cv-field-head a:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-card, .cv-thumb .paper, .cv-card .s-go span { transition: none; }
+  .cv-card:hover, .cv-card:hover .paper { transform: none; }
+}
