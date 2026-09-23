@@ -150,8 +150,15 @@ yet; add real ones to the home page stats block (`.stats`) when you have them.
 
 - **Hero:** a CV that builds itself on load (Lena Kowalski's real sample figures), pure
   CSS in the "home: the CV that forges itself" block of `styles.css`.
-- **Before / after:** a draggable comparison. The "after" side uses only facts from
-  `samples/finance-cv.html`; keep it that way if you edit it.
+- **Before / after:** three draggable comparisons behind tabs (Finance, Engineering,
+  Healthcare). Red markers on the draft and teal ones on the rebuild share numbers with
+  the six-item "What changed" checklist, which ticks off as more of the rebuild shows
+  (thresholds in `THRESHOLDS` in `site.js`). The handle sweeps once on first view. The
+  "after" sides use only facts from `samples/finance-cv.html`, `engineering-cv.html` and
+  `healthcare-cv.html`; keep it that way if you edit them.
+- **Sample wall:** two rows of all 43 samples sliding on a tilted plane, generated from the
+  cards on `sample-cvs.html` — regenerate it if samples are added.
+- **Spotlight:** a soft glow that follows the pointer on the home page.
 - **Quick view:** on `sample-cvs.html` and the field pages, a sample card opens its CV
   in a dialog with previous / next. Phones and modified clicks open the page itself.
 - **Link previews:** `og-image.png` (1200×630), `favicon.svg`, `apple-touch-icon.png`,

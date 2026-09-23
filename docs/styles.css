@@ -1484,3 +1484,193 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .scene-sparks { display: none; }
   .scene .iso { transition: none; }
 }
+
+/* =====================================================================
+   HOME SHOWCASE — before/after with live checklist, the sample wall,
+   and the pointer spotlight
+   ===================================================================== */
+
+/* ---------- before / after: tabs, layout ---------- */
+
+.ba-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.ba-tab {
+  min-height: 44px; padding: 9px 22px;
+  background: rgba(255,255,255,.03); color: var(--ink-2);
+  border: 1px solid var(--line); border-radius: 999px;
+  font-family: var(--sans); font-size: 15px; cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.ba-tab:hover { border-color: var(--accent); color: var(--ink); }
+.ba-tab[aria-selected="true"] {
+  background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%);
+  border-color: transparent; color: #04221E; font-weight: 600;
+  box-shadow: 0 0 22px -4px rgba(94,234,212,.55);
+}
+
+.ba-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: clamp(20px, 3vw, 36px); align-items: start; }
+@media (max-width: 1000px) { .ba-layout { grid-template-columns: 1fr; } }
+.ba[hidden] { display: none; }
+.ba { height: clamp(620px, 54vw, 700px); }
+.ba-after .a-summary { margin-top: 14px; font-size: 13.5px; line-height: 1.55; color: #3B4250; }
+
+/* numbered markers: red on the draft's problems, teal on the rebuild's fixes */
+.ba .pin {
+  display: inline-grid; place-items: center; flex: none;
+  width: 20px; height: 20px; margin-right: 8px;
+  border-radius: 50%;
+  background: #0F766E; color: #fff;
+  font: 600 11px/1 var(--mono); font-style: normal; letter-spacing: 0;
+  vertical-align: 2px;
+  opacity: .45; transform: scale(.85);
+  transition: opacity .3s ease, transform .3s cubic-bezier(.2,.8,.3,1.4), box-shadow .3s ease;
+}
+.ba .pin.on { opacity: 1; transform: none; box-shadow: 0 0 0 4px rgba(45,212,191,.25), 0 0 16px rgba(45,212,191,.75); }
+.ba-after .a-name .pin { margin: 0 0 0 10px; vertical-align: 8px; }
+.ba .pin.bad { background: #DC2626; opacity: 1; transform: none; box-shadow: 0 0 0 3px rgba(220,38,38,.18); }
+.ba-before mark.bad {
+  background: rgba(220,38,38,.07); color: inherit;
+  text-decoration: underline wavy #DC2626; text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+}
+
+/* "drag me" until someone does */
+@keyframes hint-bob { 0%, 100% { translate: -50% 0; } 50% { translate: -50% 5px; } }
+@keyframes handle-pulse {
+  0%   { box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 0 0 0 rgba(94,234,212,.6); }
+  100% { box-shadow: 0 6px 20px rgba(0,0,0,.35), 0 0 0 20px rgba(94,234,212,0); }
+}
+.ba-hint {
+  position: absolute; top: calc(50% + 34px); left: 50%; translate: -50% 0;
+  padding: 4px 11px; border-radius: 999px;
+  background: rgba(6,9,22,.88); color: #5EEAD4;
+  font: 500 11px var(--mono); font-style: normal; letter-spacing: .16em; text-transform: uppercase;
+  white-space: nowrap;
+  animation: hint-bob 1.8s ease-in-out infinite;
+  transition: opacity .3s ease;
+}
+.ba.touched .ba-hint { opacity: 0; }
+.ba:not(.touched) .ba-handle span { animation: handle-pulse 2s ease-out infinite; }
+
+/* ---------- before / after: the live checklist ---------- */
+
+.ba-checks {
+  position: sticky; top: 100px;
+  display: flex; flex-direction: column; gap: 16px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--line-2); border-radius: 14px;
+  box-shadow: var(--sh-2);
+}
+@media (max-width: 1000px) { .ba-checks { position: static; } }
+.ba-meter { display: flex; align-items: center; gap: 10px; font: 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ba-meter-bar { flex: 1; height: 8px; overflow: hidden; border-radius: 999px; background: rgba(220,38,38,.28); }
+.ba-meter-bar i {
+  display: block; width: 50%; height: 100%;
+  background: linear-gradient(90deg, #2DD4BF 0%, #815AE6 100%);
+  box-shadow: 0 0 12px rgba(45,212,191,.6);
+}
+.ba-checks ol { display: flex; flex-direction: column; gap: 13px; margin: 0; padding: 0; list-style: none; }
+.ba-checks li { display: grid; grid-template-columns: 26px 1fr; gap: 11px; font-size: 14px; line-height: 1.5; color: var(--muted); transition: color .3s ease; }
+.ba-checks li strong { color: var(--ink-2); font-weight: 600; transition: color .3s ease; }
+.ba-checks .tick {
+  display: grid; place-items: center;
+  width: 24px; height: 24px; margin-top: 1px;
+  border: 1.5px solid rgba(248,113,113,.65); border-radius: 50%;
+  font: 700 12px/1 var(--sans);
+  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s cubic-bezier(.2,.8,.3,1.5);
+}
+.ba-checks .tick::before { content: "\2715"; color: #F87171; font-size: 10px; }
+.ba-checks li.done { color: var(--ink-2); }
+.ba-checks li.done strong { color: var(--ink); }
+.ba-checks li.done .tick {
+  background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%);
+  border-color: transparent; transform: scale(1.08);
+  box-shadow: 0 0 14px rgba(94,234,212,.6);
+}
+.ba-checks li.done .tick::before { content: "\2713"; color: #04221E; font-size: 13px; }
+.ba-status { min-height: 1.3em; font: 12px var(--mono); letter-spacing: .08em; color: var(--accent); }
+
+/* ---------- the sample wall ---------- */
+
+@keyframes wall-scroll { to { transform: translateX(-50%); } }
+
+.wall-section { overflow: hidden; }
+.wall {
+  position: relative;
+  height: 640px; margin-top: 10px;
+  perspective: 1600px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.wall::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px;
+  background: linear-gradient(180deg, transparent, var(--space));
+  pointer-events: none;
+}
+.wall-plane {
+  /* the -7deg roll lifts the right-hand end ~90px; the mask clips anything
+     outside the box, so the plane starts low enough to keep it inside */
+  position: absolute; top: 110px; left: -8%; right: -8%;
+  display: flex; flex-direction: column; gap: 24px;
+  transform: rotateX(26deg) rotateZ(-7deg);
+  transform-origin: 50% 0;
+}
+.wall-row {
+  display: flex; gap: 22px; width: max-content;
+  padding-right: 22px; /* makes the two copies exactly half the row, so the loop is seamless */
+  animation: wall-scroll 110s linear infinite;
+}
+.wall-row-rev { margin-left: -130px; animation-duration: 130s; animation-direction: reverse; }
+.wall:hover .wall-row { animation-play-state: paused; }
+.wall-card {
+  position: relative; overflow: hidden;
+  display: flex; flex: none; flex-direction: column; gap: 7px;
+  width: 210px; height: 270px; padding: 22px 18px;
+  background: #fff; color: #14171C;
+  border-radius: 10px;
+  box-shadow: 0 24px 50px -18px rgba(0,0,0,.85);
+  text-decoration: none;
+  transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease;
+}
+.wall-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+  background: linear-gradient(90deg, #0F766E 0%, #2DD4BF 45%, #815AE6 100%);
+}
+.wall-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 34px 60px -18px rgba(0,0,0,.85), 0 0 44px -6px rgba(94,234,212,.7);
+  color: #14171C;
+}
+.wall-card .w-field { font: 600 9px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: #0F766E; }
+.wall-card .w-name { font-family: var(--serif); font-size: 19px; font-weight: 600; line-height: 1.15; }
+.wall-card .w-title {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+  min-height: 2.8em; font-size: 11px; line-height: 1.4; color: #3B4250;
+}
+.wall-card .w-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 6px 0; }
+.wall-card .w-boxes i { height: 30px; border-radius: 5px; background: #EAF6F3; border: 1px solid #CBE9E3; }
+.wall-card .w-line { height: 6px; border-radius: 3px; background: #E4E7EC; }
+.wall-card .w-line.s { width: 62%; }
+.wall-card .w-line.m { width: 82%; }
+@media (max-width: 700px) {
+  .wall { height: 440px; }
+  .wall-plane { top: 60px; }
+  .wall-card { width: 160px; height: 208px; padding: 16px 14px; }
+  .wall-card .w-name { font-size: 16px; }
+}
+
+/* ---------- pointer spotlight ---------- */
+
+.spotlight {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; opacity: 0;
+  background: radial-gradient(560px circle at var(--sx, 50%) var(--sy, 30%),
+              rgba(94,234,212,.085), rgba(129,90,230,.06) 40%, transparent 70%);
+  transition: opacity .6s ease;
+}
+.spotlight.on { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wall-row, .ba-hint, .ba:not(.touched) .ba-handle span { animation: none !important; }
+  .ba-tab, .ba .pin, .ba-checks li, .ba-checks .tick { transition: none; }
+  .spotlight { display: none; }
+}
