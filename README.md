@@ -136,9 +136,10 @@ Every contact link — the footer's Contact column, the "Prefer to talk?" card o
 an empty field never shows as a placeholder. The form's failure message also falls back
 to `email` once it is set.
 
-The site deliberately states no turnaround time and shows no testimonials or order
-counts yet. When there is a real turnaround and real client quotes, add them back — the
-home page stats block (`.stats`) is the place for figures.
+The turnaround is **24 hours from payment**, stated in plain text in every footer, every
+field page's "At a glance" card, the home hero and stats, the start page and the pricing
+FAQ — search for `24 hours` if it changes. There are no testimonials or order counts
+yet; add real ones to the home page stats block (`.stats`) when you have them.
 
 ## Home page extras
 

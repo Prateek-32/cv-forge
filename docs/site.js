@@ -10,11 +10,11 @@
    empty field never shows up as a placeholder.
    --------------------------------------------------------------- */
 var CV_FORGE_CONTACT = {
-  email:    '',   // e.g. 'hello@cvforge.in'
-  phone:    '',   // as it should be shown, e.g. '+91 98765 43210'
-  whatsapp: '',   // digits only, country code first, e.g. '919876543210'
-  city:     '',   // e.g. 'Pune'
-  hours:    ''    // e.g. 'Mon–Sat, 10am–7pm IST'
+  email:    'prateek.32gupta@gmail.com',
+  phone:    '+91 96364 79447',      // as it should be shown
+  whatsapp: '919636479447',         // digits only, country code first
+  city:     'Pune, Maharashtra',
+  hours:    '10 AM – 10 PM IST'
 };
 
 (function () {
