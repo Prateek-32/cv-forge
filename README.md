@@ -86,6 +86,11 @@ tagline and the `pricing.html` meta description; those need editing by hand too.
   on a single 2:1 projection with one light source. They inherit CSS custom properties,
   so they recolour with the theme — the dark section applies a cooler variant
   automatically. No image files, nothing to load.
+- **3D motion:** each field page shows its scene large on a glowing stage — layers drop
+  in, float, and shift by depth with the pointer. The Professions page spins all thirteen
+  on a 3D carousel (pauses on hover). The "3D PROFESSION SCENES" block at the end of
+  `styles.css` explains how the three motions share each layer. All of it stops under
+  `prefers-reduced-motion`.
 
 Retheme the whole site from the `:root` block at the top of `styles.css`:
 

@@ -429,6 +429,41 @@ var CV_FORGE_CONTACT = {
 })();
 
 /* ---------------------------------------------------------------
+   Pointer parallax for the 3D profession scenes on the field pages.
+   Writes --px / --py (-1…1) on each visible .scene; the CSS turns
+   that into a tilt of the whole scene and a per-layer shift, deeper
+   layers moving further.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var scenes = document.querySelectorAll('.scene');
+  if (!scenes.length || !window.matchMedia) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  var clamp = function (n) { return Math.max(-1, Math.min(1, n)); };
+  var frame = null, last = null;
+
+  var apply = function () {
+    frame = null;
+    scenes.forEach(function (scene) {
+      var r = scene.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      var px = last ? (last.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2) : 0;
+      var py = last ? (last.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2) : 0;
+      scene.style.setProperty('--px', clamp(px).toFixed(3));
+      scene.style.setProperty('--py', clamp(py).toFixed(3));
+    });
+  };
+  var queue = function () { if (!frame) frame = window.requestAnimationFrame(apply); };
+
+  document.addEventListener('pointermove', function (e) { last = e; queue(); }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', function () { last = null; queue(); });
+})();
+
+/* ---------------------------------------------------------------
    Mobile menu, before/after slider, counters and the sample quick
    view. Each guards itself, so a page without the element is a no-op.
    --------------------------------------------------------------- */
