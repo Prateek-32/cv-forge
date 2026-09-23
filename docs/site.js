@@ -495,7 +495,7 @@ var CV_FORGE_CONTACT = {
       }
     });
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 760) setOpen(false);
+      if (window.innerWidth > 900) setOpen(false);
     });
   }
 
@@ -720,4 +720,31 @@ var CV_FORGE_CONTACT = {
     frame.src = 'about:blank';
     document.documentElement.classList.remove('qv-lock');
   });
+})();
+
+/* ---------------------------------------------------------------
+   Portfolio previews (sample-portfolios.html): each iframe renders the
+   site at 1280px wide; --s scales it to whatever width its frame has.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var screens = document.querySelectorAll('.pf-viewport');
+  if (!screens.length) return;
+
+  var fit = function (vp) {
+    var w = vp.clientWidth;
+    if (w) vp.parentNode.style.setProperty('--s', (w / 1280).toFixed(4));
+  };
+  screens.forEach(fit);
+
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(function (entries) {
+      entries.forEach(function (entry) { fit(entry.target); });
+    });
+    screens.forEach(function (vp) { ro.observe(vp); });
+  } else {
+    window.addEventListener('resize', function () { screens.forEach(fit); });
+  }
 })();
