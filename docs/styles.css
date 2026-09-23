@@ -275,7 +275,22 @@ blockquote footer { font-family: var(--mono); font-size: 12px; letter-spacing: .
 .field-row .blurb { color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
 .field-row .chips { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); line-height: 1.7; }
 .field-row .go { font-size: 14px; color: var(--accent); white-space: nowrap; }
-@media (max-width: 1080px) { .field-row { grid-template-columns: 76px 1fr; } .field-row .chips, .field-row .go { display: none; } }
+/* Two columns below 1080px: picture on the left spanning both rows, name and
+   description stacked on the right. Without the explicit placement the
+   description wraps into the 76px picture column, one word per line. */
+@media (max-width: 1080px) {
+  .field-row { grid-template-columns: 76px 1fr; row-gap: 6px; align-items: start; }
+  .field-row .thumb { grid-row: 1 / span 2; }
+  .field-row .name, .field-row .blurb { grid-column: 2; }
+  .field-row .name { align-self: end; }
+  .field-row .chips, .field-row .go { display: none; }
+}
+@media (max-width: 420px) {
+  .field-row { grid-template-columns: 60px 1fr; column-gap: 14px; padding-inline: 4px; }
+  .field-row .thumb { width: 60px; height: 48px; }
+  .field-row .name { font-size: 19px; }
+  .field-row .blurb { font-size: 14.5px; }
+}
 
 /* ---------- field detail ---------- */
 
