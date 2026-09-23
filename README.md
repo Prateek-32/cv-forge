@@ -104,6 +104,28 @@ Retheme the whole site from the `:root` block at the top of `styles.css`:
 
 The `--iso-*` tokens below those drive the isometric scenes.
 
+## Sample portfolios
+
+`sample-portfolios.html` shows four complete one-page portfolio sites in `portfolios/`,
+one per portfolio type in `DECISIONS.md`:
+
+| File | Candidate | Type |
+|---|---|---|
+| `portfolios/yuki-tanaka.html` | Yuki Tanaka, UX & brand | Creative |
+| `portfolios/lena-kowalski.html` | Lena Kowalski, SRE | Technical |
+| `portfolios/arjun-mehta.html` | Arjun Mehta, M&A | Corporate |
+| `portfolios/priya-nair.html` | Dr. Priya Nair, physician | Service & care |
+
+Each is self-contained (its own inline CSS, no image files — every visual is CSS or SVG)
+because a real client's portfolio is its own site with its own design. Every fact on each
+comes from that candidate's sample CV; keep it that way. Each carries a "Sample portfolio"
+banner, hidden when the page is shown inside the gallery's live previews (the
+`embedded` class, set when the page is in an iframe).
+
+The gallery shows each site live in an iframe rendered at 1280px and scaled to fit
+(`--s`, set in `site.js`); hovering scrolls through it. The finance, engineering,
+creative and healthcare field pages link to their portfolio under their sample CVs.
+
 ## Sample CVs
 
 Every sample in `samples/` links `samples/cv.css` and nothing else, so restyling all of

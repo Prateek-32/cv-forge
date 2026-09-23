@@ -996,7 +996,9 @@ h1 .spark, .wordmark span { text-shadow: 0 0 22px rgba(94,234,212,.6); }
 /* ---------- mobile menu ---------- */
 
 .nav-toggle { display: none; }
-@media (max-width: 760px) {
+/* 900px, not narrower: with Portfolios added, a long field name such as
+   "Film & Performance" pushes the button onto a second line below that */
+@media (max-width: 900px) {
   .js .nav-toggle {
     display: inline-flex; align-items: center; justify-content: center;
     width: 46px; height: 46px; padding: 0;
@@ -1688,4 +1690,105 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .wall-row, .ba-hint, .ba:not(.touched) .ba-handle span { animation: none !important; }
   .ba-tab, .ba .pin, .ba-checks li, .ba-checks .tick { transition: none; }
   .spotlight { display: none; }
+}
+
+/* =====================================================================
+   SAMPLE PORTFOLIOS — the gallery page and the links into it
+   ===================================================================== */
+
+.pf-list { gap: clamp(64px, 8vw, 120px); }
+.pf { --hue: 94, 234, 212; display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.pf[data-tone="creative"]  { --hue: 244, 114, 182; }
+.pf[data-tone="corporate"] { --hue: 245, 194, 107; }
+.pf[data-tone="care"]      { --hue: 96, 165, 250; }
+.pf:nth-child(even) .pf-screen { order: 2; }
+
+/* a live preview of the site in a browser frame; hovering scrolls it */
+.pf-screen {
+  --s: .5; --tilt: -6deg;
+  display: block; overflow: hidden;
+  background: #0B1024;
+  border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: var(--sh-3), 0 0 70px -18px rgba(var(--hue), .55);
+  text-decoration: none;
+  transform: perspective(1400px) rotateY(var(--tilt)) rotateX(3deg);
+  transition: transform .6s cubic-bezier(.2,.7,.3,1), box-shadow .6s ease;
+}
+.pf:nth-child(even) .pf-screen { --tilt: 6deg; }
+.pf-screen:hover, .pf-screen:focus-visible {
+  transform: perspective(1400px) translateY(-6px);
+  box-shadow: var(--sh-3), 0 0 90px -14px rgba(var(--hue), .75);
+}
+.pf-chrome {
+  display: flex; align-items: center; gap: 7px;
+  height: 34px; padding: 0 14px;
+  background: rgba(19, 26, 51, .96); border-bottom: 1px solid var(--line-2);
+  font: 12px var(--mono); color: var(--muted);
+}
+.pf-chrome i { width: 10px; height: 10px; border-radius: 50%; background: #F87171; }
+.pf-chrome i:nth-child(2) { background: #FBBF24; }
+.pf-chrome i:nth-child(3) { background: #34D399; }
+.pf-chrome span { margin-left: 10px; }
+.pf-viewport { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.pf-viewport iframe {
+  position: absolute; top: 0; left: 0;
+  width: 1280px; height: 2800px; border: 0;
+  transform-origin: 0 0; transform: scale(var(--s));
+  transition: transform 7s cubic-bezier(.45,.05,.4,1);
+  pointer-events: none;
+}
+/* 2800px tall, 800px showing: hovering travels the other 2000 */
+.pf-screen:hover iframe { transform: translateY(calc(-2000px * var(--s))) scale(var(--s)); }
+
+.pf-copy { display: flex; flex-direction: column; gap: 14px; }
+.pf-copy .eyebrow { color: rgb(var(--hue)); }
+.pf-copy h2 { font-size: clamp(32px, 3.6vw, 48px); }
+.pf-role { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--muted); }
+.pf-copy > p:not(.pf-role) { color: var(--ink-2); font-size: 16.5px; }
+.pf-points { display: flex; flex-direction: column; gap: 8px; margin: 2px 0 6px; padding: 0; list-style: none; }
+.pf-points li { position: relative; padding-left: 26px; color: var(--ink-2); font-size: 15.5px; }
+.pf-points li::before {
+  content: "\2713"; position: absolute; left: 0; top: 1px;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(var(--hue), .18); color: rgb(var(--hue));
+  font-size: 11px; font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .pf { grid-template-columns: 1fr; }
+  .pf:nth-child(even) .pf-screen { order: 0; }
+  .pf-screen, .pf:nth-child(even) .pf-screen { --tilt: 0deg; transform: none; }
+}
+
+/* ---------- links into the portfolios from other pages ---------- */
+
+.pf-promo, .pf-strip {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 14px 24px;
+  padding: 22px 26px;
+  background: linear-gradient(120deg, rgba(94,234,212,.12) 0%, rgba(129,90,230,.12) 100%), var(--card);
+  border: 1px solid rgba(94,234,212,.35); border-radius: 14px;
+  color: var(--ink); text-decoration: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.pf-promo:hover, .pf-strip:hover {
+  border-color: rgba(94,234,212,.7); color: var(--ink);
+  box-shadow: 0 0 40px -12px rgba(94,234,212,.55);
+  transform: translateY(-2px);
+}
+.pf-promo-copy { display: flex; flex-direction: column; gap: 6px; max-width: 62ch; }
+.pf-promo strong { font-family: var(--serif); font-size: 22px; font-weight: 500; }
+.pf-promo-copy > span:last-child, .pf-strip > span:first-child { color: var(--ink-2); font-size: 15.5px; }
+.pf-strip strong { color: var(--ink); }
+.pf-strip { margin-bottom: 8px; }
+.pf-promo-go { font-weight: 500; color: var(--accent); white-space: nowrap; }
+.pf-see { align-self: flex-start; font-size: 14.5px; color: var(--accent); text-decoration: none; }
+.pf-see:hover { text-decoration: underline; }
+.price-card .pf-see { margin-top: auto; }
+.price-card .pf-see + .btn { margin-top: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-screen, .pf-viewport iframe, .pf-promo, .pf-strip { transition: none; }
+  .pf-screen:hover iframe { transform: scale(var(--s)); }
 }
