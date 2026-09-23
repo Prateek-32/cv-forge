@@ -1,18 +1,43 @@
 # CV Forge — static site
 
-Four-page static site: home, fields, a field detail page (finance) and the intake form.
-No build step, no dependencies, no framework.
+Static site: home, a fields index, thirteen field pages with sample CVs, pricing and the
+intake form. No build step, no dependencies, no framework.
 
 ```
-index.html     Home
-fields.html    All fields, with a working filter
-finance.html   Field detail page, with tabs
-pricing.html   Prices and bundles
-start.html     Start page, with the brief form
-styles.css     All styling — design tokens are at the top
-site.js        Field filter, tabs, motion, form submission
-.nojekyll      Serves files as-is on GitHub Pages
+index.html          Home
+fields.html         All fields, with a working filter
+pricing.html        Prices and bundles
+start.html          Start page, with the brief form
+
+academia.html       Field pages, one per profession — each embeds a CV preview
+consulting.html     with a dark/paper toggle and links to its printable samples
+creative.html
+data.html
+engineering.html
+film.html
+finance.html
+healthcare.html
+law.html
+sales.html
+teaching.html
+trades.html
+writing.html
+
+samples/            Standalone printable CVs, named {field}-cv.html
+                    (consulting, data, engineering, finance and healthcare also
+                    have -cv-2 … -cv-7 variants)
+
+styles.css          All styling — design tokens are at the top
+site.js             Field filter, tabs, CV toggle, motion, form submission
+stars.js            Starfield canvas
+
+apps-script/        Code.gs — the Google Apps Script backend for the form
+docs/               DECISIONS.md — why the samples are built the way they are
+.nojekyll           Serves files as-is on GitHub Pages
 ```
+
+The pages stay at the repository root on purpose: GitHub Pages serves them from there,
+and moving them would break every live URL (`/finance.html` and so on).
 
 Live at https://prateek-32.github.io/cv-forge/
 
@@ -54,13 +79,11 @@ clients, not a permanent fake discount. India's CCPA dark-pattern guidance treat
 "was" price that was never charged as misleading — so when the 25 are done, raise the
 prices and say so on the page.
 
-Prices live in `PRODUCTS` near the bottom of the page source. Bundles list their
-components rather than a hard-coded total — the "separately" figure and the saving are
-computed from `PRODUCTS`, and the build fails if a bundle is ever priced above the sum of
-its parts. Change a product price and the bundles follow.
+Prices are plain text in `pricing.html`, including each bundle's "separately" figure and
+saving — change a product price and recompute the bundles that contain it by hand.
 
-Prices are also quoted on the home page cards, the finance page fact card and the footer
-tagline; those are plain text and need editing by hand.
+Prices are also quoted on the home page cards, the finance page fact card, the footer
+tagline and the `pricing.html` meta description; those need editing by hand too.
 
 ## Design
 
