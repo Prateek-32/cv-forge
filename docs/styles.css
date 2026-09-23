@@ -266,6 +266,8 @@ blockquote footer { font-family: var(--mono); font-size: 12px; letter-spacing: .
   transition: background .14s ease, box-shadow .14s ease;
 }
 .field-row:last-child { border-bottom: 1px solid var(--line-2); }
+/* display:grid above would otherwise beat the browser's own [hidden] rule */
+.field-row[hidden] { display: none; }
 .field-row:hover { background: var(--card); box-shadow: var(--sh-1); color: var(--ink); }
 .field-row .thumb { width: 76px; height: 58px; display: grid; place-items: center; background: #F0EDE5; border-radius: 3px; }
 .field-row .thumb .iso { width: 88%; height: auto; }
