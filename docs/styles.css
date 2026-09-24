@@ -2074,3 +2074,79 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .cfa-panel, .cfa-teaser, .cfa-typing i { animation: none; }
   .cfa-launch, .cfa-chip { transition: none; }
 }
+
+/* =====================================================================
+   BEFORE / AFTER, SIDE BY SIDE — replaces the drag slider on the home
+   page. Both pages are always visible; nothing moves on its own; the
+   draft's problems are marked in soft amber, the fixes in teal.
+   ===================================================================== */
+
+.cmp { display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1.12fr); align-items: start; }
+.cmp[hidden] { display: none; }
+.cmp-side { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.cmp-side figcaption { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-2); }
+.cmp-tag {
+  padding: 4px 11px; border-radius: 999px;
+  background: rgba(255,255,255,.07); border: 1px solid var(--line); color: var(--ink-2);
+  font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase;
+}
+.cmp-after .cmp-tag { background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%); border-color: transparent; color: #04221E; }
+
+.cmp .ba-doc { position: relative; inset: auto; height: 600px; padding: 32px 30px; overflow: hidden; border-radius: 14px; }
+.cmp .ba-before {
+  clip-path: none;
+  font-size: 13.5px;
+  border: 1px solid var(--line-2);
+  box-shadow: var(--sh-2);
+  filter: saturate(.75); opacity: .9;
+}
+.cmp .ba-after {
+  font-size: 13.5px;
+  border: 1px solid rgba(94,234,212,.45);
+  box-shadow: var(--sh-3), 0 0 60px -14px rgba(94,234,212,.55);
+}
+.cmp-arrow {
+  display: grid; place-items: center; align-self: center; justify-self: center;
+  width: 40px; height: 40px; margin-top: 40px; border-radius: 50%;
+  background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%); color: #04221E;
+  box-shadow: 0 0 24px -4px rgba(94,234,212,.7);
+}
+
+/* markers: soft amber on the draft's problems, teal on the rebuild's fixes */
+.cmp .pin {
+  display: inline-grid; place-items: center; flex: none;
+  width: 19px; height: 19px; margin-right: 7px; border-radius: 50%;
+  background: #0F766E; color: #fff;
+  font: 600 10.5px/1 var(--mono); font-style: normal; vertical-align: 2px;
+  box-shadow: 0 0 0 3px rgba(15,118,110,.14);
+}
+.cmp .pin.bad { background: #D97706; box-shadow: 0 0 0 3px rgba(217,119,6,.16); }
+.cmp .ba-after .a-name .pin { margin: 0 0 0 10px; vertical-align: 8px; }
+.cmp .ba-before mark.bad {
+  padding: 0 2px; border-radius: 3px;
+  background: rgba(245,158,11,.13); color: inherit;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 rgba(217,119,6,.45);
+}
+
+/* the six changes, underneath, all as positives */
+.cmp-changes {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px;
+  margin: 8px 0 0; padding: 0; list-style: none;
+}
+.cmp-changes li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+.cmp-changes strong { color: var(--ink); }
+.cmp-n {
+  display: grid; place-items: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(94,234,212,.14); border: 1px solid rgba(94,234,212,.45); color: var(--accent);
+  font: 600 12px var(--mono);
+}
+
+@media (max-width: 1000px) { .cmp-changes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 800px) {
+  .cmp { grid-template-columns: 1fr; gap: 12px; }
+  .cmp-arrow { margin: 0; transform: rotate(90deg); }
+  .cmp .ba-doc { height: 470px; padding: 24px 20px; }
+  .cmp-changes { grid-template-columns: 1fr; }
+}
