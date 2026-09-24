@@ -1,0 +1,50 @@
+/* Aurora — deep night sky, glass panels and a teal-to-violet glow.
+   Dark & dramatic. */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #070A18;
+  --surface: rgba(20, 27, 54, .72);
+  --ink: #F2F4FC;
+  --ink-2: #C3CAE2;
+  --muted: #8E97B8;
+  --line: rgba(160, 178, 235, .18);
+  --accent: #5EEAD4;
+  --accent-ink: #04221E;
+  --accent-2: #8B5CF6;
+  --display: 'Sora', 'Inter', sans-serif;
+  --shadow: 0 24px 60px -24px rgba(0, 0, 0, .8);
+}
+
+body.pk {
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(88, 60, 200, .35), transparent 60%),
+    radial-gradient(800px 600px at 100% 0%, rgba(20, 140, 150, .28), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(120, 50, 150, .25), transparent 62%),
+    #070A18;
+  background-attachment: fixed;
+}
+.pk-nav { background: rgba(7, 10, 24, .75); }
+.pk-name { letter-spacing: -.045em; }
+.pk-name em {
+  font-style: normal; font-weight: 700;
+  background: linear-gradient(90deg, #5EEAD4 0%, #8B5CF6 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pk-btn { background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%); border-color: transparent; box-shadow: 0 0 28px -6px rgba(94, 234, 212, .7); }
+.pk-ghost { background: rgba(255, 255, 255, .04); border-color: var(--line); box-shadow: none; }
+.pk-portrait { background: radial-gradient(circle at 30% 25%, rgba(94, 234, 212, .55), transparent 55%), radial-gradient(circle at 75% 80%, rgba(139, 92, 246, .6), transparent 55%), rgba(20, 27, 54, .8); box-shadow: 0 0 80px -20px rgba(94, 234, 212, .6); }
+.pk-stats b { background: linear-gradient(180deg, #FFFFFF, #9FB0E6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.pk-project { backdrop-filter: blur(6px); }
+.pk-project:hover { box-shadow: 0 0 0 1px rgba(94, 234, 212, .45), 0 24px 60px -20px rgba(94, 234, 212, .45); }
+.pk-step { background: rgba(94, 234, 212, .07); border: 1px solid var(--line); }
+.pk-tags li { background: rgba(255, 255, 255, .04); }
+
+.pk-contact .pk-contact-card {
+  background: linear-gradient(135deg, rgba(94, 234, 212, .16) 0%, rgba(139, 92, 246, .22) 100%), rgba(20, 27, 54, .8);
+  border: 1px solid rgba(94, 234, 212, .35);
+  color: var(--ink);
+}
+.pk-contact h2 { color: var(--ink); }

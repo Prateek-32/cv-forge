@@ -147,8 +147,45 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 
 ## Sample portfolios
 
-`sample-portfolios.html` shows four complete one-page portfolio sites in `portfolios/`,
-one per portfolio type in `DECISIONS.md`:
+`sample-portfolios.html` has three parts: a **theme studio** (pick one of the nine kit
+examples and any of the ten themes; the preview is the real page), the **nine kit examples**
+in their own default themes, and the **four showcase designs** built by hand.
+
+### The portfolio kit (`portfolios/kit/`)
+
+Nine examples share one markup and one stylesheet, so each can be shown in any theme:
+
+- `kit/portfolio.css` — the base: the `pk-*` classes (hero, stats, work grid with drawn
+  covers, case study, about and facts, timeline, tags, list, contact) and the custom
+  properties a theme sets (`--bg`, `--ink`, `--accent`, `--display`…). Element defaults sit
+  inside `:where(.pk)` so any class rule beats them.
+- `kit/kit.js` — loaded in `<head>`: reads `?t=` (or the page's `data-theme-default`),
+  adds `kit/themes/<name>.css` before first paint, fills the banner's theme switcher and
+  points "Get yours" at `start.html?type=portfolio&theme=<t>&field=<data-field>`.
+  `THEME_GROUPS` there is the master list of themes.
+- `kit/themes/*.css` — ten themes: Paper, Clinic, Sidebar, Swiss (clean & professional),
+  Brutal, Pastel, Gallery (bold & expressive), Aurora, Noir, Console (dark & dramatic).
+  Sidebar changes the layout (a sticky profile column from 1000px up); the rest restyle.
+
+| File | Candidate | Default theme | Facts from |
+|---|---|---|---|
+| `portfolios/chiara-rossini.html` | Film editor | Noir | `samples/film-cv.html` |
+| `portfolios/kwame-asante.html` | Investigative journalist | Paper | `samples/writing-cv.html` |
+| `portfolios/marcus-webb.html` | M&A senior associate | Sidebar | `samples/law-cv.html` |
+| `portfolios/jake-tran.html` | Master electrician | Brutal | `samples/trades-cv.html` |
+| `portfolios/amira-hassan.html` | STEM teacher | Pastel | `samples/teaching-cv.html` |
+| `portfolios/sofia-reyes.html` | Computational biologist | Clinic | `samples/academia-cv.html` |
+| `portfolios/ryan-obrien.html` | VP Sales EMEA | Swiss | `samples/sales-cv.html` |
+| `portfolios/isabelle-fontaine.html` | Strategy consultant | Aurora | `samples/consulting-cv.html` |
+| `portfolios/tariq-osei.html` | Senior data scientist | Console | `samples/data-cv.html` |
+
+To add a theme: write `kit/themes/<name>.css`, add it to `THEME_GROUPS` in `kit.js`, to
+the studio and the brief's theme cards (`start.html`, with a `.tp-<name>` swatch in
+`styles.css`), and to `CV_FORGE_PF_REC` in `site.js` if it suits a field.
+
+### Showcase designs
+
+The four hand-built sites, one per portfolio type in `DECISIONS.md`:
 
 | File | Candidate | Type |
 |---|---|---|
@@ -256,19 +293,37 @@ yet; add real ones to the home page stats block (`.stats`) when you have them.
 `start.html` has a switch at the top — **Resume, CV or LinkedIn** or **Portfolio site** —
 with a separate form for each, because a portfolio needs different material.
 
-- **Document brief** (`#brief-form`): field, stage, documents, template, current CV,
-  target roles, notes.
-- **Portfolio brief** (`#portfolio-form`): headline, the look (one of the four sample
-  portfolios, or "match my field"), sections, links to work plus one upload, projects to
-  feature, web address (free / own domain +₹349), the email for the client's own hosting
-  account, colours and references, optional add-on documents, notes.
-- `start.html?type=portfolio` (or `#portfolio`) opens the portfolio brief, and
-  `&style=creative|technical|corporate|care` pre-picks the look. Every portfolio "order"
-  button uses it, and each sample portfolio's "Get yours" passes its own style.
+Both are five-step forms (`form.wizard`, each step a `section.step`) with a progress bar,
+Back/Next, a review of every answer before sending, and a draft kept in the visitor's own
+browser (`localStorage`, never required) so a closed tab loses nothing. Without
+JavaScript all steps show as one long form. The aim is to ask everything up front, so we
+rarely need to come back with questions.
+
+- **Document brief** (`#brief-form`): about you (phone/WhatsApp, city, LinkedIn, how to
+  reach you) · career (field, stage, current role, employer, years, target country, roles,
+  job-posting links) · what you need (documents incl. cover letter, template, length,
+  photo, deadline) · material (up to 5 files, achievements with numbers, skills,
+  certifications, education, languages) · notes and review.
+- **Portfolio brief** (`#portfolio-form`): about you (city, headline, bio) · the look (ten
+  kit themes, four showcase designs or "let us choose"; the two that suit the chosen field
+  are marked; brand colours; photo or initials) · your work (repeatable projects — name,
+  role, what you did, result, year, link — up to 8; sections; skills; awards; testimonials)
+  · links and files (LinkedIn, GitHub, Behance, Instagram, website, other links, up to 5
+  files; what to show on the site) · web address, hosting email, add-ons, deadline, notes
+  and review.
+- `start.html?type=portfolio` (or `#portfolio`) opens the portfolio brief. `&theme=<name>`
+  pre-picks a kit theme (every kit example's "Get yours" sends it, with `&field=`), and the
+  older `&style=creative|technical|corporate|care` pre-picks a showcase design.
+- Files go as `fileData`/`fileName`/`fileType`, then `fileData1`… for the rest; the script
+  saves each to Drive and lists every link in the Attachment column.
+- Every answer also travels as one readable `summary`, which the script files in a
+  **Full brief** column and uses as the email body. Older copies of the script receive the
+  same summary in Notes, so nothing is lost before a redeploy.
 - Portfolio briefs are sent with `kind=portfolio`. `apps-script/Code.gs` writes them to a
   **Portfolio briefs** tab (one column per answer) and emails them with reply-to set. The
   same answers are also folded into the document brief's columns, so a script deployed
-  before this change still records them on the Briefs tab, marked "PORTFOLIO: …".
+  before the Portfolio tab existed still records them on the Briefs tab, marked
+  "PORTFOLIO: …". New columns are only ever added at the end of a tab.
 
 ## The intake form (your own, via Google Apps Script)
 
