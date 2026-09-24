@@ -59,6 +59,16 @@ Launch rates, with the list price struck through:
 | Curriculum vitae | ₹499 | ₹199 |
 | LinkedIn rewrite | ₹449 | ₹149 |
 | Portfolio site | ₹2,499 | ₹699 |
+| Custom domain setup (add-on) | — | ₹349 |
+
+**Portfolio hosting model.** The ₹699 portfolio is built and put live on a free static
+host (Netlify, Cloudflare Pages or similar) in an account **in the client's name**, so the
+client owns it and owes us nothing after handover. We do not host client sites ourselves:
+a one-off fee for open-ended hosting is a liability, and GitHub's terms discourage using
+Pages as a commercial hosting service. A custom domain is optional: the client buys it in
+their own name and renews it with the registrar; the ₹349 add-on covers connecting it.
+This is stated on the home page, pricing (card and FAQ), the finance page, the portfolio
+gallery and the start form, which has a "Custom domain" checkbox.
 
 | Bundle | Separately | Bundle |
 |---|---|---|
