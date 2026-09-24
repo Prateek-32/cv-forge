@@ -153,6 +153,24 @@ To add a sample:
 3. Do the same in the field page's own sample section, and update the "Browse all N
    samples" total on every field page.
 
+## The assistant (chat helper)
+
+`assistant.js`, loaded on every page after `site.js`, adds the chat button in the
+bottom-right corner. It is **rule-based, not an AI model**: it matches the visitor's
+words to about 35 topics and answers only with what the site already states, so it is
+free, instant, and cannot invent a policy. Anything it cannot place gets an honest "not
+sure" and a route to a person.
+
+- **Topics** live in `TOPICS` at the top of `assistant.js`: each has `keys` (words or
+  phrases; phrases score higher) and an `answer`. Product topics (resume, CV, portfolio…)
+  give way to the question being asked, so "when will I get my resume?" answers the
+  turnaround, while "how much is the portfolio?" answers the portfolio.
+- **Prices** are in `PRICES` in the same file — update them with `pricing.html`.
+- **Raise an issue** opens a small form in the chat that composes an email to
+  `CV_FORGE_CONTACT.email` (subject, name, reply address, the page, the details) and
+  opens the visitor's mail app; the issue type is pre-picked from what they typed.
+- Contact details, hours and WhatsApp come from `CV_FORGE_CONTACT` in `site.js`.
+
 ## Contact details — one place
 
 There are no bracketed placeholders left on the site. Contact details live in one object
