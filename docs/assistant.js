@@ -1,4 +1,4 @@
-/* CV Forge — site assistant.
+/* Fieldcraft — site assistant.
 
    A rule-based helper, not an AI model: it matches the visitor's words to a
    fixed set of topics and answers only with what the site already states.
@@ -20,7 +20,7 @@
 
   var wa = (C.whatsapp || '').replace(/\D/g, '');
   var waHref = wa ? 'https://wa.me/' + wa + '?text=' +
-    encodeURIComponent('Hi CV Forge, I have a question.') : '';
+    encodeURIComponent('Hi Fieldcraft, I have a question.') : '';
 
   // ------------------------------------------------------------------
   // What it knows. keys: words or phrases that point at the topic.
@@ -235,7 +235,7 @@
 
     { id: 'who', keys: ['who are you', 'about you', 'who writes', 'writer', 'legit', 'genuine', 'trust', 'scam', 'real company', 'reviews'],
       answer: function () {
-        return 'CV Forge restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">43 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
+        return 'Fieldcraft restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">43 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
       },
       chips: ['samples', 'process'] },
 
@@ -355,7 +355,7 @@
 
   var launcher = el('button', 'cfa-launch', ICON_CHAT);
   launcher.type = 'button';
-  launcher.setAttribute('aria-label', 'Open the CV Forge assistant');
+  launcher.setAttribute('aria-label', 'Open the Fieldcraft assistant');
   launcher.setAttribute('aria-expanded', 'false');
   launcher.setAttribute('aria-controls', 'cfa-panel');
 
@@ -363,11 +363,11 @@
   panel.id = 'cfa-panel';
   panel.hidden = true;
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'CV Forge assistant');
+  panel.setAttribute('aria-label', 'Fieldcraft assistant');
   panel.innerHTML =
     '<div class="cfa-head">' +
-      '<span class="cfa-avatar" aria-hidden="true">CF</span>' +
-      '<span class="cfa-title"><strong>CV Forge assistant</strong><span class="cfa-sub">Answers from this site · a person on WhatsApp</span></span>' +
+      '<span class="cfa-avatar" aria-hidden="true">Fc</span>' +
+      '<span class="cfa-title"><strong>Fieldcraft assistant</strong><span class="cfa-sub">Answers from this site · a person on WhatsApp</span></span>' +
       '<button type="button" class="cfa-close" aria-label="Close the assistant">' + ICON_CLOSE + '</button>' +
     '</div>' +
     '<div class="cfa-log" aria-live="polite"></div>' +
@@ -462,7 +462,7 @@
           '<option>Something on the website is not working</option>' +
           '<option>Something else</option></select></label>' +
         '<label>Details<textarea name="details" rows="3" required placeholder="What happened, and your order or brief name if you have one"></textarea></label>' +
-        '<button type="submit">Send to CV Forge</button>' +
+        '<button type="submit">Send to Fieldcraft</button>' +
         '<p class="cfa-form-note" role="status" aria-live="polite"></p>';
       f.elements.type.selectedIndex = guessIssue(q);
 
@@ -499,7 +499,7 @@
 
         var fail = function () {
           button.disabled = false;
-          button.textContent = 'Send to CV Forge';
+          button.textContent = 'Send to Fieldcraft';
           // The fallbacks carry everything, pre-filled: Gmail in the browser
           // (no mail app needed) or the default email app.
           var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(C.email || '') +
@@ -552,7 +552,7 @@
     hideTeaser();
     if (!started) {
       started = true;
-      addBot('Hi, I am the CV Forge assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
+      addBot('Hi, I am the Fieldcraft assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
              ['prices', 'templates', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
     }
     window.setTimeout(function () { input.focus(); }, 60);
@@ -562,7 +562,7 @@
     launcher.setAttribute('aria-expanded', 'false');
     launcher.classList.remove('is-open');
     launcher.innerHTML = ICON_CHAT;
-    launcher.setAttribute('aria-label', 'Open the CV Forge assistant');
+    launcher.setAttribute('aria-label', 'Open the Fieldcraft assistant');
     launcher.focus();
   };
 

@@ -1,4 +1,4 @@
-/* CV Forge — interactions.
+/* Fieldcraft — interactions.
    Field filter, deliverable tabs, scroll reveals, pointer tilt.
    Everything degrades: if this file fails to run, the page is still
    complete and readable. */
@@ -415,7 +415,7 @@ var CV_FORGE_CONTACT = {
   var c = CV_FORGE_CONTACT;
   var wa = (c.whatsapp || '').replace(/\D/g, '');
   var waHref = wa ? 'https://wa.me/' + wa + '?text=' +
-    encodeURIComponent('Hi CV Forge, I have a question about getting my CV rebuilt.') : '';
+    encodeURIComponent('Hi Fieldcraft, I have a question about getting my CV rebuilt.') : '';
   var cityHours = [c.city, c.hours ? 'Replies ' + c.hours : ''].filter(Boolean).join(' · ');
 
   var values = {

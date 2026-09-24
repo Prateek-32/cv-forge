@@ -1,4 +1,7 @@
-# CV Forge — static site
+# Fieldcraft — static site
+
+> *Every field reads a page differently.* — formerly the working name CV Forge. The repository and the live URL keep
+> `cv-forge`; renaming the repo would change the GitHub Pages address.
 
 Static site: home, a fields index, thirteen field pages with sample CVs, pricing and the
 intake form. No build step, no dependencies, no framework.
@@ -204,7 +207,7 @@ at the top of `site.js`:
 
 ```js
 var CV_FORGE_CONTACT = {
-  email:    '',   // e.g. 'hello@cvforge.in'
+  email:    '',   // e.g. 'hello@yourdomain.in'
   phone:    '',   // as it should be shown, e.g. '+91 98765 43210'
   whatsapp: '',   // digits only, country code first, e.g. '919876543210'
   city:     '',
@@ -263,7 +266,7 @@ own Drive. No Google Form, no Formspree, no submission cap, nothing branded.
    `[YOUR APPS SCRIPT URL]`.
 
 **Check it worked:** open the `/exec` URL in a browser. You should see
-`{"ok":true,"message":"CV Forge endpoint is live"}`. Then send yourself a test brief and
+`{"ok":true,"message":"Fieldcraft endpoint is live"}`. Then send yourself a test brief and
 confirm a row appears in the Sheet.
 
 **If you edit `Code.gs` later**, you must redeploy: Deploy → Manage deployments → pencil →
@@ -272,7 +275,7 @@ Version: **New version** → Deploy. Otherwise the site keeps hitting the old co
 **What the form handles already:**
 
 - Required name and email, validated before anything is sent
-- File upload up to 8 MB, saved into a "CV Forge uploads" folder in your Drive, with the
+- File upload up to 8 MB, saved into a "Fieldcraft uploads" folder in your Drive, with the
   link recorded in the row
 - A hidden honeypot field that silently drops bot submissions
 - An inline thank-you on success, without a page reload

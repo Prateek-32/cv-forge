@@ -1,5 +1,5 @@
 /**
- * CV Forge — brief intake endpoint.
+ * Fieldcraft — brief intake endpoint.
  *
  * Receives the form on your website and writes one row per enquiry into the
  * spreadsheet this script is attached to. Nothing leaves your Google account.
@@ -18,7 +18,7 @@
  *      start.html, replacing [YOUR APPS SCRIPT URL].
  *
  * To test it: open the /exec URL in a browser. You should see
- * {"ok":true,"message":"CV Forge endpoint is live"}.
+ * {"ok":true,"message":"Fieldcraft endpoint is live"}.
  *
  * After editing this file you must Deploy → Manage deployments → edit →
  * Version: New version → Deploy, or the site keeps hitting the old code.
@@ -26,7 +26,7 @@
 
 var SHEET_NAME    = 'Briefs';
 var ISSUE_SHEET   = 'Issues';
-var UPLOAD_FOLDER = 'CV Forge uploads';
+var UPLOAD_FOLDER = 'CV Forge uploads';        // the pre-rename name, kept so uploads stay in one folder
 var NOTIFY_EMAIL  = 'prateek.32gupta@gmail.com';   // blank sends nothing
 
 var HEADERS = ['Received', 'Name', 'Email', 'Field', 'Career stage',
@@ -113,7 +113,7 @@ function doPost(e) {
 
 
 function doGet() {
-  return json({ ok: true, message: 'CV Forge endpoint is live' });
+  return json({ ok: true, message: 'Fieldcraft endpoint is live' });
 }
 
 

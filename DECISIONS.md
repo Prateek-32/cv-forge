@@ -1,4 +1,4 @@
-# CV Forge — Build Decisions & Reference Document
+# Fieldcraft — Build Decisions & Reference Document
 
 > Last updated: September 2026  
 > Branch: `feature/sample-cvs-portfolios`  
@@ -6,9 +6,9 @@
 
 ---
 
-## 1. What Is CV Forge
+## 1. What Is Fieldcraft
 
-CV Forge is a professional CV, resume, and portfolio preparation service. We write documents tailored to the specific field the client works in — not generic templates. A finance analyst and a healthcare doctor need completely different documents in structure, language, and what appears first.
+Fieldcraft is a professional CV, resume, and portfolio preparation service. We write documents tailored to the specific field the client works in — not generic templates. A finance analyst and a healthcare doctor need completely different documents in structure, language, and what appears first.
 
 The site is the storefront. Clients browse by field, see a real sample of what they'd receive, and submit a brief. We prepare the documents. They get hired.
 

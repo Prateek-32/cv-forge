@@ -1,4 +1,4 @@
-/* CV Forge — template switcher for the sample CVs.
+/* Fieldcraft — template switcher for the sample CVs.
 
    Every sample is written once and styled by cv.css (the Modern template).
    ?t=classic, ?t=executive, ?t=compact or ?t=creative adds that template's
