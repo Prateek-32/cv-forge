@@ -166,9 +166,14 @@ sure" and a route to a person.
   give way to the question being asked, so "when will I get my resume?" answers the
   turnaround, while "how much is the portfolio?" answers the portfolio.
 - **Prices** are in `PRICES` in the same file — update them with `pricing.html`.
-- **Raise an issue** opens a small form in the chat that composes an email to
-  `CV_FORGE_CONTACT.email` (subject, name, reply address, the page, the details) and
-  opens the visitor's mail app; the issue type is pre-picked from what they typed.
+- **Raise an issue** is a small form in the chat that is **sent straight to the Apps
+  Script endpoint** (`CV_FORGE_CONTACT.formEndpoint`, the same web app as the brief form)
+  — no email app needed. The issue type is pre-picked from what the visitor typed. With
+  the current `apps-script/Code.gs`, issues go to an **Issues** tab and email
+  `NOTIFY_EMAIL` with reply-to set to the visitor, so you answer with Reply. (An older
+  deployment still saves them, as rows on the Briefs tab marked "ISSUE: …".) If sending
+  fails, the form keeps the text and offers a pre-filled Gmail compose link, the email
+  app, and WhatsApp.
 - Contact details, hours and WhatsApp come from `CV_FORGE_CONTACT` in `site.js`.
 
 ## Contact details — one place
