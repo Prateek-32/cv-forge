@@ -326,6 +326,12 @@
   // Interface
   // ------------------------------------------------------------------
 
+  var escapeHtml = function (s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+
   var el = function (tag, cls, html) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -418,8 +424,8 @@
     }, 420);
   };
 
-  // raise an issue: a small form that opens the visitor's email app, filled in
-  // pre-pick the issue type from what the visitor typed
+  // raise an issue: a small form in the chat, sent straight to our endpoint.
+  // Pre-pick the issue type from what the visitor typed.
   var guessIssue = function (q) {
     q = String(q || '').toLowerCase();
     if (/arriv|receiv|got|get|waiting|missing|mila|aaya/.test(q)) return 1;
@@ -436,8 +442,7 @@
     window.setTimeout(function () {
       typing.remove();
       log.appendChild(el('div', 'cfa-msg cfa-bot',
-        'Sorry something needs sorting. Fill this in and I will open your email app with the message ready to send' +
-        (C.email ? ' to <strong>' + C.email + '</strong>' : '') + '.'));
+        'Sorry something needs sorting. Fill this in and I will send it straight to us — no email app needed.'));
       var f = el('form', 'cfa-form');
       f.innerHTML =
         '<label>Your name<input name="name" type="text" required autocomplete="name"></label>' +
@@ -449,23 +454,70 @@
           '<option>Something on the website is not working</option>' +
           '<option>Something else</option></select></label>' +
         '<label>Details<textarea name="details" rows="3" required placeholder="What happened, and your order or brief name if you have one"></textarea></label>' +
-        '<button type="submit">Open email with this filled in</button>';
+        '<button type="submit">Send to CV Forge</button>' +
+        '<p class="cfa-form-note" role="status" aria-live="polite"></p>';
       f.elements.type.selectedIndex = guessIssue(q);
+
       f.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!f.checkValidity()) { f.reportValidity(); return; }
         var v = function (n) { return f.elements[n].value.trim(); };
+        var button = f.querySelector('button');
+        var note = f.querySelector('.cfa-form-note');
         var subject = 'Issue: ' + v('type') + ' — ' + v('name');
         var body = 'Name: ' + v('name') + '\nEmail: ' + v('email') + '\nAbout: ' + v('type') +
                    '\nPage: ' + location.href + '\n\n' + v('details') + '\n';
-        if (C.email) {
-          window.location.href = 'mailto:' + C.email + '?subject=' + encodeURIComponent(subject) +
-                                 '&body=' + encodeURIComponent(body);
-        }
-        f.remove();
-        addBot('Your email app should now be open with the message ready — just press send. If nothing opened, email ' +
-               (C.email ? '<a href="mailto:' + C.email + '">' + C.email + '</a>' : 'us') +
-               ' and paste your details in. We reply' + (C.hours ? ' ' + C.hours : ' as soon as we can') + '.', ['contact']);
+
+        // Sent straight to the Apps Script endpoint (the same one as the brief
+        // form), so it reaches us without the visitor's email app. Fields are
+        // mapped onto the brief's columns so it also lands with an older script.
+        var data = new FormData();
+        data.append('kind', 'issue');
+        data.append('name', v('name'));
+        data.append('email', v('email'));
+        data.append('issueType', v('type'));
+        data.append('details', v('details'));
+        data.append('page', location.href);
+        data.append('field', 'ISSUE: ' + v('type'));
+        data.append('stage', 'Issue from the site assistant');
+        data.append('needs', v('type'));
+        data.append('target', location.href);
+        data.append('notes', v('details'));
+        data.append('website', '');   // honeypot, left empty
+
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        note.textContent = '';
+
+        var fail = function () {
+          button.disabled = false;
+          button.textContent = 'Send to CV Forge';
+          // The fallbacks carry everything, pre-filled: Gmail in the browser
+          // (no mail app needed) or the default email app.
+          var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(C.email || '') +
+                      '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          var mailto = 'mailto:' + (C.email || '') + '?subject=' + encodeURIComponent(subject) +
+                       '&body=' + encodeURIComponent(body);
+          note.innerHTML = 'That did not go through. Your message is still here — send it pre-filled with ' +
+            '<a href="' + gmail + '" target="_blank" rel="noopener">Gmail</a> or ' +
+            '<a href="' + mailto + '">your email app</a>' +
+            (waHref ? ', or <a href="' + waHref + '" target="_blank" rel="noopener">WhatsApp us</a>' : '') + '.';
+          scrollDown();
+        };
+
+        if (!C.formEndpoint || !window.fetch) { fail(); return; }
+
+        fetch(C.formEndpoint, { method: 'POST', body: data })
+          .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
+          .then(function (out) {
+            if (!out || out.ok === false) throw new Error('rejected');
+            f.remove();
+            addBot('<strong>Sent ✓</strong> We have your message about "' + escapeHtml(v('type').toLowerCase()) +
+                   '" and will reply to <strong>' + escapeHtml(v('email')) + '</strong>' +
+                   (C.hours ? ' between ' + C.hours : ' as soon as we can') + '. Need it sooner? WhatsApp is quickest.',
+                   ['contact']);
+          })
+          .catch(fail);
       });
       log.appendChild(f);
       scrollDown();

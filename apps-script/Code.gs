@@ -25,11 +25,13 @@
  */
 
 var SHEET_NAME    = 'Briefs';
+var ISSUE_SHEET   = 'Issues';
 var UPLOAD_FOLDER = 'CV Forge uploads';
-var NOTIFY_EMAIL  = '';          // e.g. 'you@example.com' — blank sends nothing
+var NOTIFY_EMAIL  = 'prateek.32gupta@gmail.com';   // blank sends nothing
 
 var HEADERS = ['Received', 'Name', 'Email', 'Field', 'Career stage',
                'Needs', 'Targets', 'Notes', 'Attachment'];
+var ISSUE_HEADERS = ['Received', 'Name', 'Email', 'Type', 'Page', 'Details', 'Status'];
 
 
 function doPost(e) {
@@ -39,7 +41,10 @@ function doPost(e) {
     // Honeypot: real people never fill a hidden field. Answer politely and drop it.
     if (p.website) return json({ ok: true });
 
-    var sheet = getSheet_();
+    // Issues raised from the site assistant (the chat button).
+    if (p.kind === 'issue') return handleIssue_(p);
+
+    var sheet = getSheet_(SHEET_NAME, HEADERS);
     var fileUrl = '';
 
     if (p.fileData && p.fileName) {
@@ -110,15 +115,49 @@ function doGet() {
 }
 
 
+/* One row on the Issues tab, and an email you can answer with Reply. */
+function handleIssue_(p) {
+  var type = p.issueType || 'Issue';
+  getSheet_(ISSUE_SHEET, ISSUE_HEADERS).appendRow([
+    new Date(), p.name || '', p.email || '', type, p.page || '', p.details || '', 'New'
+  ]);
+
+  if (NOTIFY_EMAIL) {
+    try {
+      var mail = {
+        to: NOTIFY_EMAIL,
+        subject: 'Issue — ' + type + ' — ' + (p.name || 'unnamed'),
+        body: [
+          'Name:    ' + (p.name || '—'),
+          'Email:   ' + (p.email || '—'),
+          'Type:    ' + type,
+          'Page:    ' + (p.page || '—'),
+          '',
+          p.details || '—',
+          '',
+          'Reply to this email to answer them directly.',
+          'Logged on the Issues tab: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
+        ].join('\n')
+      };
+      if (p.email) mail.replyTo = p.email;
+      MailApp.sendEmail(mail);
+    } catch (mailErr) {
+      // The row is saved; a failed notification must not fail the request.
+    }
+  }
+  return json({ ok: true });
+}
+
+
 /* ---------- helpers ---------- */
 
-function getSheet_() {
+function getSheet_(name, headers) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
+  var sheet = ss.getSheetByName(name);
+  if (!sheet) sheet = ss.insertSheet(name);
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(HEADERS);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+    sheet.appendRow(headers);
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
     sheet.setFrozenRows(1);
   }
   return sheet;
