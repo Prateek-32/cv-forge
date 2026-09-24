@@ -147,13 +147,15 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 
 ## Sample portfolios
 
-`sample-portfolios.html` has three parts: a **theme studio** (pick one of the nine kit
-examples and any of the ten themes; the preview is the real page), the **nine kit examples**
-in their own default themes, and the **four showcase designs** built by hand.
+`sample-portfolios.html` has three parts: a **theme studio** (pick one of the fourteen kit
+examples and any of the ten themes; the preview is the real page), the **fourteen kit
+examples** in their own default themes with a filter by field group (`data-group` on each
+card), and the **four showcase designs** built by hand. The examples grid and the studio's
+person list carry the same people in the same order — add a new example to both.
 
 ### The portfolio kit (`portfolios/kit/`)
 
-Nine examples share one markup and one stylesheet, so each can be shown in any theme:
+Fourteen examples share one markup and one stylesheet, so each can be shown in any theme:
 
 - `kit/portfolio.css` — the base: the `pk-*` classes (hero, stats, work grid with drawn
   covers, case study, about and facts, timeline, tags, list, contact) and the custom
@@ -178,6 +180,11 @@ Nine examples share one markup and one stylesheet, so each can be shown in any t
 | `portfolios/ryan-obrien.html` | VP Sales EMEA | Swiss | `samples/sales-cv.html` |
 | `portfolios/isabelle-fontaine.html` | Strategy consultant | Aurora | `samples/consulting-cv.html` |
 | `portfolios/tariq-osei.html` | Senior data scientist | Console | `samples/data-cv.html` |
+| `portfolios/fatima-al-rashid.html` | Frontend lead, design systems | Gallery | `samples/engineering-cv-7.html` |
+| `portfolios/diego-reyes.html` | Backend engineer, payments | Aurora | `samples/engineering-cv-2.html` |
+| `portfolios/anika-patel.html` | Chief financial officer | Sidebar | `samples/finance-cv-6.html` |
+| `portfolios/aisha-bello.html` | Senior clinical pharmacist | Clinic | `samples/healthcare-cv-6.html` |
+| `portfolios/priya-singh.html` | Business analyst, early career | Paper | `samples/consulting-cv-3.html` |
 
 To add a theme: write `kit/themes/<name>.css`, add it to `THEME_GROUPS` in `kit.js`, to
 the studio and the brief's theme cards (`start.html`, with a `.tp-<name>` swatch in
