@@ -64,53 +64,64 @@
 
   <div class="studio">
     <div class="studio-controls">
-      <div class="field"><label for="st-person">Person</label>
+      <p class="studio-step"><span class="st-num" aria-hidden="true">1</span><label for="st-person">Choose a person</label></p>
+      <div class="st-person">
+        <span class="st-avatar" id="st-avatar" aria-hidden="true">FA</span>
+        <span class="st-person-pick">
         <select id="st-person">
-          <option value="fatima-al-rashid" data-field="engineering" data-field-label="engineering" data-theme="gallery">Fatima Al-Rashid &mdash; frontend lead</option>
-          <option value="diego-reyes" data-field="engineering" data-field-label="engineering" data-theme="aurora">Diego Reyes &mdash; backend engineer</option>
-          <option value="tariq-osei" data-field="data" data-field-label="data" data-theme="console">Tariq Osei &mdash; data scientist</option>
-          <option value="anika-patel" data-field="finance" data-field-label="finance" data-theme="sidebar">Anika Patel &mdash; CFO</option>
-          <option value="ryan-obrien" data-field="sales" data-field-label="sales" data-theme="swiss">Ryan O'Brien &mdash; VP Sales</option>
-          <option value="isabelle-fontaine" data-field="consulting" data-field-label="consulting" data-theme="aurora">Isabelle Fontaine &mdash; strategy consultant</option>
-          <option value="priya-singh" data-field="consulting" data-field-label="consulting" data-theme="paper">Priya Singh &mdash; business analyst, early career</option>
-          <option value="marcus-webb" data-field="law" data-field-label="law" data-theme="sidebar">Marcus Webb &mdash; M&amp;A lawyer</option>
-          <option value="aisha-bello" data-field="healthcare" data-field-label="healthcare" data-theme="clinic">Aisha Bello &mdash; clinical pharmacist</option>
-          <option value="sofia-reyes" data-field="academia" data-field-label="academia" data-theme="clinic">Sof&iacute;a Reyes &mdash; computational biologist</option>
-          <option value="chiara-rossini" data-field="film" data-field-label="film" data-theme="noir">Chiara Rossini &mdash; film editor</option>
-          <option value="kwame-asante" data-field="writing" data-field-label="writing" data-theme="paper">Kwame Asante &mdash; investigative journalist</option>
-          <option value="amira-hassan" data-field="teaching" data-field-label="teaching" data-theme="pastel">Amira Hassan &mdash; STEM teacher</option>
-          <option value="jake-tran" data-field="trades" data-field-label="the trades" data-theme="brutal">Jake Tran &mdash; master electrician</option>
-        </select></div>
+          <option value="fatima-al-rashid" data-field="engineering" data-field-label="engineering" data-theme="gallery" data-role="frontend lead">Fatima Al-Rashid</option>
+          <option value="diego-reyes" data-field="engineering" data-field-label="engineering" data-theme="aurora" data-role="backend engineer">Diego Reyes</option>
+          <option value="tariq-osei" data-field="data" data-field-label="data" data-theme="console" data-role="data scientist">Tariq Osei</option>
+          <option value="anika-patel" data-field="finance" data-field-label="finance" data-theme="sidebar" data-role="CFO">Anika Patel</option>
+          <option value="ryan-obrien" data-field="sales" data-field-label="sales" data-theme="swiss" data-role="VP Sales">Ryan O'Brien</option>
+          <option value="isabelle-fontaine" data-field="consulting" data-field-label="consulting" data-theme="aurora" data-role="strategy consultant">Isabelle Fontaine</option>
+          <option value="priya-singh" data-field="consulting" data-field-label="consulting" data-theme="paper" data-role="business analyst, early career">Priya Singh</option>
+          <option value="marcus-webb" data-field="law" data-field-label="law" data-theme="sidebar" data-role="M&amp;A lawyer">Marcus Webb</option>
+          <option value="aisha-bello" data-field="healthcare" data-field-label="healthcare" data-theme="clinic" data-role="clinical pharmacist">Aisha Bello</option>
+          <option value="sofia-reyes" data-field="academia" data-field-label="academia" data-theme="clinic" data-role="computational biologist">Sof&iacute;a Reyes</option>
+          <option value="chiara-rossini" data-field="film" data-field-label="film" data-theme="noir" data-role="film editor">Chiara Rossini</option>
+          <option value="kwame-asante" data-field="writing" data-field-label="writing" data-theme="paper" data-role="investigative journalist">Kwame Asante</option>
+          <option value="amira-hassan" data-field="teaching" data-field-label="teaching" data-theme="pastel" data-role="STEM teacher">Amira Hassan</option>
+          <option value="jake-tran" data-field="trades" data-field-label="the trades" data-theme="brutal" data-role="master electrician">Jake Tran</option>
+        </select>
+        <span class="st-person-sub" id="st-person-sub">Frontend lead &middot; Engineering</span>
+        </span>
+      </div>
 
+      <p class="studio-step" id="st-theme-label"><span class="st-num" aria-hidden="true">2</span>Choose a theme</p>
       <div class="studio-themes" role="group" aria-labelledby="st-theme-label">
-        <span class="studio-label" id="st-theme-label">Theme</span>
         <span class="tp-group-title">Clean &amp; professional</span>
         <div class="st-grid">
-          <button type="button" class="st-theme" data-theme="paper" aria-pressed="false"><span class="tp-sw tp-paper" aria-hidden="true"></span>Paper</button>
-          <button type="button" class="st-theme" data-theme="clinic" aria-pressed="false"><span class="tp-sw tp-clinic" aria-hidden="true"></span>Clinic</button>
-          <button type="button" class="st-theme" data-theme="sidebar" aria-pressed="false"><span class="tp-sw tp-sidebar" aria-hidden="true"></span>Sidebar</button>
-          <button type="button" class="st-theme" data-theme="swiss" aria-pressed="false"><span class="tp-sw tp-swiss" aria-hidden="true"></span>Swiss</button>
+          <button type="button" class="st-theme" data-theme="paper" data-desc="Warm paper and a magazine serif." aria-pressed="false"><span class="tp-sw tp-paper" aria-hidden="true"></span><span class="st-name">Paper</span></button>
+          <button type="button" class="st-theme" data-theme="clinic" data-desc="Bright and calm, credentials first." aria-pressed="false"><span class="tp-sw tp-clinic" aria-hidden="true"></span><span class="st-name">Clinic</span></button>
+          <button type="button" class="st-theme" data-theme="sidebar" data-desc="Your profile fixed on the left, work on the right." aria-pressed="false"><span class="tp-sw tp-sidebar" aria-hidden="true"></span><span class="st-name">Sidebar</span></button>
+          <button type="button" class="st-theme" data-theme="swiss" data-desc="Big type, a strict grid and one red." aria-pressed="false"><span class="tp-sw tp-swiss" aria-hidden="true"></span><span class="st-name">Swiss</span></button>
         </div>
         <span class="tp-group-title">Bold &amp; expressive</span>
         <div class="st-grid">
-          <button type="button" class="st-theme" data-theme="brutal" aria-pressed="false"><span class="tp-sw tp-brutal" aria-hidden="true"></span>Brutal</button>
-          <button type="button" class="st-theme" data-theme="pastel" aria-pressed="false"><span class="tp-sw tp-pastel" aria-hidden="true"></span>Pastel</button>
-          <button type="button" class="st-theme" data-theme="gallery" aria-pressed="false"><span class="tp-sw tp-gallery" aria-hidden="true"></span>Gallery</button>
+          <button type="button" class="st-theme" data-theme="brutal" data-desc="Thick borders and loud colour blocks." aria-pressed="false"><span class="tp-sw tp-brutal" aria-hidden="true"></span><span class="st-name">Brutal</span></button>
+          <button type="button" class="st-theme" data-theme="pastel" data-desc="Soft colours, rounded and friendly." aria-pressed="false"><span class="tp-sw tp-pastel" aria-hidden="true"></span><span class="st-name">Pastel</span></button>
+          <button type="button" class="st-theme" data-theme="gallery" data-desc="Big work first, few words." aria-pressed="false"><span class="tp-sw tp-gallery" aria-hidden="true"></span><span class="st-name">Gallery</span></button>
         </div>
         <span class="tp-group-title">Dark &amp; dramatic</span>
         <div class="st-grid">
-          <button type="button" class="st-theme" data-theme="aurora" aria-pressed="false"><span class="tp-sw tp-aurora" aria-hidden="true"></span>Aurora</button>
-          <button type="button" class="st-theme" data-theme="noir" aria-pressed="false"><span class="tp-sw tp-noir" aria-hidden="true"></span>Noir</button>
-          <button type="button" class="st-theme" data-theme="console" aria-pressed="false"><span class="tp-sw tp-console" aria-hidden="true"></span>Console</button>
+          <button type="button" class="st-theme" data-theme="aurora" data-desc="Night-sky glow and glass panels." aria-pressed="false"><span class="tp-sw tp-aurora" aria-hidden="true"></span><span class="st-name">Aurora</span></button>
+          <button type="button" class="st-theme" data-theme="noir" data-desc="Black and gold, with a cinematic serif." aria-pressed="false"><span class="tp-sw tp-noir" aria-hidden="true"></span><span class="st-name">Noir</span></button>
+          <button type="button" class="st-theme" data-theme="console" data-desc="A developer's terminal, in phosphor green." aria-pressed="false"><span class="tp-sw tp-console" aria-hidden="true"></span><span class="st-name">Console</span></button>
         </div>
       </div>
-      <p class="hint" id="st-note" aria-live="polite"></p>
-      <div class="cta-row"><a class="btn" id="st-use" href="start.html?type=portfolio">Use this theme</a><a class="btn btn-outline" id="st-open" href="portfolios/fatima-al-rashid.html" target="_blank" rel="noopener">Open full size</a></div>
+
+      <div class="st-now" aria-live="polite">
+        <p class="st-now-title"><span id="st-now-name">Gallery</span><span class="st-now-tag" id="st-now-tag" hidden>Suggested</span></p>
+        <p class="st-now-desc" id="st-desc">Big work first, few words.</p>
+        <p class="st-now-note" id="st-note"></p>
+      </div>
+      <div class="st-actions"><a class="btn" id="st-use" href="start.html?type=portfolio">Use this theme &rarr;</a><a class="st-open" id="st-open" href="portfolios/fatima-al-rashid.html" target="_blank" rel="noopener">Open full size &nearr;</a></div>
     </div>
 
     <a class="pf-screen studio-screen" id="st-screen" href="portfolios/fatima-al-rashid.html" aria-label="Open this portfolio full size">
       <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Fatima Al-Rashid &middot; Gallery</span></span>
-      <span class="pf-viewport"><iframe src="portfolios/fatima-al-rashid.html" title="Live preview of the chosen portfolio and theme" tabindex="-1" aria-hidden="true"></iframe></span>
+      <span class="pf-viewport"><iframe src="portfolios/fatima-al-rashid.html" title="Live preview of the chosen portfolio and theme" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></span>
     </a>
   </div>
 </section>
@@ -137,7 +148,7 @@
     <article class="pkx" data-group="tech">
       <a class="pf-screen pkx-screen" href="portfolios/fatima-al-rashid.html" aria-label="Open Fatima Al-Rashid's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Fatima Al-Rashid</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/fatima-al-rashid.html" title="Preview of Fatima Al-Rashid's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/fatima-al-rashid.html" title="Preview of Fatima Al-Rashid's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Engineering &middot; Gallery</span><h3>Fatima Al-Rashid</h3><p>Frontend lead engineer &mdash; design systems, work first.</p>
         <p class="pkx-links"><a href="portfolios/fatima-al-rashid.html">Open</a><a href="#themes" data-studio-person="fatima-al-rashid">Try other themes</a><a href="samples/engineering-cv-7.html">View the CV</a></p></div>
@@ -145,7 +156,7 @@
     <article class="pkx" data-group="tech">
       <a class="pf-screen pkx-screen" href="portfolios/diego-reyes.html" aria-label="Open Diego Reyes' sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Diego Reyes</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/diego-reyes.html" title="Preview of Diego Reyes' portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/diego-reyes.html" title="Preview of Diego Reyes' portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Engineering &middot; Aurora</span><h3>Diego Reyes</h3><p>Backend engineer &mdash; payment infrastructure in Go and Kafka.</p>
         <p class="pkx-links"><a href="portfolios/diego-reyes.html">Open</a><a href="#themes" data-studio-person="diego-reyes">Try other themes</a><a href="samples/engineering-cv-2.html">View the CV</a></p></div>
@@ -153,7 +164,7 @@
     <article class="pkx" data-group="tech">
       <a class="pf-screen pkx-screen" href="portfolios/tariq-osei.html" aria-label="Open Tariq Osei's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Tariq Osei</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/tariq-osei.html" title="Preview of Tariq Osei's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/tariq-osei.html" title="Preview of Tariq Osei's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Data &middot; Console</span><h3>Tariq Osei</h3><p>Senior data scientist &mdash; models that shipped, and what they saved.</p>
         <p class="pkx-links"><a href="portfolios/tariq-osei.html">Open</a><a href="#themes" data-studio-person="tariq-osei">Try other themes</a><a href="samples/data-cv.html">View the CV</a></p></div>
@@ -161,7 +172,7 @@
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/anika-patel.html" aria-label="Open Anika Patel's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Anika Patel</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/anika-patel.html" title="Preview of Anika Patel's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/anika-patel.html" title="Preview of Anika Patel's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Finance &middot; Sidebar</span><h3>Anika Patel</h3><p>Chief financial officer &mdash; the headline figures up front.</p>
         <p class="pkx-links"><a href="portfolios/anika-patel.html">Open</a><a href="#themes" data-studio-person="anika-patel">Try other themes</a><a href="samples/finance-cv-6.html">View the CV</a></p></div>
@@ -169,7 +180,7 @@
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/ryan-obrien.html" aria-label="Open Ryan O'Brien's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Ryan O'Brien</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/ryan-obrien.html" title="Preview of Ryan O'Brien's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/ryan-obrien.html" title="Preview of Ryan O'Brien's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Sales &middot; Swiss</span><h3>Ryan O'Brien</h3><p>VP Sales EMEA &mdash; quota record and enterprise wins.</p>
         <p class="pkx-links"><a href="portfolios/ryan-obrien.html">Open</a><a href="#themes" data-studio-person="ryan-obrien">Try other themes</a><a href="samples/sales-cv.html">View the CV</a></p></div>
@@ -177,7 +188,7 @@
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/isabelle-fontaine.html" aria-label="Open Isabelle Fontaine's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Isabelle Fontaine</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/isabelle-fontaine.html" title="Preview of Isabelle Fontaine's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/isabelle-fontaine.html" title="Preview of Isabelle Fontaine's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Consulting &middot; Aurora</span><h3>Isabelle Fontaine</h3><p>Strategy &amp; operations &mdash; engagements as problem, intervention, result.</p>
         <p class="pkx-links"><a href="portfolios/isabelle-fontaine.html">Open</a><a href="#themes" data-studio-person="isabelle-fontaine">Try other themes</a><a href="samples/consulting-cv.html">View the CV</a></p></div>
@@ -185,7 +196,7 @@
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/priya-singh.html" aria-label="Open Priya Singh's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Priya Singh</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/priya-singh.html" title="Preview of Priya Singh's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/priya-singh.html" title="Preview of Priya Singh's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Consulting &middot; Paper</span><h3>Priya Singh</h3><p>Business analyst, early career &mdash; delivery first, not years.</p>
         <p class="pkx-links"><a href="portfolios/priya-singh.html">Open</a><a href="#themes" data-studio-person="priya-singh">Try other themes</a><a href="samples/consulting-cv-3.html">View the CV</a></p></div>
@@ -193,7 +204,7 @@
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/marcus-webb.html" aria-label="Open Marcus Webb's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Marcus Webb</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/marcus-webb.html" title="Preview of Marcus Webb's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/marcus-webb.html" title="Preview of Marcus Webb's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Law &middot; Sidebar</span><h3>Marcus Webb</h3><p>M&amp;A senior associate &mdash; matters described as confidentially as the CV.</p>
         <p class="pkx-links"><a href="portfolios/marcus-webb.html">Open</a><a href="#themes" data-studio-person="marcus-webb">Try other themes</a><a href="samples/law-cv.html">View the CV</a></p></div>
@@ -201,7 +212,7 @@
     <article class="pkx" data-group="care">
       <a class="pf-screen pkx-screen" href="portfolios/aisha-bello.html" aria-label="Open Aisha Bello's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Aisha Bello</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/aisha-bello.html" title="Preview of Aisha Bello's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/aisha-bello.html" title="Preview of Aisha Bello's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Healthcare &middot; Clinic</span><h3>Aisha Bello</h3><p>Senior clinical pharmacist &mdash; registration first, then outcomes.</p>
         <p class="pkx-links"><a href="portfolios/aisha-bello.html">Open</a><a href="#themes" data-studio-person="aisha-bello">Try other themes</a><a href="samples/healthcare-cv-6.html">View the CV</a></p></div>
@@ -209,7 +220,7 @@
     <article class="pkx" data-group="care">
       <a class="pf-screen pkx-screen" href="portfolios/sofia-reyes.html" aria-label="Open Sof&iacute;a Reyes' sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sof&iacute;a Reyes</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/sofia-reyes.html" title="Preview of Sof&iacute;a Reyes' portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/sofia-reyes.html" title="Preview of Sof&iacute;a Reyes' portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Academia &middot; Clinic</span><h3>Sof&iacute;a Reyes</h3><p>Associate professor &mdash; grants, lab and publications.</p>
         <p class="pkx-links"><a href="portfolios/sofia-reyes.html">Open</a><a href="#themes" data-studio-person="sofia-reyes">Try other themes</a><a href="samples/academia-cv.html">View the CV</a></p></div>
@@ -217,7 +228,7 @@
     <article class="pkx" data-group="creative">
       <a class="pf-screen pkx-screen" href="portfolios/chiara-rossini.html" aria-label="Open Chiara Rossini's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Chiara Rossini</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/chiara-rossini.html" title="Preview of Chiara Rossini's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/chiara-rossini.html" title="Preview of Chiara Rossini's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Film &middot; Noir</span><h3>Chiara Rossini</h3><p>Film editor &mdash; narrative features and documentary.</p>
         <p class="pkx-links"><a href="portfolios/chiara-rossini.html">Open</a><a href="#themes" data-studio-person="chiara-rossini">Try other themes</a><a href="samples/film-cv.html">View the CV</a></p></div>
@@ -225,7 +236,7 @@
     <article class="pkx" data-group="creative">
       <a class="pf-screen pkx-screen" href="portfolios/kwame-asante.html" aria-label="Open Kwame Asante's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Kwame Asante</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/kwame-asante.html" title="Preview of Kwame Asante's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/kwame-asante.html" title="Preview of Kwame Asante's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Writing &middot; Paper</span><h3>Kwame Asante</h3><p>Investigative journalist &mdash; clips and investigations first.</p>
         <p class="pkx-links"><a href="portfolios/kwame-asante.html">Open</a><a href="#themes" data-studio-person="kwame-asante">Try other themes</a><a href="samples/writing-cv.html">View the CV</a></p></div>
@@ -233,7 +244,7 @@
     <article class="pkx" data-group="edu">
       <a class="pf-screen pkx-screen" href="portfolios/amira-hassan.html" aria-label="Open Amira Hassan's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Amira Hassan</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/amira-hassan.html" title="Preview of Amira Hassan's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/amira-hassan.html" title="Preview of Amira Hassan's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Teaching &middot; Pastel</span><h3>Amira Hassan</h3><p>Secondary STEM teacher &mdash; programmes and pupil outcomes.</p>
         <p class="pkx-links"><a href="portfolios/amira-hassan.html">Open</a><a href="#themes" data-studio-person="amira-hassan">Try other themes</a><a href="samples/teaching-cv.html">View the CV</a></p></div>
@@ -241,7 +252,7 @@
     <article class="pkx" data-group="edu">
       <a class="pf-screen pkx-screen" href="portfolios/jake-tran.html" aria-label="Open Jake Tran's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Jake Tran</span></span>
-        <span class="pf-viewport"><iframe src="portfolios/jake-tran.html" title="Preview of Jake Tran's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+        <span class="pf-viewport"><iframe src="portfolios/jake-tran.html" title="Preview of Jake Tran's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Trades &middot; Brutal</span><h3>Jake Tran</h3><p>Master electrician &mdash; sites, tickets and a clean safety record.</p>
         <p class="pkx-links"><a href="portfolios/jake-tran.html">Open</a><a href="#themes" data-studio-person="jake-tran">Try other themes</a><a href="samples/trades-cv.html">View the CV</a></p></div>
@@ -260,7 +271,7 @@
   <article class="pf" data-tone="creative">
     <a class="pf-screen" href="portfolios/yuki-tanaka.html" aria-label="Open Yuki Tanaka's sample portfolio">
       <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sample · Yuki Tanaka</span></span>
-      <span class="pf-viewport"><iframe src="portfolios/yuki-tanaka.html" title="Preview of Yuki Tanaka's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      <span class="pf-viewport"><iframe src="portfolios/yuki-tanaka.html" title="Preview of Yuki Tanaka's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
     </a>
     <div class="pf-copy">
       <span class="eyebrow">Creative · Art &amp; design</span>
@@ -280,7 +291,7 @@
   <article class="pf" data-tone="technical">
     <a class="pf-screen" href="portfolios/lena-kowalski.html" aria-label="Open Lena Kowalski's sample portfolio">
       <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sample · Lena Kowalski</span></span>
-      <span class="pf-viewport"><iframe src="portfolios/lena-kowalski.html" title="Preview of Lena Kowalski's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      <span class="pf-viewport"><iframe src="portfolios/lena-kowalski.html" title="Preview of Lena Kowalski's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
     </a>
     <div class="pf-copy">
       <span class="eyebrow">Technical · Engineering</span>
@@ -300,7 +311,7 @@
   <article class="pf" data-tone="corporate">
     <a class="pf-screen" href="portfolios/arjun-mehta.html" aria-label="Open Arjun Mehta's sample portfolio">
       <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sample · Arjun Mehta</span></span>
-      <span class="pf-viewport"><iframe src="portfolios/arjun-mehta.html" title="Preview of Arjun Mehta's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      <span class="pf-viewport"><iframe src="portfolios/arjun-mehta.html" title="Preview of Arjun Mehta's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
     </a>
     <div class="pf-copy">
       <span class="eyebrow">Corporate · Finance</span>
@@ -321,7 +332,7 @@
   <article class="pf" data-tone="care">
     <a class="pf-screen" href="portfolios/priya-nair.html" aria-label="Open Dr. Priya Nair's sample portfolio">
       <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sample · Dr. Priya Nair</span></span>
-      <span class="pf-viewport"><iframe src="portfolios/priya-nair.html" title="Preview of Dr. Priya Nair's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      <span class="pf-viewport"><iframe src="portfolios/priya-nair.html" title="Preview of Dr. Priya Nair's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
     </a>
     <div class="pf-copy">
       <span class="eyebrow">Care · Healthcare</span>

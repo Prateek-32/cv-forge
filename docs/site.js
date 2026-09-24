@@ -1160,6 +1160,11 @@ var CV_FORGE_PF_REC = {
   var open = document.getElementById('st-open');
   var use = document.getElementById('st-use');
   var note = document.getElementById('st-note');
+  var avatar = document.getElementById('st-avatar');
+  var sub = document.getElementById('st-person-sub');
+  var nowName = document.getElementById('st-now-name');
+  var nowTag = document.getElementById('st-now-tag');
+  var desc = document.getElementById('st-desc');
   var label = screen.querySelector('.pf-chrome span');
   var buttons = Array.prototype.slice.call(studio.querySelectorAll('.st-theme'));
   var title = function (k) { return k.charAt(0).toUpperCase() + k.slice(1); };
@@ -1174,15 +1179,23 @@ var CV_FORGE_PF_REC = {
     if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
     screen.href = open.href = url;
     use.href = 'start.html?type=portfolio&theme=' + theme + '&field=' + field;
-    label.textContent = opt.text.split(' — ')[0] + ' · ' + title(theme);
+    var name = opt.text.trim();
+    var role = opt.getAttribute('data-role');
+    var words = name.split(/\s+/);
+    label.textContent = name + ' · ' + title(theme);
+    avatar.textContent = (words[0].charAt(0) + (words.length > 1 ? words[words.length - 1].charAt(0) : '')).toUpperCase();
+    sub.textContent = role ? title(role) + ' · ' + title(field) : title(field);
     buttons.forEach(function (b) {
       var key = b.getAttribute('data-theme');
-      b.setAttribute('aria-pressed', String(key === theme));
+      var on = key === theme;
+      b.setAttribute('aria-pressed', String(on));
       b.classList.toggle('is-rec', rec.indexOf(key) > -1);
+      if (on) desc.textContent = b.getAttribute('data-desc') || '';
     });
+    nowName.textContent = title(theme);
+    nowTag.hidden = rec.indexOf(theme) < 0;
     note.textContent = rec.length
-      ? 'Dots mark the themes we suggest for ' + opt.getAttribute('data-field-label') + ': ' +
-        rec.map(title).join(' and ') + '.'
+      ? 'Suggested for ' + opt.getAttribute('data-field-label') + ': ' + rec.map(title).join(' or ') + '.'
       : '';
   };
 

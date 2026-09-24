@@ -2447,24 +2447,106 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 .sec-intro { display: flex; flex-direction: column; gap: 14px; max-width: 64ch; }
 #themes, #examples, #showcase { scroll-margin-top: 80px; }
 
-.studio { display: grid; grid-template-columns: minmax(250px, 320px) minmax(0, 1fr); gap: clamp(22px, 3vw, 44px); align-items: start; }
-.studio-controls { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 92px; }
-.studio-themes { display: flex; flex-direction: column; gap: 8px; }
-.studio-label { font-size: 14px; font-weight: 500; color: var(--ink); }
-.studio-themes .tp-group-title { margin-top: 6px; }
-.st-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.st-theme {
-  display: flex; align-items: center; gap: 10px;
-  padding: 5px 10px 5px 5px; min-height: 44px;
-  background: rgba(10, 15, 33, .55);
-  border: 1px solid var(--line); border-radius: 10px;
-  color: var(--ink); font: 500 14.5px var(--sans); text-align: left; cursor: pointer;
-  transition: border-color .15s ease, box-shadow .15s ease;
+.studio { display: grid; grid-template-columns: minmax(300px, 370px) minmax(0, 1fr); gap: clamp(22px, 3vw, 44px); align-items: start; }
+
+/* the control panel: a glass card with numbered steps */
+.studio-screen { position: sticky; top: 92px; }   /* the preview stays in view while themes are picked */
+.studio-controls {
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 22px;
+  background:
+    radial-gradient(120% 60% at 0% 0%, rgba(94,234,212,.10), transparent 60%),
+    radial-gradient(120% 60% at 100% 100%, rgba(139,92,246,.12), transparent 60%),
+    rgba(12, 18, 40, .82);
+  border: 1px solid rgba(160,178,235,.18); border-radius: 20px;
+  box-shadow: 0 30px 70px -30px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(8px);
 }
-.st-theme .tp-sw { flex: none; width: 46px; height: 32px; margin: 0; border-radius: 6px; }
-.st-theme:hover { border-color: var(--accent); }
-.st-theme[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 0 22px -8px rgba(94,234,212,.6); }
-.st-theme.is-rec::after { content: ""; flex: none; width: 7px; height: 7px; margin-left: auto; border-radius: 50%; background: var(--accent); }
+.studio-step { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 15px; font-weight: 600; color: var(--ink); }
+.studio-step label { cursor: pointer; }
+.st-num {
+  display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #8B5CF6); color: #04221E;
+  font: 600 13px var(--mono);
+}
+.studio-step + .studio-themes, .st-person + .studio-step { margin-top: 4px; }
+.st-person + .studio-step { padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* person: monogram + a borderless select + role line */
+.st-person {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 12px; border: 1px solid var(--line); border-radius: 14px;
+  background: rgba(6, 10, 24, .55);
+  transition: border-color .15s ease;
+}
+.st-person:hover, .st-person:focus-within { border-color: var(--accent); }
+.st-avatar {
+  display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, rgba(94,234,212,.9), transparent 60%), radial-gradient(circle at 75% 80%, rgba(139,92,246,.95), transparent 60%), #1B2446;
+  color: #fff; font: 600 16px var(--sans); letter-spacing: .02em;
+  box-shadow: 0 0 24px -6px rgba(94,234,212,.55);
+}
+.st-person-pick { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.st-person select {
+  min-height: 0; padding: 0 22px 0 0; width: 100%;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%235EEAD4' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 2px center / 11px 8px;
+  border: 0; -webkit-appearance: none; appearance: none;
+  color: var(--ink); font: 600 16px var(--sans); text-overflow: ellipsis; cursor: pointer;
+}
+.st-person select:focus-visible { outline: none; }
+.st-person-sub { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* themes: tiles with a real preview swatch */
+.studio-themes { display: flex; flex-direction: column; gap: 8px; }
+.studio-themes .tp-group-title { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-size: 11px; }
+.studio-themes .tp-group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+/* each group is one row: four tiles in the first, three in the others */
+.st-grid { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; }
+.st-theme {
+  position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 7px;
+  padding: 6px 6px 8px;
+  background: rgba(6, 10, 24, .55);
+  border: 1px solid var(--line); border-radius: 12px;
+  color: var(--ink-2); font: 500 13.5px var(--sans); text-align: left; cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease, color .15s ease;
+}
+.st-theme .tp-sw { width: 100%; height: 58px; margin: 0; border-radius: 8px; }
+.st-name { padding-left: 2px; }
+.st-theme:hover { border-color: rgba(94,234,212,.6); color: var(--ink); transform: translateY(-2px); }
+.st-theme[aria-pressed="true"] {
+  border-color: var(--accent); color: var(--ink);
+  background: linear-gradient(180deg, rgba(94,234,212,.14), rgba(6,10,24,.55));
+  box-shadow: 0 0 0 1px var(--accent), 0 10px 28px -10px rgba(94,234,212,.55);
+}
+.st-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.st-theme[aria-pressed="true"]::before {
+  content: "\2713"; position: absolute; left: 10px; top: 10px; z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  display: grid; place-items: center; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--accent); color: #04221E; font: 700 10px/1 var(--sans);
+}
+.st-theme.is-rec::after {
+  content: "Suggested"; position: absolute; top: 9px; right: 9px;
+  padding: 0 5px; border-radius: 999px;
+  background: var(--accent); color: #04221E; font: 600 9px/1.7 var(--sans); letter-spacing: .02em;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+.st-theme.is-rec[aria-pressed="true"]::after { display: none; }   /* the panel below says it instead */
+
+/* what is chosen now */
+.st-now { padding: 14px 16px; border-radius: 14px; background: rgba(94,234,212,.07); border: 1px solid rgba(94,234,212,.25); }
+.st-now p { margin: 0; }
+.st-now-title { display: flex; align-items: center; gap: 8px; font: 500 20px var(--serif); color: var(--ink); }
+.st-now-tag { padding: 1px 8px; border-radius: 999px; background: var(--accent); color: #04221E; font: 600 11px/1.7 var(--sans); }
+.st-now-tag[hidden] { display: none; }
+.st-now-desc { margin-top: 2px !important; font-size: 14.5px; color: var(--ink-2); }
+.st-now-note { margin-top: 8px !important; font-size: 13px; color: var(--muted); }
+.st-now-note:empty { display: none; }
+.st-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.st-actions .btn { flex: 1; justify-content: center; }
+.st-open { color: var(--accent); font-size: 14.5px; text-decoration: none; white-space: nowrap; }
+.st-open:hover { text-decoration: underline; }
 .studio-screen { --tilt: 0deg; transform: none; }
 .studio-screen:hover, .studio-screen:focus-visible { transform: none; }
 
@@ -2489,9 +2571,10 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 
 @media (max-width: 900px) {
   .studio { grid-template-columns: 1fr; }
-  .studio-controls { position: static; }
-  .st-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .studio-controls { padding: 18px; }
+  .studio-screen { position: relative; top: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .st-theme, .st-theme:hover { transition: none; transform: none; }
   .pkx-screen:hover, .pkx-screen:focus-visible { transform: none; }
 }
