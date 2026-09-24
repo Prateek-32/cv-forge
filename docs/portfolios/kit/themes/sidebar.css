@@ -172,6 +172,8 @@ body.pk { font-size: 16.5px; line-height: 1.6; }
     border-bottom: 0; border-right: 1px solid var(--line);
     box-shadow: inset 0 3px 0 var(--accent);
   }
+  /* in the site's preview frames the frame is 2800px tall but only its top 800px shows */
+  html.embedded .pk-hero { height: 800px; }
   .pk-hero > .pk-wrap { max-width: none; padding-inline: clamp(26px, 2.6vw, 38px); }
   /* auto margins centre the panel vertically but never clip it when it overflows */
   .pk-hero > .pk-wrap:first-child { margin-top: auto; }
