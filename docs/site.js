@@ -519,99 +519,20 @@ var CV_FORGE_CONTACT = {
     });
   }
 
-  // ---- before / after showcase -------------------------------------
-  // Three examples behind tabs. Dragging reveals the rebuild; each of the
-  // six changes ticks off once enough of the "after" page is showing, and
-  // its numbered marker on the page lights up with it.
+  // ---- before / after: tabs between the three examples ---------------
   var baSection = document.querySelector('.ba-section');
   if (baSection) {
-    var THRESHOLDS = [10, 26, 42, 58, 74, 90];   // % of the rebuild revealed for change 1…6
-    var panels = Array.prototype.slice.call(baSection.querySelectorAll('.ba'));
     var baTabs = Array.prototype.slice.call(baSection.querySelectorAll('.ba-tab'));
-    var checks = baSection.querySelectorAll('.ba-checks li[data-n]');
-    var meter = baSection.querySelector('.ba-meter-bar i');
-    var status = baSection.querySelector('.ba-status');
-    var active = panels.filter(function (p) { return !p.hidden; })[0] || panels[0];
-    var lastDone = -1;
-    var sweepFrame = null;
-
-    var render = function (ba) {
-      var pos = Number(ba.querySelector('.ba-range').value);
-      var revealed = 100 - pos;
-      ba.style.setProperty('--pos', pos + '%');
-      if (ba !== active) return;
-      var done = 0;
-      checks.forEach(function (li) {
-        var on = revealed >= THRESHOLDS[Number(li.getAttribute('data-n')) - 1];
-        li.classList.toggle('done', on);
-        if (on) done++;
-      });
-      ba.querySelectorAll('.ba-after .pin').forEach(function (pin) {
-        pin.classList.toggle('on', revealed >= THRESHOLDS[Number(pin.getAttribute('data-n')) - 1]);
-      });
-      if (meter) meter.style.width = revealed + '%';
-      if (status && done !== lastDone) {
-        lastDone = done;
-        status.textContent = done === checks.length ? 'All six fixed' : done + ' of ' + checks.length + ' fixed';
-      }
-    };
-
-    var cancelSweep = function () {
-      if (sweepFrame) { window.cancelAnimationFrame(sweepFrame); sweepFrame = null; }
-    };
-
-    // Moves the handle through a few stops so it is obvious it can be dragged.
-    var sweep = function (stops) {
-      if (reduced) return;
-      cancelSweep();
-      var ba = active;
-      var range = ba.querySelector('.ba-range');
-      var start = null;
-      var step = function (t) {
-        if (start === null) start = t;
-        var e = t - start;
-        var v = stops[stops.length - 1][1];
-        for (var k = 1; k < stops.length; k++) {
-          if (e <= stops[k][0]) {
-            var a = stops[k - 1], b = stops[k];
-            var p = (e - a[0]) / (b[0] - a[0]);
-            p = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-            v = a[1] + (b[1] - a[1]) * p;
-            break;
-          }
-        }
-        range.value = v;
-        render(ba);
-        sweepFrame = e < stops[stops.length - 1][0] ? window.requestAnimationFrame(step) : null;
-      };
-      sweepFrame = window.requestAnimationFrame(step);
-    };
-
-    panels.forEach(function (ba) {
-      ba.querySelector('.ba-range').addEventListener('input', function (e) {
-        if (!e.isTrusted) return;
-        ba.classList.add('touched');
-        cancelSweep();
-        render(ba);
-      });
-      render(ba);
-    });
-
     var selectTab = function (tab) {
       baTabs.forEach(function (t) {
         var on = t === tab;
         t.setAttribute('aria-selected', String(on));
         t.tabIndex = on ? 0 : -1;
-        var panel = document.getElementById(t.getAttribute('aria-controls'));
-        panel.hidden = !on;
-        if (on) { active = panel; lastDone = -1; render(panel); }
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
       });
     };
     baTabs.forEach(function (tab, i) {
-      tab.addEventListener('click', function () {
-        selectTab(tab);
-        sweep([[0, 50], [700, 12], [1300, 50]]);
-      });
+      tab.addEventListener('click', function () { selectTab(tab); });
       tab.addEventListener('keydown', function (e) {
         var next = null;
         if (e.key === 'ArrowRight') next = baTabs[(i + 1) % baTabs.length];
@@ -619,17 +540,6 @@ var CV_FORGE_CONTACT = {
         if (next) { e.preventDefault(); selectTab(next); next.focus(); }
       });
     });
-
-    if ('IntersectionObserver' in window) {
-      var firstLook = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
-        firstLook.disconnect();
-        if (!active.classList.contains('touched')) {
-          sweep([[0, 50], [700, 90], [1900, 6], [2600, 50]]);
-        }
-      }, { threshold: 0.5 });
-      firstLook.observe(active);
-    }
   }
 
   // ---- spotlight that follows the pointer (home page) -------------

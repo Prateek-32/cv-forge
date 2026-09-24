@@ -205,11 +205,12 @@ yet; add real ones to the home page stats block (`.stats`) when you have them.
 
 - **Hero:** a CV that builds itself on load (Lena Kowalski's real sample figures), pure
   CSS in the "home: the CV that forges itself" block of `styles.css`.
-- **Before / after:** three draggable comparisons behind tabs (Finance, Engineering,
-  Healthcare). Red markers on the draft and teal ones on the rebuild share numbers with
-  the six-item "What changed" checklist, which ticks off as more of the rebuild shows
-  (thresholds in `THRESHOLDS` in `site.js`). The handle sweeps once on first view. The
-  "after" sides use only facts from `samples/finance-cv.html`, `engineering-cv.html` and
+- **Before / after:** three side-by-side comparisons behind tabs (Finance, Engineering,
+  Healthcare) — the draft on the left, the rebuild on the right, nothing moving on its
+  own. Soft amber numbers mark the draft's problems and teal numbers the matching fixes,
+  keyed to the six changes listed underneath. It sits after "What we build"; the
+  portfolio sites come first, straight after the professions strip. The "after" sides use
+  only facts from `samples/finance-cv.html`, `engineering-cv.html` and
   `healthcare-cv.html`; keep it that way if you edit them.
 - **Sample wall:** two rows of all 43 samples sliding on a tilted plane, generated from the
   cards on `sample-cvs.html` — regenerate it if samples are added.
