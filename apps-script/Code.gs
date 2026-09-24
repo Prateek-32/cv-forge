@@ -32,6 +32,10 @@ var NOTIFY_EMAIL  = 'prateek.32gupta@gmail.com';   // blank sends nothing
 var HEADERS = ['Received', 'Name', 'Email', 'Field', 'Career stage',
                'Needs', 'Targets', 'Notes', 'Attachment', 'Template'];
 var ISSUE_HEADERS = ['Received', 'Name', 'Email', 'Type', 'Page', 'Details', 'Status'];
+var PORTFOLIO_SHEET = 'Portfolio briefs';
+var PORTFOLIO_HEADERS = ['Received', 'Name', 'Email', 'WhatsApp', 'Field', 'Headline', 'Look',
+                         'Sections', 'Work links', 'Projects', 'Web address', 'Domain',
+                         'Hosting account email', 'Colours and references', 'Add-ons', 'Notes', 'Attachment'];
 
 
 function doPost(e) {
@@ -44,22 +48,12 @@ function doPost(e) {
     // Issues raised from the site assistant (the chat button).
     if (p.kind === 'issue') return handleIssue_(p);
 
-    var sheet = getSheet_(SHEET_NAME, HEADERS);
-    var fileUrl = '';
+    var fileUrl = saveUpload_(p);
 
-    if (p.fileData && p.fileName) {
-      try {
-        var blob = Utilities.newBlob(
-          Utilities.base64Decode(p.fileData),
-          p.fileType || 'application/octet-stream',
-          sanitise_(p.fileName)
-        );
-        fileUrl = getFolder_(UPLOAD_FOLDER).createFile(blob).getUrl();
-      } catch (fileErr) {
-        // A bad attachment must never lose the enquiry itself.
-        fileUrl = 'upload failed: ' + fileErr;
-      }
-    }
+    // Portfolio briefs (the second form on start.html) have their own tab.
+    if (p.kind === 'portfolio') return handlePortfolio_(p, fileUrl);
+
+    var sheet = getSheet_(SHEET_NAME, HEADERS);
 
     var row = [
       new Date(),
@@ -114,6 +108,67 @@ function doPost(e) {
 
 function doGet() {
   return json({ ok: true, message: 'Fieldcraft endpoint is live' });
+}
+
+
+/* The uploaded file, saved to Drive; a bad file never loses the brief. */
+function saveUpload_(p) {
+  if (!(p.fileData && p.fileName)) return '';
+  try {
+    var blob = Utilities.newBlob(
+      Utilities.base64Decode(p.fileData),
+      p.fileType || 'application/octet-stream',
+      sanitise_(p.fileName)
+    );
+    return getFolder_(UPLOAD_FOLDER).createFile(blob).getUrl();
+  } catch (fileErr) {
+    return 'upload failed: ' + fileErr;
+  }
+}
+
+
+/* One row on the Portfolio briefs tab, and an email you can answer with Reply. */
+function handlePortfolio_(p, fileUrl) {
+  var field = String(p.field || '').replace(/^PORTFOLIO:\s*/, '');
+  getSheet_(PORTFOLIO_SHEET, PORTFOLIO_HEADERS).appendRow([
+    new Date(), p.name || '', p.email || '', p.whatsapp || '', field, p.headline || '',
+    p.style || '', p.sections || '', p.links || '', p.projects || '', p.domain || '',
+    p.domainName || '', p.hostingEmail || '', p.lookFeel || '', p.addons || '',
+    p.ownNotes || '',   // "notes" carries extras folded in for older scripts; this is the visitor's text
+    fileUrl
+  ]);
+
+  if (NOTIFY_EMAIL) {
+    try {
+      var mail = {
+        to: NOTIFY_EMAIL,
+        subject: 'New portfolio brief — ' + (p.name || 'unnamed') + ' (' + (field || 'no field') + ')',
+        body: [
+          'Name:      ' + (p.name || '—'),
+          'Email:     ' + (p.email || '—'),
+          'WhatsApp:  ' + (p.whatsapp || '—'),
+          'Field:     ' + (field || '—'),
+          'Headline:  ' + (p.headline || '—'),
+          'Look:      ' + (p.style || '—'),
+          'Sections:  ' + (p.sections || '—'),
+          'Web:       ' + (p.domain || '—') + (p.domainName ? ' (' + p.domainName + ')' : ''),
+          'Hosting:   ' + (p.hostingEmail || '—'),
+          'Add-ons:   ' + (p.addons || 'none'),
+          '',
+          'Projects:', p.projects || '—', '',
+          'Work links:', p.links || '—', '',
+          'Colours and references:', p.lookFeel || '—', '',
+          fileUrl ? 'Attachment: ' + fileUrl : 'No attachment', '',
+          'Row added to: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
+        ].join('\n')
+      };
+      if (p.email) mail.replyTo = p.email;
+      MailApp.sendEmail(mail);
+    } catch (mailErr) {
+      // Notification failure must not fail the submission.
+    }
+  }
+  return json({ ok: true });
 }
 
 

@@ -60,7 +60,7 @@
 
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. See <a href="sample-portfolios.html">four sample portfolios</a>.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. See <a href="sample-portfolios.html">four sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a> — it asks for your work, the look and the sections you want.';
       },
       chips: ['hosting', 'domain', 'start'] },
 
