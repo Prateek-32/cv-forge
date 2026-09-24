@@ -60,9 +60,17 @@
 
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. See <a href="sample-portfolios.html">four sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a> — it asks for your work, the look and the sections you want.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on thirteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
       },
-      chips: ['hosting', 'domain', 'start'] },
+      chips: ['pfthemes', 'hosting', 'domain', 'start'] },
+
+    { id: 'pfthemes', keys: ['portfolio theme', 'portfolio themes', 'portfolio template', 'portfolio templates', 'portfolio design', 'portfolio designs',
+                             'portfolio look', 'portfolio style', 'website theme', 'website template', 'website design', 'site design', 'site theme',
+                             'theme for my portfolio', 'themes for portfolio'],
+      answer: function () {
+        return 'Portfolio sites come in <strong>ten themes</strong>: clean and professional (Paper, Clinic, Sidebar, Swiss), bold and expressive (Brutal, Pastel, Gallery) and dark and dramatic (Aurora, Noir, Console) — or one of four showcase designs. All are the same price, and any theme can take your own colours. <a href="sample-portfolios.html#themes">Try every theme on a real sample</a>, then pick one on the <a href="start.html?type=portfolio">portfolio brief</a> — or let us choose for your field.';
+      },
+      chips: ['portfolio', 'start'] },
 
     { id: 'hosting', keys: ['host', 'hosting', 'hosted', 'server', 'netlify', 'github', 'put live', 'go live', 'yearly fee', 'maintenance'],
       answer: function () {
@@ -72,7 +80,7 @@
 
     { id: 'domain', keys: ['domain', 'custom url', 'own url', 'web address', 'dot com', '.com', 'yourname com'],
       answer: function () {
-        return 'A custom domain (like yourname.com) is optional. You buy it in your own name and renew it with the registrar directly; we connect it to your portfolio for <strong>' + R + PRICES.domain + '</strong>. Tick "Custom domain" on the <a href="start.html">brief</a>.';
+        return 'A custom domain (like yourname.com) is optional. You buy it in your own name and renew it with the registrar directly; we connect it to your portfolio for <strong>' + R + PRICES.domain + '</strong>. Choose "My own domain" in the last step of the <a href="start.html?type=portfolio">portfolio brief</a>.';
       },
       chips: ['hosting', 'prices'] },
 
@@ -113,7 +121,7 @@
     { id: 'deadline', keys: ['deadline', 'urgent', 'asap', 'rush', 'emergency', 'interview tomorrow', 'need it today',
                              'need it tomorrow', 'by tomorrow', 'by today', 'same day', 'kal tak'],
       answer: function () {
-        return 'Put your deadline in the "Anything we should know" box on the <a href="start.html">brief</a>. We confirm the price and deadline by email before anything starts, and files normally come back within 24 hours of payment.';
+        return 'Pick "When do you need it?" on the <a href="start.html">brief</a> and add the date. We confirm the price and deadline by email before anything starts, and files normally come back within 24 hours of payment.';
       },
       chips: ['start', 'contact'] },
 
@@ -150,14 +158,14 @@
 
     { id: 'send', keys: ['what do i send', 'what to send', 'need from me', 'documents', 'upload', 'file size', 'attach', 'old resume', 'no resume', 'dont have a resume', "don't have a resume"],
       answer: function () {
-        return 'Send whatever you already have — an old resume, rough notes or a profile export (PDF, Word or even a photo of a printout, up to 8 MB). Rough notes are enough to begin. Add two or three roles you are targeting and anything we should know: gaps, a change of field, a deadline.';
+        return 'Send whatever you already have — an old resume, rough notes, certificates or a profile export (PDF, Word or even a photo of a printout; up to 5 files, 10 MB in total). Rough notes are enough to begin. The brief then asks for the roles you are targeting, links to two or three job postings, and a few achievements with numbers — the more you add, the fewer questions we send later.';
       },
       chips: ['process', 'start'] },
 
     { id: 'templates', keys: ['template', 'templates', 'layout', 'style', 'theme', 'colour', 'color', 'font', 'cv design',
                               'resume design', 'choose a design', 'different design', 'how it looks', 'what it looks like'],
       answer: function () {
-        return 'There are <strong>seventeen templates</strong> in four styles — traditional (Classic, Legal, Banker, Academic, Executive), contemporary (Modern, Minimal, Slate, Tech, Clinical), expressive (Creative, Studio, Editorial, Typewriter, Warm) and practical (Compact, Workwear). All are single-column, ATS-safe and included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects.';
+        return 'There are <strong>seventeen templates</strong> in four styles — traditional (Classic, Legal, Banker, Academic, Executive), contemporary (Modern, Minimal, Slate, Tech, Clinical), expressive (Creative, Studio, Editorial, Typewriter, Warm) and practical (Compact, Workwear). All are single-column, ATS-safe and included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects. Portfolio sites have <a href="sample-portfolios.html#themes">ten themes</a> of their own.';
       },
       chips: ['samples', 'start'] },
 
@@ -268,7 +276,7 @@
     domain: 'Custom domain', samples: 'See samples', issue: 'Raise an issue', contact: 'Talk to a person',
     start: 'Start a brief', send: 'What do I send?', cvvs: 'Resume or CV?', ats: 'ATS-safe?',
     resume: 'The resume', health: 'Health check', formats: 'File formats', hours: 'Reply hours',
-    templates: 'Templates'
+    templates: 'Templates', pfthemes: 'Portfolio themes'
   };
 
   // ------------------------------------------------------------------

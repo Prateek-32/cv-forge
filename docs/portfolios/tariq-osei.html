@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-theme-default="console" data-field="data">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tariq Osei — Sample portfolio — Fieldcraft</title>
+<meta name="description" content="Sample portfolio for Tariq Osei, a fictional senior data scientist in fintech and e-commerce — built with the Fieldcraft portfolio kit, shown in any of its themes.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit/portfolio.css">
+<script src="kit/kit.js"></script>
+</head>
+<body class="pk">
+
+<div class="cvf-banner" role="note">
+  <span><strong>Sample portfolio</strong> · fictional candidate · built by Fieldcraft</span>
+  <span class="cvf-links"><span class="pk-theme-slot"></span><a href="../sample-portfolios.html">&larr; All portfolios</a><a href="../samples/data-cv.html">View the CV</a><a class="pk-use" href="../start.html?type=portfolio">Get yours</a></span>
+</div>
+
+<header class="pk-nav">
+  <div class="pk-wrap">
+    <a class="pk-mark" href="#top">Tariq Osei</a>
+    <nav aria-label="Sections"><a href="#case">Case study</a><a href="#work">Models</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="pk-hero">
+    <div class="pk-wrap pk-hero-grid">
+      <div class="pk-hero-text pk-reveal">
+        <p class="pk-kicker">Senior data scientist · Fintech &amp; e-commerce · Amsterdam</p>
+        <h1 class="pk-name">Tariq <em>Osei</em></h1>
+        <p class="pk-headline">Five years building and deploying production ML systems — from a fraud
+        model that cut false positives by 38% to a churn pipeline serving 4.8M customers.</p>
+        <div class="pk-cta"><a class="pk-btn" href="#case">See the work</a><a class="pk-btn pk-ghost" href="#contact">Get in touch</a></div>
+      </div>
+      <div class="pk-portrait pk-reveal" aria-hidden="true"><span>TO</span><small>Amsterdam, Netherlands</small></div>
+    </div>
+    <div class="pk-wrap">
+      <ul class="pk-stats pk-reveal">
+        <li><b>5</b><span>years in production ML</span></li>
+        <li><b>38%</b><span>fewer fraud false positives</span></li>
+        <li><b>€2.1M</b><span>saved annually by the fraud model</span></li>
+        <li><b>4.8M</b><span>customers served by the churn pipeline</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="case">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Case study</p>
+        <h2>Cutting card fraud without more false alarms</h2>
+        <p>The fraud scoring model he rebuilt at Adyen, from business question to outcome.</p>
+      </header>
+      <article class="pk-case-card pk-reveal">
+        <p class="pk-meta">Adyen N.V. · Senior Data Scientist · Gradient boosting</p>
+        <h3>Rebuilding the fraud scoring model</h3>
+        <div class="pk-steps">
+          <div class="pk-step"><b>Business question</b><p>Reduce card fraud without increasing the false positive rate.</p></div>
+          <div class="pk-step"><b>Approach</b><p>Rebuilt the fraud scoring model with gradient boosting, using 140 engineered features on 18 months of transaction history.</p></div>
+          <div class="pk-step"><b>Outcome</b><p>False positives down 38% and fraud losses down 22% — a saving of €2.1M a year.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="pk-section" id="work">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Models &amp; analyses</p>
+        <h2>From fintech to e-commerce</h2>
+        <p>Infrastructure, models and reporting across Adyen, Jumia and Equity Bank.</p>
+      </header>
+      <div class="pk-work">
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#0B2A3C;--c2:#1FA38A" aria-hidden="true"><span class="pk-cover-label">p99 &lt; 8ms</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Adyen · Python + Redis</p><h3>Real-time feature store</h3>
+            <p>A feature store in Python and Redis serving model inference in real time.</p>
+            <p class="pk-result">p99 under 8ms at 14,000 TPS</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#1D1F4A;--c2:#6C7BE0" aria-hidden="true"><span class="pk-cover-label">A/B testing</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Adyen · Experimentation</p><h3>A/B testing framework</h3>
+            <p>An experimentation framework adopted by three other data science teams.</p>
+            <p class="pk-result">40% faster experiment cycles</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#3A1740;--c2:#D0707E" aria-hidden="true"><span class="pk-cover-label">90-day churn</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Jumia · Survival analysis · Logistic regression</p><h3>Churn prediction</h3>
+            <p>Identifying customers likely to churn within 90 days, across a 4.8M customer base.</p>
+            <p class="pk-result">Retention campaign ROI of 3.4x in the first quarter</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#12332A;--c2:#B8A24A" aria-hidden="true"><span class="pk-cover-label">12 categories</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Jumia · Forecasting</p><h3>Demand forecasting</h3>
+            <p>A demand forecasting model covering 12 product categories.</p>
+            <p class="pk-result">Overstock down 18%, stockouts down 24%</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#2A2413;--c2:#D98E3A" aria-hidden="true"><span class="pk-cover-label">Credit risk</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Equity Bank · Tableau</p><h3>Credit risk dashboards</h3>
+            <p>Dashboards used daily by 14 credit officers.</p>
+            <p class="pk-result">6 hours a week of manual reporting removed</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#152238;--c2:#4AA3C9" aria-hidden="true"><span class="pk-cover-label">Monthly close</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Equity Bank · SQL</p><h3>Regulatory reporting pipeline</h3>
+            <p>A SQL-based pipeline for regulatory reporting.</p>
+            <p class="pk-result">Monthly close cut from 3 days to 6 hours</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pk-section" id="open">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Projects &amp; publications</p><h2>Open data, talks and competitions</h2></header>
+      <ul class="pk-list pk-reveal">
+        <li><b>afridata-benchmark — an open dataset of African e-commerce transaction patterns</b><span>GitHub · 890 stars</span></li>
+        <li><b>Talk — “Real-time fraud detection at scale: lessons from fintech”</b><span>PyData Amsterdam 2025</span></li>
+        <li><b>Kaggle Tabular Playground — top 4% finish</b><span>2024</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="stack">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Technical stack</p><h2>What he builds with</h2></header>
+      <ul class="pk-tags pk-reveal">
+        <li>Python</li><li>R</li><li>SQL</li><li>PySpark</li><li>scikit-learn</li><li>PyTorch</li><li>XGBoost</li>
+        <li>dbt</li><li>Airflow</li><li>Databricks</li><li>BigQuery</li><li>Looker</li><li>Tableau</li><li>Azure ML</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="about">
+    <div class="pk-wrap pk-about">
+      <div class="pk-about-text pk-reveal">
+        <p>A data scientist who turns ambiguous business problems into reproducible,
+        production-ready analytical solutions.</p>
+        <p>Tariq is a Senior Data Scientist at Adyen in Amsterdam, where he works on fraud scoring,
+        real-time feature serving and experimentation. Before that he built churn and demand
+        models for Jumia Technologies (Nairobi, remote), and started as a data analyst at Equity Bank.</p>
+        <p>He has mentored two junior data scientists, both promoted to mid-level within 14 months,
+        and at Jumia established the first data science notebook standards and reproducibility
+        guidelines for a team of eight analysts.</p>
+      </div>
+      <ul class="pk-facts pk-reveal">
+        <li><span>Based in</span><b>Amsterdam, Netherlands</b></li>
+        <li><span>Currently</span><b>Adyen N.V.</b></li>
+        <li><span>Domains</span><b>Fintech, e-commerce</b></li>
+        <li><span>Focus</span><b>Fraud, churn, forecasting</b></li>
+        <li><span>Education</span><b>M.Sc. Data Science, UCT</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="experience">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Experience</p><h2>Where the models shipped</h2></header>
+      <ol class="pk-timeline pk-reveal">
+        <li><span class="pk-when">Mar 2022 — Present</span><div><h3>Senior Data Scientist</h3><p class="pk-org">Adyen N.V., Amsterdam</p><p>Fraud scoring model (€2.1M a year), real-time feature store, A/B testing framework; mentored 2 junior data scientists.</p></div></li>
+        <li><span class="pk-when">Jun 2020 — Feb 2022</span><div><h3>Data Scientist</h3><p class="pk-org">Jumia Technologies, Nairobi (Remote)</p><p>Churn prediction on a 4.8M customer base, demand forecasting for 12 categories, notebook and reproducibility standards.</p></div></li>
+        <li><span class="pk-when">Jan 2019 — May 2020</span><div><h3>Data Analyst</h3><p class="pk-org">Equity Bank, Nairobi</p><p>Credit risk dashboards in Tableau and a SQL pipeline for regulatory reporting.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pk-section" id="education">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Education</p><h2>Statistics to data science</h2></header>
+      <ol class="pk-timeline pk-reveal">
+        <li><span class="pk-when">2017 — 2019</span><div><h3>M.Sc. Data Science</h3><p class="pk-org">University of Cape Town</p><p>Distinction. Thesis: predictive modelling for mobile money fraud in sub-Saharan Africa.</p></div></li>
+        <li><span class="pk-when">2013 — 2017</span><div><h3>B.Sc. Statistics &amp; Mathematics</h3><p class="pk-org">University of Ghana</p><p>First Class Honours.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pk-section pk-contact" id="contact">
+    <div class="pk-wrap">
+      <div class="pk-contact-card pk-reveal">
+        <p class="pk-eyebrow">Contact</p>
+        <h2>Got an ambiguous business question?</h2>
+        <p class="pk-contact-line">tariq.osei@email.com</p>
+        <ul class="pk-contact-list"><li>+31 6 12 345 678</li><li>Amsterdam, Netherlands</li><li>github.com/tariqosei</li><li>linkedin.com/in/tariqosei</li></ul>
+        <p class="pk-note">Fictional candidate — contact details shown as plain text only.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pk-foot">Sample portfolio for a fictional candidate — built by <a href="../index.html">Fieldcraft</a>.</footer>
+</body>
+</html>

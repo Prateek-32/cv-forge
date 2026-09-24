@@ -271,7 +271,18 @@ var CV_FORGE_CONTACT = {
 })();
 
 /* ---------------------------------------------------------------
-   Brief form → your own Apps Script endpoint.
+   Start page: two briefs — the documents, or a portfolio site —
+   each a short run of steps, sent to your own Apps Script endpoint.
+
+   start.html?type=portfolio (or #portfolio) opens the portfolio brief.
+   ?template=classic&field=law pre-picks the CV template and the field;
+   ?theme=noir (a sample portfolio's "Get yours") or the older
+   ?style=creative|technical|corporate|care pre-picks the look.
+
+   Answers are kept in this browser as a draft while you type, so a
+   closed tab loses nothing. Every answer also travels as one readable
+   "summary", which the endpoint files whole — and which older copies
+   of the script keep in Notes, so nothing is lost before a redeploy.
 
    Posted as FormData with no custom headers, which keeps it a
    "simple" CORS request and avoids the preflight that Apps Script
@@ -279,130 +290,559 @@ var CV_FORGE_CONTACT = {
    than swallowing the enquiry.
    --------------------------------------------------------------- */
 
+// Portfolio themes that suit each field, best first — used by the
+// portfolio brief and the theme studio on sample-portfolios.html.
+// Keep the theme names in step with portfolios/kit/kit.js.
+var CV_FORGE_PF_REC = {
+  finance: ['sidebar', 'noir', 'paper'],       sales: ['swiss', 'brutal', 'aurora'],
+  law: ['paper', 'sidebar', 'noir'],           consulting: ['sidebar', 'swiss', 'paper'],
+  engineering: ['console', 'aurora', 'swiss'], data: ['console', 'aurora', 'swiss'],
+  trades: ['brutal', 'clinic', 'swiss'],       creative: ['gallery', 'brutal', 'pastel'],
+  film: ['noir', 'gallery', 'aurora'],         writing: ['paper', 'swiss', 'noir'],
+  healthcare: ['clinic', 'paper', 'sidebar'],  teaching: ['pastel', 'clinic', 'paper'],
+  academia: ['sidebar', 'paper', 'clinic']
+};
+
 (function () {
   'use strict';
 
-  var form = document.getElementById('brief-form');
-  if (!form) return;
+  var cvForm = document.getElementById('brief-form');
+  var pfForm = document.getElementById('portfolio-form');
+  if (!cvForm && !pfForm) return;
 
-  // Arriving from "Use this template": start.html?template=classic&field=law
-  // pre-selects both, so the visitor only has to confirm them.
   var FIELD_ORDER = ['finance', 'sales', 'law', 'consulting', 'engineering', 'data', 'trades',
                      'creative', 'film', 'writing', 'healthcare', 'teaching', 'academia'];
-  try {
-    var params = new URLSearchParams(location.search);
-    var tpl = (params.get('template') || '').toLowerCase();
-    var tplSelect = form.querySelector('select[name="template"]');
-    if (tpl && tplSelect) {
-      Array.prototype.forEach.call(tplSelect.options, function (o) {
-        if (o.value.toLowerCase() === tpl) tplSelect.value = o.value;
-      });
+  var PF_REC = CV_FORGE_PF_REC;
+  var OLD_STYLES = { creative: 'yuki', technical: 'lena', corporate: 'arjun', care: 'nair' };
+  var MAX_FILES = 5, MAX_TOTAL = 10 * 1024 * 1024, MAX_PROJECTS = 8;
+
+  var params = null;
+  try { params = new URLSearchParams(location.search); } catch (err) { params = null; }
+  var param = function (k) { return params ? (params.get(k) || '').toLowerCase() : ''; };
+
+  var all = function (root, sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+  var clean = function (s) { return String(s || '').replace(/\s+/g, ' ').trim(); };
+  var title = function (k) { return k.charAt(0).toUpperCase() + k.slice(1); };
+  var fieldKey = function (form) {
+    var sel = form.elements.field;
+    return sel ? FIELD_ORDER[sel.selectedIndex] || '' : '';
+  };
+  var picked = function (form, name) {
+    return all(form, 'input[name="' + name + '"]:checked').map(function (c) { return c.value; });
+  };
+  var val = function (form, name) {
+    var el = form.elements[name];   // a single control, not a group of radios
+    return el && el.tagName ? String(el.value || '').trim() : '';
+  };
+  // the fields a draft remembers: everything typed, nothing uploaded
+  var draftable = function (form) {
+    return all(form, 'input, select, textarea').filter(function (el) {
+      return el.name && el.type !== 'file' && el.name !== 'website';
+    });
+  };
+
+  // ---- the switch between the two briefs --------------------------
+  var tabs = all(document, '.order-tab');
+  var show = function (which) {
+    tabs.forEach(function (t) {
+      var on = (t.id === 'ot-' + which);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    all(document, '[data-for-order]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-for-order') !== which;
+    });
+  };
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { show(tab.id.replace('ot-', '')); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') next = tabs[(i + 1) % tabs.length];
+      if (next) { e.preventDefault(); next.click(); next.focus(); }
+    });
+  });
+  all(document, '[data-open-order]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      show(b.getAttribute('data-open-order'));
+      document.querySelector('.order-type').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  if (tabs.length && ((params && params.get('type')) || location.hash.slice(1)) === 'portfolio') show('portfolio');
+
+  // ---- what the visitor has said, step by step ---------------------
+  function labelFor(el) {
+    if (el.type === 'radio' || el.type === 'checkbox') {
+      var legend = el.closest('fieldset') && el.closest('fieldset').querySelector('legend');
+      return legend ? clean(legend.textContent) : el.name;
     }
-    var fi = FIELD_ORDER.indexOf((params.get('field') || '').toLowerCase());
-    var fieldSelect = form.querySelector('select[name="field"]');
-    if (fi > -1 && fieldSelect && fieldSelect.options[fi]) fieldSelect.selectedIndex = fi;
-  } catch (err) { /* no URLSearchParams: the form simply starts blank */ }
-
-  var statusEl = document.getElementById('brief-status');
-  var button = document.getElementById('brief-submit');
-  var fileInput = document.getElementById('upload');
-  var MAX_BYTES = 8 * 1024 * 1024;
-
-  function say(msg, kind) {
-    statusEl.textContent = msg;
-    statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
+    var l = el.id && el.form.querySelector('label[for="' + el.id + '"]');
+    return l ? clean(l.textContent).replace(/\s*\(optional\)$/i, '') : el.name;
   }
 
-  function readFileAsBase64(file) {
+  function projectText(p) {
+    var g = function (k) { var el = p.querySelector('[data-p="' + k + '"]'); return el ? el.value.trim() : ''; };
+    var lines = [[g('title'), g('role'), g('year')].filter(Boolean).join(' · ')];
+    if (g('what')) lines.push('What: ' + g('what'));
+    if (g('result')) lines.push('Result: ' + g('result'));
+    if (g('link')) lines.push('Link: ' + g('link'));
+    return lines.filter(Boolean).join('\n');
+  }
+
+  function themeLabel(form) {
+    var v = picked(form, 'theme')[0] || '';
+    if (v !== 'Match my field') return v;
+    var rec = PF_REC[fieldKey(form)];
+    return rec ? 'Match my field (we suggest ' + title(rec[0]) + ')' : v;
+  }
+
+  function answers(form) {
+    return all(form, '.step').map(function (step) {
+      var rows = [], seen = {};
+      all(step, 'input, select, textarea').forEach(function (el) {
+        if (!el.name || el.name === 'website' || el.closest('.proj') || el.closest('[hidden]')) return;
+        if (el.type === 'file') {
+          var names = Array.prototype.map.call(el.files || [], function (f) { return f.name; });
+          if (names.length) rows.push([labelFor(el), names.join(', ')]);
+        } else if (el.type === 'radio' || el.type === 'checkbox') {
+          if (seen[el.name]) return;
+          seen[el.name] = true;
+          var v = el.name === 'theme' ? themeLabel(form) : picked(form, el.name).join(', ');
+          if (v) rows.push([labelFor(el), v]);
+        } else if (el.tagName === 'SELECT') {
+          rows.push([labelFor(el), el.options[el.selectedIndex] ? clean(el.options[el.selectedIndex].text) : '']);
+        } else if (String(el.value).trim()) {
+          rows.push([labelFor(el), String(el.value).trim()]);
+        }
+      });
+      all(step, '.proj').forEach(function (p, n) {
+        var t = projectText(p);
+        if (t) rows.push(['Project ' + (n + 1), t]);
+      });
+      return { title: step.getAttribute('data-title'), rows: rows };
+    });
+  }
+
+  function summaryText(form) {
+    return answers(form).map(function (g) {
+      return '== ' + g.title + ' ==\n' + (g.rows.length ? g.rows.map(function (r) {
+        return r[1].indexOf('\n') > -1 ? r[0] + ':\n  ' + r[1].replace(/\n/g, '\n  ') : r[0] + ': ' + r[1];
+      }).join('\n') : '(nothing given)');
+    }).join('\n\n');
+  }
+
+  // ---- steps, progress and review ---------------------------------
+  function wizard(form) {
+    var steps = all(form, '.step');
+    var last = steps.length - 1;
+    var nav = form.querySelector('.wiz-nav');
+    var back = nav.querySelector('[data-wiz="back"]');
+    var next = nav.querySelector('[data-wiz="next"]');
+    var current = 0, reached = 0;
+
+    var head = document.createElement('div');
+    head.className = 'wiz-progress';
+    head.innerHTML = '<div class="wiz-count"><span class="wiz-where"></span>' +
+      '<span class="wiz-saved" hidden>Draft saved on this device · <button type="button" class="linklike">Start over</button></span></div>' +
+      '<div class="wiz-track" aria-hidden="true"><i></i></div><ol class="wiz-steps"></ol>';
+    var list = head.querySelector('.wiz-steps');
+    steps.forEach(function (s, i) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = '<span class="wiz-n">' + (i + 1) + '</span> ';
+      b.appendChild(document.createTextNode(s.getAttribute('data-title')));
+      b.addEventListener('click', function () { jump(i); });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+    form.insertBefore(head, form.firstChild);
+
+    // the first unanswered required field in a step, shown and flagged
+    function valid(i) {
+      var bad = all(steps[i], 'input, select, textarea').filter(function (el) {
+        return el.willValidate && !el.checkValidity();
+      })[0];
+      if (!bad) return true;
+      goTo(i, false);
+      bad.reportValidity();
+      return false;
+    }
+    function jump(i) {
+      for (var n = current; n < i; n++) if (!valid(n)) return;
+      goTo(i);
+    }
+    function goTo(i, focus) {
+      current = Math.max(0, Math.min(last, i));
+      reached = Math.max(reached, current);
+      steps.forEach(function (s, n) { s.classList.toggle('is-current', n === current); });
+      all(list, 'li').forEach(function (li, n) {
+        li.className = n < current ? 'done' : '';
+        if (n === current) li.firstChild.setAttribute('aria-current', 'step');
+        else li.firstChild.removeAttribute('aria-current');
+      });
+      head.querySelector('.wiz-where').textContent =
+        'Step ' + (current + 1) + ' of ' + steps.length + ' · ' + steps[current].getAttribute('data-title');
+      head.querySelector('.wiz-track i').style.width = ((current + 1) / steps.length * 100) + '%';
+      back.hidden = current === 0;
+      next.hidden = current === last;
+      if (current === last) renderReview();
+      if (focus !== false) {
+        var h = steps[current].querySelector('.step-title');
+        if (h) h.focus({ preventScroll: true });
+        if (head.getBoundingClientRect().top < 0) head.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function renderReview() {
+      var box = form.querySelector('.wiz-review');
+      if (!box) return;
+      box.innerHTML = '<p class="rv-title">Your answers</p>';
+      answers(form).slice(0, last).forEach(function (g, i) {
+        var sec = document.createElement('div');
+        sec.className = 'rv-group';
+        sec.innerHTML = '<div class="rv-head"><strong></strong><button type="button" class="linklike">Edit</button></div><dl></dl>';
+        sec.querySelector('strong').textContent = g.title;
+        sec.querySelector('button').addEventListener('click', function () { goTo(i); });
+        var dl = sec.querySelector('dl');
+        if (!g.rows.length) {
+          var none = document.createElement('dd');
+          none.className = 'rv-empty';
+          none.textContent = 'Nothing yet — that is fine, we can ask.';
+          dl.appendChild(none);
+        }
+        g.rows.forEach(function (r) {
+          var dt = document.createElement('dt'), dd = document.createElement('dd');
+          dt.textContent = r[0];
+          dd.textContent = r[1];
+          dl.appendChild(dt);
+          dl.appendChild(dd);
+        });
+        box.appendChild(sec);
+      });
+    }
+
+    next.addEventListener('click', function () { if (valid(current)) goTo(current + 1); });
+    back.addEventListener('click', function () { goTo(current - 1); });
+    head.querySelector('.wiz-saved button').addEventListener('click', function () {
+      clearDraft(form);
+      form.reset();
+      all(form, '.proj').slice(1).forEach(function (p) { p.parentNode.removeChild(p); });
+      renumber(form);
+      refresh(form);
+      goTo(0);
+    });
+
+    form.addEventListener('keydown', function (e) {
+      // Enter in a one-line box moves on rather than sending half a brief
+      if (e.key === 'Enter' && e.target.tagName === 'INPUT' && current < last &&
+          !/^(checkbox|radio|button|submit|file)$/.test(e.target.type)) {
+        e.preventDefault();
+        next.click();
+      }
+    });
+
+    form._wiz = {
+      isLast: function () { return current === last; },
+      next: function () { next.click(); },
+      validAll: function () { for (var i = 0; i <= last; i++) if (!valid(i)) return false; return true; },
+      saved: function (on) { head.querySelector('.wiz-saved').hidden = !on; }
+    };
+    goTo(0, false);
+  }
+
+  // ---- repeatable projects -----------------------------------------
+  function renumber(form) {
+    var items = all(form, '.proj');
+    items.forEach(function (p, i) {
+      p.querySelector('legend').textContent = 'Project ' + (i + 1);
+      all(p, '[id]').forEach(function (el) { el.id = el.id.replace(/-\d+$/, '-' + (i + 1)); });
+      all(p, 'label[for]').forEach(function (l) { l.htmlFor = l.htmlFor.replace(/-\d+$/, '-' + (i + 1)); });
+      p.querySelector('.proj-remove').hidden = i === 0;
+    });
+    var add = form.querySelector('.proj-add');
+    if (add) add.hidden = items.length >= MAX_PROJECTS;
+  }
+  function addProject(form) {
+    var items = all(form, '.proj');
+    if (!items.length || items.length >= MAX_PROJECTS) return null;
+    var copy = items[0].cloneNode(true);
+    all(copy, 'input, textarea').forEach(function (el) { el.value = ''; });
+    items[items.length - 1].parentNode.appendChild(copy);
+    renumber(form);
+    return copy;
+  }
+
+  // ---- drafts: this browser only, never required -------------------
+  var draftKey = function (form) { return 'fc-draft-' + form.id; };
+  function saveDraft(form) {
+    try {
+      var data = { projects: all(form, '.proj').length, v: draftable(form).map(function (el) {
+        return (el.type === 'radio' || el.type === 'checkbox') ? el.checked : el.value;
+      }) };
+      localStorage.setItem(draftKey(form), JSON.stringify(data));
+      if (form._wiz) form._wiz.saved(true);
+    } catch (err) { /* private window or storage blocked: carry on without */ }
+  }
+  function loadDraft(form) {
+    try {
+      var d = JSON.parse(localStorage.getItem(draftKey(form)) || 'null');
+      if (!d || !d.v) return false;
+      while (all(form, '.proj').length < d.projects && addProject(form)) { /* grow to fit */ }
+      var els = draftable(form);
+      if (els.length !== d.v.length) return false;   // the form has changed since; start fresh
+      els.forEach(function (el, i) {
+        if (el.type === 'radio' || el.type === 'checkbox') el.checked = !!d.v[i];
+        else el.value = d.v[i];
+      });
+      return true;
+    } catch (err) { return false; }
+  }
+  function clearDraft(form) {
+    try { localStorage.removeItem(draftKey(form)); } catch (err) { /* nothing to clear */ }
+    if (form._wiz) form._wiz.saved(false);
+  }
+
+  // ---- files -------------------------------------------------------
+  function filesOf(form) {
+    var out = [];
+    all(form, 'input[type="file"]').forEach(function (inp) {
+      Array.prototype.forEach.call(inp.files || [], function (f) { out.push(f); });
+    });
+    return out;
+  }
+  function fileProblem(form) {
+    var files = filesOf(form);
+    var total = files.reduce(function (s, f) { return s + f.size; }, 0);
+    if (files.length > MAX_FILES) return 'That is ' + files.length + ' files — please choose ' + MAX_FILES + ' at most, or share a Drive or Dropbox link instead.';
+    if (total > MAX_TOTAL) return 'Those files come to ' + (total / 1048576).toFixed(1) + ' MB — the limit is 10 MB. Share the large ones as a Drive or Dropbox link instead.';
+    return '';
+  }
+  function readFile(file) {
     return new Promise(function (resolve, reject) {
       var reader = new FileReader();
-      reader.onerror = function () { reject(new Error('Could not read that file')); };
+      reader.onerror = function () { reject(new Error('Could not read ' + file.name)); };
       reader.onload = function () {
-        // strip the "data:<type>;base64," prefix
-        var result = String(reader.result);
-        resolve(result.slice(result.indexOf(',') + 1));
+        var s = String(reader.result);
+        resolve(s.slice(s.indexOf(',') + 1));   // strip the "data:<type>;base64," prefix
       };
       reader.readAsDataURL(file);
     });
   }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    var endpoint = form.getAttribute('data-endpoint') || '';
-    if (!endpoint || endpoint.charAt(0) === '[') {
-      say('This form is not connected yet. Please email us instead.', 'error');
-      return;
-    }
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    var file = fileInput && fileInput.files && fileInput.files[0];
-    if (file && file.size > MAX_BYTES) {
-      say('That file is larger than 8 MB. Send the brief without it and email the document separately.', 'error');
-      return;
-    }
-
-    button.disabled = true;
-    say('Sending your brief…');
-
-    var data = new FormData();
-    data.append('name', form.name.value.trim());
-    data.append('email', form.email.value.trim());
-    data.append('field', form.field.value);
-    data.append('stage', form.stage.value);
-    data.append('target', form.target.value.trim());
-    data.append('notes', form.notes.value.trim());
-    data.append('website', form.website.value);   // honeypot
-
-    var needs = [];
-    form.querySelectorAll('input[name="needs"]:checked')
-        .forEach(function (c) { needs.push(c.value); });
-    // The template rides along in "needs" too, so a script that predates the
-    // Template column still records it.
-    var chosen = form.querySelector('select[name="template"]');
-    var template = (chosen && chosen.value) || 'Our choice for the field';
-    needs.push('Template: ' + template);
-    data.append('needs', needs.join(', '));
-    data.append('template', template);
-
-    var prepared = file
-      ? readFileAsBase64(file).then(function (b64) {
-          data.append('fileData', b64);
-          data.append('fileName', file.name);
-          data.append('fileType', file.type || 'application/octet-stream');
-        })
-      : Promise.resolve();
-
-    prepared
-      .then(function () {
-        return fetch(endpoint, { method: 'POST', body: data });
-      })
-      .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
-      .then(function (out) {
-        if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
-        form.innerHTML =
-          '<div class="card card-raised" style="gap:14px;">' +
-          '<span class="eyebrow">Received</span>' +
-          '<h2 style="font-size:clamp(24px,2.6vw,32px);">Thank you — your brief is with us.</h2>' +
-          '<p>We read every brief ourselves. Expect a fixed quotation and timeline by ' +
-          'email, to the address you gave us.</p>' +
-          '<p class="hint">Nothing is charged until you approve it.</p></div>';
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(function (err) {
-        button.disabled = false;
-        var email = CV_FORGE_CONTACT.email;
-        say((email
-          ? 'Something went wrong sending that — please email your brief to ' + email +
-            ' and we will pick it up from there.'
-          : 'Something went wrong sending that. Your answers are still here — please try again in a minute.') +
-          ' (' + err.message + ')', 'error');
+  // the first file as fileData / fileName / fileType, the rest as fileData1, fileData2…
+  function attachFiles(form, data) {
+    return Promise.all(filesOf(form).map(function (f, i) {
+      return readFile(f).then(function (b64) {
+        var n = i ? String(i) : '';
+        data.append('fileData' + n, b64);
+        data.append('fileName' + n, f.name);
+        data.append('fileType' + n, f.type || 'application/octet-stream');
       });
+    }));
+  }
+
+  // ---- sending -----------------------------------------------------
+  function endpoint() {
+    return (window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.formEndpoint) ||
+           (cvForm && cvForm.getAttribute('data-endpoint')) || '';
+  }
+  function everyField(form, data) {
+    var seen = {};
+    draftable(form).forEach(function (el) {
+      if (el.closest('.proj') || seen[el.name]) return;
+      seen[el.name] = true;
+      data.append(el.name, (el.type === 'radio' || el.type === 'checkbox') ? picked(form, el.name).join(', ') : String(el.value).trim());
+    });
+    data.append('website', val(form, 'website'));   // honeypot
+  }
+
+  function cvPayload(form) {
+    var data = new FormData();
+    everyField(form, data);
+    var summary = summaryText(form);
+    // The template rides along in "needs" too, so a script that predates
+    // the Template column still records it.
+    var template = val(form, 'template') || 'Our choice for the field';
+    data.set('template', template);
+    data.set('needs', picked(form, 'needs').concat('Template: ' + template).join(', '));
+    data.set('target', val(form, 'target') + (val(form, 'jobLinks') ? '\n\nJob postings:\n' + val(form, 'jobLinks') : ''));
+    data.append('userNotes', val(form, 'notes'));
+    data.append('summary', summary);
+    data.set('notes', summary);        // older scripts keep the whole brief in Notes
+    return data;
+  }
+
+  function pfPayload(form) {
+    var data = new FormData();
+    everyField(form, data);
+    var summary = summaryText(form);
+    var links = [['LinkedIn', 'lkLinkedin'], ['GitHub', 'lkGithub'], ['Behance / Dribbble', 'lkBehance'],
+                 ['Instagram / X', 'lkInstagram'], ['Website', 'lkWebsite']]
+      .filter(function (l) { return val(form, l[1]); })
+      .map(function (l) { return l[0] + ': ' + val(form, l[1]); });
+    if (val(form, 'links')) links.push(val(form, 'links'));
+    var projects = all(form, '.proj').map(projectText).filter(Boolean)
+      .map(function (t, i) { return (i + 1) + '. ' + t; }).join('\n\n');
+    var addons = picked(form, 'addons');
+    var hosting = val(form, 'hostingEmail') || val(form, 'email');
+    var domain = picked(form, 'domain')[0] || 'Free address';
+
+    data.append('kind', 'portfolio');
+    data.set('theme', themeLabel(form));
+    data.append('style', themeLabel(form));   // the column older scripts call "Look"
+    data.set('links', links.join('\n'));
+    data.append('projects', projects);
+    data.set('hostingEmail', hosting);
+    data.append('userNotes', val(form, 'notes'));
+    data.append('summary', summary);
+    data.append('ownNotes', summary);         // older scripts keep the whole brief in Notes
+
+    // The same brief, folded into the document brief's columns, for a
+    // script that predates the Portfolio tab altogether.
+    data.set('field', 'PORTFOLIO: ' + val(form, 'field'));
+    data.append('stage', 'Portfolio brief');
+    data.append('needs', ['Portfolio'].concat(addons).join(', ') + ' | Theme: ' + themeLabel(form) +
+      ' | Web address: ' + domain + (val(form, 'domainName') ? ' (' + val(form, 'domainName') + ')' : ''));
+    data.append('target', 'Headline: ' + val(form, 'headline') + '\n\nProjects:\n' + projects + '\n\nLinks:\n' + links.join('\n'));
+    data.set('notes', summary);
+    return data;
+  }
+
+  function setup(form, opts) {
+    var statusEl = form.querySelector('.form-status');
+    var button = form.querySelector('button[type="submit"]');
+    var say = function (msg, kind) {
+      statusEl.textContent = msg;
+      statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
+    };
+
+    wizard(form);
+    var restored = loadDraft(form);
+    if (opts.prefill) opts.prefill(form);
+    if (opts.refresh) opts.refresh(form);
+    if (restored) form._wiz.saved(true);
+
+    var timer = null;
+    var onEdit = function () {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () { saveDraft(form); }, 400);
+    };
+    form.addEventListener('input', onEdit);
+    form.addEventListener('change', function (e) {
+      onEdit();
+      if (opts.refresh) opts.refresh(form);
+      if (e.target.type === 'file') {
+        var out = e.target.parentNode.querySelector('.file-list');
+        var files = Array.prototype.slice.call(e.target.files || []);
+        if (out) out.textContent = files.length ? files.map(function (f) {
+          return f.name + ' (' + (f.size / 1048576).toFixed(1) + ' MB)';
+        }).join(' · ') : '';
+        var problem = fileProblem(form);
+        if (problem) say(problem, 'error'); else if (statusEl.className.indexOf('is-error') > -1) say('');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form._wiz.isLast()) { form._wiz.next(); return; }
+      var url = endpoint();
+      if (!url || url.charAt(0) === '[') {
+        say('This form is not connected yet. Please email us instead.', 'error');
+        return;
+      }
+      if (!form._wiz.validAll()) return;
+      var problem = fileProblem(form);
+      if (problem) { say(problem, 'error'); return; }
+
+      var data = opts.payload(form);
+      button.disabled = true;
+      say(filesOf(form).length ? 'Sending your brief and files…' : 'Sending your brief…');
+
+      attachFiles(form, data)
+        .then(function () { return fetch(url, { method: 'POST', body: data }); })
+        .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
+        .then(function (out) {
+          if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
+          clearDraft(form);
+          form.innerHTML =
+            '<div class="card card-raised" style="gap:14px;">' +
+            '<span class="eyebrow">Received</span>' +
+            '<h2 style="font-size:clamp(24px,2.6vw,32px);">' + opts.thanks + '</h2>' +
+            '<p>We read every brief ourselves. Expect a fixed quotation and timeline by ' +
+            'email, to the address you gave us.</p>' +
+            '<p class="hint">Nothing is charged until you approve it.</p></div>';
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function (err) {
+          button.disabled = false;
+          var email = window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.email;
+          say((email
+            ? 'Something went wrong sending that — your answers are still here. Try again, or email your brief to ' + email + '.'
+            : 'Something went wrong sending that. Your answers are still here — please try again in a minute.') +
+            ' (' + err.message + ')', 'error');
+        });
+    });
+  }
+
+  function prefillField(form) {
+    var fi = FIELD_ORDER.indexOf(param('field'));
+    if (fi > -1 && form.elements.field && form.elements.field.options[fi]) form.elements.field.selectedIndex = fi;
+  }
+
+  if (cvForm) setup(cvForm, {
+    payload: cvPayload,
+    thanks: 'Thank you — your brief is with us.',
+    prefill: function (form) {
+      // Arriving from "Use this template": start.html?template=classic&field=law
+      var tpl = param('template');
+      if (tpl) Array.prototype.forEach.call(form.elements.template.options, function (o) {
+        if (o.value.toLowerCase() === tpl) form.elements.template.value = o.value;
+      });
+      prefillField(form);
+    }
   });
+
+  if (pfForm) {
+    pfForm.addEventListener('click', function (e) {
+      if (e.target.closest('.proj-add')) {
+        var p = addProject(pfForm);
+        if (p) { p.querySelector('input').focus(); saveDraft(pfForm); }
+      } else if (e.target.closest('.proj-remove')) {
+        var gone = e.target.closest('.proj');
+        gone.parentNode.removeChild(gone);
+        renumber(pfForm);
+        saveDraft(pfForm);
+      }
+    });
+    renumber(pfForm);
+
+    setup(pfForm, {
+      payload: pfPayload,
+      thanks: 'Thank you — your portfolio brief is with us.',
+      prefill: function (form) {
+        prefillField(form);
+        var want = param('theme') || OLD_STYLES[param('style')] || '';
+        all(form, 'input[name="theme"]').forEach(function (r) {
+          if (want && r.getAttribute('data-key') === want) r.checked = true;
+        });
+      },
+      refresh: function (form) {
+        // mark the themes that suit the chosen field
+        var rec = PF_REC[fieldKey(form)] || [];
+        all(form, '.tp-card').forEach(function (card) {
+          var key = card.querySelector('input').getAttribute('data-key');
+          card.classList.toggle('is-rec', rec.slice(0, 2).indexOf(key) > -1);
+        });
+        var auto = form.querySelector('[data-auto-desc]');
+        if (auto) auto.textContent = rec.length
+          ? 'For your field we would start with ' + title(rec[0]) + ', or ' + title(rec[1]) + '.'
+          : 'We pick the theme your field expects.';
+        // the domain box only when a domain is involved
+        var box = form.querySelector('.domain-name');
+        if (box) box.hidden = (picked(form, 'domain')[0] || 'Free address') === 'Free address';
+      }
+    });
+  }
 })();
 
 /* ---------------------------------------------------------------
@@ -704,6 +1144,77 @@ var CV_FORGE_CONTACT = {
 })();
 
 /* ---------------------------------------------------------------
+   Theme studio (sample-portfolios.html#themes): any kit example in
+   any of the ten themes. ?person=jake-tran&t=noir opens on that pair.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var studio = document.querySelector('.studio');
+  if (!studio) return;
+
+  var person = document.getElementById('st-person');
+  var frame = studio.querySelector('iframe');
+  var screen = document.getElementById('st-screen');
+  var open = document.getElementById('st-open');
+  var use = document.getElementById('st-use');
+  var note = document.getElementById('st-note');
+  var label = screen.querySelector('.pf-chrome span');
+  var buttons = Array.prototype.slice.call(studio.querySelectorAll('.st-theme'));
+  var title = function (k) { return k.charAt(0).toUpperCase() + k.slice(1); };
+  var option = function () { return person.options[person.selectedIndex]; };
+  var theme = option().getAttribute('data-theme');
+
+  var render = function () {
+    var opt = option();
+    var field = opt.getAttribute('data-field');
+    var rec = (window.CV_FORGE_PF_REC && CV_FORGE_PF_REC[field] || []).slice(0, 2);
+    var url = 'portfolios/' + person.value + '.html?t=' + theme;
+    if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
+    screen.href = open.href = url;
+    use.href = 'start.html?type=portfolio&theme=' + theme + '&field=' + field;
+    label.textContent = opt.text.split(' — ')[0] + ' · ' + title(theme);
+    buttons.forEach(function (b) {
+      var key = b.getAttribute('data-theme');
+      b.setAttribute('aria-pressed', String(key === theme));
+      b.classList.toggle('is-rec', rec.indexOf(key) > -1);
+    });
+    note.textContent = rec.length
+      ? 'Dots mark the themes we suggest for ' + opt.getAttribute('data-field-label') + ': ' +
+        rec.map(title).join(' and ') + '.'
+      : '';
+  };
+
+  person.addEventListener('change', function () {
+    theme = option().getAttribute('data-theme');
+    render();
+  });
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { theme = b.getAttribute('data-theme'); render(); });
+  });
+  // "Try other themes" under each example card
+  document.querySelectorAll('[data-studio-person]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      person.value = a.getAttribute('data-studio-person');
+      theme = option().getAttribute('data-theme');
+      render();
+    });
+  });
+
+  try {
+    var q = new URLSearchParams(location.search);
+    var who = q.get('person'), t = (q.get('t') || '').toLowerCase();
+    if (who && person.querySelector('option[value="' + who.replace(/[^a-z-]/g, '') + '"]')) {
+      person.value = who;
+      theme = option().getAttribute('data-theme');
+    }
+    if (t && buttons.some(function (b) { return b.getAttribute('data-theme') === t; })) theme = t;
+  } catch (err) { /* no URLSearchParams: start on the first person */ }
+  render();
+})();
+
+/* ---------------------------------------------------------------
    Templates page: pick a field and every preview switches to that
    field's sample, the templates recommended for it move first, and
    "Use this template" carries both into the brief. #law etc. works.
@@ -797,160 +1308,4 @@ var CV_FORGE_CONTACT = {
   } else {
     window.addEventListener('resize', function () { viewports.forEach(fit); });
   }
-})();
-
-/* ---------------------------------------------------------------
-   Start page: documents or a portfolio site. Two forms behind one
-   switch — start.html?type=portfolio (or #portfolio) opens the
-   portfolio brief, and ?style=creative|technical|corporate|care
-   pre-picks the look from a sample portfolio's "Get yours" link.
-   --------------------------------------------------------------- */
-
-(function () {
-  'use strict';
-
-  var pform = document.getElementById('portfolio-form');
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.order-tab'));
-  if (!pform || !tabs.length) return;
-
-  // ---- the switch ------------------------------------------------
-  var show = function (which) {
-    tabs.forEach(function (t) {
-      var on = (t.id === 'ot-' + which);
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-    });
-    document.querySelectorAll('[data-for-order]').forEach(function (el) {
-      el.hidden = el.getAttribute('data-for-order') !== which;
-    });
-  };
-  tabs.forEach(function (tab, i) {
-    tab.addEventListener('click', function () { show(tab.id.replace('ot-', '')); });
-    tab.addEventListener('keydown', function (e) {
-      var next = null;
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') next = tabs[(i + 1) % tabs.length];
-      if (next) { e.preventDefault(); next.click(); next.focus(); }
-    });
-  });
-  document.querySelectorAll('[data-open-order]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      show(b.getAttribute('data-open-order'));
-      document.querySelector('.order-type').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  var params = null;
-  try { params = new URLSearchParams(location.search); } catch (err) { params = null; }
-  var type = (params && params.get('type')) || location.hash.slice(1);
-  if (type === 'portfolio') show('portfolio');
-
-  var STYLES = { creative: 'Creative', technical: 'Technical', corporate: 'Corporate', care: 'Clean' };
-  var wanted = params && STYLES[(params.get('style') || '').toLowerCase()];
-  if (wanted) {
-    pform.querySelectorAll('input[name="style"]').forEach(function (r) {
-      if (r.value.indexOf(wanted) === 0) r.checked = true;
-    });
-  }
-
-  // ---- the domain box only when a domain is involved ------------
-  var domainBox = pform.querySelector('.domain-name');
-  pform.querySelectorAll('input[name="domain"]').forEach(function (r) {
-    r.addEventListener('change', function () { domainBox.hidden = r.value === 'Free address' && r.checked; });
-  });
-
-  // ---- sending ----------------------------------------------------
-  var statusEl = document.getElementById('portfolio-status');
-  var button = document.getElementById('portfolio-submit');
-  var MAX_BYTES = 8 * 1024 * 1024;
-  var say = function (msg, kind) {
-    statusEl.textContent = msg;
-    statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
-  };
-  var val = function (n) { var el = pform.elements[n]; return el ? String(el.value || '').trim() : ''; };
-  var picked = function (n) {
-    return Array.prototype.map.call(pform.querySelectorAll('input[name="' + n + '"]:checked'),
-      function (c) { return c.value; });
-  };
-
-  pform.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var endpoint = (window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.formEndpoint) ||
-                   (document.getElementById('brief-form') || {}).getAttribute('data-endpoint') || '';
-    if (!pform.checkValidity()) { pform.reportValidity(); return; }
-
-    var file = pform.elements.upload && pform.elements.upload.files && pform.elements.upload.files[0];
-    if (file && file.size > MAX_BYTES) {
-      say('That file is larger than 8 MB. Share it as a Drive or Dropbox link in "Links to your work" instead.', 'error');
-      return;
-    }
-
-    var style = picked('style')[0] || 'Match my field';
-    var sections = picked('sections').join(', ');
-    var domain = picked('domain')[0] || 'Free address';
-    var addons = picked('addons');
-    var hosting = val('hostingEmail') || val('email');
-
-    var data = new FormData();
-    data.append('kind', 'portfolio');
-    ['name', 'email', 'field', 'whatsapp', 'headline', 'links', 'projects', 'domainName', 'lookFeel', 'notes', 'website']
-      .forEach(function (n) { data.append(n, val(n)); });
-    data.append('style', style);
-    data.append('sections', sections);
-    data.append('domain', domain);
-    data.append('hostingEmail', hosting);
-    data.append('addons', addons.join(', '));
-    data.append('ownNotes', val('notes'));
-
-    // The same brief, folded into the document brief's columns, so a
-    // script that predates the Portfolio tab still records all of it.
-    data.set('field', 'PORTFOLIO: ' + val('field'));
-    data.append('stage', 'Portfolio brief');
-    data.append('needs', ['Portfolio'].concat(addons).join(', ') + ' | Style: ' + style +
-      ' | Web address: ' + domain + (val('domainName') ? ' (' + val('domainName') + ')' : '') +
-      ' | Sections: ' + sections);
-    data.append('target', 'Headline: ' + val('headline') + '\n\nProjects:\n' + val('projects') +
-      '\n\nLinks:\n' + val('links'));
-    data.set('notes', 'Look and feel: ' + val('lookFeel') + '\nHosting account email: ' + hosting +
-      '\nWhatsApp: ' + val('whatsapp') + '\n\n' + val('notes'));
-
-    button.disabled = true;
-    say('Sending your portfolio brief…');
-
-    var prepared = file ? new Promise(function (resolve, reject) {
-      var reader = new FileReader();
-      reader.onerror = function () { reject(new Error('Could not read that file')); };
-      reader.onload = function () {
-        var s = String(reader.result);
-        data.append('fileData', s.slice(s.indexOf(',') + 1));
-        data.append('fileName', file.name);
-        data.append('fileType', file.type || 'application/octet-stream');
-        resolve();
-      };
-      reader.readAsDataURL(file);
-    }) : Promise.resolve();
-
-    prepared
-      .then(function () { return fetch(endpoint, { method: 'POST', body: data }); })
-      .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
-      .then(function (out) {
-        if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
-        pform.innerHTML =
-          '<div class="card card-raised" style="gap:14px;">' +
-          '<span class="eyebrow">Received</span>' +
-          '<h2 style="font-size:clamp(24px,2.6vw,32px);">Thank you — your portfolio brief is with us.</h2>' +
-          '<p>We will look through your work and email a fixed quotation and timeline to the ' +
-          'address you gave us.</p>' +
-          '<p class="hint">Nothing is charged until you approve it.</p></div>';
-        pform.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(function (err) {
-        button.disabled = false;
-        var email = window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.email;
-        say((email
-          ? 'Something went wrong sending that — please email your brief and work links to ' + email + '.'
-          : 'Something went wrong sending that. Your answers are still here — please try again in a minute.') +
-          ' (' + err.message + ')', 'error');
-      });
-  });
 })();

@@ -1,0 +1,211 @@
+﻿/* Sidebar — a résumé site with a persistent profile panel: on wide screens
+   the hero becomes a sticky left column and the work scrolls beside it.
+   Light neutral greys, Manrope and Inter, one burnt-orange accent.
+   Clean & professional. */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --bg: #F5F5F2;
+  --surface: #FFFFFF;
+  --ink: #17181B;
+  --ink-2: #3E4047;
+  --muted: #62656E;
+  --line: #E2E2DD;
+  --accent: #C0410C;
+  --accent-ink: #FFFFFF;
+  --accent-2: #F0A875;
+  --display: 'Manrope', 'Segoe UI', Arial, sans-serif;
+  --text: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --maxw: 1120px;
+  --shadow: 0 1px 2px rgba(20, 20, 24, .05), 0 8px 24px -16px rgba(20, 20, 24, .22);
+  --name-size: clamp(40px, 7vw, 60px);
+  --side: clamp(320px, 28vw, 400px);
+  --banner-h: 40px;
+}
+html.embedded { --banner-h: 0px; }
+
+body.pk { font-size: 16.5px; line-height: 1.6; }
+:where(.pk) h1, :where(.pk) h2, :where(.pk) h3 { font-weight: 800; letter-spacing: -.025em; }
+
+/* ---------- nav ---------- */
+
+.pk-nav { background: color-mix(in srgb, var(--bg) 90%, transparent); }
+.pk-mark { font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
+.pk-nav nav a { font-size: 14px; font-weight: 500; }
+
+/* ---------- profile panel (the hero) ---------- */
+
+.pk-hero {
+  padding-block: clamp(36px, 6vw, 56px) clamp(32px, 5vw, 44px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.pk-hero-grid { display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
+.pk-hero-text { gap: 14px; }
+.pk-kicker { font-size: 11.5px; letter-spacing: .1em; line-height: 1.6; color: var(--muted); }
+.pk-name { font-weight: 800; letter-spacing: -.045em; line-height: 1; }
+.pk-name em { display: block; font-style: normal; font-weight: 800; color: var(--accent); }
+.pk-headline { font-size: 17px; line-height: 1.55; color: var(--ink-2); max-width: 44ch; }
+.pk-cta { gap: 10px; margin-top: 6px; }
+.pk-btn {
+  min-height: 44px; padding: 10px 18px; border-radius: 10px;
+  font-size: 14.5px; font-weight: 600;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.pk-btn:hover { transform: none; box-shadow: none; background: #A33609; border-color: #A33609; }
+.pk-ghost { background: var(--surface); color: var(--ink) !important; border-color: #D3D3CD; }
+.pk-ghost:hover { background: var(--bg); border-color: var(--ink); }
+
+/* the portrait shrinks to an avatar and leads the panel */
+.pk-portrait {
+  order: -1;
+  width: 92px; max-width: none; aspect-ratio: 1; border-radius: 50%;
+  border: 3px solid var(--surface);
+  outline: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent-2) 80%, transparent), transparent 65%),
+    linear-gradient(145deg, #FBE6D6, #EFE9E3);
+  box-shadow: 0 6px 18px -10px rgba(192, 65, 12, .5);
+  overflow: visible;
+}
+.pk-portrait span { font-family: var(--display); font-size: 32px; font-weight: 800; letter-spacing: -.04em; color: var(--ink); opacity: 1; }
+.pk-portrait small {
+  left: calc(100% + 16px); bottom: auto; top: 50%; transform: translateY(-50%);
+  width: max-content; max-width: 200px; font-size: 11.5px; line-height: 1.5; letter-spacing: .08em; color: var(--muted);
+}
+.pk-portrait small::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #2F9E62; box-shadow: 0 0 0 3px rgba(47, 158, 98, .18); vertical-align: 1px; }
+
+.pk .pk-stats { margin-top: 28px; }
+.pk-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 0; border-top: 0; }
+.pk-stats li { gap: 4px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); }
+.pk-stats b { font-family: var(--display); font-size: 28px; font-weight: 800; letter-spacing: -.03em; color: var(--ink); }
+.pk-stats span { font-size: 13px; line-height: 1.4; color: var(--muted); }
+
+/* ---------- sections ---------- */
+
+.pk-section { padding-block: clamp(44px, 6vw, 72px); }
+.pk-section + .pk-section { border-top: 1px solid var(--line); }
+.pk-head { gap: 8px; }
+.pk-eyebrow, .pk-head .pk-eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 600 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.pk-eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .6; }
+.pk-head h2 { font-size: clamp(28px, 3vw, 38px); }
+.pk-head p:not(.pk-eyebrow) { font-size: 16.5px; color: var(--ink-2); }
+
+/* ---------- work ---------- */
+
+.pk-work { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 18px; }
+.pk-project { border-radius: var(--radius); box-shadow: var(--shadow); transition: border-color .2s ease, box-shadow .2s ease; }
+.pk-project:hover { transform: none; border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.pk-cover { aspect-ratio: 16 / 10; }
+.pk-cover-label { border-radius: 6px; background: rgba(23, 24, 27, .62); font-size: 11.5px; }
+.pk-project-body { padding: 16px 18px 20px; gap: 6px; }
+.pk-meta { font: 500 11.5px var(--mono); letter-spacing: .06em; }
+.pk-project h3 { font-size: 20px; }
+.pk-project p:not(.pk-meta) { font-size: 15px; }
+.pk-result { border-top-style: solid; font-size: 14.5px !important; }
+
+/* ---------- case study ---------- */
+
+.pk-case-card { border-radius: var(--radius); box-shadow: var(--shadow); }
+.pk-case-card > .pk-meta { color: var(--accent); }
+.pk-case-card > h3 { font-size: clamp(22px, 2.4vw, 30px); }
+.pk-steps { gap: 12px; }
+.pk-step { padding: 18px; background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px var(--radius-sm) var(--radius-sm) 6px; }
+.pk-step b { font: 600 11.5px var(--mono); letter-spacing: .14em; }
+.pk-step p { font-size: 15px; }
+
+/* ---------- about ---------- */
+
+.pk-about-text { font-size: 16.5px; }
+.pk-about-text p:first-child { font-family: var(--display); font-weight: 700; letter-spacing: -.02em; font-size: clamp(20px, 2vw, 24px); line-height: 1.4; }
+.pk .pk-facts { padding: 6px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.pk-facts li { padding: 12px 0; font-size: 14.5px; }
+.pk-facts li:last-child { border-bottom: 0; }
+.pk-facts span { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding-top: 2px; }
+
+/* ---------- timeline, tags, lists ---------- */
+
+.pk-timeline li { grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 18px 0; }
+.pk-when { font: 500 12.5px var(--mono); color: var(--accent); }
+.pk-timeline h3 { font-size: 19px; }
+.pk .pk-org { margin: 2px 0 6px; color: var(--ink-2); font-weight: 600; }
+.pk-timeline p:not(.pk-org) { font-size: 15px; }
+
+.pk-tags li { padding: 6px 12px; border-radius: 8px; background: var(--surface); font-size: 14px; font-weight: 500; }
+
+.pk-list li { padding: 14px 0; }
+.pk-list b { font-weight: 600; }
+.pk-list span { font-size: 12.5px; white-space: normal; text-align: right; }
+
+/* ---------- contact + footer ---------- */
+
+.pk-contact .pk-contact-card { gap: 14px; background: var(--ink); color: #F4F4F1; border-radius: var(--radius); }
+.pk-contact .pk-eyebrow { color: var(--accent-2); }
+.pk-contact h2 { color: #FFFFFF; font-size: clamp(30px, 4vw, 48px); }
+.pk-contact-line { font-family: var(--display); font-weight: 700; color: var(--accent-2); }
+.pk-contact-list { opacity: 1; color: #CFCFCB; font-size: 14.5px; }
+.pk-contact .pk-note { opacity: 1; color: #A2A29E; }
+
+.pk-foot { font-size: 13px; }
+
+/* ---------- two columns: sticky profile panel + scrolling content ---------- */
+
+@media (min-width: 1000px) {
+  /* nav: only the right column, pinned under the banner */
+  .pk-nav { position: fixed; top: var(--banner-h); left: var(--side); right: 0; }
+  .pk-nav .pk-wrap { max-width: none; min-height: 58px; justify-content: flex-end; padding-inline: clamp(32px, 4vw, 64px); }
+  .pk-mark { display: none; }
+
+  main { display: grid; grid-template-columns: var(--side) minmax(0, 1fr); align-items: start; }
+
+  .pk-hero {
+    grid-column: 1; grid-row: 1 / span 40;
+    position: sticky; top: var(--banner-h);
+    height: calc(100vh - var(--banner-h));
+    overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin;
+    display: flex; flex-direction: column;
+    padding: 40px 0;
+    border-bottom: 0; border-right: 1px solid var(--line);
+    box-shadow: inset 0 3px 0 var(--accent);
+  }
+  .pk-hero > .pk-wrap { max-width: none; padding-inline: clamp(26px, 2.6vw, 38px); }
+  /* auto margins centre the panel vertically but never clip it when it overflows */
+  .pk-hero > .pk-wrap:first-child { margin-top: auto; }
+  .pk-hero > .pk-wrap:last-child { margin-bottom: auto; }
+  .pk-name { font-size: clamp(40px, 3.6vw, 54px); }
+  .pk-headline { font-size: 16px; }
+  .pk-cta .pk-btn { flex: 1 1 auto; }
+  .pk .pk-stats { margin-top: 24px; }
+
+  main > .pk-section { grid-column: 2; }
+  main > .pk-section > .pk-wrap { max-width: 940px; margin-inline: 0; padding-inline: clamp(32px, 4vw, 64px); }
+  .pk-hero + .pk-section { padding-top: calc(58px + clamp(44px, 5vw, 64px)); }
+  .pk-section + .pk-section { border-top: 1px solid var(--line); }
+
+  .pk-foot { margin-left: var(--side); text-align: left; padding-inline: clamp(32px, 4vw, 64px); border-left: 1px solid var(--line); }
+}
+
+/* the right column is narrower than a full page: fold dense grids earlier */
+@media (min-width: 1000px) and (max-width: 1239px) {
+  .pk-about { grid-template-columns: 1fr; }
+  .pk-steps { grid-template-columns: 1fr; }
+}
+
+/* ---------- single column ---------- */
+
+@media (max-width: 999px) {
+  .pk-hero > .pk-wrap { max-width: 760px; }
+}
+@media (max-width: 860px) {
+  .pk-portrait { max-width: none; aspect-ratio: 1; }
+  .pk-timeline li { grid-template-columns: 1fr; gap: 4px; }
+  .pk-list li { grid-template-columns: 1fr; gap: 2px; }
+  .pk-list span { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pk-project, .pk-btn { transition: none; }
+}

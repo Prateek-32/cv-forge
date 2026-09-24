@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Start a build — Fieldcraft</title>
-<meta name="description" content="Send your brief: your field, the roles you are pursuing and your current resume. We confirm price and deadline by email before anything starts.">
+<meta name="description" content="Send your brief in five short steps: your field, the roles you are pursuing, your current CV or your work. We confirm price and deadline by email before anything starts.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fieldcraft">
 <meta property="og:title" content="Start a build — Fieldcraft">
-<meta property="og:description" content="Send your brief: your field, the roles you are pursuing and your current resume. We confirm price and deadline by email before anything starts.">
+<meta property="og:description" content="Send your brief in five short steps: your field, the roles you are pursuing, your current CV or your work. We confirm price and deadline by email before anything starts.">
 <meta property="og:url" content="https://prateek-32.github.io/cv-forge/start.html">
 <meta property="og:image" content="https://prateek-32.github.io/cv-forge/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -43,8 +43,9 @@
 <section class="wrap" style="padding-bottom:26px;">
   <span class="eyebrow">Commission</span>
   <h1 style="margin-top:12px;">Start a build</h1>
-  <p class="lede" style="margin-top:16px;">About ten minutes, and no payment yet — we
-  confirm the price and the deadline by email before anything starts.</p>
+  <p class="lede" style="margin-top:16px;">Five short steps, about ten minutes, and no payment
+  yet. The more you tell us now, the fewer questions we send later — we confirm the price and
+  the deadline by email before anything starts.</p>
 </section>
 
 <section class="wrap" style="padding-top:0;">
@@ -59,208 +60,491 @@
 <div class="form-grid">
 
   <div class="form-col">
-  <form class="brief" id="brief-form" role="tabpanel" aria-labelledby="ot-cv" data-endpoint="https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec" novalidate>
 
-    <div class="pair">
-      <div class="field"><label for="name">Full name</label>
-        <input id="name" name="name" type="text" autocomplete="name"
-               placeholder="As it should appear on the document" required></div>
-      <div class="field"><label for="email">Email address</label>
-        <input id="email" name="email" type="email" autocomplete="email"
-               placeholder="you@example.com" required></div>
+  <!-- ============ the document brief ============ -->
+  <form class="brief wizard" id="brief-form" role="tabpanel" aria-labelledby="ot-cv" data-endpoint="https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec" novalidate>
+
+    <section class="step" data-title="About you">
+      <h2 class="step-title" tabindex="-1">About you</h2>
+      <p class="step-intro">So we know who we are writing for, and how to reach you.</p>
+      <div class="pair">
+        <div class="field"><label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="As it should appear on the document" required></div>
+        <div class="field"><label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="phone">Phone or WhatsApp (optional)</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210"></div>
+        <div class="field"><label for="location">City and country</label>
+          <input id="location" name="location" type="text" autocomplete="address-level2" placeholder="e.g. Pune, India"></div>
+      </div>
+      <div class="field"><label for="linkedin">LinkedIn profile (optional)</label>
+        <input id="linkedin" name="linkedin" type="text" inputmode="url" placeholder="linkedin.com/in/yourname">
+        <span class="hint">We read it for anything your CV leaves out.</span></div>
+      <fieldset>
+        <legend>Best way to reach you</legend>
+        <div class="check-grid">
+          <label class="check"><input type="radio" name="contactBy" value="Email" checked> Email</label>
+          <label class="check"><input type="radio" name="contactBy" value="WhatsApp"> WhatsApp</label>
+          <label class="check"><input type="radio" name="contactBy" value="Phone call"> A phone call</label>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="step" data-title="Your career">
+      <h2 class="step-title" tabindex="-1">Your career</h2>
+      <p class="step-intro">Where you are now, and where you want this document to take you.</p>
+      <div class="pair">
+        <div class="field"><label for="field">Your field</label>
+          <select id="field" name="field"><option>Finance &amp; banking</option><option>Sales &amp; marketing</option><option>Law &amp; compliance</option><option>Consulting &amp; operations</option><option>Engineering &amp; technology</option><option>Data &amp; analytics</option><option>Skilled trades &amp; field operations</option><option>Art, design &amp; creative</option><option>Film, music &amp; performance</option><option>Writing &amp; media</option><option>Healthcare &amp; medicine</option><option>Teaching &amp; public service</option><option>Academia &amp; research</option>
+            <option>Another field — described below</option></select></div>
+        <div class="field"><label for="stage">Career stage</label>
+          <select id="stage" name="stage">
+            <option>Student or first appointment</option>
+            <option>Early career (1–4 years)</option>
+            <option>Mid career (5–12 years)</option>
+            <option>Senior or executive</option>
+            <option>Changing fields</option></select></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="currentRole">Current or most recent job title</label>
+          <input id="currentRole" name="currentRole" type="text" placeholder="e.g. Senior Accountant, or Final-year BCom student"></div>
+        <div class="field"><label for="employer">Employer (optional)</label>
+          <input id="employer" name="employer" type="text" placeholder="Where you work now"></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="years">Years of experience</label>
+          <select id="years" name="years">
+            <option>Less than 1 year</option><option>1–2 years</option><option selected>3–5 years</option>
+            <option>6–10 years</option><option>11–15 years</option><option>16 years or more</option></select></div>
+        <div class="field"><label for="market">Where are you applying?</label>
+          <select id="market" name="market">
+            <option>India</option><option>UAE and the Gulf</option><option>United Kingdom</option>
+            <option>United States or Canada</option><option>Europe</option><option>Australia or New Zealand</option>
+            <option>Singapore and Asia</option><option>Several countries</option></select>
+          <span class="hint">Each country expects different things — length, photo, personal details.</span></div>
+      </div>
+      <div class="field"><label for="target">Roles you are applying for</label>
+        <textarea id="target" name="target" rows="3" placeholder="Job titles, and organisations if you have them in mind."></textarea></div>
+      <div class="field"><label for="jobLinks">Links to two or three job postings (optional)</label>
+        <textarea id="jobLinks" name="jobLinks" rows="3" placeholder="One per line, or paste a job description."></textarea>
+        <span class="hint">The most useful thing you can send — we match your CV to the words those employers use.</span></div>
+    </section>
+
+    <section class="step" data-title="What you need">
+      <h2 class="step-title" tabindex="-1">What you need</h2>
+      <p class="step-intro">The documents, the look, and when you need them.</p>
+      <fieldset>
+        <legend>What do you require?</legend>
+        <label class="check" for="n1"><input id="n1" name="needs" value="Resume" type="checkbox"> Resume — the one-page document</label>
+        <label class="check" for="n2"><input id="n2" name="needs" value="Curriculum vitae" type="checkbox"> Curriculum vitae — the long-form record</label>
+        <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> LinkedIn profile rewritten to match</label>
+        <label class="check" for="n5"><input id="n5" name="needs" value="Cover letter" type="checkbox"> A cover letter for one of the roles</label>
+        <span class="hint">Want a portfolio site too? Use the <button type="button" class="linklike" data-open-order="portfolio">Portfolio site</button> form — it asks for your work and can add these documents to the same order.</span>
+      </fieldset>
+
+      <div class="field"><label for="template">CV template</label>
+        <select id="template" name="template">
+          <option value="">Let us choose for my field (recommended)</option>
+          <optgroup label="Traditional">
+            <option value="Classic">Classic — traditional serif, no colour</option>
+            <option value="Legal">Legal — Baskerville, double rule, small caps</option>
+            <option value="Banker">Banker — navy rules, figures as a table</option>
+            <option value="Academic">Academic — Garamond, hanging citations</option>
+            <option value="Executive">Executive — navy header, gold rules</option>
+          </optgroup>
+          <optgroup label="Contemporary">
+            <option value="Modern">Modern — teal accents, figure cards</option>
+            <option value="Minimal">Minimal — black and white, lots of space</option>
+            <option value="Slate">Slate — charcoal, shaded section bars</option>
+            <option value="Tech">Tech — code-style headings, green accent</option>
+            <option value="Clinical">Clinical — medical blue, ticked licences</option>
+          </optgroup>
+          <optgroup label="Expressive">
+            <option value="Creative">Creative — bold red accent, large name</option>
+            <option value="Studio">Studio — heavy type, yellow highlighter</option>
+            <option value="Editorial">Editorial — magazine type, drop cap</option>
+            <option value="Typewriter">Typewriter — Courier on cream</option>
+            <option value="Warm">Warm — rounded, friendly, terracotta</option>
+          </optgroup>
+          <optgroup label="Practical">
+            <option value="Compact">Compact — tighter, more on one page</option>
+            <option value="Workwear">Workwear — hazard stripe, bold labels</option>
+          </optgroup>
+        </select>
+        <span class="hint">All seventeen are single-column and ATS-safe. <a href="templates.html">See them on a sample from your field</a>.</span></div>
+
+      <div class="pair">
+        <div class="field"><label for="length">Length</label>
+          <select id="length" name="length">
+            <option>Let us decide for my field</option><option>One page</option><option>Two pages</option>
+            <option>As long as it needs (academic or medical CV)</option></select></div>
+        <div class="field"><label for="photo">Photo on the CV</label>
+          <select id="photo" name="photo">
+            <option>Let us advise for the country</option><option>No photo</option>
+            <option>Yes — I will upload one in the next step</option></select></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="deadline">When do you need it?</label>
+          <select id="deadline" name="deadline">
+            <option>Standard — within 24 hours</option><option>Within a few days is fine</option>
+            <option>By a particular date</option></select></div>
+        <div class="field"><label for="deadlineDate">Date (optional)</label>
+          <input id="deadlineDate" name="deadlineDate" type="date"></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Your material">
+      <h2 class="step-title" tabindex="-1">Your material</h2>
+      <p class="step-intro">Upload what you have, then fill any gaps. Skip anything already in the CV you upload.</p>
+      <div class="field"><label for="upload">Your current CV, and anything else useful</label>
+        <input id="upload" name="upload" type="file" multiple
+               accept=".pdf,.doc,.docx,.txt,.rtf,.odt,.png,.jpg,.jpeg,.webp">
+        <span class="hint">Up to 5 files, 10 MB in total: your CV, an older CV, certificates, a job description, a photo. A photograph of a printout is fine.</span>
+        <span class="file-list" aria-live="polite"></span></div>
+      <div class="field"><label for="achievements">Three to five things you are proud of</label>
+        <textarea id="achievements" name="achievements" rows="4" placeholder="With numbers if you have them — e.g. Cut month-end close from 9 days to 5 · Led a team of 6 · Grew Instagram from 2k to 40k followers"></textarea>
+        <span class="hint">Numbers make a CV stand out. Rough figures are fine; we check them with you.</span></div>
+      <div class="field"><label for="skills">Key skills, tools and software</label>
+        <textarea id="skills" name="skills" rows="3" placeholder="e.g. SAP, advanced Excel, IFRS, team leadership"></textarea></div>
+      <div class="pair">
+        <div class="field"><label for="certs">Certifications and licences</label>
+          <textarea id="certs" name="certs" rows="3" placeholder="With the year, and the number where one is shown"></textarea></div>
+        <div class="field"><label for="education">Education</label>
+          <textarea id="education" name="education" rows="3" placeholder="Degree, institution, year, and grades if good"></textarea></div>
+      </div>
+      <div class="field"><label for="languages">Languages you speak</label>
+        <input id="languages" name="languages" type="text" placeholder="e.g. English (fluent), Hindi (native), German (B1)"></div>
+    </section>
+
+    <section class="step" data-title="Review and send">
+      <h2 class="step-title" tabindex="-1">Review and send</h2>
+      <p class="step-intro">One last thing, then check your answers.</p>
+      <div class="field"><label for="notes">Anything else we should know</label>
+        <textarea id="notes" name="notes" rows="4"
+          placeholder="Career gaps, a change of field, things to leave out, confidentiality limits — tell us early and we work around it."></textarea></div>
+      <div class="wiz-review" aria-live="polite"></div>
+
+      <!-- Spam trap: hidden from people, irresistible to bots. Leave it alone. -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn" id="brief-submit">Send my brief</button>
+        <span class="hint">We reply by email to confirm price and deadline.<br>Nothing is charged before you agree.</span>
+      </div>
+      <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="wiz-nav">
+      <button type="button" class="btn btn-outline" data-wiz="back">&larr; Back</button>
+      <button type="button" class="btn" data-wiz="next">Next &rarr;</button>
     </div>
-
-    <div class="pair">
-      <div class="field"><label for="field">Your field</label>
-        <select id="field" name="field"><option>Finance &amp; banking</option><option>Sales &amp; marketing</option><option>Law &amp; compliance</option><option>Consulting &amp; operations</option><option>Engineering &amp; technology</option><option>Data &amp; analytics</option><option>Skilled trades &amp; field operations</option><option>Art, design &amp; creative</option><option>Film, music &amp; performance</option><option>Writing &amp; media</option><option>Healthcare &amp; medicine</option><option>Teaching &amp; public service</option><option>Academia &amp; research</option>
-          <option>Another field — described below</option></select></div>
-      <div class="field"><label for="stage">Career stage</label>
-        <select id="stage" name="stage">
-          <option>Student or first appointment</option>
-          <option>Early career (1–4 years)</option>
-          <option>Mid career (5–12 years)</option>
-          <option>Senior or executive</option>
-          <option>Changing fields</option></select></div>
-    </div>
-
-    <fieldset>
-      <legend>What do you require?</legend>
-      <label class="check" for="n1"><input id="n1" name="needs" value="Resume" type="checkbox"> Resume — the one-page document</label>
-      <label class="check" for="n2"><input id="n2" name="needs" value="Curriculum vitae" type="checkbox"> Curriculum vitae — the long-form record</label>
-      <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> LinkedIn profile rewritten to match</label>
-      <span class="hint">Want a portfolio site too? Use the <button type="button" class="linklike" data-open-order="portfolio">Portfolio site</button> form — it asks for your work and can add these documents to the same order.</span>
-    </fieldset>
-
-    <div class="field"><label for="template">CV template</label>
-      <select id="template" name="template">
-        <option value="">Let us choose for my field (recommended)</option>
-        <optgroup label="Traditional">
-          <option value="Classic">Classic — traditional serif, no colour</option>
-          <option value="Legal">Legal — Baskerville, double rule, small caps</option>
-          <option value="Banker">Banker — navy rules, figures as a table</option>
-          <option value="Academic">Academic — Garamond, hanging citations</option>
-          <option value="Executive">Executive — navy header, gold rules</option>
-        </optgroup>
-        <optgroup label="Contemporary">
-          <option value="Modern">Modern — teal accents, figure cards</option>
-          <option value="Minimal">Minimal — black and white, lots of space</option>
-          <option value="Slate">Slate — charcoal, shaded section bars</option>
-          <option value="Tech">Tech — code-style headings, green accent</option>
-          <option value="Clinical">Clinical — medical blue, ticked licences</option>
-        </optgroup>
-        <optgroup label="Expressive">
-          <option value="Creative">Creative — bold red accent, large name</option>
-          <option value="Studio">Studio — heavy type, yellow highlighter</option>
-          <option value="Editorial">Editorial — magazine type, drop cap</option>
-          <option value="Typewriter">Typewriter — Courier on cream</option>
-          <option value="Warm">Warm — rounded, friendly, terracotta</option>
-        </optgroup>
-        <optgroup label="Practical">
-          <option value="Compact">Compact — tighter, more on one page</option>
-          <option value="Workwear">Workwear — hazard stripe, bold labels</option>
-        </optgroup>
-      </select>
-      <span class="hint">All seventeen are single-column and ATS-safe. <a href="templates.html">See them on a sample from your field</a>.</span></div>
-
-    <div class="field"><label for="upload">Current resume or CV (optional)</label>
-      <input id="upload" name="upload" type="file"
-             accept=".pdf,.doc,.docx,.txt,.rtf,.odt,.png,.jpg,.jpeg">
-      <span class="hint">PDF, Word, or a photograph of a printout. Up to 8 MB. Any state is
-      fine — rough notes are enough to begin.</span></div>
-
-    <div class="field"><label for="target">Appointments you are pursuing</label>
-      <textarea id="target" name="target" rows="4"
-        placeholder="Titles, organisations, or links to two or three postings you would apply to today."></textarea></div>
-
-    <div class="field"><label for="notes">Anything we should know</label>
-      <textarea id="notes" name="notes" rows="4"
-        placeholder="Career gaps, a change of field, confidentiality limits, a deadline — tell us early and we work around it."></textarea></div>
-
-    <!-- Spam trap: hidden from people, irresistible to bots. Leave it alone. -->
-    <div class="hp" aria-hidden="true">
-      <label for="website">Website</label>
-      <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-    </div>
-
-    <div class="submit-row">
-      <button type="submit" class="btn" id="brief-submit">Send my brief</button>
-      <span class="hint">We reply by email to confirm price and deadline.<br>Nothing is charged before you agree.</span>
-    </div>
-
-    <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
   </form>
 
   <!-- ============ the portfolio brief ============ -->
-  <form class="brief" id="portfolio-form" role="tabpanel" aria-labelledby="ot-portfolio" hidden novalidate>
+  <form class="brief wizard" id="portfolio-form" role="tabpanel" aria-labelledby="ot-portfolio" hidden novalidate>
 
-    <div class="pair">
-      <div class="field"><label for="p-name">Full name</label>
-        <input id="p-name" name="name" type="text" autocomplete="name" placeholder="As it should appear on the site" required></div>
-      <div class="field"><label for="p-email">Email address</label>
-        <input id="p-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-    </div>
-
-    <div class="pair">
+    <section class="step" data-title="About you">
+      <h2 class="step-title" tabindex="-1">About you</h2>
+      <p class="step-intro">Who the site is for, in your own words.</p>
+      <div class="pair">
+        <div class="field"><label for="p-name">Full name</label>
+          <input id="p-name" name="name" type="text" autocomplete="name" placeholder="As it should appear on the site" required></div>
+        <div class="field"><label for="p-email">Email address</label>
+          <input id="p-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="p-whatsapp">WhatsApp number (optional)</label>
+          <input id="p-whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="Quicker for images and quick questions"></div>
+        <div class="field"><label for="p-city">City and country</label>
+          <input id="p-city" name="city" type="text" autocomplete="address-level2" placeholder="e.g. Bengaluru, India"></div>
+      </div>
       <div class="field"><label for="p-field">Your field</label>
         <select id="p-field" name="field"><option>Finance &amp; banking</option><option>Sales &amp; marketing</option><option>Law &amp; compliance</option><option>Consulting &amp; operations</option><option>Engineering &amp; technology</option><option>Data &amp; analytics</option><option>Skilled trades &amp; field operations</option><option>Art, design &amp; creative</option><option>Film, music &amp; performance</option><option>Writing &amp; media</option><option>Healthcare &amp; medicine</option><option>Teaching &amp; public service</option><option>Academia &amp; research</option>
           <option>Another field — described below</option></select></div>
-      <div class="field"><label for="p-whatsapp">WhatsApp number (optional)</label>
-        <input id="p-whatsapp" name="whatsapp" type="text" inputmode="tel" autocomplete="tel" placeholder="Quicker for sharing images and quick questions"></div>
-    </div>
+      <div class="field"><label for="p-headline">What should the site say you do?</label>
+        <input id="p-headline" name="headline" type="text" placeholder="e.g. Product designer making complex fintech feel simple"></div>
+      <div class="field"><label for="p-bio">A few lines about you</label>
+        <textarea id="p-bio" name="bio" rows="4" placeholder="Who you are, what you are best at, who you work for — the way you would say it to someone at an event. We polish it."></textarea></div>
+    </section>
 
-    <div class="field"><label for="p-headline">What should the site say you do?</label>
-      <input id="p-headline" name="headline" type="text" placeholder="e.g. Product designer making complex fintech feel simple"></div>
+    <section class="step" data-title="The look">
+      <h2 class="step-title" tabindex="-1">The look</h2>
+      <p class="step-intro">Pick a theme — open any preview to see a real portfolio in it. Not sure? Let us choose.</p>
 
-    <fieldset class="pick">
-      <legend>The look</legend>
-      <div class="pick-grid">
-        <label class="pick-card"><input type="radio" name="style" value="Match my field" checked>
-          <span class="pick-swatch sw-auto" aria-hidden="true"></span>
-          <span class="pick-text"><strong>Match my field</strong><span>We choose the style your field expects</span></span></label>
-        <label class="pick-card"><input type="radio" name="style" value="Creative — like Yuki">
-          <span class="pick-swatch sw-creative" aria-hidden="true"></span>
-          <span class="pick-text"><strong>Editorial &amp; bold</strong><span>Work first, big type — <a href="portfolios/yuki-tanaka.html" target="_blank" rel="noopener">see Yuki's</a></span></span></label>
-        <label class="pick-card"><input type="radio" name="style" value="Technical — like Lena">
-          <span class="pick-swatch sw-technical" aria-hidden="true"></span>
-          <span class="pick-text"><strong>Technical console</strong><span>Dark, metrics, diagrams — <a href="portfolios/lena-kowalski.html" target="_blank" rel="noopener">see Lena's</a></span></span></label>
-        <label class="pick-card"><input type="radio" name="style" value="Corporate — like Arjun">
-          <span class="pick-swatch sw-corporate" aria-hidden="true"></span>
-          <span class="pick-text"><strong>Corporate &amp; refined</strong><span>Navy and gold, figures up front — <a href="portfolios/arjun-mehta.html" target="_blank" rel="noopener">see Arjun's</a></span></span></label>
-        <label class="pick-card"><input type="radio" name="style" value="Clean & clinical — like Dr. Nair">
-          <span class="pick-swatch sw-care" aria-hidden="true"></span>
-          <span class="pick-text"><strong>Clean &amp; clinical</strong><span>Credentials first, calm — <a href="portfolios/priya-nair.html" target="_blank" rel="noopener">see Dr. Nair's</a></span></span></label>
+      <fieldset class="theme-pick">
+        <legend>Theme</legend>
+        <div class="tp-group">
+          <div class="tp-grid">
+            <label class="tp-card tp-card-wide"><input type="radio" name="theme" value="Match my field" data-key="auto" checked>
+              <span class="tp-sw tp-auto" aria-hidden="true"></span>
+              <span class="tp-name">Let us choose</span>
+              <span class="tp-desc" data-auto-desc>We pick the theme your field expects.</span></label>
+          </div>
+        </div>
+        <div class="tp-group">
+          <span class="tp-group-title">Clean &amp; professional</span>
+          <div class="tp-grid">
+            <label class="tp-card"><input type="radio" name="theme" value="Paper" data-key="paper">
+              <span class="tp-sw tp-paper" aria-hidden="true"></span><span class="tp-name">Paper</span>
+              <span class="tp-desc">Warm paper and a magazine serif.</span>
+              <a href="portfolios/kwame-asante.html?t=paper" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Clinic" data-key="clinic">
+              <span class="tp-sw tp-clinic" aria-hidden="true"></span><span class="tp-name">Clinic</span>
+              <span class="tp-desc">Bright and calm, credentials first.</span>
+              <a href="portfolios/sofia-reyes.html?t=clinic" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Sidebar" data-key="sidebar">
+              <span class="tp-sw tp-sidebar" aria-hidden="true"></span><span class="tp-name">Sidebar</span>
+              <span class="tp-desc">Your profile fixed on the left.</span>
+              <a href="portfolios/marcus-webb.html?t=sidebar" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Swiss" data-key="swiss">
+              <span class="tp-sw tp-swiss" aria-hidden="true"></span><span class="tp-name">Swiss</span>
+              <span class="tp-desc">Big type, a strict grid, one red.</span>
+              <a href="portfolios/ryan-obrien.html?t=swiss" target="_blank" rel="noopener">Preview &nearr;</a></label>
+          </div>
+        </div>
+        <div class="tp-group">
+          <span class="tp-group-title">Bold &amp; expressive</span>
+          <div class="tp-grid">
+            <label class="tp-card"><input type="radio" name="theme" value="Brutal" data-key="brutal">
+              <span class="tp-sw tp-brutal" aria-hidden="true"></span><span class="tp-name">Brutal</span>
+              <span class="tp-desc">Thick borders, loud colour blocks.</span>
+              <a href="portfolios/jake-tran.html?t=brutal" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Pastel" data-key="pastel">
+              <span class="tp-sw tp-pastel" aria-hidden="true"></span><span class="tp-name">Pastel</span>
+              <span class="tp-desc">Soft colours, rounded and friendly.</span>
+              <a href="portfolios/amira-hassan.html?t=pastel" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Gallery" data-key="gallery">
+              <span class="tp-sw tp-gallery" aria-hidden="true"></span><span class="tp-name">Gallery</span>
+              <span class="tp-desc">Big work first, few words.</span>
+              <a href="portfolios/chiara-rossini.html?t=gallery" target="_blank" rel="noopener">Preview &nearr;</a></label>
+          </div>
+        </div>
+        <div class="tp-group">
+          <span class="tp-group-title">Dark &amp; dramatic</span>
+          <div class="tp-grid">
+            <label class="tp-card"><input type="radio" name="theme" value="Aurora" data-key="aurora">
+              <span class="tp-sw tp-aurora" aria-hidden="true"></span><span class="tp-name">Aurora</span>
+              <span class="tp-desc">Night-sky glow and glass panels.</span>
+              <a href="portfolios/isabelle-fontaine.html?t=aurora" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Noir" data-key="noir">
+              <span class="tp-sw tp-noir" aria-hidden="true"></span><span class="tp-name">Noir</span>
+              <span class="tp-desc">Black and gold, cinematic serif.</span>
+              <a href="portfolios/chiara-rossini.html?t=noir" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Console" data-key="console">
+              <span class="tp-sw tp-console" aria-hidden="true"></span><span class="tp-name">Console</span>
+              <span class="tp-desc">A developer's terminal.</span>
+              <a href="portfolios/tariq-osei.html?t=console" target="_blank" rel="noopener">Preview &nearr;</a></label>
+          </div>
+        </div>
+        <div class="tp-group">
+          <span class="tp-group-title">Showcase designs</span>
+          <div class="tp-grid">
+            <label class="tp-card"><input type="radio" name="theme" value="Showcase — like Yuki's (editorial &amp; bold)" data-key="yuki">
+              <span class="tp-sw tp-yuki" aria-hidden="true"></span><span class="tp-name">Like Yuki's</span>
+              <span class="tp-desc">Editorial and bold, work first.</span>
+              <a href="portfolios/yuki-tanaka.html" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Showcase — like Lena's (technical console)" data-key="lena">
+              <span class="tp-sw tp-lena" aria-hidden="true"></span><span class="tp-name">Like Lena's</span>
+              <span class="tp-desc">Dark, metrics and diagrams.</span>
+              <a href="portfolios/lena-kowalski.html" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Showcase — like Arjun's (corporate &amp; refined)" data-key="arjun">
+              <span class="tp-sw tp-arjun" aria-hidden="true"></span><span class="tp-name">Like Arjun's</span>
+              <span class="tp-desc">Navy and gold, figures up front.</span>
+              <a href="portfolios/arjun-mehta.html" target="_blank" rel="noopener">Preview &nearr;</a></label>
+            <label class="tp-card"><input type="radio" name="theme" value="Showcase — like Dr. Nair's (clean &amp; clinical)" data-key="nair">
+              <span class="tp-sw tp-nair" aria-hidden="true"></span><span class="tp-name">Like Dr. Nair's</span>
+              <span class="tp-desc">Calm, credentials first.</span>
+              <a href="portfolios/priya-nair.html" target="_blank" rel="noopener">Preview &nearr;</a></label>
+          </div>
+        </div>
+        <span class="hint">Every theme is the same price. <a href="sample-portfolios.html#themes">Compare all themes side by side</a>.</span>
+      </fieldset>
+
+      <div class="pair">
+        <div class="field"><label for="p-colours">Brand colours (optional)</label>
+          <input id="p-colours" name="colours" type="text" placeholder="e.g. deep green and cream, or #0F766E">
+          <span class="hint">Any theme can take your colours.</span></div>
+        <div class="field"><label for="p-photo">On the site, show</label>
+          <select id="p-photo" name="photo">
+            <option>My photo — I will upload it</option><option>My initials instead of a photo</option><option>Let us decide</option></select></div>
       </div>
-    </fieldset>
+      <div class="field"><label for="p-look">Sites you like, or things to avoid (optional)</label>
+        <textarea id="p-look" name="lookFeel" rows="3" placeholder="A link to a site you admire, a font you always use, colours you never want."></textarea></div>
+    </section>
 
-    <fieldset>
-      <legend>Sections you want</legend>
-      <div class="check-grid">
-        <label class="check"><input name="sections" value="About" type="checkbox" checked> About you</label>
-        <label class="check"><input name="sections" value="Selected work" type="checkbox" checked> Selected work / projects</label>
-        <label class="check"><input name="sections" value="Case studies" type="checkbox"> Case studies (2–3 in depth)</label>
-        <label class="check"><input name="sections" value="Experience" type="checkbox" checked> Experience timeline</label>
-        <label class="check"><input name="sections" value="Skills and tools" type="checkbox"> Skills and tools</label>
-        <label class="check"><input name="sections" value="Writing or publications" type="checkbox"> Writing or publications</label>
-        <label class="check"><input name="sections" value="CV download" type="checkbox"> Download my CV</label>
-        <label class="check"><input name="sections" value="Contact" type="checkbox" checked> Contact</label>
+    <section class="step" data-title="Your work">
+      <h2 class="step-title" tabindex="-1">Your work</h2>
+      <p class="step-intro">Two to four projects is ideal — the name, what you did and what came of it. Rough notes are fine.</p>
+      <div class="proj-list">
+        <fieldset class="proj">
+          <legend>Project 1</legend>
+          <div class="pair">
+            <div class="field"><label for="pj-title-1">Project name</label>
+              <input id="pj-title-1" name="projTitle" data-p="title" type="text" placeholder="e.g. Checkout redesign for a fintech app"></div>
+            <div class="field"><label for="pj-role-1">Your role</label>
+              <input id="pj-role-1" name="projRole" data-p="role" type="text" placeholder="e.g. Lead designer, team of 4"></div>
+          </div>
+          <div class="field"><label for="pj-what-1">What you did</label>
+            <textarea id="pj-what-1" name="projWhat" data-p="what" rows="3" placeholder="The problem, and the two or three things you did about it."></textarea></div>
+          <div class="pair">
+            <div class="field"><label for="pj-result-1">The result</label>
+              <input id="pj-result-1" name="projResult" data-p="result" type="text" placeholder="A number if you have one — e.g. drop-off down 18%"></div>
+            <div class="field"><label for="pj-year-1">Year</label>
+              <input id="pj-year-1" name="projYear" data-p="year" type="text" inputmode="numeric" placeholder="e.g. 2025"></div>
+          </div>
+          <div class="field"><label for="pj-link-1">Link or images (optional)</label>
+            <input id="pj-link-1" name="projLink" data-p="link" type="text" inputmode="url" placeholder="A live link, a Behance page, or a Drive folder"></div>
+          <button type="button" class="linklike proj-remove" hidden>Remove this project</button>
+        </fieldset>
       </div>
-    </fieldset>
+      <button type="button" class="btn btn-outline btn-sm proj-add">+ Add another project</button>
 
-    <div class="field"><label for="p-links">Links to your work</label>
-      <textarea id="p-links" name="links" rows="3"
-        placeholder="GitHub, Behance, Dribbble, published articles, a Google Drive or Dropbox folder of images — one per line."></textarea>
-      <span class="hint">Lots of images? Share a Drive or Dropbox folder link here — it is the easiest way.</span></div>
+      <fieldset>
+        <legend>Sections you want</legend>
+        <div class="check-grid">
+          <label class="check"><input name="sections" value="About" type="checkbox" checked> About you</label>
+          <label class="check"><input name="sections" value="Selected work" type="checkbox" checked> Selected work / projects</label>
+          <label class="check"><input name="sections" value="Case studies" type="checkbox"> Case studies (2–3 in depth)</label>
+          <label class="check"><input name="sections" value="Experience" type="checkbox" checked> Experience timeline</label>
+          <label class="check"><input name="sections" value="Skills and tools" type="checkbox"> Skills and tools</label>
+          <label class="check"><input name="sections" value="Services" type="checkbox"> Services — what I offer</label>
+          <label class="check"><input name="sections" value="Awards" type="checkbox"> Awards and recognition</label>
+          <label class="check"><input name="sections" value="Testimonials" type="checkbox"> Testimonials</label>
+          <label class="check"><input name="sections" value="Writing or publications" type="checkbox"> Writing or publications</label>
+          <label class="check"><input name="sections" value="CV download" type="checkbox"> Download my CV</label>
+          <label class="check"><input name="sections" value="Contact" type="checkbox" checked> Contact</label>
+        </div>
+      </fieldset>
 
-    <div class="field"><label for="p-upload">Upload (optional)</label>
-      <input id="p-upload" name="upload" type="file" accept=".zip,.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp">
-      <span class="hint">One file up to 8 MB: a ZIP of images, a PDF of your work, or your current CV.</span></div>
+      <div class="field"><label for="p-skills">Skills, tools and services</label>
+        <textarea id="p-skills" name="skills" rows="3" placeholder="What you want people to hire you for, and the tools you use."></textarea></div>
+      <div class="field"><label for="p-awards">Awards, clients or press (optional)</label>
+        <textarea id="p-awards" name="awards" rows="3" placeholder="Anything that builds trust — only what you are happy to show publicly."></textarea></div>
+      <div class="field"><label for="p-testimonials">Testimonials (optional)</label>
+        <textarea id="p-testimonials" name="testimonials" rows="3" placeholder="The quote, the person's name and their role."></textarea>
+        <span class="hint">Only quotes the person has agreed to have on your site.</span></div>
+    </section>
 
-    <div class="field"><label for="p-projects">Projects to feature</label>
-      <textarea id="p-projects" name="projects" rows="4"
-        placeholder="Two to four projects: the name, what you did, the result, and a link if there is one."></textarea></div>
+    <section class="step" data-title="Links and files">
+      <h2 class="step-title" tabindex="-1">Links and files</h2>
+      <p class="step-intro">Where your work lives now. Fill in only the ones you have.</p>
+      <div class="pair">
+        <div class="field"><label for="lk-linkedin">LinkedIn</label>
+          <input id="lk-linkedin" name="lkLinkedin" type="text" inputmode="url" placeholder="linkedin.com/in/yourname"></div>
+        <div class="field"><label for="lk-github">GitHub</label>
+          <input id="lk-github" name="lkGithub" type="text" inputmode="url" placeholder="github.com/yourname"></div>
+      </div>
+      <div class="pair">
+        <div class="field"><label for="lk-behance">Behance or Dribbble</label>
+          <input id="lk-behance" name="lkBehance" type="text" inputmode="url" placeholder="behance.net/yourname"></div>
+        <div class="field"><label for="lk-instagram">Instagram or X</label>
+          <input id="lk-instagram" name="lkInstagram" type="text" placeholder="@yourname"></div>
+      </div>
+      <div class="field"><label for="lk-website">Current website or blog</label>
+        <input id="lk-website" name="lkWebsite" type="text" inputmode="url" placeholder="yourname.com"></div>
+      <div class="field"><label for="p-links">Other links</label>
+        <textarea id="p-links" name="links" rows="3"
+          placeholder="Articles, videos, an IMDb page, a Google Drive or Dropbox folder of images — one per line."></textarea>
+        <span class="hint">Lots of images? A shared Drive or Dropbox folder is the easiest way.</span></div>
 
-    <fieldset>
-      <legend>Web address</legend>
-      <label class="check"><input type="radio" name="domain" value="Free address" checked> A free address (like yourname.netlify.app) — included</label>
-      <label class="check"><input type="radio" name="domain" value="Own domain — will buy"> My own domain, which I will buy in my name (+&#8377;349 to connect)</label>
-      <label class="check"><input type="radio" name="domain" value="Own domain — already own"> My own domain, which I already own (+&#8377;349 to connect)</label>
-      <div class="field domain-name" hidden><label for="p-domain">The domain</label>
-        <input id="p-domain" name="domainName" type="text" placeholder="yourname.com"></div>
-    </fieldset>
+      <div class="field"><label for="p-upload">Upload files (optional)</label>
+        <input id="p-upload" name="upload" type="file" multiple accept=".zip,.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp">
+        <span class="hint">Up to 5 files, 10 MB in total: your CV, a headshot, a ZIP of images or a PDF of your work.</span>
+        <span class="file-list" aria-live="polite"></span></div>
 
-    <div class="field"><label for="p-hosting">Email for your free hosting account</label>
-      <input id="p-hosting" name="hostingEmail" type="email" placeholder="Leave blank to use the email above">
-      <span class="hint">The site goes live on free hosting in your name, so you own it — no yearly fee to us.</span></div>
+      <fieldset>
+        <legend>Show on the site</legend>
+        <div class="check-grid">
+          <label class="check"><input name="showOnSite" value="Email address" type="checkbox" checked> My email address</label>
+          <label class="check"><input name="showOnSite" value="Phone number" type="checkbox"> My phone number</label>
+          <label class="check"><input name="showOnSite" value="WhatsApp button" type="checkbox"> A WhatsApp button</label>
+          <label class="check"><input name="showOnSite" value="LinkedIn and social links" type="checkbox" checked> LinkedIn and social links</label>
+          <label class="check"><input name="showOnSite" value="City" type="checkbox"> My city</label>
+          <label class="check"><input name="showOnSite" value="Available for work" type="checkbox"> An "available for work" note</label>
+        </div>
+      </fieldset>
+    </section>
 
-    <div class="field"><label for="p-look">Colours, fonts or sites you like</label>
-      <textarea id="p-look" name="lookFeel" rows="3" placeholder="Anything that helps — a colour you always use, a site you admire, things to avoid."></textarea></div>
+    <section class="step" data-title="Address and send">
+      <h2 class="step-title" tabindex="-1">Address and send</h2>
+      <p class="step-intro">Where the site lives, anything to add, and a last look at your answers.</p>
+      <fieldset>
+        <legend>Web address</legend>
+        <label class="check"><input type="radio" name="domain" value="Free address" checked> A free address (like yourname.netlify.app) — included</label>
+        <label class="check"><input type="radio" name="domain" value="Own domain — will buy"> My own domain, which I will buy in my name (+&#8377;349 to connect)</label>
+        <label class="check"><input type="radio" name="domain" value="Own domain — already own"> My own domain, which I already own (+&#8377;349 to connect)</label>
+        <div class="field domain-name" hidden><label for="p-domain">The domain</label>
+          <input id="p-domain" name="domainName" type="text" placeholder="yourname.com"></div>
+      </fieldset>
 
-    <fieldset>
-      <legend>Add to the same order (optional)</legend>
-      <label class="check"><input name="addons" value="Resume" type="checkbox"> Resume (&#8377;99)</label>
-      <label class="check"><input name="addons" value="Curriculum vitae" type="checkbox"> Curriculum vitae (&#8377;199)</label>
-      <label class="check"><input name="addons" value="LinkedIn rewrite" type="checkbox"> LinkedIn rewrite (&#8377;149)</label>
-      <span class="hint">All four together is the Complete bundle, &#8377;999. Upload your current CV above if you tick any of these.</span>
-    </fieldset>
+      <div class="field"><label for="p-hosting">Email for your free hosting account</label>
+        <input id="p-hosting" name="hostingEmail" type="email" placeholder="Leave blank to use the email above">
+        <span class="hint">The site goes live on free hosting in your name, so you own it — no yearly fee to us.</span></div>
 
-    <div class="field"><label for="p-notes">Anything else</label>
-      <textarea id="p-notes" name="notes" rows="3" placeholder="A deadline, things you cannot show publicly, anything we should know."></textarea></div>
+      <fieldset>
+        <legend>Add to the same order (optional)</legend>
+        <label class="check"><input name="addons" value="Resume" type="checkbox"> Resume (&#8377;99)</label>
+        <label class="check"><input name="addons" value="Curriculum vitae" type="checkbox"> Curriculum vitae (&#8377;199)</label>
+        <label class="check"><input name="addons" value="LinkedIn rewrite" type="checkbox"> LinkedIn rewrite (&#8377;149)</label>
+        <span class="hint">All four together is the Complete bundle, &#8377;999. Upload your current CV in step 4 if you tick any of these.</span>
+      </fieldset>
 
-    <div class="hp" aria-hidden="true">
-      <label for="p-website">Website</label>
-      <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      <div class="pair">
+        <div class="field"><label for="p-deadline">When do you need it live?</label>
+          <select id="p-deadline" name="deadline">
+            <option>No fixed date</option><option>Within a week</option><option>By a particular date</option></select></div>
+        <div class="field"><label for="p-deadline-date">Date (optional)</label>
+          <input id="p-deadline-date" name="deadlineDate" type="date"></div>
+      </div>
+
+      <div class="field"><label for="p-notes">Anything else</label>
+        <textarea id="p-notes" name="notes" rows="3" placeholder="Work you cannot show publicly, clients under NDA, anything we should know."></textarea></div>
+
+      <div class="wiz-review" aria-live="polite"></div>
+
+      <div class="hp" aria-hidden="true">
+        <label for="p-website">Website</label>
+        <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn" id="portfolio-submit">Send my portfolio brief</button>
+        <span class="hint">We reply by email to confirm price and deadline.<br>Nothing is charged before you agree.</span>
+      </div>
+      <p class="form-status" id="portfolio-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="wiz-nav">
+      <button type="button" class="btn btn-outline" data-wiz="back">&larr; Back</button>
+      <button type="button" class="btn" data-wiz="next">Next &rarr;</button>
     </div>
-
-    <div class="submit-row">
-      <button type="submit" class="btn" id="portfolio-submit">Send my portfolio brief</button>
-      <span class="hint">We reply by email to confirm price and deadline.<br>Nothing is charged before you agree.</span>
-    </div>
-
-    <p class="form-status" id="portfolio-status" role="status" aria-live="polite"></p>
   </form>
   </div>
 
   <aside style="display:flex;flex-direction:column;gap:20px;">
+    <div class="aside-card aside-dark" data-for-order="cv">
+      <span class="eyebrow">Have these to hand</span>
+      <ul class="ready-list">
+        <li>Your current CV — any state, even a photo of a printout</li>
+        <li>Links to two or three jobs you would apply to today</li>
+        <li>A few numbers: team sizes, targets, savings, results</li>
+        <li>Certificates or licence numbers, if your field asks for them</li>
+      </ul>
+    </div>
+    <div class="aside-card aside-dark" data-for-order="portfolio" hidden>
+      <span class="eyebrow">Have these to hand</span>
+      <ul class="ready-list">
+        <li>Two to four projects, and what came of each</li>
+        <li>Images, or links to where your work already lives</li>
+        <li>A headshot, if you want a photo on the site</li>
+        <li>Your CV, if you are adding the documents too</li>
+      </ul>
+    </div>
     <div class="aside-card aside-dark" data-for-order="cv">
       <span class="eyebrow">What happens next</span>
       <div class="item"><span class="n">1</span><p>We read your brief and confirm the
@@ -274,7 +558,7 @@
       <span class="eyebrow">What happens next</span>
       <div class="item"><span class="n">1</span><p>We look through your work and confirm the
         price and deadline by email.</p></div>
-      <div class="item"><span class="n">2</span><p>You pay, and we build the site in the look
+      <div class="item"><span class="n">2</span><p>You pay, and we build the site in the theme
         you chose, around the projects you picked.</p></div>
       <div class="item"><span class="n">3</span><p>We put it live on free hosting in your
         name and hand it over — one revision round included, no yearly fee to us.</p></div>

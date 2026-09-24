@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sample portfolios — Fieldcraft</title>
-<meta name="description" content="Four complete sample portfolio sites — creative, technical, corporate and clinical — each built the way its field reads. The &#8377;699 portfolio, finished.">
+<meta name="description" content="Thirteen sample portfolio sites across thirteen fields, and ten portfolio themes you can try on any of them. The &#8377;699 portfolio, finished.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fieldcraft">
 <meta property="og:title" content="Sample portfolios — Fieldcraft">
-<meta property="og:description" content="Four complete sample portfolio sites — creative, technical, corporate and clinical — each built the way its field reads. The &#8377;699 portfolio, finished.">
+<meta property="og:description" content="Thirteen sample portfolio sites across thirteen fields, and ten portfolio themes you can try on any of them. The &#8377;699 portfolio, finished.">
 <meta property="og:url" content="https://prateek-32.github.io/cv-forge/sample-portfolios.html">
 <meta property="og:image" content="https://prateek-32.github.io/cv-forge/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -43,14 +43,166 @@
 <section class="sec-dark">
   <div class="wrap stack">
     <span class="eyebrow">Sample portfolios</span>
-    <h1>Four readers. Four very different sites.</h1>
-    <p class="lede">A banker's portfolio and a designer's should not look alike. Each sample
-    below is a complete one-page site for a fictional candidate, built the way their field
-    reads — the &#8377;699 portfolio, finished. Hover a preview to scroll through it.</p>
+    <h1>Thirteen portfolios. Ten themes. Pick yours.</h1>
+    <p class="lede">A banker's portfolio and a designer's should not look alike. Every sample
+    below is a complete one-page site for a fictional candidate — the &#8377;699 portfolio,
+    finished. Try any theme on any of them, then choose one in your brief.</p>
+    <nav class="jump-links" aria-label="On this page">
+      <a href="#themes">Try the themes</a><a href="#examples">Nine examples</a><a href="#showcase">Four showcase designs</a>
+    </nav>
   </div>
 </section>
 
-<section class="wrap stack pf-list">
+<!-- ============ theme studio: any person, any theme ============ -->
+<section class="wrap stack" id="themes">
+  <div class="sec-intro">
+    <span class="eyebrow">Portfolio themes</span>
+    <h2>Try any theme on any person</h2>
+    <p class="lede">Same content, ten different sites. Pick a person, then a theme — the
+    preview is the real page. Hover it to scroll.</p>
+  </div>
+
+  <div class="studio">
+    <div class="studio-controls">
+      <div class="field"><label for="st-person">Person</label>
+        <select id="st-person">
+          <option value="chiara-rossini" data-field="film" data-field-label="film" data-theme="noir">Chiara Rossini — film editor</option>
+          <option value="kwame-asante" data-field="writing" data-field-label="writing" data-theme="paper">Kwame Asante — investigative journalist</option>
+          <option value="marcus-webb" data-field="law" data-field-label="law" data-theme="sidebar">Marcus Webb — M&amp;A lawyer</option>
+          <option value="jake-tran" data-field="trades" data-field-label="the trades" data-theme="brutal">Jake Tran — master electrician</option>
+          <option value="amira-hassan" data-field="teaching" data-field-label="teaching" data-theme="pastel">Amira Hassan — STEM teacher</option>
+          <option value="sofia-reyes" data-field="academia" data-field-label="academia" data-theme="clinic">Sofía Reyes — computational biologist</option>
+          <option value="ryan-obrien" data-field="sales" data-field-label="sales" data-theme="swiss">Ryan O'Brien — VP Sales</option>
+          <option value="isabelle-fontaine" data-field="consulting" data-field-label="consulting" data-theme="aurora">Isabelle Fontaine — strategy consultant</option>
+          <option value="tariq-osei" data-field="data" data-field-label="data" data-theme="console">Tariq Osei — data scientist</option>
+        </select></div>
+
+      <div class="studio-themes" role="group" aria-labelledby="st-theme-label">
+        <span class="studio-label" id="st-theme-label">Theme</span>
+        <span class="tp-group-title">Clean &amp; professional</span>
+        <div class="st-grid">
+          <button type="button" class="st-theme" data-theme="paper" aria-pressed="false"><span class="tp-sw tp-paper" aria-hidden="true"></span>Paper</button>
+          <button type="button" class="st-theme" data-theme="clinic" aria-pressed="false"><span class="tp-sw tp-clinic" aria-hidden="true"></span>Clinic</button>
+          <button type="button" class="st-theme" data-theme="sidebar" aria-pressed="false"><span class="tp-sw tp-sidebar" aria-hidden="true"></span>Sidebar</button>
+          <button type="button" class="st-theme" data-theme="swiss" aria-pressed="false"><span class="tp-sw tp-swiss" aria-hidden="true"></span>Swiss</button>
+        </div>
+        <span class="tp-group-title">Bold &amp; expressive</span>
+        <div class="st-grid">
+          <button type="button" class="st-theme" data-theme="brutal" aria-pressed="false"><span class="tp-sw tp-brutal" aria-hidden="true"></span>Brutal</button>
+          <button type="button" class="st-theme" data-theme="pastel" aria-pressed="false"><span class="tp-sw tp-pastel" aria-hidden="true"></span>Pastel</button>
+          <button type="button" class="st-theme" data-theme="gallery" aria-pressed="false"><span class="tp-sw tp-gallery" aria-hidden="true"></span>Gallery</button>
+        </div>
+        <span class="tp-group-title">Dark &amp; dramatic</span>
+        <div class="st-grid">
+          <button type="button" class="st-theme" data-theme="aurora" aria-pressed="false"><span class="tp-sw tp-aurora" aria-hidden="true"></span>Aurora</button>
+          <button type="button" class="st-theme" data-theme="noir" aria-pressed="false"><span class="tp-sw tp-noir" aria-hidden="true"></span>Noir</button>
+          <button type="button" class="st-theme" data-theme="console" aria-pressed="false"><span class="tp-sw tp-console" aria-hidden="true"></span>Console</button>
+        </div>
+      </div>
+      <p class="hint" id="st-note" aria-live="polite"></p>
+      <div class="cta-row"><a class="btn" id="st-use" href="start.html?type=portfolio">Use this theme</a><a class="btn btn-outline" id="st-open" href="portfolios/chiara-rossini.html" target="_blank" rel="noopener">Open full size</a></div>
+    </div>
+
+    <a class="pf-screen studio-screen" id="st-screen" href="portfolios/chiara-rossini.html" aria-label="Open this portfolio full size">
+      <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Chiara Rossini · Noir</span></span>
+      <span class="pf-viewport"><iframe src="portfolios/chiara-rossini.html" title="Live preview of the chosen portfolio and theme" tabindex="-1" aria-hidden="true"></iframe></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ nine examples, each in its own theme ============ -->
+<section class="wrap stack" id="examples">
+  <div class="sec-intro">
+    <span class="eyebrow">Examples</span>
+    <h2>Nine more people, nine themes</h2>
+    <p class="lede">Each built from its candidate's sample CV and shown in a theme that suits
+    the field. Every one can wear any of the ten.</p>
+  </div>
+
+  <div class="pkx-grid">
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/chiara-rossini.html" aria-label="Open Chiara Rossini's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Chiara Rossini</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/chiara-rossini.html" title="Preview of Chiara Rossini's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Film · Noir</span><h3>Chiara Rossini</h3><p>Film editor — narrative features and documentary.</p>
+        <p class="pkx-links"><a href="portfolios/chiara-rossini.html">Open</a><a href="#themes" data-studio-person="chiara-rossini">Try other themes</a><a href="samples/film-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/kwame-asante.html" aria-label="Open Kwame Asante's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Kwame Asante</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/kwame-asante.html" title="Preview of Kwame Asante's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Writing · Paper</span><h3>Kwame Asante</h3><p>Investigative journalist — clips and investigations first.</p>
+        <p class="pkx-links"><a href="portfolios/kwame-asante.html">Open</a><a href="#themes" data-studio-person="kwame-asante">Try other themes</a><a href="samples/writing-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/marcus-webb.html" aria-label="Open Marcus Webb's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Marcus Webb</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/marcus-webb.html" title="Preview of Marcus Webb's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Law · Sidebar</span><h3>Marcus Webb</h3><p>M&amp;A senior associate — matters described as confidentially as the CV.</p>
+        <p class="pkx-links"><a href="portfolios/marcus-webb.html">Open</a><a href="#themes" data-studio-person="marcus-webb">Try other themes</a><a href="samples/law-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/jake-tran.html" aria-label="Open Jake Tran's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Jake Tran</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/jake-tran.html" title="Preview of Jake Tran's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Trades · Brutal</span><h3>Jake Tran</h3><p>Master electrician — sites, tickets and a clean safety record.</p>
+        <p class="pkx-links"><a href="portfolios/jake-tran.html">Open</a><a href="#themes" data-studio-person="jake-tran">Try other themes</a><a href="samples/trades-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/amira-hassan.html" aria-label="Open Amira Hassan's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Amira Hassan</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/amira-hassan.html" title="Preview of Amira Hassan's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Teaching · Pastel</span><h3>Amira Hassan</h3><p>Secondary STEM teacher — programmes and pupil outcomes.</p>
+        <p class="pkx-links"><a href="portfolios/amira-hassan.html">Open</a><a href="#themes" data-studio-person="amira-hassan">Try other themes</a><a href="samples/teaching-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/sofia-reyes.html" aria-label="Open Sofía Reyes's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Sofía Reyes</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/sofia-reyes.html" title="Preview of Sofía Reyes's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Academia · Clinic</span><h3>Sofía Reyes</h3><p>Associate professor — grants, lab and publications.</p>
+        <p class="pkx-links"><a href="portfolios/sofia-reyes.html">Open</a><a href="#themes" data-studio-person="sofia-reyes">Try other themes</a><a href="samples/academia-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/ryan-obrien.html" aria-label="Open Ryan O'Brien's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Ryan O'Brien</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/ryan-obrien.html" title="Preview of Ryan O'Brien's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Sales · Swiss</span><h3>Ryan O'Brien</h3><p>VP Sales EMEA — quota record and enterprise wins.</p>
+        <p class="pkx-links"><a href="portfolios/ryan-obrien.html">Open</a><a href="#themes" data-studio-person="ryan-obrien">Try other themes</a><a href="samples/sales-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/isabelle-fontaine.html" aria-label="Open Isabelle Fontaine's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Isabelle Fontaine</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/isabelle-fontaine.html" title="Preview of Isabelle Fontaine's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Consulting · Aurora</span><h3>Isabelle Fontaine</h3><p>Strategy &amp; operations — engagements as problem, intervention, result.</p>
+        <p class="pkx-links"><a href="portfolios/isabelle-fontaine.html">Open</a><a href="#themes" data-studio-person="isabelle-fontaine">Try other themes</a><a href="samples/consulting-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx">
+      <a class="pf-screen pkx-screen" href="portfolios/tariq-osei.html" aria-label="Open Tariq Osei's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Tariq Osei</span></span>
+        <span class="pf-viewport"><iframe src="portfolios/tariq-osei.html" title="Preview of Tariq Osei's portfolio" tabindex="-1" aria-hidden="true" loading="lazy"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Data · Console</span><h3>Tariq Osei</h3><p>Senior data scientist — models that shipped, and what they saved.</p>
+        <p class="pkx-links"><a href="portfolios/tariq-osei.html">Open</a><a href="#themes" data-studio-person="tariq-osei">Try other themes</a><a href="samples/data-cv.html">View the CV</a></p></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ the four hand-built showcase sites ============ -->
+<section class="wrap stack pf-list" id="showcase">
+  <div class="sec-intro">
+    <span class="eyebrow">Showcase designs</span>
+    <h2>Four sites built by hand</h2>
+    <p class="lede">One-off designs with charts, diagrams and deal tombstones. You can ask
+    for any of these looks in your brief too.</p>
+  </div>
 
   <article class="pf" data-tone="creative">
     <a class="pf-screen" href="portfolios/yuki-tanaka.html" aria-label="Open Yuki Tanaka's sample portfolio">
@@ -134,14 +286,14 @@
     </div>
   </article>
 
-  <p class="hint">All four candidates are fictional. Every figure on their sites comes from
+  <p class="hint">All thirteen candidates are fictional. Every figure on their sites comes from
   their sample CVs.</p>
 </section>
 
 <section class="sec-dark">
   <div class="wrap cta-band">
     <div><h2>Want a site like these?</h2>
-      <p style="margin-top:10px;">The portfolio is &#8377;699 at launch: built from the material you send, put live on free hosting in your name, and yours to edit — no yearly fee to us. Your own domain connected for &#8377;349.</p></div>
+      <p style="margin-top:10px;">The portfolio is &#8377;699 at launch, in any of the ten themes or showcase looks: built from the material you send, put live on free hosting in your name, and yours to edit — no yearly fee to us. Your own domain connected for &#8377;349.</p></div>
     <a class="btn btn-light" href="start.html?type=portfolio">Start a portfolio brief</a>
   </div>
 </section>
