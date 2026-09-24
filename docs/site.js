@@ -717,17 +717,35 @@ var CV_FORGE_CONTACT = {
 
   // best fit first; keep in step with the "Suits …" lines on templates.html
   var REC = {
-    finance: ['classic', 'executive', 'modern'],   sales: ['executive', 'modern', 'compact'],
-    law: ['classic', 'executive'],                  consulting: ['executive', 'modern', 'classic'],
-    engineering: ['modern', 'compact'],             data: ['modern', 'compact'],
-    trades: ['compact', 'modern'],                  creative: ['creative', 'modern'],
-    film: ['creative', 'compact'],                  writing: ['creative', 'classic'],
-    healthcare: ['classic', 'executive', 'compact'], teaching: ['classic', 'compact'],
-    academia: ['classic', 'modern']
+    finance:     ['banker', 'classic', 'executive', 'minimal'],
+    sales:       ['executive', 'slate', 'modern', 'compact'],
+    law:         ['legal', 'classic', 'executive'],
+    consulting:  ['slate', 'executive', 'modern', 'minimal'],
+    engineering: ['tech', 'modern', 'minimal', 'compact'],
+    data:        ['tech', 'slate', 'modern', 'compact'],
+    trades:      ['workwear', 'compact', 'modern'],
+    creative:    ['studio', 'creative', 'editorial', 'minimal'],
+    film:        ['studio', 'creative', 'typewriter'],
+    writing:     ['editorial', 'typewriter', 'classic'],
+    healthcare:  ['clinical', 'classic', 'executive', 'compact'],
+    teaching:    ['warm', 'classic', 'compact'],
+    academia:    ['academic', 'classic', 'minimal']
   };
   var pills = document.querySelectorAll('.pill[data-tfield]');
+  var tonePills = document.querySelectorAll('.pill[data-tone]');
   var cards = grid.querySelectorAll('.tpl-card');
   var nameEl = document.querySelector('[data-tfield-name]');
+
+  // style filter: All / Traditional / Contemporary / Expressive / Practical
+  tonePills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      var tone = pill.getAttribute('data-tone');
+      tonePills.forEach(function (p) { p.setAttribute('aria-pressed', String(p === pill)); });
+      cards.forEach(function (card) {
+        card.hidden = !(tone === 'all' || card.getAttribute('data-tone') === tone);
+      });
+    });
+  });
 
   var show = function (field) {
     if (!REC[field]) field = 'finance';

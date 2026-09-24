@@ -1,0 +1,46 @@
+/* Studio — heavy grotesk type, a big uppercase name and yellow highlighter on
+   every heading: the confident page of a design studio. Layered on top of
+   cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #0A0A0A; --ink-2: #2B2B2B; --muted: #6B6B6B; --line: #E5E5E5;
+  --accent: #0A0A0A; --accent-2: #0A0A0A;
+  --tint: #FFF6B8; --tint-line: #F5E27A; --soft: #F7F7F2;
+  --serif: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
+  --sans: 'Space Grotesk', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { border-radius: 0; }
+.cv::before { height: 12px; background: #FFE14D; }
+
+.cv-header { border-bottom: 2px solid var(--ink); }
+.cv-name { font-size: 36pt; font-weight: 700; letter-spacing: -.045em; line-height: .95; text-transform: uppercase; }
+.cv-title { font-weight: 500; color: var(--ink); }
+
+/* the heading sits in a marker stroke */
+.cv-section-title {
+  display: inline-block;
+  padding: 0 4px;
+  background: linear-gradient(transparent 52%, #FFE14D 52%);
+  font-size: 9.5pt; font-weight: 700; letter-spacing: .1em; color: var(--ink);
+}
+.cv-section-title::after { display: none; }
+
+.cv-job { border-left: 2px solid var(--ink); }
+.cv-job::before { border-color: var(--ink); background: #FFE14D; border-radius: 0; }
+.cv-job-dates, .cv-edu-date { background: var(--ink); color: #fff; border-radius: 0; }
+.cv li::marker { color: var(--ink); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: var(--soft); border: 0; border-left: 5px solid #FFE14D; border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-size: 20pt; font-weight: 700; letter-spacing: -.03em; color: var(--ink); }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--ink); border: 0; border-radius: 3px; color: #fff; }
+.cv-skills li { border-radius: 0; border-color: var(--ink); }
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: #FFE14D; border-radius: 0; background: var(--soft); }
+.credit-table th, .cv-rotations th { background: var(--ink); color: #fff; }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: #FFE14D; }

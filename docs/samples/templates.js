@@ -1,17 +1,25 @@
 /* Fieldcraft — template switcher for the sample CVs.
 
    Every sample is written once and styled by cv.css (the Modern template).
-   ?t=classic, ?t=executive, ?t=compact or ?t=creative adds that template's
-   stylesheet from templates/ on top, so one document can be shown in all
-   five looks. Loaded in <head>, before first paint, so there is no flash of
-   the wrong template. Outside the site's preview frames it also adds a
-   switcher above the page. */
+   ?t=<name> adds that template's stylesheet from templates/ on top, so one
+   document can be shown in every look. Loaded in <head>, before first paint,
+   so there is no flash of the wrong template. Outside the site's preview
+   frames it also adds a switcher above the page.
+
+   Keep GROUPS in step with templates.html, the brief form and REC in site.js. */
 
 (function () {
   'use strict';
 
-  var TEMPLATES = ['modern', 'classic', 'executive', 'compact', 'creative'];
-  var NAMES = { modern: 'Modern', classic: 'Classic', executive: 'Executive', compact: 'Compact', creative: 'Creative' };
+  var GROUPS = [
+    ['Traditional',  ['classic', 'legal', 'banker', 'academic', 'executive']],
+    ['Contemporary', ['modern', 'minimal', 'slate', 'tech', 'clinical']],
+    ['Expressive',   ['creative', 'studio', 'editorial', 'typewriter', 'warm']],
+    ['Practical',    ['compact', 'workwear']]
+  ];
+  var TEMPLATES = [];
+  GROUPS.forEach(function (g) { TEMPLATES = TEMPLATES.concat(g[1]); });
+  var title = function (k) { return k.charAt(0).toUpperCase() + k.slice(1); };
 
   var t = 'modern';
   try { t = (new URLSearchParams(location.search).get('t') || 'modern').toLowerCase(); } catch (e) { t = 'modern'; }
@@ -31,14 +39,22 @@
     var bar = document.querySelector('.back-bar');
     if (!bar) return;
     var field = location.pathname.split('/').pop().replace(/-cv(-\d+)?\.html$/, '');
+
     var nav = document.createElement('nav');
     nav.className = 'tpl-switch';
     nav.setAttribute('aria-label', 'Template');
-    nav.innerHTML = '<span class="tpl-switch-label">Template</span>' +
-      TEMPLATES.map(function (k) {
-        return '<a href="?t=' + k + '"' + (k === t ? ' aria-current="true"' : '') + '>' + NAMES[k] + '</a>';
-      }).join('') +
-      '<a class="tpl-use" href="../start.html?template=' + t + '&amp;field=' + encodeURIComponent(field) + '">Use ' + NAMES[t] + ' &rarr;</a>';
+    nav.innerHTML =
+      '<label class="tpl-switch-label" for="tpl-pick">Template</label>' +
+      '<select id="tpl-pick">' + GROUPS.map(function (g) {
+        return '<optgroup label="' + g[0] + '">' + g[1].map(function (k) {
+          return '<option value="' + k + '"' + (k === t ? ' selected' : '') + '>' + title(k) + '</option>';
+        }).join('') + '</optgroup>';
+      }).join('') + '</select>' +
+      '<a href="../templates.html#' + encodeURIComponent(field) + '">Compare all</a>' +
+      '<a class="tpl-use" href="../start.html?template=' + t + '&amp;field=' + encodeURIComponent(field) + '">Use ' + title(t) + ' &rarr;</a>';
+    nav.querySelector('select').addEventListener('change', function () {
+      location.search = '?t=' + this.value;
+    });
     bar.parentNode.insertBefore(nav, bar.nextSibling);
   });
 })();

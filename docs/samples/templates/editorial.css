@@ -1,0 +1,47 @@
+/* Editorial — magazine typography: a large Playfair name, italic section
+   heads, a drop cap on the summary and a plum accent. For writers, editors
+   and media. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+:root {
+  --ink: #111111; --ink-2: #333333; --muted: #666666; --line: #DDDDDD;
+  --accent: #5B2A86; --accent-2: #4A1F70;
+  --tint: #F5F0FA; --tint-line: #DCCBEC; --soft: #FAF8FC;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Source Serif 4', Georgia, serif;
+}
+
+.cv { font-size: 11pt; border-radius: 2px; }
+.cv::before { display: none; }
+
+.cv-header { border-bottom: 1px solid var(--ink); }
+.cv-name { font-size: 40pt; font-weight: 700; letter-spacing: -.025em; line-height: 1; }
+.cv-title { font-family: var(--serif); font-size: 14pt; font-style: italic; font-weight: 400; color: var(--accent); }
+
+.cv-section-title {
+  font-family: var(--serif); font-size: 16pt; font-style: italic; font-weight: 400;
+  letter-spacing: 0; text-transform: none; color: var(--ink);
+}
+.cv-section-title::after { height: 1px; background: var(--ink); }
+
+.cv-summary::first-letter {
+  float: left; padding: 5px 8px 0 0;
+  font-family: var(--serif); font-size: 3.3em; line-height: .8; color: var(--accent);
+}
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-title { font-family: var(--serif); font-size: 12.5pt; font-weight: 600; }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-family: var(--sans); font-size: 10pt; font-style: italic; color: var(--muted); }
+.cv li::marker { color: var(--accent); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: none; border: 0; border-top: 2px solid var(--ink); border-radius: 0; padding: 8px 0 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 22pt; font-weight: 700; color: var(--ink); }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent-2); }
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: var(--accent); background: var(--soft); }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: var(--accent); }

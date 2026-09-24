@@ -1,0 +1,41 @@
+/* Typewriter — Courier on cream, dashed rules, no colour: a writer's page with
+   character, still plain text underneath. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --ink: #222222; --ink-2: #3A3A3A; --muted: #666666; --line: #CFC8BA;
+  --accent: #222222; --accent-2: #222222;
+  --tint: transparent; --tint-line: #CFC8BA; --soft: transparent;
+  --serif: 'Courier Prime', 'Courier New', monospace;
+  --sans: 'Courier Prime', 'Courier New', monospace;
+  --mono: 'Courier Prime', 'Courier New', monospace;
+}
+
+.cv { background: #FBF8F1; font-size: 10.5pt; border-radius: 2px; }
+.cv::before { display: none; }
+
+.cv-header { border-bottom: 1px dashed var(--muted); }
+.cv-name { font-size: 22pt; font-weight: 700; letter-spacing: 0; }
+.cv-title { font-weight: 400; font-style: italic; color: var(--ink-2); }
+
+.cv-section-title { font-size: 10pt; font-weight: 700; letter-spacing: .12em; color: var(--ink); }
+.cv-section-title::after { height: 0; background: none; border-top: 1px dashed var(--muted); }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-size: 9.5pt; color: var(--ink-2); }
+.cv li::marker { content: "- "; color: var(--ink); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: none; border: 1px dashed var(--muted); border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 14pt; font-weight: 700; color: var(--ink); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { background: none; border-left: 0; padding: 2px 0; }
+.stack-chip, .tool-chip, .cert, .ticket, .cv-skills li {
+  background: none; border: 1px dashed var(--muted); border-radius: 0; color: var(--ink); font-weight: 400;
+}
+.credit-table th, .cv-rotations th { background: none; border-bottom: 1px dashed var(--muted); color: var(--ink); }
+.pub-entry, .cv-pub, .clips-list li { border-left: 1px dashed var(--muted); }

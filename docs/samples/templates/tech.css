@@ -1,0 +1,43 @@
+/* Tech — code-flavoured headings, monospaced dates and stack tags, one green
+   accent: at home in front of an engineering reader. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #0D1117; --ink-2: #30363D; --muted: #6E7781; --line: #E1E4E8;
+  --accent: #15803D; --accent-2: #166534;
+  --tint: #F0FDF4; --tint-line: #BBF7D0; --soft: #F6F8FA;
+  --serif: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
+.cv::before { height: 6px; background: #0D1117; }
+.cv-name { font-size: 27pt; font-weight: 700; letter-spacing: -.035em; }
+.cv-title { font-family: var(--mono); font-size: 10.5pt; font-weight: 500; color: var(--accent-2); }
+.cv-title::before { content: "> "; color: var(--muted); }
+
+.cv-section-title {
+  font-family: var(--mono); font-size: 10pt; font-weight: 600;
+  letter-spacing: 0; text-transform: lowercase; color: var(--ink);
+}
+.cv-section-title::before { content: "##"; color: var(--accent); }
+.cv-section-title::after { background: var(--line); }
+
+.cv-job { border-left-color: var(--line); }
+.cv-job::before { border-color: var(--accent); border-radius: 2px; }
+.cv-job-dates, .cv-edu-date { background: var(--soft); color: var(--ink-2); border: 1px solid var(--line); }
+.cv li::marker { color: var(--accent); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: var(--soft); border-color: var(--line); border-radius: 6px;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--mono); font-size: 15pt; font-weight: 600; color: var(--accent-2); }
+
+.stack-chip, .tool-chip, .cert, .ticket {
+  font-family: var(--mono); font-size: 8.5pt;
+  background: var(--soft); border-color: var(--line); border-radius: 6px; color: var(--ink-2);
+}
+.cv-skills li { font-family: var(--mono); font-size: 8.8pt; border-radius: 6px; }
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: var(--accent); background: var(--soft); }

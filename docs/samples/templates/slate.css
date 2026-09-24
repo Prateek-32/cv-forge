@@ -1,0 +1,34 @@
+/* Slate — charcoal and blue-grey, section titles on shaded bars. Calm and
+   corporate without being old-fashioned. Layered on top of cv.css. */
+
+:root {
+  --ink: #0F172A; --ink-2: #334155; --muted: #64748B; --line: #E2E8F0;
+  --accent: #334155; --accent-2: #1E293B;
+  --tint: #F1F5F9; --tint-line: #CBD5E1; --soft: #F8FAFC;
+  --serif: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv::before { height: 8px; background: #334155; }
+.cv-name { font-family: var(--sans); font-size: 27pt; font-weight: 700; letter-spacing: -.025em; }
+.cv-title { color: var(--ink-2); font-weight: 600; }
+
+.cv-section-title {
+  padding: 6px 12px;
+  background: var(--tint); border-left: 4px solid #334155;
+  font-size: 8.5pt; font-weight: 700; letter-spacing: .14em; color: var(--accent-2);
+}
+.cv-section-title::after { display: none; }
+
+.cv-job { border-left-color: var(--line); }
+.cv-job::before { border-color: #334155; }
+.cv-job-dates, .cv-edu-date { background: var(--tint); color: var(--accent-2); }
+.cv li::marker { color: #64748B; }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: var(--soft); border-color: var(--line); border-top: 3px solid #334155; border-radius: 4px;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-weight: 700; color: var(--accent-2); }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent-2); border-radius: 4px; }
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: #334155; background: var(--soft); }
