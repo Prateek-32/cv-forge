@@ -14,7 +14,8 @@ var CV_FORGE_CONTACT = {
   phone:    '+91 96364 79447',      // as it should be shown
   whatsapp: '919636479447',         // digits only, country code first
   city:     'Pune, Maharashtra',
-  hours:    '10 AM – 10 PM IST'
+  hours:    '10 AM – 10 PM IST',
+  replyHoursIST: [10, 22]           // 24-hour clock; drives the "Replying now" badge
 };
 
 (function () {
@@ -395,6 +396,7 @@ var CV_FORGE_CONTACT = {
     phone:        c.phone ? { href: 'tel:' + c.phone.replace(/[^\d+]/g, ''), text: c.phone } : null,
     whatsapp:     waHref ? { href: waHref, external: true } : null,
     city:         c.city ? { text: c.city } : null,
+    hours:        c.hours ? { text: 'Replies ' + c.hours } : null,
     'city-hours': cityHours ? { text: cityHours } : null
   };
 
@@ -402,13 +404,28 @@ var CV_FORGE_CONTACT = {
     var v = values[el.getAttribute('data-contact')];
     if (!v) return;
     if (v.href) el.setAttribute('href', v.href);
-    if (v.text) el.textContent = v.text;
+    // rows with an icon keep their markup and fill only their value slot
+    if (v.text) (el.querySelector('[data-contact-value]') || el).textContent = v.text;
     if (v.external) { el.target = '_blank'; el.rel = 'noopener'; }
     el.hidden = false;
   });
   document.querySelectorAll('[data-contact-block]').forEach(function (block) {
     if (block.querySelector('[data-contact]:not([hidden])')) block.hidden = false;
   });
+
+  // "Replying now" / "Back at 10 AM IST", from the reply window in India time
+  var win = c.replyHoursIST;
+  if (win && win.length === 2) {
+    var ist = new Date(Date.now() + 5.5 * 3600 * 1000);
+    var hour = ist.getUTCHours() + ist.getUTCMinutes() / 60;
+    var open = hour >= win[0] && hour < win[1];
+    var fmt = function (h) { return (h % 12 || 12) + (h < 12 ? ' AM' : ' PM'); };
+    document.querySelectorAll('[data-contact-status]').forEach(function (el) {
+      el.classList.add(open ? 'is-open' : 'is-away');
+      el.querySelector('span').textContent = open ? 'Replying now' : 'Back at ' + fmt(win[0]) + ' IST';
+      el.hidden = false;
+    });
+  }
 
   if (waHref) {
     var btn = document.createElement('a');
