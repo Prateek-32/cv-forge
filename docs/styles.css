@@ -2201,3 +2201,65 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .tpl-card, .tpl-viewport iframe { transition: none; }
   .tpl-screen:hover iframe { transform: scale(var(--s)); }
 }
+
+/* =====================================================================
+   START PAGE — documents or a portfolio site
+   ===================================================================== */
+
+.order-type { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 760px; margin-bottom: 30px; }
+.order-tab {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line); border-radius: 14px;
+  color: var(--ink-2); text-align: left; cursor: pointer;
+  font-family: var(--sans);
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.order-tab strong { font-family: var(--serif); font-size: 19px; font-weight: 500; color: var(--ink); }
+.order-tab span { font-size: 13.5px; color: var(--muted); }
+.order-tab:hover { border-color: var(--accent); }
+.order-tab[aria-selected="true"] {
+  background: linear-gradient(135deg, rgba(94,234,212,.16) 0%, rgba(129,90,230,.12) 100%);
+  border-color: rgba(94,234,212,.7);
+  box-shadow: 0 0 30px -10px rgba(94,234,212,.6);
+}
+.order-tab[aria-selected="true"] span { color: var(--accent); }
+@media (max-width: 560px) { .order-type { grid-template-columns: 1fr; } }
+
+.form-col { min-width: 0; }
+.brief[hidden], [data-for-order][hidden] { display: none; }
+
+.linklike { padding: 0; background: none; border: 0; color: var(--accent); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* the look: the four sample portfolios as picture cards */
+.pick { gap: 12px; }
+.pick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.pick-card {
+  position: relative;
+  display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  background: rgba(10, 15, 33, .55);
+  border: 1px solid var(--line); border-radius: 12px;
+  cursor: pointer;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.pick-card input { position: absolute; opacity: 0; pointer-events: none; }
+.pick-card:hover { border-color: var(--accent); }
+.pick-card:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 0 24px -8px rgba(94,234,212,.6); }
+.pick-card:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pick-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pick-text strong { font-size: 15px; font-weight: 600; color: var(--ink); }
+.pick-text > span { font-size: 13px; color: var(--muted); }
+.pick-text a { color: var(--accent); }
+.pick-swatch { width: 46px; height: 46px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); }
+.sw-auto      { background: conic-gradient(#E5402A 0 25%, #3CF2A1 0 50%, #C9A45C 0 75%, #0F766E 0); }
+.sw-creative  { background: linear-gradient(135deg, #F3EFE7 0 55%, #E5402A 55%); }
+.sw-technical { background: linear-gradient(135deg, #05070B 0 60%, #3CF2A1 60%); }
+.sw-corporate { background: linear-gradient(135deg, #0B1A33 0 60%, #C9A45C 60%); }
+.sw-care      { background: linear-gradient(135deg, #F5FBF8 0 55%, #0F766E 55%); }
+
+.check-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 18px; }
+input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; accent-color: var(--accent); flex-shrink: 0; }
+.domain-name[hidden] { display: none; }
+.domain-name { margin-top: 6px; }

@@ -251,6 +251,25 @@ yet; add real ones to the home page stats block (`.stats`) when you have them.
 - **Link previews:** `og-image.png` (1200×630), `favicon.svg`, `apple-touch-icon.png`,
   and `sitemap.xml` — submit the sitemap in Google Search Console.
 
+## Two briefs: documents and portfolio sites
+
+`start.html` has a switch at the top — **Resume, CV or LinkedIn** or **Portfolio site** —
+with a separate form for each, because a portfolio needs different material.
+
+- **Document brief** (`#brief-form`): field, stage, documents, template, current CV,
+  target roles, notes.
+- **Portfolio brief** (`#portfolio-form`): headline, the look (one of the four sample
+  portfolios, or "match my field"), sections, links to work plus one upload, projects to
+  feature, web address (free / own domain +₹349), the email for the client's own hosting
+  account, colours and references, optional add-on documents, notes.
+- `start.html?type=portfolio` (or `#portfolio`) opens the portfolio brief, and
+  `&style=creative|technical|corporate|care` pre-picks the look. Every portfolio "order"
+  button uses it, and each sample portfolio's "Get yours" passes its own style.
+- Portfolio briefs are sent with `kind=portfolio`. `apps-script/Code.gs` writes them to a
+  **Portfolio briefs** tab (one column per answer) and emails them with reply-to set. The
+  same answers are also folded into the document brief's columns, so a script deployed
+  before this change still records them on the Briefs tab, marked "PORTFOLIO: …".
+
 ## The intake form (your own, via Google Apps Script)
 
 The form lives on your site, in your design. When someone submits it, the browser posts

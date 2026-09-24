@@ -798,3 +798,159 @@ var CV_FORGE_CONTACT = {
     window.addEventListener('resize', function () { viewports.forEach(fit); });
   }
 })();
+
+/* ---------------------------------------------------------------
+   Start page: documents or a portfolio site. Two forms behind one
+   switch — start.html?type=portfolio (or #portfolio) opens the
+   portfolio brief, and ?style=creative|technical|corporate|care
+   pre-picks the look from a sample portfolio's "Get yours" link.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var pform = document.getElementById('portfolio-form');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.order-tab'));
+  if (!pform || !tabs.length) return;
+
+  // ---- the switch ------------------------------------------------
+  var show = function (which) {
+    tabs.forEach(function (t) {
+      var on = (t.id === 'ot-' + which);
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    document.querySelectorAll('[data-for-order]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-for-order') !== which;
+    });
+  };
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { show(tab.id.replace('ot-', '')); });
+    tab.addEventListener('keydown', function (e) {
+      var next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') next = tabs[(i + 1) % tabs.length];
+      if (next) { e.preventDefault(); next.click(); next.focus(); }
+    });
+  });
+  document.querySelectorAll('[data-open-order]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      show(b.getAttribute('data-open-order'));
+      document.querySelector('.order-type').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var params = null;
+  try { params = new URLSearchParams(location.search); } catch (err) { params = null; }
+  var type = (params && params.get('type')) || location.hash.slice(1);
+  if (type === 'portfolio') show('portfolio');
+
+  var STYLES = { creative: 'Creative', technical: 'Technical', corporate: 'Corporate', care: 'Clean' };
+  var wanted = params && STYLES[(params.get('style') || '').toLowerCase()];
+  if (wanted) {
+    pform.querySelectorAll('input[name="style"]').forEach(function (r) {
+      if (r.value.indexOf(wanted) === 0) r.checked = true;
+    });
+  }
+
+  // ---- the domain box only when a domain is involved ------------
+  var domainBox = pform.querySelector('.domain-name');
+  pform.querySelectorAll('input[name="domain"]').forEach(function (r) {
+    r.addEventListener('change', function () { domainBox.hidden = r.value === 'Free address' && r.checked; });
+  });
+
+  // ---- sending ----------------------------------------------------
+  var statusEl = document.getElementById('portfolio-status');
+  var button = document.getElementById('portfolio-submit');
+  var MAX_BYTES = 8 * 1024 * 1024;
+  var say = function (msg, kind) {
+    statusEl.textContent = msg;
+    statusEl.className = 'form-status' + (kind ? ' is-' + kind : '');
+  };
+  var val = function (n) { var el = pform.elements[n]; return el ? String(el.value || '').trim() : ''; };
+  var picked = function (n) {
+    return Array.prototype.map.call(pform.querySelectorAll('input[name="' + n + '"]:checked'),
+      function (c) { return c.value; });
+  };
+
+  pform.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var endpoint = (window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.formEndpoint) ||
+                   (document.getElementById('brief-form') || {}).getAttribute('data-endpoint') || '';
+    if (!pform.checkValidity()) { pform.reportValidity(); return; }
+
+    var file = pform.elements.upload && pform.elements.upload.files && pform.elements.upload.files[0];
+    if (file && file.size > MAX_BYTES) {
+      say('That file is larger than 8 MB. Share it as a Drive or Dropbox link in "Links to your work" instead.', 'error');
+      return;
+    }
+
+    var style = picked('style')[0] || 'Match my field';
+    var sections = picked('sections').join(', ');
+    var domain = picked('domain')[0] || 'Free address';
+    var addons = picked('addons');
+    var hosting = val('hostingEmail') || val('email');
+
+    var data = new FormData();
+    data.append('kind', 'portfolio');
+    ['name', 'email', 'field', 'whatsapp', 'headline', 'links', 'projects', 'domainName', 'lookFeel', 'notes', 'website']
+      .forEach(function (n) { data.append(n, val(n)); });
+    data.append('style', style);
+    data.append('sections', sections);
+    data.append('domain', domain);
+    data.append('hostingEmail', hosting);
+    data.append('addons', addons.join(', '));
+    data.append('ownNotes', val('notes'));
+
+    // The same brief, folded into the document brief's columns, so a
+    // script that predates the Portfolio tab still records all of it.
+    data.set('field', 'PORTFOLIO: ' + val('field'));
+    data.append('stage', 'Portfolio brief');
+    data.append('needs', ['Portfolio'].concat(addons).join(', ') + ' | Style: ' + style +
+      ' | Web address: ' + domain + (val('domainName') ? ' (' + val('domainName') + ')' : '') +
+      ' | Sections: ' + sections);
+    data.append('target', 'Headline: ' + val('headline') + '\n\nProjects:\n' + val('projects') +
+      '\n\nLinks:\n' + val('links'));
+    data.set('notes', 'Look and feel: ' + val('lookFeel') + '\nHosting account email: ' + hosting +
+      '\nWhatsApp: ' + val('whatsapp') + '\n\n' + val('notes'));
+
+    button.disabled = true;
+    say('Sending your portfolio brief…');
+
+    var prepared = file ? new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onerror = function () { reject(new Error('Could not read that file')); };
+      reader.onload = function () {
+        var s = String(reader.result);
+        data.append('fileData', s.slice(s.indexOf(',') + 1));
+        data.append('fileName', file.name);
+        data.append('fileType', file.type || 'application/octet-stream');
+        resolve();
+      };
+      reader.readAsDataURL(file);
+    }) : Promise.resolve();
+
+    prepared
+      .then(function () { return fetch(endpoint, { method: 'POST', body: data }); })
+      .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
+      .then(function (out) {
+        if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
+        pform.innerHTML =
+          '<div class="card card-raised" style="gap:14px;">' +
+          '<span class="eyebrow">Received</span>' +
+          '<h2 style="font-size:clamp(24px,2.6vw,32px);">Thank you — your portfolio brief is with us.</h2>' +
+          '<p>We will look through your work and email a fixed quotation and timeline to the ' +
+          'address you gave us.</p>' +
+          '<p class="hint">Nothing is charged until you approve it.</p></div>';
+        pform.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function (err) {
+        button.disabled = false;
+        var email = window.CV_FORGE_CONTACT && CV_FORGE_CONTACT.email;
+        say((email
+          ? 'Something went wrong sending that — please email your brief and work links to ' + email + '.'
+          : 'Something went wrong sending that. Your answers are still here — please try again in a minute.') +
+          ' (' + err.message + ')', 'error');
+      });
+  });
+})();

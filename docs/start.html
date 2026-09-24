@@ -44,14 +44,22 @@
   <span class="eyebrow">Commission</span>
   <h1 style="margin-top:12px;">Start a build</h1>
   <p class="lede" style="margin-top:16px;">About ten minutes, and no payment yet — we
-  confirm the price and the deadline by email before anything starts. Files back within
-  24 hours of payment.</p>
+  confirm the price and the deadline by email before anything starts.</p>
 </section>
 
 <section class="wrap" style="padding-top:0;">
+
+<div class="order-type" role="tablist" aria-label="What are you ordering?">
+  <button type="button" class="order-tab" role="tab" id="ot-cv" aria-controls="brief-form" aria-selected="true">
+    <strong>Resume, CV or LinkedIn</strong><span>The documents — from &#8377;99</span></button>
+  <button type="button" class="order-tab" role="tab" id="ot-portfolio" aria-controls="portfolio-form" aria-selected="false" tabindex="-1">
+    <strong>Portfolio site</strong><span>A one-page site for your work — &#8377;699</span></button>
+</div>
+
 <div class="form-grid">
 
-  <form class="brief" id="brief-form" data-endpoint="https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec" novalidate>
+  <div class="form-col">
+  <form class="brief" id="brief-form" role="tabpanel" aria-labelledby="ot-cv" data-endpoint="https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec" novalidate>
 
     <div class="pair">
       <div class="field"><label for="name">Full name</label>
@@ -79,9 +87,8 @@
       <legend>What do you require?</legend>
       <label class="check" for="n1"><input id="n1" name="needs" value="Resume" type="checkbox"> Resume — the one-page document</label>
       <label class="check" for="n2"><input id="n2" name="needs" value="Curriculum vitae" type="checkbox"> Curriculum vitae — the long-form record</label>
-      <label class="check" for="n3"><input id="n3" name="needs" value="Portfolio" type="checkbox"> Portfolio — a one-page site for your work, put live for you</label>
-      <label class="check" for="n5"><input id="n5" name="needs" value="Custom domain setup" type="checkbox"> Custom domain connected to the portfolio (+₹349)</label>
-      <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> Professional profile rewritten to match</label>
+      <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> LinkedIn profile rewritten to match</label>
+      <span class="hint">Want a portfolio site too? Use the <button type="button" class="linklike" data-open-order="portfolio">Portfolio site</button> form — it asks for your work and can add these documents to the same order.</span>
     </fieldset>
 
     <div class="field"><label for="template">CV template</label>
@@ -143,8 +150,118 @@
     <p class="form-status" id="brief-status" role="status" aria-live="polite"></p>
   </form>
 
+  <!-- ============ the portfolio brief ============ -->
+  <form class="brief" id="portfolio-form" role="tabpanel" aria-labelledby="ot-portfolio" hidden novalidate>
+
+    <div class="pair">
+      <div class="field"><label for="p-name">Full name</label>
+        <input id="p-name" name="name" type="text" autocomplete="name" placeholder="As it should appear on the site" required></div>
+      <div class="field"><label for="p-email">Email address</label>
+        <input id="p-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    </div>
+
+    <div class="pair">
+      <div class="field"><label for="p-field">Your field</label>
+        <select id="p-field" name="field"><option>Finance &amp; banking</option><option>Sales &amp; marketing</option><option>Law &amp; compliance</option><option>Consulting &amp; operations</option><option>Engineering &amp; technology</option><option>Data &amp; analytics</option><option>Skilled trades &amp; field operations</option><option>Art, design &amp; creative</option><option>Film, music &amp; performance</option><option>Writing &amp; media</option><option>Healthcare &amp; medicine</option><option>Teaching &amp; public service</option><option>Academia &amp; research</option>
+          <option>Another field — described below</option></select></div>
+      <div class="field"><label for="p-whatsapp">WhatsApp number (optional)</label>
+        <input id="p-whatsapp" name="whatsapp" type="text" inputmode="tel" autocomplete="tel" placeholder="Quicker for sharing images and quick questions"></div>
+    </div>
+
+    <div class="field"><label for="p-headline">What should the site say you do?</label>
+      <input id="p-headline" name="headline" type="text" placeholder="e.g. Product designer making complex fintech feel simple"></div>
+
+    <fieldset class="pick">
+      <legend>The look</legend>
+      <div class="pick-grid">
+        <label class="pick-card"><input type="radio" name="style" value="Match my field" checked>
+          <span class="pick-swatch sw-auto" aria-hidden="true"></span>
+          <span class="pick-text"><strong>Match my field</strong><span>We choose the style your field expects</span></span></label>
+        <label class="pick-card"><input type="radio" name="style" value="Creative — like Yuki">
+          <span class="pick-swatch sw-creative" aria-hidden="true"></span>
+          <span class="pick-text"><strong>Editorial &amp; bold</strong><span>Work first, big type — <a href="portfolios/yuki-tanaka.html" target="_blank" rel="noopener">see Yuki's</a></span></span></label>
+        <label class="pick-card"><input type="radio" name="style" value="Technical — like Lena">
+          <span class="pick-swatch sw-technical" aria-hidden="true"></span>
+          <span class="pick-text"><strong>Technical console</strong><span>Dark, metrics, diagrams — <a href="portfolios/lena-kowalski.html" target="_blank" rel="noopener">see Lena's</a></span></span></label>
+        <label class="pick-card"><input type="radio" name="style" value="Corporate — like Arjun">
+          <span class="pick-swatch sw-corporate" aria-hidden="true"></span>
+          <span class="pick-text"><strong>Corporate &amp; refined</strong><span>Navy and gold, figures up front — <a href="portfolios/arjun-mehta.html" target="_blank" rel="noopener">see Arjun's</a></span></span></label>
+        <label class="pick-card"><input type="radio" name="style" value="Clean & clinical — like Dr. Nair">
+          <span class="pick-swatch sw-care" aria-hidden="true"></span>
+          <span class="pick-text"><strong>Clean &amp; clinical</strong><span>Credentials first, calm — <a href="portfolios/priya-nair.html" target="_blank" rel="noopener">see Dr. Nair's</a></span></span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Sections you want</legend>
+      <div class="check-grid">
+        <label class="check"><input name="sections" value="About" type="checkbox" checked> About you</label>
+        <label class="check"><input name="sections" value="Selected work" type="checkbox" checked> Selected work / projects</label>
+        <label class="check"><input name="sections" value="Case studies" type="checkbox"> Case studies (2–3 in depth)</label>
+        <label class="check"><input name="sections" value="Experience" type="checkbox" checked> Experience timeline</label>
+        <label class="check"><input name="sections" value="Skills and tools" type="checkbox"> Skills and tools</label>
+        <label class="check"><input name="sections" value="Writing or publications" type="checkbox"> Writing or publications</label>
+        <label class="check"><input name="sections" value="CV download" type="checkbox"> Download my CV</label>
+        <label class="check"><input name="sections" value="Contact" type="checkbox" checked> Contact</label>
+      </div>
+    </fieldset>
+
+    <div class="field"><label for="p-links">Links to your work</label>
+      <textarea id="p-links" name="links" rows="3"
+        placeholder="GitHub, Behance, Dribbble, published articles, a Google Drive or Dropbox folder of images — one per line."></textarea>
+      <span class="hint">Lots of images? Share a Drive or Dropbox folder link here — it is the easiest way.</span></div>
+
+    <div class="field"><label for="p-upload">Upload (optional)</label>
+      <input id="p-upload" name="upload" type="file" accept=".zip,.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp">
+      <span class="hint">One file up to 8 MB: a ZIP of images, a PDF of your work, or your current CV.</span></div>
+
+    <div class="field"><label for="p-projects">Projects to feature</label>
+      <textarea id="p-projects" name="projects" rows="4"
+        placeholder="Two to four projects: the name, what you did, the result, and a link if there is one."></textarea></div>
+
+    <fieldset>
+      <legend>Web address</legend>
+      <label class="check"><input type="radio" name="domain" value="Free address" checked> A free address (like yourname.netlify.app) — included</label>
+      <label class="check"><input type="radio" name="domain" value="Own domain — will buy"> My own domain, which I will buy in my name (+&#8377;349 to connect)</label>
+      <label class="check"><input type="radio" name="domain" value="Own domain — already own"> My own domain, which I already own (+&#8377;349 to connect)</label>
+      <div class="field domain-name" hidden><label for="p-domain">The domain</label>
+        <input id="p-domain" name="domainName" type="text" placeholder="yourname.com"></div>
+    </fieldset>
+
+    <div class="field"><label for="p-hosting">Email for your free hosting account</label>
+      <input id="p-hosting" name="hostingEmail" type="email" placeholder="Leave blank to use the email above">
+      <span class="hint">The site goes live on free hosting in your name, so you own it — no yearly fee to us.</span></div>
+
+    <div class="field"><label for="p-look">Colours, fonts or sites you like</label>
+      <textarea id="p-look" name="lookFeel" rows="3" placeholder="Anything that helps — a colour you always use, a site you admire, things to avoid."></textarea></div>
+
+    <fieldset>
+      <legend>Add to the same order (optional)</legend>
+      <label class="check"><input name="addons" value="Resume" type="checkbox"> Resume (&#8377;99)</label>
+      <label class="check"><input name="addons" value="Curriculum vitae" type="checkbox"> Curriculum vitae (&#8377;199)</label>
+      <label class="check"><input name="addons" value="LinkedIn rewrite" type="checkbox"> LinkedIn rewrite (&#8377;149)</label>
+      <span class="hint">All four together is the Complete bundle, &#8377;999. Upload your current CV above if you tick any of these.</span>
+    </fieldset>
+
+    <div class="field"><label for="p-notes">Anything else</label>
+      <textarea id="p-notes" name="notes" rows="3" placeholder="A deadline, things you cannot show publicly, anything we should know."></textarea></div>
+
+    <div class="hp" aria-hidden="true">
+      <label for="p-website">Website</label>
+      <input id="p-website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn" id="portfolio-submit">Send my portfolio brief</button>
+      <span class="hint">We reply by email to confirm price and deadline.<br>Nothing is charged before you agree.</span>
+    </div>
+
+    <p class="form-status" id="portfolio-status" role="status" aria-live="polite"></p>
+  </form>
+  </div>
+
   <aside style="display:flex;flex-direction:column;gap:20px;">
-    <div class="aside-card aside-dark">
+    <div class="aside-card aside-dark" data-for-order="cv">
       <span class="eyebrow">What happens next</span>
       <div class="item"><span class="n">1</span><p>We read your brief and confirm the
         price and deadline by email. No call, no sales pitch.</p></div>
@@ -152,6 +269,15 @@
         on the structure your field uses.</p></div>
       <div class="item"><span class="n">3</span><p>Your files arrive within 24 hours, as PDF
         and editable DOCX, with one revision round included.</p></div>
+    </div>
+    <div class="aside-card aside-dark" data-for-order="portfolio" hidden>
+      <span class="eyebrow">What happens next</span>
+      <div class="item"><span class="n">1</span><p>We look through your work and confirm the
+        price and deadline by email.</p></div>
+      <div class="item"><span class="n">2</span><p>You pay, and we build the site in the look
+        you chose, around the projects you picked.</p></div>
+      <div class="item"><span class="n">3</span><p>We put it live on free hosting in your
+        name and hand it over — one revision round included, no yearly fee to us.</p></div>
     </div>
     <div class="aside-card contact-card" data-contact-block hidden>
       <div class="contact-head">
