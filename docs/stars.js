@@ -1,4 +1,4 @@
-/* CV Forge — starfield.
+/* Fieldcraft — starfield.
    A parallax star canvas behind the whole site: three depth layers that
    drift and twinkle, respond to scroll and pointer, and throw the
    occasional shooting star.
