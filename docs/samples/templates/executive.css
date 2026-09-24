@@ -1,0 +1,63 @@
+/* Executive — a navy header band with gold rules: quiet authority for senior
+   finance, consulting, sales, healthcare and law. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #141A26;
+  --ink-2: #39414F;
+  --muted: #697181;
+  --line: #E4E0D8;
+  --accent: #1B2A4A;
+  --accent-2: #1B2A4A;
+  --gold: #A8864F;
+  --tint: #F6F3EC;
+  --tint-line: #E3D8C4;
+  --soft: #F8F6F1;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Manrope', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv::before { display: none; }
+
+/* the band runs edge to edge: it undoes the page padding (58px 62px) */
+.cv-header {
+  margin: -58px -62px 28px;
+  padding: 46px 62px 26px;
+  background: linear-gradient(135deg, #1B2A4A 0%, #22345C 100%);
+  border-bottom: 3px solid var(--gold);
+  color: #fff;
+}
+.cv-name { font-size: 32pt; font-weight: 600; color: #fff; }
+.cv-title { color: #E4CFA0; font-weight: 500; }
+.cv-contact { color: #D3DAE8; }
+.cv-contact span:not(:last-child)::after { color: var(--gold); }
+
+.cv-section-title { color: var(--accent); letter-spacing: .18em; }
+.cv-section-title::after { background: linear-gradient(90deg, var(--gold) 0%, var(--line) 50%, transparent 100%); }
+
+.cv-job { border-left-color: var(--tint-line); }
+.cv-job::before { border-color: var(--gold); }
+.cv-job-dates, .cv-edu-date { background: var(--tint); color: var(--accent); }
+.cv li::marker { color: var(--gold); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: #fff;
+  border: 1px solid var(--tint-line); border-top: 3px solid var(--gold); border-radius: 4px;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 19pt; color: var(--accent); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: var(--gold); background: var(--soft); }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent); }
+.credit-table th, .cv-rotations th { background: var(--tint); color: var(--accent); }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: var(--gold); }
+
+@media (max-width: 640px) {
+  .cv-header { margin: -38px -22px 22px; padding: 34px 22px 20px; }
+  .cv-name { font-size: 24pt; }
+}
+@media print {
+  .cv-header { margin: 0 0 20px; padding: 16px 18px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

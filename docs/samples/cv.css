@@ -315,10 +315,31 @@ em { font-style: italic; }
 }
 .cv-timeline td:first-child { white-space: nowrap; }
 
+/* ---------- template switcher (templates.js) ---------- */
+/* fonts are named outright: a template may point --sans at a serif */
+
+.tpl-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: -4px 0 18px; }
+.tpl-switch-label {
+  margin-right: 4px;
+  font: 11px 'IBM Plex Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase;
+  color: #97A0BE;
+}
+.tpl-switch a {
+  padding: 6px 13px;
+  background: rgba(19, 26, 51, .6);
+  border: 1px solid rgba(160, 178, 235, .22); border-radius: 999px;
+  color: #C3CAE2; text-decoration: none;
+  font: 500 13px 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  transition: border-color .15s ease, color .15s ease;
+}
+.tpl-switch a:hover { border-color: #5EEAD4; color: #5EEAD4; }
+.tpl-switch a[aria-current] { background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%); border-color: transparent; color: #04221E; font-weight: 600; }
+.tpl-switch .tpl-use { margin-left: auto; border-color: rgba(94, 234, 212, .45); color: #5EEAD4; }
+
 /* ---------- inside the site's quick-view dialog ---------- */
 
 html.embedded body { padding: 22px 18px 40px; background: #0A1024; }
-html.embedded .back-bar, html.embedded .notice { display: none; }
+html.embedded .back-bar, html.embedded .notice, html.embedded .tpl-switch { display: none; }
 
 /* ---------- small screens ---------- */
 
@@ -337,7 +358,7 @@ html.embedded .back-bar, html.embedded .notice { display: none; }
 
 @media print {
   body { background: #fff !important; padding: 0 !important; }
-  .back-bar, .notice { display: none !important; }
+  .back-bar, .notice, .tpl-switch { display: none !important; }
   .page-shell { max-width: none; }
   .cv {
     padding: 0 !important;

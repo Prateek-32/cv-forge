@@ -1,0 +1,42 @@
+/* Compact — the same structure, set tighter so more fits on one page: for
+   trades, early careers and anyone with a lot to fit. Layered on top of cv.css. */
+
+.cv { padding: 38px 42px 36px; font-size: 10pt; line-height: 1.45; }
+.cv::before { height: 4px; }
+
+.cv-header { margin-bottom: 16px; padding-bottom: 12px; }
+.cv-name { font-family: var(--sans); font-size: 20pt; font-weight: 700; letter-spacing: -.015em; }
+.cv-title { margin-top: 3px; font-size: 10.5pt; }
+.cv-contact { margin-top: 8px; font-size: 8.5pt; }
+.cv-contact span:not(:last-child)::after { margin: 0 8px; }
+
+.cv-section { margin-bottom: 14px; }
+.cv-section-title { margin-bottom: 8px; font-size: 7.8pt; }
+.cv-summary { font-size: 9.8pt; line-height: 1.55; }
+
+.cv-job { margin-bottom: 10px; padding-left: 13px; }
+.cv-job::before { width: 8px; height: 8px; left: -5px; top: 5px; }
+.cv-job-title { font-size: 10pt; }
+.cv-job-org { margin: 1px 0 4px; font-size: 9pt; }
+.cv-job-dates, .cv-edu-date { padding: 1px 7px; font-size: 7.5pt; }
+.cv-job li, .cv-section > ul:not([class]) > li { margin-bottom: 2px; font-size: 9.4pt; line-height: 1.45; }
+
+.deal-strip, .metrics-strip, .metric-strip, .impact-strip, .cv-achievements { gap: 7px; }
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item { padding: 8px 10px; border-radius: 6px; }
+.d-val, .m-val, .i-val, .a-val { font-size: 13pt; margin-bottom: 2px; }
+.d-lbl, .m-lbl, .i-lbl, .a-lbl { font-size: 7.8pt; }
+
+.cv-licenses, .cv-licence-block, .licence-block, .admissions, .cv-certs { gap: 5px; font-size: 8.8pt; }
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { padding: 5px 9px; }
+
+.stack-strip, .tool-strip, .cert-strip, .ticket-strip, .cv-skills { gap: 4px; }
+.stack-chip, .tool-chip, .cert, .ticket { padding: 2px 8px; font-size: 8.3pt; }
+.cv-skills li { padding: 2px 8px; font-size: 8.8pt; }
+
+.cv-edu-deg { font-size: 10pt; }
+.cv-edu-school, .cv-project-desc, .clips-list li, .cv-pub { font-size: 9.2pt; }
+.credit-table, .cv-rotations, .cv-timeline { font-size: 9.2pt; }
+.credit-table td, .cv-rotations td, .cv-timeline td, .credit-table th, .cv-rotations th { padding: 5px 8px; }
+
+@media (max-width: 640px) { .cv { padding: 30px 18px 26px; } }

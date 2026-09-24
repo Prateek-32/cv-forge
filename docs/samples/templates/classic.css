@@ -1,0 +1,72 @@
+/* Classic — the traditional page: serif throughout, black and navy, no colour
+   panels. For readers who expect a conservative document: law, finance,
+   academia, teaching, healthcare. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+:root {
+  --ink: #111316;
+  --ink-2: #33373D;
+  --muted: #555B63;
+  --line: #CFCFCB;
+  --accent: #1F2A44;
+  --accent-2: #1F2A44;
+  --tint: transparent;
+  --tint-line: #CFCFCB;
+  --soft: transparent;
+  --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+.cv { border-radius: 3px; font-family: var(--sans); }
+.cv::before { display: none; }
+
+.cv-header { text-align: center; border-bottom: 2px solid var(--ink); }
+.cv-name { font-size: 24pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.cv-title { font-style: italic; font-weight: 400; color: var(--ink-2); }
+.cv-contact { justify-content: center; }
+.cv-contact span:not(:last-child)::after { color: var(--muted); }
+
+.cv-section-title {
+  display: block;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--sans); font-size: 9.5pt; font-weight: 700;
+  letter-spacing: .14em; color: var(--ink);
+}
+.cv-section-title::after { display: none; }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-title { font-size: 11pt; }
+.cv-job-org { font-style: italic; font-weight: 400; color: var(--ink-2); }
+.cv-job-dates, .cv-edu-date {
+  padding: 0; background: none;
+  font-family: var(--sans); font-size: 10pt; font-style: italic; color: var(--ink-2);
+}
+.cv li::marker { color: var(--ink); }
+
+/* figure strips become a plain ruled row */
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  padding: 8px 0 0; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 15pt; color: var(--ink); }
+
+/* licences as a plain list */
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span {
+  padding: 2px 0; background: none; border-left: 0; border-radius: 0;
+}
+
+/* chips and skills as text separated by middots */
+.stack-strip, .tool-strip, .cert-strip, .ticket-strip, .cv-skills { gap: 2px 0; }
+.stack-chip, .tool-chip, .cert, .ticket, .cv-skills li {
+  padding: 0; background: none; border: 0; border-radius: 0;
+  font-size: 10pt; font-weight: 400; color: var(--ink-2);
+}
+.stack-chip:not(:last-child)::after, .tool-chip:not(:last-child)::after,
+.cert:not(:last-child)::after, .ticket:not(:last-child)::after,
+.cv-skills li:not(:last-child)::after { content: "\00B7"; margin: 0 9px; color: var(--muted); }
+
+.credit-table th, .cv-rotations th { background: none; border-bottom: 1px solid var(--ink); color: var(--ink); }
+.pub-entry, .cv-pub, .clips-list li { border-left: 0; padding-left: 0; }

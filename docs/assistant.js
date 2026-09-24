@@ -154,6 +154,13 @@
       },
       chips: ['process', 'start'] },
 
+    { id: 'templates', keys: ['template', 'templates', 'layout', 'style', 'theme', 'colour', 'color', 'font', 'cv design',
+                              'resume design', 'choose a design', 'different design', 'how it looks', 'what it looks like'],
+      answer: function () {
+        return 'There are five templates — <strong>Modern</strong>, <strong>Classic</strong>, <strong>Executive</strong>, <strong>Compact</strong> and <strong>Creative</strong> — all single-column and ATS-safe, and all included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects.';
+      },
+      chips: ['samples', 'start'] },
+
     { id: 'formats', keys: ['format', 'formats', 'docx', 'word file', 'editable', 'pdf', 'deliverables', 'what do i get', 'receive', 'final files'],
       answer: function () {
         return 'Resumes and CVs come as a <strong>PDF and an editable DOCX</strong> in the same layout. The LinkedIn rewrite comes as text you paste in; the portfolio is a live site you own.';
@@ -260,7 +267,8 @@
     revisions: 'Revisions', payment: 'When do I pay?', portfolio: 'Portfolio sites', hosting: 'Hosting',
     domain: 'Custom domain', samples: 'See samples', issue: 'Raise an issue', contact: 'Talk to a person',
     start: 'Start a brief', send: 'What do I send?', cvvs: 'Resume or CV?', ats: 'ATS-safe?',
-    resume: 'The resume', health: 'Health check', formats: 'File formats', hours: 'Reply hours'
+    resume: 'The resume', health: 'Health check', formats: 'File formats', hours: 'Reply hours',
+    templates: 'Templates'
   };
 
   // ------------------------------------------------------------------
@@ -545,7 +553,7 @@
     if (!started) {
       started = true;
       addBot('Hi, I am the CV Forge assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
-             ['prices', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
+             ['prices', 'templates', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
     }
     window.setTimeout(function () { input.focus(); }, 60);
   };

@@ -30,7 +30,7 @@ var UPLOAD_FOLDER = 'CV Forge uploads';
 var NOTIFY_EMAIL  = 'prateek.32gupta@gmail.com';   // blank sends nothing
 
 var HEADERS = ['Received', 'Name', 'Email', 'Field', 'Career stage',
-               'Needs', 'Targets', 'Notes', 'Attachment'];
+               'Needs', 'Targets', 'Notes', 'Attachment', 'Template'];
 var ISSUE_HEADERS = ['Received', 'Name', 'Email', 'Type', 'Page', 'Details', 'Status'];
 
 
@@ -70,7 +70,8 @@ function doPost(e) {
       p.needs || '',
       p.target || '',
       p.notes || '',
-      fileUrl
+      fileUrl,
+      p.template || ''
     ];
     sheet.appendRow(row);
 
@@ -85,6 +86,7 @@ function doPost(e) {
             'Field:   ' + (p.field || '—'),
             'Stage:   ' + (p.stage || '—'),
             'Needs:   ' + (p.needs || '—'),
+            'Template: ' + (p.template || '—'),
             '',
             'Targeting:',
             p.target || '—',
@@ -159,6 +161,11 @@ function getSheet_(name, headers) {
     sheet.appendRow(headers);
     sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
     sheet.setFrozenRows(1);
+  } else if (sheet.getLastColumn() < headers.length) {
+    // a sheet made before a column was added (e.g. Template): label the new ones
+    var from = sheet.getLastColumn() + 1;
+    sheet.getRange(1, from, 1, headers.length - from + 1)
+         .setValues([headers.slice(from - 1)]).setFontWeight('bold');
   }
   return sheet;
 }

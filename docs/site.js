@@ -285,6 +285,24 @@ var CV_FORGE_CONTACT = {
   var form = document.getElementById('brief-form');
   if (!form) return;
 
+  // Arriving from "Use this template": start.html?template=classic&field=law
+  // pre-selects both, so the visitor only has to confirm them.
+  var FIELD_ORDER = ['finance', 'sales', 'law', 'consulting', 'engineering', 'data', 'trades',
+                     'creative', 'film', 'writing', 'healthcare', 'teaching', 'academia'];
+  try {
+    var params = new URLSearchParams(location.search);
+    var tpl = (params.get('template') || '').toLowerCase();
+    var tplSelect = form.querySelector('select[name="template"]');
+    if (tpl && tplSelect) {
+      Array.prototype.forEach.call(tplSelect.options, function (o) {
+        if (o.value.toLowerCase() === tpl) tplSelect.value = o.value;
+      });
+    }
+    var fi = FIELD_ORDER.indexOf((params.get('field') || '').toLowerCase());
+    var fieldSelect = form.querySelector('select[name="field"]');
+    if (fi > -1 && fieldSelect && fieldSelect.options[fi]) fieldSelect.selectedIndex = fi;
+  } catch (err) { /* no URLSearchParams: the form simply starts blank */ }
+
   var statusEl = document.getElementById('brief-status');
   var button = document.getElementById('brief-submit');
   var fileInput = document.getElementById('upload');
@@ -343,7 +361,13 @@ var CV_FORGE_CONTACT = {
     var needs = [];
     form.querySelectorAll('input[name="needs"]:checked')
         .forEach(function (c) { needs.push(c.value); });
+    // The template rides along in "needs" too, so a script that predates the
+    // Template column still records it.
+    var chosen = form.querySelector('select[name="template"]');
+    var template = (chosen && chosen.value) || 'Our choice for the field';
+    needs.push('Template: ' + template);
     data.append('needs', needs.join(', '));
+    data.append('template', template);
 
     var prepared = file
       ? readFileAsBase64(file).then(function (b64) {
@@ -676,5 +700,83 @@ var CV_FORGE_CONTACT = {
     screens.forEach(function (vp) { ro.observe(vp); });
   } else {
     window.addEventListener('resize', function () { screens.forEach(fit); });
+  }
+})();
+
+/* ---------------------------------------------------------------
+   Templates page: pick a field and every preview switches to that
+   field's sample, the templates recommended for it move first, and
+   "Use this template" carries both into the brief. #law etc. works.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var grid = document.querySelector('.tpl-grid');
+  if (!grid) return;
+
+  // best fit first; keep in step with the "Suits …" lines on templates.html
+  var REC = {
+    finance: ['classic', 'executive', 'modern'],   sales: ['executive', 'modern', 'compact'],
+    law: ['classic', 'executive'],                  consulting: ['executive', 'modern', 'classic'],
+    engineering: ['modern', 'compact'],             data: ['modern', 'compact'],
+    trades: ['compact', 'modern'],                  creative: ['creative', 'modern'],
+    film: ['creative', 'compact'],                  writing: ['creative', 'classic'],
+    healthcare: ['classic', 'executive', 'compact'], teaching: ['classic', 'compact'],
+    academia: ['classic', 'modern']
+  };
+  var pills = document.querySelectorAll('.pill[data-tfield]');
+  var cards = grid.querySelectorAll('.tpl-card');
+  var nameEl = document.querySelector('[data-tfield-name]');
+
+  var show = function (field) {
+    if (!REC[field]) field = 'finance';
+    var sample = 'samples/' + field + '-cv.html';
+    pills.forEach(function (p) {
+      var on = p.getAttribute('data-tfield') === field;
+      p.setAttribute('aria-pressed', String(on));
+      if (on && nameEl) nameEl.textContent = p.textContent.toLowerCase();
+      // on phones the pills are one scrolling row: bring the chosen one into it
+      if (on && p.parentNode.scrollWidth > p.parentNode.clientWidth) {
+        p.parentNode.scrollLeft = p.offsetLeft - p.parentNode.offsetLeft - 16;
+      }
+    });
+    cards.forEach(function (card) {
+      var t = card.getAttribute('data-template');
+      var url = sample + '?t=' + t;
+      var frame = card.querySelector('iframe');
+      if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
+      card.querySelector('.tpl-screen').setAttribute('href', url);
+      card.querySelector('.tpl-open').setAttribute('href', url);
+      card.querySelector('.tpl-use').setAttribute('href', 'start.html?template=' + t + '&field=' + field);
+      var rank = REC[field].indexOf(t);
+      var badge = card.querySelector('.tpl-rec');
+      card.style.order = rank > -1 ? rank : 10;
+      card.classList.toggle('is-rec', rank > -1);
+      badge.hidden = rank < 0;
+      badge.textContent = rank === 0 ? 'Best fit' : 'Recommended';
+    });
+  };
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      var field = pill.getAttribute('data-tfield');
+      show(field);
+      if (window.history && history.replaceState) history.replaceState(null, '', '#' + field);
+    });
+  });
+  show(location.hash.slice(1));
+
+  // previews render the sample at 880px wide and scale to the card
+  var fit = function (vp) {
+    if (vp.clientWidth) vp.parentNode.style.setProperty('--s', (vp.clientWidth / 880).toFixed(4));
+  };
+  var viewports = grid.querySelectorAll('.tpl-viewport');
+  viewports.forEach(fit);
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(function (entries) { entries.forEach(function (e) { fit(e.target); }); });
+    viewports.forEach(function (vp) { ro.observe(vp); });
+  } else {
+    window.addEventListener('resize', function () { viewports.forEach(fit); });
   }
 })();

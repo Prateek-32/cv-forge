@@ -1,0 +1,53 @@
+/* Creative — a warm page, a large display name and one bold red accent:
+   personality without breaking the single column. For art & design, film and
+   writing. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #17130F;
+  --ink-2: #3E3731;
+  --muted: #776C62;
+  --line: #EADFD3;
+  --accent: #D6452E;
+  --accent-2: #B3301D;
+  --tint: #FCEEE9;
+  --tint-line: #F3C8BC;
+  --soft: #FAF4EE;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { background: #FFFCF8; border-left: 10px solid var(--accent); }
+.cv::before { display: none; }
+
+.cv-header { border-bottom: 0; padding-bottom: 8px; }
+.cv-name { font-size: 42pt; font-weight: 400; line-height: .95; letter-spacing: -.02em; }
+.cv-title { margin-top: 10px; font-size: 13pt; color: var(--accent-2); }
+.cv-contact span:not(:last-child)::after { color: var(--accent); }
+
+.cv-section-title {
+  font-family: var(--serif); font-size: 19pt; font-weight: 400;
+  letter-spacing: 0; text-transform: none; color: var(--ink);
+}
+.cv-section-title::after { flex: 0 0 44px; height: 2px; background: var(--accent); }
+
+.cv-job { border-left-color: var(--tint-line); }
+.cv-job::before { border-color: var(--accent); }
+.cv-job-title { font-size: 11.5pt; }
+.cv-job-dates, .cv-edu-date { background: var(--tint); color: var(--accent-2); }
+.cv li::marker { color: var(--accent); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: var(--soft); border-color: var(--line); border-radius: 12px;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 24pt; font-weight: 400; color: var(--accent-2); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { border-left-color: var(--accent); background: var(--soft); }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent-2); }
+.credit-table th, .cv-rotations th { background: var(--tint); color: var(--accent-2); }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: var(--accent); }
+
+@media (max-width: 640px) { .cv { border-left-width: 6px; } .cv-name { font-size: 30pt; } }
