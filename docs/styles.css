@@ -2156,6 +2156,9 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
    ===================================================================== */
 
 .tpl-note { color: var(--ink-2); font-size: 15px; }
+.tpl-tones { margin-top: -8px; }
+.tpl-tones .pill { min-height: 38px; padding: 7px 16px; font-size: 14px; }
+.tpl-card[hidden] { display: none; }
 .tpl-note strong { color: var(--ink); }
 .tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px; }
 .tpl-card {

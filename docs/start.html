@@ -87,13 +87,33 @@
     <div class="field"><label for="template">CV template</label>
       <select id="template" name="template">
         <option value="">Let us choose for my field (recommended)</option>
-        <option value="Modern">Modern — teal accents, figure cards</option>
-        <option value="Classic">Classic — traditional serif, no colour</option>
-        <option value="Executive">Executive — navy header, gold rules</option>
-        <option value="Compact">Compact — tighter, more on one page</option>
-        <option value="Creative">Creative — bold red accent, large name</option>
+        <optgroup label="Traditional">
+          <option value="Classic">Classic — traditional serif, no colour</option>
+          <option value="Legal">Legal — Baskerville, double rule, small caps</option>
+          <option value="Banker">Banker — navy rules, figures as a table</option>
+          <option value="Academic">Academic — Garamond, hanging citations</option>
+          <option value="Executive">Executive — navy header, gold rules</option>
+        </optgroup>
+        <optgroup label="Contemporary">
+          <option value="Modern">Modern — teal accents, figure cards</option>
+          <option value="Minimal">Minimal — black and white, lots of space</option>
+          <option value="Slate">Slate — charcoal, shaded section bars</option>
+          <option value="Tech">Tech — code-style headings, green accent</option>
+          <option value="Clinical">Clinical — medical blue, ticked licences</option>
+        </optgroup>
+        <optgroup label="Expressive">
+          <option value="Creative">Creative — bold red accent, large name</option>
+          <option value="Studio">Studio — heavy type, yellow highlighter</option>
+          <option value="Editorial">Editorial — magazine type, drop cap</option>
+          <option value="Typewriter">Typewriter — Courier on cream</option>
+          <option value="Warm">Warm — rounded, friendly, terracotta</option>
+        </optgroup>
+        <optgroup label="Practical">
+          <option value="Compact">Compact — tighter, more on one page</option>
+          <option value="Workwear">Workwear — hazard stripe, bold labels</option>
+        </optgroup>
       </select>
-      <span class="hint">All five are single-column and ATS-safe. <a href="templates.html">See them on a sample from your field</a>.</span></div>
+      <span class="hint">All seventeen are single-column and ATS-safe. <a href="templates.html">See them on a sample from your field</a>.</span></div>
 
     <div class="field"><label for="upload">Current resume or CV (optional)</label>
       <input id="upload" name="upload" type="file"

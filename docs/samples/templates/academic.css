@@ -1,0 +1,58 @@
+/* Academic — Garamond, centred small-caps headings, publications with
+   hanging indents: a CV a hiring committee recognises at once. Layered on top
+   of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  --ink: #1A1A1A; --ink-2: #2E2E2E; --muted: #5A5A5A; --line: #BDBDBD;
+  --accent: #1A1A1A; --accent-2: #1A1A1A;
+  --tint: transparent; --tint-line: #BDBDBD; --soft: transparent;
+  --serif: 'EB Garamond', Georgia, serif;
+  --sans: 'EB Garamond', Georgia, serif;
+}
+
+.cv { font-size: 11.5pt; border-radius: 2px; }
+.cv::before { display: none; }
+
+.cv-header { text-align: center; border-bottom: 0; }
+.cv-name { font-size: 25pt; font-weight: 500; font-variant: small-caps; letter-spacing: .04em; }
+.cv-title { font-style: italic; font-weight: 400; color: var(--ink-2); }
+.cv-contact { justify-content: center; }
+
+.cv-section-title {
+  display: block; text-align: center;
+  padding-bottom: 3px; border-bottom: .5pt solid var(--line);
+  font-size: 13pt; font-weight: 600; font-variant: small-caps;
+  letter-spacing: .08em; text-transform: none; color: var(--ink);
+}
+.cv-section-title::after { display: none; }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-title { font-size: 12pt; font-weight: 600; }
+.cv-job-org { font-style: italic; font-weight: 400; color: var(--ink-2); }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-family: var(--sans); font-size: 10.5pt; color: var(--ink-2); }
+.cv li::marker { color: var(--ink); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  padding: 6px 0; background: none; border: 0; border-top: .5pt solid var(--line); border-radius: 0; text-align: center;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 17pt; font-weight: 500; color: var(--ink); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { padding: 2px 0; background: none; border-left: 0; }
+
+.stack-strip, .tool-strip, .cert-strip, .ticket-strip, .cv-skills { gap: 2px 0; }
+.stack-chip, .tool-chip, .cert, .ticket, .cv-skills li {
+  padding: 0; background: none; border: 0; font-size: 11pt; font-weight: 400; color: var(--ink-2);
+}
+.stack-chip:not(:last-child)::after, .tool-chip:not(:last-child)::after,
+.cert:not(:last-child)::after, .ticket:not(:last-child)::after,
+.cv-skills li:not(:last-child)::after { content: ";"; margin-right: 8px; }
+
+/* citations hang: the second line tucks under the first */
+.pub-entry, .cv-pub { padding: 0 0 0 1.6em; border-left: 0; text-indent: -1.6em; }
+.pub-title { font-size: 12pt; }
+.clips-list li { border-left: 0; }
+.credit-table th, .cv-rotations th { background: none; border-bottom: .5pt solid var(--ink); color: var(--ink); font-variant: small-caps; }

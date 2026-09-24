@@ -1,0 +1,42 @@
+/* Warm — rounded, friendly and approachable, in terracotta and cream: for
+   teaching, care and people-facing roles. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --ink: #2A1E17; --ink-2: #4A3A30; --muted: #7C6A5E; --line: #EFE3D8;
+  --accent: #C2410C; --accent-2: #9A3412;
+  --tint: #FFF1E6; --tint-line: #FBD3B8; --soft: #FFF8F1;
+  --serif: 'Nunito', 'Segoe UI', Arial, sans-serif;
+  --sans: 'Nunito', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { background: #FFFDF9; border-radius: 24px; }
+.cv::before { height: 8px; background: linear-gradient(90deg, #FB923C 0%, #C2410C 100%); }
+
+.cv-name { font-size: 28pt; font-weight: 800; letter-spacing: -.015em; }
+.cv-title { font-weight: 700; }
+
+.cv-section-title {
+  display: inline-flex;
+  padding: 5px 14px; border-radius: 999px;
+  background: var(--tint); font-size: 9pt; font-weight: 800; letter-spacing: .08em; color: var(--accent-2);
+}
+.cv-section-title::after { display: none; }
+
+.cv-job { border-left-color: var(--tint-line); }
+.cv-job::before { border-color: var(--accent); }
+.cv-job-dates, .cv-edu-date { background: var(--tint); color: var(--accent-2); }
+.cv li::marker { color: var(--accent); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: var(--soft); border-color: var(--line); border-radius: 18px;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-weight: 800; color: var(--accent-2); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { background: var(--tint); border-left: 0; border-radius: 14px; }
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent-2); }
+.cv-skills li { border-radius: 999px; background: var(--soft); }
+.credit-table th, .cv-rotations th { background: var(--tint); color: var(--accent-2); }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: var(--tint-line); }

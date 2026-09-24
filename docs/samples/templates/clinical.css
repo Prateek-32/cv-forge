@@ -1,0 +1,42 @@
+/* Clinical — medical blue, clear sans, a tick on every registration: a page a
+   credentialing reviewer can verify at a glance. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+:root {
+  --ink: #0F1B2D; --ink-2: #334155; --muted: #5B6B80; --line: #DCE6F2;
+  --accent: #0B5CAD; --accent-2: #0A4A8C;
+  --tint: #EEF5FD; --tint-line: #C9DDF5; --soft: #F5F9FE;
+  --serif: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+  --sans: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { font-size: 11pt; }
+.cv::before { background: linear-gradient(90deg, #0B5CAD 0%, #38BDF8 100%); }
+.cv-name { font-size: 27pt; font-weight: 700; letter-spacing: -.01em; }
+.cv-title { font-weight: 600; }
+
+.cv-section-title { font-size: 9pt; font-weight: 700; letter-spacing: .12em; color: var(--accent-2); }
+.cv-section-title::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 2px; background: var(--accent); }
+
+.cv-job::before { border-color: var(--accent); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span {
+  position: relative; padding-left: 34px;
+  background: var(--tint); border-left: 0; border-radius: 8px; color: var(--ink-2);
+}
+.cv-licenses > span::before, .cv-licence-block > span::before, .licence-block > span::before,
+.admissions > span::before, .cv-certs > span::before {
+  content: "\2713"; position: absolute; left: 10px; top: 50%; margin-top: -9px;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: #fff; font-size: 10px; font-weight: 700;
+}
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: #fff; border-color: var(--tint-line); border-radius: 10px;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-weight: 700; color: var(--accent-2); }
+.stack-chip, .tool-chip, .cert, .ticket { background: var(--tint); border-color: var(--tint-line); color: var(--accent-2); }
+.credit-table th, .cv-rotations th { background: var(--tint); color: var(--accent-2); }

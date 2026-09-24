@@ -1,0 +1,36 @@
+/* Banker — navy rules and figures set like a table, the way deal teams read.
+   White page, no decoration, numbers aligned. Layered on top of cv.css. */
+
+:root {
+  --ink: #0A1F33; --ink-2: #34495E; --muted: #627386; --line: #D5DCE4;
+  --accent: #0A2540; --accent-2: #0A2540;
+  --tint: #F2F5F8; --tint-line: #C7D2DE; --soft: #F7F9FB;
+  --serif: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { padding-top: 46px; border-radius: 2px; font-variant-numeric: tabular-nums; }
+.cv::before { display: none; }
+
+.cv-header { padding-top: 18px; border-top: 4px solid var(--accent); border-bottom: 1px solid var(--accent); }
+.cv-name { font-family: var(--sans); font-size: 25pt; font-weight: 600; letter-spacing: -.015em; color: var(--accent); }
+.cv-title { color: var(--ink-2); }
+
+.cv-section-title { display: block; padding-bottom: 4px; border-bottom: 1px solid var(--accent); letter-spacing: .13em; color: var(--accent); }
+.cv-section-title::after { display: none; }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-family: var(--sans); font-size: 9.5pt; color: var(--ink-2); }
+.cv li::marker { color: var(--accent); }
+
+/* the figure strip becomes one bordered table row */
+.deal-strip, .metrics-strip, .metric-strip, .impact-strip, .cv-achievements { gap: 0; border: 1px solid var(--tint-line); }
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  padding: 10px 12px; background: #fff; border: 0; border-right: 1px solid var(--tint-line); border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-size: 15pt; font-weight: 600; color: var(--accent); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { background: var(--soft); border-left-color: var(--accent); border-radius: 0; }
+.stack-chip, .tool-chip, .cert, .ticket { border-radius: 2px; background: var(--tint); color: var(--accent); }
+.cv-skills li { border-radius: 2px; }

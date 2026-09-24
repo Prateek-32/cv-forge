@@ -1,0 +1,42 @@
+/* Minimal — black on white, generous space, hairline rules. Nothing asks for
+   attention except the content. Layered on top of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #0B0B0C; --ink-2: #3A3A3E; --muted: #7A7A80; --line: #E6E6E8;
+  --accent: #0B0B0C; --accent-2: #0B0B0C;
+  --tint: transparent; --tint-line: #E6E6E8; --soft: transparent;
+  --serif: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --sans: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.cv { padding: 66px 72px 60px; border-radius: 2px; }
+.cv::before { display: none; }
+
+.cv-header { margin-bottom: 36px; padding-bottom: 0; border-bottom: 0; }
+.cv-name { font-size: 26pt; font-weight: 600; letter-spacing: -.035em; }
+.cv-title { color: var(--muted); font-weight: 400; }
+.cv-contact span:not(:last-child)::after { color: var(--line); }
+
+.cv-section { margin-bottom: 30px; }
+.cv-section-title { font-size: 7.5pt; font-weight: 500; letter-spacing: .22em; color: var(--muted); }
+.cv-section-title::after { background: var(--line); }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-family: var(--sans); font-size: 9pt; color: var(--muted); }
+.cv li::marker { color: var(--muted); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  padding: 2px 14px; background: none; border: 0; border-left: 1px solid var(--line); border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-family: var(--sans); font-size: 16pt; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { background: none; border-left: 1px solid var(--line); border-radius: 0; }
+
+.stack-chip, .tool-chip, .cert, .ticket { background: none; border-color: var(--line); color: var(--ink-2); font-weight: 400; }
+.cv-skills li { background: none; border-color: var(--line); }
+.credit-table th, .cv-rotations th { background: none; border-bottom: 1px solid var(--line); color: var(--muted); }
+.pub-entry, .cv-pub, .clips-list li { border-left-color: var(--line); }

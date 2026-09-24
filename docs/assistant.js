@@ -157,7 +157,7 @@
     { id: 'templates', keys: ['template', 'templates', 'layout', 'style', 'theme', 'colour', 'color', 'font', 'cv design',
                               'resume design', 'choose a design', 'different design', 'how it looks', 'what it looks like'],
       answer: function () {
-        return 'There are five templates — <strong>Modern</strong>, <strong>Classic</strong>, <strong>Executive</strong>, <strong>Compact</strong> and <strong>Creative</strong> — all single-column and ATS-safe, and all included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects.';
+        return 'There are <strong>seventeen templates</strong> in four styles — traditional (Classic, Legal, Banker, Academic, Executive), contemporary (Modern, Minimal, Slate, Tech, Clinical), expressive (Creative, Studio, Editorial, Typewriter, Warm) and practical (Compact, Workwear). All are single-column, ATS-safe and included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects.';
       },
       chips: ['samples', 'start'] },
 

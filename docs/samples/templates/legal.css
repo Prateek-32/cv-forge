@@ -1,0 +1,51 @@
+/* Legal — Baskerville, a double rule under a centred name, small-caps headings
+   and a thread of oxblood: the register of chambers and firms. Layered on top
+   of cv.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --ink: #1A1A1A; --ink-2: #363636; --muted: #5E5A55; --line: #CFC6BC;
+  --accent: #5B1A1A; --accent-2: #5B1A1A;
+  --tint: transparent; --tint-line: #CFC6BC; --soft: transparent;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Libre Baskerville', Georgia, serif;
+}
+
+.cv { font-size: 10.5pt; border-radius: 2px; }
+.cv::before { display: none; }
+
+.cv-header { text-align: center; border-bottom: 3px double var(--ink); }
+.cv-name { font-size: 20pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.cv-title { font-style: italic; font-weight: 400; color: var(--accent); }
+.cv-contact { justify-content: center; }
+
+.cv-section-title {
+  font-size: 11.5pt; font-weight: 700; font-variant: small-caps;
+  letter-spacing: .06em; text-transform: none; color: var(--ink);
+}
+.cv-section-title::after { height: .5pt; background: var(--ink); }
+
+.cv-job { padding-left: 0; border-left: 0; }
+.cv-job::before { display: none; }
+.cv-job-org { font-style: italic; font-weight: 400; color: var(--ink-2); }
+.cv-job-dates, .cv-edu-date { padding: 0; background: none; font-family: var(--sans); font-size: 9.5pt; font-style: italic; color: var(--muted); }
+.cv li::marker { color: var(--accent); }
+
+.deal-item, .metric-item, .metrics-item, .impact-item, .cv-achievement-item {
+  background: none; border: 1px solid var(--line); border-radius: 0;
+}
+.d-val, .m-val, .i-val, .a-val { font-size: 14pt; color: var(--ink); }
+
+.cv-licenses > span, .cv-licence-block > span, .licence-block > span,
+.admissions > span, .cv-certs > span { padding: 3px 0; background: none; border-left: 0; }
+
+.stack-strip, .tool-strip, .cert-strip, .ticket-strip, .cv-skills { gap: 2px 0; }
+.stack-chip, .tool-chip, .cert, .ticket, .cv-skills li {
+  padding: 0; background: none; border: 0; font-weight: 400; color: var(--ink-2);
+}
+.stack-chip:not(:last-child)::after, .tool-chip:not(:last-child)::after,
+.cert:not(:last-child)::after, .ticket:not(:last-child)::after,
+.cv-skills li:not(:last-child)::after { content: "\00B7"; margin: 0 9px; color: var(--muted); }
+.credit-table th, .cv-rotations th { background: none; border-bottom: 1px solid var(--ink); color: var(--ink); }
+.pub-entry, .cv-pub, .clips-list li { border-left: 0; padding-left: 0; }

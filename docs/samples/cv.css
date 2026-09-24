@@ -333,6 +333,14 @@ em { font-style: italic; }
   transition: border-color .15s ease, color .15s ease;
 }
 .tpl-switch a:hover { border-color: #5EEAD4; color: #5EEAD4; }
+.tpl-switch select {
+  min-height: 34px; padding: 5px 34px 5px 13px;
+  background: rgba(19, 26, 51, .85) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%235EEAD4' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center / 11px 8px;
+  border: 1px solid rgba(94, 234, 212, .45); border-radius: 999px;
+  color: #F2F4FC; font: 500 13px 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+}
+.tpl-switch select option, .tpl-switch select optgroup { background: #131A33; color: #F2F4FC; }
 .tpl-switch a[aria-current] { background: linear-gradient(180deg, #5EEAD4 0%, #34C9B4 100%); border-color: transparent; color: #04221E; font-weight: 600; }
 .tpl-switch .tpl-use { margin-left: auto; border-color: rgba(94, 234, 212, .45); color: #5EEAD4; }
 
