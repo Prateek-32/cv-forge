@@ -1215,6 +1215,27 @@ var CV_FORGE_PF_REC = {
 })();
 
 /* ---------------------------------------------------------------
+   Example filter (sample-portfolios.html#examples): one group at a time.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var bar = document.querySelector('.pkx-filter');
+  if (!bar) return;
+  var buttons = Array.prototype.slice.call(bar.querySelectorAll('button[data-group]'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.pkx[data-group]'));
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var g = b.getAttribute('data-group');
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      cards.forEach(function (c) { c.hidden = g !== 'all' && c.getAttribute('data-group') !== g; });
+    });
+  });
+})();
+
+/* ---------------------------------------------------------------
    Templates page: pick a field and every preview switches to that
    field's sample, the templates recommended for it move first, and
    "Use this template" carries both into the brief. #law etc. works.

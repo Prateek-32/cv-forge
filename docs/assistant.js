@@ -60,7 +60,7 @@
 
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on thirteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on eighteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
       },
       chips: ['pfthemes', 'hosting', 'domain', 'start'] },
 

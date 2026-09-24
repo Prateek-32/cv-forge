@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" data-field="engineering" data-theme-default="aurora">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diego Reyes — Sample portfolio — Fieldcraft</title>
+<meta name="description" content="Sample portfolio for Diego Reyes, a fictional backend software engineer building payment infrastructure in Go and Kafka — built with the Fieldcraft portfolio kit, shown in any of its themes.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit/portfolio.css">
+<script src="kit/kit.js"></script>
+</head>
+<body class="pk">
+
+<div class="cvf-banner" role="note">
+  <span><strong>Sample portfolio</strong> · fictional candidate · built by Fieldcraft</span>
+  <span class="cvf-links"><span class="pk-theme-slot"></span><a href="../sample-portfolios.html">&larr; All portfolios</a><a href="../samples/engineering-cv-2.html">View the CV</a><a class="pk-use" href="../start.html?type=portfolio">Get yours</a></span>
+</div>
+
+<header class="pk-nav">
+  <div class="pk-wrap">
+    <a class="pk-mark" href="#top">Diego Reyes</a>
+    <nav aria-label="Sections"><a href="#case">Case study</a><a href="#work">Systems</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="pk-hero">
+    <div class="pk-wrap pk-hero-grid">
+      <div class="pk-hero-text pk-reveal">
+        <p class="pk-kicker">Backend engineer · Payment infrastructure · Berlin</p>
+        <h1 class="pk-name">Diego <em>Reyes</em></h1>
+        <p class="pk-headline">Three years building high-throughput payment infrastructure in Go and
+        Kafka — including a 40% cut in payment processing latency at Stripe.</p>
+        <div class="pk-cta"><a class="pk-btn" href="#case">See the work</a><a class="pk-btn pk-ghost" href="#contact">Get in touch</a></div>
+      </div>
+      <div class="pk-portrait pk-reveal" aria-hidden="true"><span>DR</span><small>Berlin, Germany</small></div>
+    </div>
+    <div class="pk-wrap">
+      <ul class="pk-stats pk-reveal">
+        <li><b>3</b><span>years in backend engineering</span></li>
+        <li><b>40%</b><span>lower payment processing latency</span></li>
+        <li><b>99.7%</b><span>of duplicate-charge incidents eliminated</span></li>
+        <li><b>9 min</b><span>MTTR on payment alerts, down from 28</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="case">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Case study</p>
+        <h2>Taking the waiting out of payment events</h2>
+        <p>How he redesigned Stripe's payment event fan-out service to cut end-to-end latency.</p>
+      </header>
+      <article class="pk-case-card pk-reveal">
+        <p class="pk-meta">Stripe · Backend Software Engineer · Go · Apache Kafka</p>
+        <h3>Redesigning the payment event fan-out service</h3>
+        <div class="pk-steps">
+          <div class="pk-step"><b>Problem</b><p>The payment event fan-out service relied on synchronous HTTP calls.</p></div>
+          <div class="pk-step"><b>Approach</b><p>Redesigned the service in Go, replacing the synchronous HTTP calls with Kafka-based async messaging.</p></div>
+          <div class="pk-step"><b>Outcome</b><p>End-to-end processing latency reduced by 40%.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="pk-section" id="work">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Services &amp; infrastructure</p>
+        <h2>Reliability, observability and throughput</h2>
+        <p>Payment and payroll systems built at Stripe in Berlin and Buk in Santiago.</p>
+      </header>
+      <div class="pk-work">
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="grid" style="--c1:#1A1446;--c2:#635BFF" aria-hidden="true"><span class="pk-cover-label">Idempotent retries</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Stripe · Charge reconciliation</p><h3>Idempotent retry logic</h3>
+            <p>Built idempotent retry logic for charge reconciliation, covering three merchant tiers.</p>
+            <p class="pk-result">99.7% of duplicate-charge incidents eliminated</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="lines" style="--c1:#0B2E3A;--c2:#2BB5A6" aria-hidden="true"><span class="pk-cover-label">Traces · metrics · logs</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Stripe · OpenTelemetry</p><h3>Payment service observability</h3>
+            <p>Structured traces, metrics and logs added to the payment services via OpenTelemetry.</p>
+            <p class="pk-result">MTTR on payment service alerts from 28 min to 9 min</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="grid" style="--c1:#12263F;--c2:#3F8CC9" aria-hidden="true"><span class="pk-cover-label">Go template</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Stripe · Go</p><h3>Internal Go service template</h3>
+            <p>Contributed to a service template that standardises health-check and graceful shutdown patterns.</p>
+            <p class="pk-result">Adopted by 6 other backend teams</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="lines" style="--c1:#2A1238;--c2:#A45DD8" aria-hidden="true"><span class="pk-cover-label">REST · PostgreSQL</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Buk · Go · PostgreSQL</p><h3>Payroll calculation APIs</h3>
+            <p>REST APIs for a payroll calculation engine, written in Go with PostgreSQL.</p>
+            <p class="pk-result">Serving 1,200 Chilean SME clients</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="grid" style="--c1:#10302A;--c2:#4FC08D" aria-hidden="true"><span class="pk-cover-label">6 h → 35 min</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Buk · Event-driven workers</p><h3>Batch payroll migration</h3>
+            <p>Legacy batch payroll jobs migrated to event-driven workers.</p>
+            <p class="pk-result">Monthly processing from 6 hours to 35 minutes</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="lines" style="--c1:#1F1A3D;--c2:#E0A43A" aria-hidden="true"><span class="pk-cover-label">54% → 88%</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Buk · Testing</p><h3>Integration and contract tests</h3>
+            <p>Integration and contract tests written over 8 months.</p>
+            <p class="pk-result">Service coverage raised from 54% to 88%</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pk-section" id="stack">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Tech stack</p><h2>What he builds with</h2></header>
+      <ul class="pk-tags pk-reveal">
+        <li>Go</li><li>PostgreSQL</li><li>Apache Kafka</li><li>Docker</li><li>Kubernetes</li>
+        <li>gRPC</li><li>Redis</li><li>GitHub Actions</li><li>Datadog</li><li>AWS</li><li>OpenTelemetry</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="about">
+    <div class="pk-wrap pk-about">
+      <div class="pk-about-text pk-reveal">
+        <p>A backend engineer specialising in distributed systems and event-driven architecture,
+        with a strong focus on reliability, observability and clean API design.</p>
+        <p>Diego is a Backend Software Engineer at Stripe in Berlin, working on high-throughput
+        payment infrastructure in Go and Kafka. Before that he was a Junior Backend Developer at Buk
+        in Santiago, building payroll APIs and event-driven workers, and interned at Cornershop (Uber).</p>
+        <p>At Buk he was part of the on-call rotation and resolved 12 production incidents, each with
+        a documented postmortem.</p>
+      </div>
+      <ul class="pk-facts pk-reveal">
+        <li><span>Based in</span><b>Berlin, Germany</b></li>
+        <li><span>Currently</span><b>Stripe</b></li>
+        <li><span>Focus</span><b>Distributed systems, event-driven architecture</b></li>
+        <li><span>Domains</span><b>Payments, payroll</b></li>
+        <li><span>Education</span><b>BSc Computer Science, Universidad de Chile</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="experience">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Experience</p><h2>From Santiago to Berlin</h2></header>
+      <ol class="pk-timeline pk-reveal">
+        <li><span class="pk-when">Aug 2023 — Present</span><div><h3>Backend Software Engineer</h3><p class="pk-org">Stripe, Berlin</p><p>Payment event fan-out redesign (40% lower latency), idempotent charge-reconciliation retries, OpenTelemetry observability and the internal Go service template.</p></div></li>
+        <li><span class="pk-when">Mar 2022 — Jul 2023</span><div><h3>Junior Backend Developer</h3><p class="pk-org">Buk, Santiago</p><p>Payroll calculation APIs for 1,200 SME clients, event-driven payroll workers, test coverage from 54% to 88%; on-call with 12 incidents resolved.</p></div></li>
+        <li><span class="pk-when">Jan 2022 — Feb 2022</span><div><h3>Software Engineering Intern</h3><p class="pk-org">Cornershop (Uber), Santiago</p><p>Built a data pipeline aggregating delivery-time metrics from Kafka topics into a PostgreSQL reporting schema; shipped two bug fixes to the order-status microservice, both merged and deployed.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pk-section" id="credentials">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Education &amp; certifications</p><h2>Training and open source</h2></header>
+      <ul class="pk-list pk-reveal">
+        <li><b>BSc Computer Science, Universidad de Chile — GPA 6.4 / 7.0, top 12% of cohort</b><span>Mar 2018 – Dec 2021</span></li>
+        <li><b>AWS Certified Developer – Associate</b><span>2023</span></li>
+        <li><b>Go concurrency workshop, GopherCon Europe</b><span>2024</span></li>
+        <li><b>Open-source contributor to go-migrate</b><span>2 merged PRs</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section pk-contact" id="contact">
+    <div class="pk-wrap">
+      <div class="pk-contact-card pk-reveal">
+        <p class="pk-eyebrow">Contact</p>
+        <h2>Scaling a payment system?</h2>
+        <p class="pk-contact-line">diego.reyes@email.com</p>
+        <ul class="pk-contact-list"><li>+49 160 900 3341</li><li>Berlin, Germany</li><li>linkedin.com/in/diegoreyes</li><li>github.com/diegoreyes-dev</li></ul>
+        <p class="pk-note">Fictional candidate — contact details shown as plain text only.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pk-foot">Sample portfolio for a fictional candidate — built by <a href="../index.html">Fieldcraft</a>.</footer>
+</body>
+</html>

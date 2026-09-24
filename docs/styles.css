@@ -2468,6 +2468,15 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 .studio-screen { --tilt: 0deg; transform: none; }
 .studio-screen:hover, .studio-screen:focus-visible { transform: none; }
 
+.pkx-filter { display: flex; flex-wrap: wrap; gap: 8px; }
+.pkx-filter button {
+  min-height: 40px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(255,255,255,.03); color: var(--ink-2); font: 500 14.5px var(--sans); cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.pkx-filter button:hover { border-color: var(--accent); color: var(--ink); }
+.pkx-filter button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #04221E; }
+.pkx[hidden] { display: none; }
 .pkx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: clamp(22px, 2.6vw, 34px); }
 .pkx { display: flex; flex-direction: column; gap: 16px; }
 .pkx-screen { --tilt: 0deg; transform: none; }
