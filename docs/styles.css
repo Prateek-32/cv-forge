@@ -2150,3 +2150,51 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
   .cmp .ba-doc { height: 470px; padding: 24px 20px; }
   .cmp-changes { grid-template-columns: 1fr; }
 }
+
+/* =====================================================================
+   TEMPLATES — templates.html
+   ===================================================================== */
+
+.tpl-note { color: var(--ink-2); font-size: 15px; }
+.tpl-note strong { color: var(--ink); }
+.tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px; }
+.tpl-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line-2); border-radius: 16px;
+  box-shadow: var(--sh-1);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.tpl-card.is-rec { border-color: rgba(94,234,212,.45); box-shadow: var(--sh-2), 0 0 40px -14px rgba(94,234,212,.5); }
+
+/* a live sample in the template: 880px wide, scaled; hovering scrolls it */
+.tpl-screen { --s: .35; display: block; background: #0A1024; border-bottom: 1px solid var(--line-2); }
+.tpl-viewport { position: relative; display: block; aspect-ratio: 1 / 1.1; overflow: hidden; }
+.tpl-viewport iframe {
+  position: absolute; top: 0; left: 0;
+  width: 880px; height: 2600px; border: 0;
+  transform-origin: 0 0; transform: scale(var(--s));
+  transition: transform 6s cubic-bezier(.45,.05,.4,1);
+  pointer-events: none;
+}
+.tpl-screen:hover iframe, .tpl-screen:focus-visible iframe { transform: translateY(calc(-1400px * var(--s))) scale(var(--s)); }
+
+.tpl-body { display: flex; flex-direction: column; flex: 1; gap: 10px; padding: 20px 22px 22px; }
+.tpl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tpl-top h2 { font-size: 26px; }
+.tpl-rec {
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(94,234,212,.14); border: 1px solid rgba(94,234,212,.45); color: var(--accent);
+  font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+}
+.tpl-rec[hidden] { display: none; }
+.tpl-body > p { color: var(--ink-2); font-size: 15px; }
+.tpl-body > p.tpl-best { color: var(--muted); font-size: 13.5px; }
+.tpl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: auto; padding-top: 6px; }
+.tpl-open { font-size: 14px; color: var(--accent); text-decoration: none; }
+.tpl-open:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tpl-card, .tpl-viewport iframe { transition: none; }
+  .tpl-screen:hover iframe { transform: scale(var(--s)); }
+}

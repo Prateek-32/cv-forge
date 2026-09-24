@@ -29,9 +29,9 @@
     <a class="wordmark" href="index.html">CV&nbsp;Forge<span>.</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Menu</span><span class="bars" aria-hidden="true"></span></button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="index.html">Home</a>
       <a href="fields.html">Professions</a>
       <a href="sample-cvs.html">Sample CVs</a>
+      <a href="templates.html">Templates</a>
       <a href="sample-portfolios.html">Portfolios</a>
       <a href="pricing.html">Pricing</a>
       <a class="btn btn-sm" href="start.html">Start a build</a>
@@ -83,6 +83,17 @@
       <label class="check" for="n5"><input id="n5" name="needs" value="Custom domain setup" type="checkbox"> Custom domain connected to the portfolio (+₹349)</label>
       <label class="check" for="n4"><input id="n4" name="needs" value="Profile rewrite" type="checkbox"> Professional profile rewritten to match</label>
     </fieldset>
+
+    <div class="field"><label for="template">CV template</label>
+      <select id="template" name="template">
+        <option value="">Let us choose for my field (recommended)</option>
+        <option value="Modern">Modern — teal accents, figure cards</option>
+        <option value="Classic">Classic — traditional serif, no colour</option>
+        <option value="Executive">Executive — navy header, gold rules</option>
+        <option value="Compact">Compact — tighter, more on one page</option>
+        <option value="Creative">Creative — bold red accent, large name</option>
+      </select>
+      <span class="hint">All five are single-column and ATS-safe. <a href="templates.html">See them on a sample from your field</a>.</span></div>
 
     <div class="field"><label for="upload">Current resume or CV (optional)</label>
       <input id="upload" name="upload" type="file"
@@ -170,6 +181,7 @@
         <a href="index.html">Home</a>
         <a href="fields.html">Professions</a>
         <a href="sample-cvs.html">Sample CVs</a>
+        <a href="templates.html">Templates</a>
         <a href="sample-portfolios.html">Portfolios</a>
         <a href="pricing.html">Pricing</a>
         <a href="start.html">Start a build</a>

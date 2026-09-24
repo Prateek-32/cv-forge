@@ -114,6 +114,27 @@ Retheme the whole site from the `:root` block at the top of `styles.css`:
 
 The `--iso-*` tokens below those drive the isometric scenes.
 
+## Templates
+
+Five CV templates, all single-column and ATS-safe: **Modern** (the default — `samples/cv.css`),
+**Classic**, **Executive**, **Compact** and **Creative** (`samples/templates/*.css`, each
+layered on top of `cv.css`).
+
+- Any sample shows in any template: `samples/finance-cv.html?t=classic`. The loader is
+  `samples/templates.js` (in each sample's `<head>`), which also adds a switcher and a
+  "Use this template" link above the page.
+- `templates.html` previews all five on a real sample from the chosen field; the
+  recommendations per field live in `REC` in `site.js` — keep them in step with the
+  "Suits …" lines on the page. `templates.html#law` opens on a field.
+- "Use this template" links to `start.html?template=classic&field=law`, which pre-selects
+  both on the brief. The brief sends `template` (and also adds "Template: …" to Needs, so
+  an older Apps Script still records it). `apps-script/Code.gs` writes it to a **Template**
+  column, labels that column on an existing sheet, and includes it in the email.
+- A new template = a new `samples/templates/<name>.css`, plus its name in `TEMPLATES` in
+  `templates.js`, a card on `templates.html`, an option on the brief and `REC` entries.
+- The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
+  make room for "Templates".
+
 ## Sample portfolios
 
 `sample-portfolios.html` shows four complete one-page portfolio sites in `portfolios/`,
