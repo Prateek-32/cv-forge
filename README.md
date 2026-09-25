@@ -163,6 +163,28 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 - The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
   make room for "Templates".
 
+## Search engines and AI assistants
+
+- **Titles and descriptions** lead with what people search for ("resume and CV writing",
+  "ATS-friendly templates", "portfolio website examples"). Sample CVs and portfolios lead
+  with the job ("Investment Banking Analyst CV Sample (Priya Sharma)").
+- **Structured data** (JSON-LD in each page's `<head>`): the business, its services and
+  prices and the home FAQ on `index.html`; services, prices and the FAQ on `pricing.html`;
+  a service and breadcrumbs on each profession page; collections on the listing pages.
+  The script that wrote it is idempotent — if prices change, change them there and here.
+  Check a page with Google's Rich Results Test.
+- **Common questions** on the home page answer, in plain words, what people ask search
+  engines and AI assistants (cost in India, builder vs writing service, ATS, resume vs CV,
+  portfolio websites, professions).
+- `robots.txt` allows every crawler and names the AI ones; `llms.txt` is a plain summary of
+  the business, prices and pages for AI tools. Update `llms.txt` when prices or pages change.
+- **IndexNow**: `docs/9c32c2a1b206b0876d346f729e83a458.txt` is the key file. After a
+  change, notify Bing (which feeds ChatGPT search and Copilot) and Yandex:
+  `curl -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json"`
+  with `{"host":"fieldcraft.co.in","key":"<key>","keyLocation":"https://fieldcraft.co.in/<key>.txt","urlList":[...]}`.
+- **Google** needs Search Console (see the setup notes in the pull request): verify the
+  domain with a TXT record at Hostinger, then submit `sitemap.xml`.
+
 ## Privacy, terms and promises
 
 - `privacy.html` and `terms.html` describe how the service really works: the brief goes to
