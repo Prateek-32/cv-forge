@@ -1503,3 +1503,144 @@ var CV_FORGE_PF_REC = {
   applyAll();
   if (phone.addEventListener) phone.addEventListener('change', applyAll);
 })();
+
+/* ---------------------------------------------------------------
+   Professions page: the 3D carousel turns by hand.
+   Drag with a mouse, swipe with a finger, scroll sideways on a
+   trackpad, or use the arrows. It carries on with some momentum,
+   settles with a card facing front, and drifts on its own again
+   after a pause. A tap still opens a profession; a drag never does.
+   It only runs while on screen, so it costs nothing further down.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var box = document.querySelector('.carousel');
+  var ring = box && box.querySelector('.carousel-ring');
+  if (!ring || !window.requestAnimationFrame) return;
+
+  var n = parseInt(getComputedStyle(ring).getPropertyValue('--n'), 10) || ring.children.length;
+  var STEP = 360 / n;
+  var DRIFT = -360 / 54000;            // the old CSS spin: once round in 54s (deg per ms)
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var angle = 0, vel = 0, target = null;
+  var dragging = false, moved = 0, startX = 0, startAngle = 0, lastX = 0, lastT = 0;
+  var hover = false, idleUntil = 0, visible = true, raf = null, prev = 0;
+
+  box.classList.add('is-live');        // hands the spin from CSS to this script
+  var degPerPx = function () {         // a finger's pixel moves the front card by about a pixel
+    var r = parseFloat(getComputedStyle(ring).getPropertyValue('--r')) || 390;
+    return 57.3 / r;
+  };
+  var draw = function () { ring.style.transform = 'rotateX(-8deg) rotateY(' + angle.toFixed(2) + 'deg)'; };
+  var settle = function () { target = Math.round(angle / STEP) * STEP; };
+  var rest = function (ms) { idleUntil = Date.now() + ms; };
+
+  var tick = function (t) {
+    raf = null;
+    var dt = prev ? Math.min(t - prev, 50) : 16;
+    prev = t;
+    if (!dragging) {
+      if (Math.abs(vel) > 0.004) {                      // momentum after a flick
+        angle += vel * dt;
+        vel *= Math.pow(0.994, dt);
+        if (Math.abs(vel) <= 0.004) { vel = 0; settle(); }
+      } else if (target !== null) {                     // ease a card to the front
+        angle += (target - angle) * Math.min(1, dt / 90);
+        if (Math.abs(target - angle) < 0.05) { angle = target; target = null; }
+      } else if (!reduced && !hover && Date.now() > idleUntil) {
+        angle += DRIFT * dt;                            // the idle drift
+      }
+    }
+    draw();
+    if (visible) raf = window.requestAnimationFrame(tick);
+  };
+  var run = function () { if (!raf && visible) { prev = 0; raf = window.requestAnimationFrame(tick); } };
+
+  // ---- drag and swipe ----------------------------------------------------
+  box.addEventListener('pointerdown', function (e) {
+    if (e.button !== undefined && e.button !== 0) return;
+    dragging = true; moved = 0; vel = 0; target = null;
+    startX = lastX = e.clientX; startAngle = angle; lastT = e.timeStamp;
+    run();
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    moved = Math.max(moved, Math.abs(dx));
+    if (moved > 4) box.classList.add('is-dragging');
+    angle = startAngle + dx * degPerPx();
+    draw();
+    var dt = e.timeStamp - lastT;
+    if (dt > 0) vel = vel * 0.6 + ((e.clientX - lastX) * degPerPx() / dt) * 0.4;
+    lastX = e.clientX; lastT = e.timeStamp;
+  });
+  var release = function () {
+    if (!dragging) return;
+    dragging = false;
+    box.classList.remove('is-dragging');
+    if (reduced || Math.abs(vel) < 0.02) { vel = 0; settle(); }
+    else vel = Math.max(-1.2, Math.min(1.2, vel));
+    rest(3000);
+    run();
+  };
+  window.addEventListener('pointerup', release);
+  window.addEventListener('pointercancel', release);
+  // a drag that ends on a card must not open it
+  box.addEventListener('click', function (e) { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
+  box.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+  // ---- trackpad: sideways scrolling turns it; up and down still scrolls the page
+  var wheelEnd = null;
+  box.addEventListener('wheel', function (e) {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    vel = 0; target = null;
+    angle -= e.deltaX * degPerPx();
+    rest(3000);
+    window.clearTimeout(wheelEnd);
+    wheelEnd = window.setTimeout(settle, 140);
+    run();
+  }, { passive: false });
+
+  // ---- arrows --------------------------------------------------------------
+  [['prev', 1, '‹'], ['next', -1, '›']].forEach(function (a) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'carousel-arrow carousel-' + a[0];
+    b.tabIndex = -1;                   // the list of professions below is the keyboard route
+    b.textContent = a[2];
+    b.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
+    b.addEventListener('click', function () {
+      vel = 0;
+      target = Math.round(angle / STEP) * STEP + a[1] * STEP;
+      rest(4000);
+      run();
+    });
+    box.appendChild(b);
+  });
+  var hint = document.createElement('p');
+  hint.className = 'carousel-hint';
+  hint.textContent = window.matchMedia('(hover: none)').matches ? 'Swipe to turn · tap a field to open it'
+                                                               : 'Drag to turn · click a field to open it';
+  box.appendChild(hint);
+
+  box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
+  box.addEventListener('pointerleave', function () { hover = false; });
+
+  // ---- only while it can be seen -------------------------------------------
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) run();
+    }).observe(box);
+  }
+  document.addEventListener('visibilitychange', function () {
+    visible = !document.hidden;
+    if (visible) run();
+  });
+  draw();
+  run();
+})();
