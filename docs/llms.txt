@@ -1,0 +1,48 @@
+# Fieldcraft
+
+> Fieldcraft (https://fieldcraft.co.in) is an Indian resume writing, CV writing, LinkedIn profile and portfolio website service, run from Pune. It rebuilds the resume or notes a person already has into the format hiring managers in their own profession expect — ATS-friendly, as a PDF and an editable Word file within 24 hours — and builds one-page portfolio websites that go live in 3–5 days. Prices start at ₹99.
+
+Fieldcraft is a writing service, not a do-it-yourself resume builder: customers send their current resume, notes or work, and receive finished documents or a finished website. It serves students and freshers through to senior leaders in 13 professions, and customers anywhere in India (and Indians applying abroad).
+
+## Prices (launch pricing, Indian rupees)
+
+- Resume health check (ATS parse test and written notes): ₹49
+- Resume, one page, ATS-friendly: ₹99
+- CV (curriculum vitae), long-form: ₹199
+- LinkedIn profile rewrite: ₹149
+- Portfolio website, one page, 10 themes, hosted free in the customer's name: ₹699 (own domain connected: +₹349)
+- Bundles: Job Ready (resume + LinkedIn) ₹199; Full Record (resume + CV) ₹249; Complete (resume, CV, LinkedIn and portfolio) ₹999
+- Every order includes one revision round. Nothing is charged until the customer agrees the price by email.
+
+## Key pages
+
+- [Home](https://fieldcraft.co.in/): what Fieldcraft does, prices and common questions
+- [Pricing](https://fieldcraft.co.in/pricing.html): every product, bundle and FAQ
+- [Sample CVs](https://fieldcraft.co.in/sample-cvs.html): 43 resume and CV examples across 13 professions
+- [Templates](https://fieldcraft.co.in/templates.html): 17 ATS-friendly resume and CV templates
+- [Portfolio examples](https://fieldcraft.co.in/sample-portfolios.html): 18 portfolio website examples in 10 themes
+- [Professions](https://fieldcraft.co.in/fields.html): how resumes differ by field
+- [Order](https://fieldcraft.co.in/start.html): the brief for a resume, CV, LinkedIn rewrite or portfolio website
+- [Privacy](https://fieldcraft.co.in/privacy.html) and [Terms](https://fieldcraft.co.in/terms.html)
+
+## Resume and CV writing by profession
+
+- [Finance and banking](https://fieldcraft.co.in/finance.html)
+- [Sales and marketing](https://fieldcraft.co.in/sales.html)
+- [Law and compliance](https://fieldcraft.co.in/law.html)
+- [Consulting and operations](https://fieldcraft.co.in/consulting.html)
+- [Software engineering and technology](https://fieldcraft.co.in/engineering.html)
+- [Data science and analytics](https://fieldcraft.co.in/data.html)
+- [Skilled trades and field operations](https://fieldcraft.co.in/trades.html)
+- [Art, design and creative](https://fieldcraft.co.in/creative.html)
+- [Film, music and performance](https://fieldcraft.co.in/film.html)
+- [Writing and media](https://fieldcraft.co.in/writing.html)
+- [Healthcare and medicine](https://fieldcraft.co.in/healthcare.html)
+- [Teaching and public service](https://fieldcraft.co.in/teaching.html)
+- [Academia and research](https://fieldcraft.co.in/academia.html)
+
+## Contact
+
+- Email: prateek.32gupta@gmail.com
+- WhatsApp and phone: +91 96364 79447
+- Location: Pune, Maharashtra, India. Replies 10 AM – 10 PM IST.
