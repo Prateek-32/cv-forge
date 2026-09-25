@@ -1506,8 +1506,8 @@ var CV_FORGE_PF_REC = {
 
 /* ---------------------------------------------------------------
    Professions page: the 3D carousel turns by hand.
-   Drag with a mouse, swipe with a finger, scroll sideways on a
-   trackpad, or use the arrows. It carries on with some momentum,
+   Drag with a mouse, swipe with a finger, or scroll sideways on a
+   trackpad. It carries on with some momentum,
    settles with a card facing front, and drifts on its own again
    after a pause. A tap still opens a profession; a drag never does.
    It only runs while on screen, so it costs nothing further down.
@@ -1605,27 +1605,6 @@ var CV_FORGE_PF_REC = {
     run();
   }, { passive: false });
 
-  // ---- arrows --------------------------------------------------------------
-  [['prev', 1, '‹'], ['next', -1, '›']].forEach(function (a) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'carousel-arrow carousel-' + a[0];
-    b.tabIndex = -1;                   // the list of professions below is the keyboard route
-    b.textContent = a[2];
-    b.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
-    b.addEventListener('click', function () {
-      vel = 0;
-      target = Math.round(angle / STEP) * STEP + a[1] * STEP;
-      rest(4000);
-      run();
-    });
-    box.appendChild(b);
-  });
-  var hint = document.createElement('p');
-  hint.className = 'carousel-hint';
-  hint.textContent = window.matchMedia('(hover: none)').matches ? 'Swipe to turn · tap a field to open it'
-                                                               : 'Drag to turn · click a field to open it';
-  box.appendChild(hint);
 
   box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
   box.addEventListener('pointerleave', function () { hover = false; });
