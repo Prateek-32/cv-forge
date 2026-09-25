@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portfolio Website Examples &amp; Themes for Professionals &mdash; Fieldcraft</title>
-<meta name="description" content="18 portfolio website examples for developers, designers, finance, healthcare and more, in 10 themes. Your own portfolio site from &#8377;699, live in 3&ndash;5 days.">
+<meta name="description" content="27 portfolio website examples for developers, designers, finance, healthcare and more, in 10 themes. Your own portfolio site from &#8377;699, live in 3&ndash;5 days.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fieldcraft">
 <meta property="og:title" content="Portfolio Website Examples &amp; Themes for Professionals &mdash; Fieldcraft">
-<meta property="og:description" content="18 portfolio website examples for developers, designers, finance, healthcare and more, in 10 themes. Your own portfolio site from &#8377;699, live in 3&ndash;5 days.">
+<meta property="og:description" content="27 portfolio website examples for developers, designers, finance, healthcare and more, in 10 themes. Your own portfolio site from &#8377;699, live in 3&ndash;5 days.">
 <meta property="og:url" content="https://fieldcraft.co.in/sample-portfolios.html">
 <meta property="og:image" content="https://fieldcraft.co.in/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -46,12 +46,12 @@
 <section class="sec-dark">
   <div class="wrap stack">
     <span class="eyebrow">Sample portfolios</span>
-    <h1>Eighteen portfolios. Ten themes. Pick yours.</h1>
+    <h1>Twenty-seven portfolios. Ten themes. Pick yours.</h1>
     <p class="lede">A banker's portfolio and a designer's should not look alike. Every sample
     below is a complete one-page site for a fictional candidate — the &#8377;699 portfolio,
     finished. Try any theme on any of them, then choose one in your brief.</p>
     <nav class="jump-links" aria-label="On this page">
-      <a href="#themes">Try the themes</a><a href="#examples">Fourteen examples</a><a href="#showcase">Four showcase designs</a>
+      <a href="#themes">Try the themes</a><a href="#examples">Twenty-three examples</a><a href="#showcase">Four showcase designs</a>
     </nav>
   </div>
 </section>
@@ -70,28 +70,39 @@
       <p class="studio-step"><span class="st-num" aria-hidden="true">1</span><label for="st-person">Choose a person</label></p>
       <div class="st-person">
         <span class="st-avatar" id="st-avatar" aria-hidden="true">FA</span>
-        <span class="st-person-pick">
-        <select id="st-person">
-          <option value="fatima-al-rashid" data-field="engineering" data-field-label="engineering" data-theme="gallery" data-role="frontend lead">Fatima Al-Rashid</option>
-          <option value="diego-reyes" data-field="engineering" data-field-label="engineering" data-theme="aurora" data-role="backend engineer">Diego Reyes</option>
-          <option value="tariq-osei" data-field="data" data-field-label="data" data-theme="console" data-role="data scientist">Tariq Osei</option>
-          <option value="anika-patel" data-field="finance" data-field-label="finance" data-theme="sidebar" data-role="CFO">Anika Patel</option>
-          <option value="ryan-obrien" data-field="sales" data-field-label="sales" data-theme="swiss" data-role="VP Sales">Ryan O'Brien</option>
-          <option value="isabelle-fontaine" data-field="consulting" data-field-label="consulting" data-theme="aurora" data-role="strategy consultant">Isabelle Fontaine</option>
-          <option value="priya-singh" data-field="consulting" data-field-label="consulting" data-theme="paper" data-role="business analyst, early career">Priya Singh</option>
-          <option value="marcus-webb" data-field="law" data-field-label="law" data-theme="sidebar" data-role="M&amp;A lawyer">Marcus Webb</option>
-          <option value="aisha-bello" data-field="healthcare" data-field-label="healthcare" data-theme="clinic" data-role="clinical pharmacist">Aisha Bello</option>
-          <option value="sofia-reyes" data-field="academia" data-field-label="academia" data-theme="clinic" data-role="computational biologist">Sof&iacute;a Reyes</option>
-          <option value="chiara-rossini" data-field="film" data-field-label="film" data-theme="noir" data-role="film editor">Chiara Rossini</option>
-          <option value="kwame-asante" data-field="writing" data-field-label="writing" data-theme="paper" data-role="investigative journalist">Kwame Asante</option>
-          <option value="amira-hassan" data-field="teaching" data-field-label="teaching" data-theme="pastel" data-role="STEM teacher">Amira Hassan</option>
-          <option value="jake-tran" data-field="trades" data-field-label="the trades" data-theme="brutal" data-role="master electrician">Jake Tran</option>
-        </select>
-        <span class="st-person-sub" id="st-person-sub">Frontend lead &middot; Engineering</span>
+        <span class="st-person-pick" aria-hidden="true">
+          <span class="st-person-name" id="st-person-name">Fatima Al-Rashid</span>
+          <span class="st-person-sub" id="st-person-sub">Frontend lead &middot; Engineering</span>
         </span>
+        <span class="st-caret" aria-hidden="true">&#9662;</span>
+        <select id="st-person" aria-label="Person">
+          <option value="fatima-al-rashid" data-name="Fatima Al-Rashid" data-role="Frontend lead" data-field="engineering" data-field-label="engineering" data-theme="gallery">Fatima Al-Rashid &mdash; Frontend lead &middot; Engineering</option>
+          <option value="diego-reyes" data-name="Diego Reyes" data-role="Backend engineer" data-field="engineering" data-field-label="engineering" data-theme="aurora">Diego Reyes &mdash; Backend engineer &middot; Engineering</option>
+          <option value="tariq-osei" data-name="Tariq Osei" data-role="Data scientist" data-field="data" data-field-label="data" data-theme="console">Tariq Osei &mdash; Data scientist &middot; Data</option>
+          <option value="luke-zhang" data-name="Luke Zhang" data-role="ML engineer" data-field="data" data-field-label="data" data-theme="sidebar">Luke Zhang &mdash; ML engineer &middot; Data</option>
+          <option value="anika-patel" data-name="Anika Patel" data-role="CFO" data-field="finance" data-field-label="finance" data-theme="sidebar">Anika Patel &mdash; CFO &middot; Finance</option>
+          <option value="ryan-obrien" data-name="Ryan O'Brien" data-role="VP Sales" data-field="sales" data-field-label="sales" data-theme="swiss">Ryan O'Brien &mdash; VP Sales &middot; Sales</option>
+          <option value="karthik-raghavan" data-name="Karthik Raghavan" data-role="Account executive" data-field="sales" data-field-label="sales" data-theme="aurora">Karthik Raghavan &mdash; Account executive &middot; Sales</option>
+          <option value="isabelle-fontaine" data-name="Isabelle Fontaine" data-role="Strategy consultant" data-field="consulting" data-field-label="consulting" data-theme="aurora">Isabelle Fontaine &mdash; Strategy consultant &middot; Consulting</option>
+          <option value="priya-singh" data-name="Priya Singh" data-role="Business analyst" data-field="consulting" data-field-label="consulting" data-theme="paper">Priya Singh &mdash; Business analyst &middot; Consulting</option>
+          <option value="marcus-webb" data-name="Marcus Webb" data-role="M&amp;A lawyer" data-field="law" data-field-label="law" data-theme="sidebar">Marcus Webb &mdash; M&amp;A lawyer &middot; Law</option>
+          <option value="ishita-deshpande" data-name="Ishita Deshpande" data-role="Corporate lawyer" data-field="law" data-field-label="law" data-theme="noir">Ishita Deshpande &mdash; Corporate lawyer &middot; Law</option>
+          <option value="aisha-bello" data-name="Aisha Bello" data-role="Clinical pharmacist" data-field="healthcare" data-field-label="healthcare" data-theme="clinic">Aisha Bello &mdash; Clinical pharmacist &middot; Healthcare</option>
+          <option value="sofia-reyes" data-name="Sof&iacute;a Reyes" data-role="Computational biologist" data-field="academia" data-field-label="academia" data-theme="clinic">Sof&iacute;a Reyes &mdash; Computational biologist &middot; Academia</option>
+          <option value="shreya-hegde" data-name="Shreya Hegde" data-role="PhD researcher" data-field="academia" data-field-label="academia" data-theme="paper">Shreya Hegde &mdash; PhD researcher &middot; Academia</option>
+          <option value="tanvi-sawant" data-name="Tanvi Sawant" data-role="Brand designer" data-field="creative" data-field-label="design" data-theme="gallery">Tanvi Sawant &mdash; Brand designer &middot; Design</option>
+          <option value="chiara-rossini" data-name="Chiara Rossini" data-role="Film editor" data-field="film" data-field-label="film" data-theme="noir">Chiara Rossini &mdash; Film editor &middot; Film</option>
+          <option value="kabir-fernandes" data-name="Kabir Fernandes" data-role="Music producer" data-field="film" data-field-label="film and music" data-theme="brutal">Kabir Fernandes &mdash; Music producer &middot; Music</option>
+          <option value="kwame-asante" data-name="Kwame Asante" data-role="Journalist" data-field="writing" data-field-label="writing" data-theme="paper">Kwame Asante &mdash; Journalist &middot; Writing</option>
+          <option value="mehak-bhatnagar" data-name="Mehak Bhatnagar" data-role="Content writer" data-field="writing" data-field-label="writing" data-theme="pastel">Mehak Bhatnagar &mdash; Content writer &middot; Writing</option>
+          <option value="amira-hassan" data-name="Amira Hassan" data-role="STEM teacher" data-field="teaching" data-field-label="teaching" data-theme="pastel">Amira Hassan &mdash; STEM teacher &middot; Teaching</option>
+          <option value="kavita-rathore" data-name="Kavita Rathore" data-role="Science teacher" data-field="teaching" data-field-label="teaching" data-theme="clinic">Kavita Rathore &mdash; Science teacher &middot; Teaching</option>
+          <option value="jake-tran" data-name="Jake Tran" data-role="Master electrician" data-field="trades" data-field-label="the trades" data-theme="brutal">Jake Tran &mdash; Master electrician &middot; Trades</option>
+          <option value="santosh-jadhav" data-name="Santosh Jadhav" data-role="HVAC supervisor" data-field="trades" data-field-label="the trades" data-theme="swiss">Santosh Jadhav &mdash; HVAC supervisor &middot; Trades</option>
+        </select>
       </div>
 
-      <p class="studio-step" id="st-theme-label"><span class="st-num" aria-hidden="true">2</span>Choose a theme</p>
+<p class="studio-step" id="st-theme-label"><span class="st-num" aria-hidden="true">2</span>Choose a theme</p>
       <div class="studio-themes" role="group" aria-labelledby="st-theme-label">
         <span class="tp-group-title">Clean &amp; professional</span>
         <div class="st-grid">
@@ -133,17 +144,17 @@
 <section class="wrap stack" id="examples">
   <div class="sec-intro">
     <span class="eyebrow">Examples</span>
-    <h2>Fourteen people, ten themes</h2>
+    <h2>Twenty-three people, ten themes</h2>
     <p class="lede">Each built from its candidate's sample CV and shown in a theme that suits
     the field. Every one can wear any of the ten.</p>
   </div>
 
   <div class="pkx-filter" role="group" aria-label="Show examples from">
-    <button type="button" data-group="all" aria-pressed="true">All 14</button>
+    <button type="button" data-group="all" aria-pressed="true">All 23</button>
     <button type="button" data-group="tech" aria-pressed="false">Technology &amp; data</button>
     <button type="button" data-group="business" aria-pressed="false">Business, finance &amp; law</button>
     <button type="button" data-group="care" aria-pressed="false">Health &amp; science</button>
-    <button type="button" data-group="creative" aria-pressed="false">Film &amp; writing</button>
+    <button type="button" data-group="creative" aria-pressed="false">Design, film &amp; writing</button>
     <button type="button" data-group="edu" aria-pressed="false">Teaching &amp; trades</button>
   </div>
 
@@ -172,6 +183,14 @@
       <div class="pkx-copy"><span class="eyebrow">Data &middot; Console</span><h3>Tariq Osei</h3><p>Senior data scientist &mdash; models that shipped, and what they saved.</p>
         <p class="pkx-links"><a href="portfolios/tariq-osei.html">Open</a><a href="#themes" data-studio-person="tariq-osei">Try other themes</a><a href="samples/data-cv.html">View the CV</a></p></div>
     </article>
+    <article class="pkx" data-group="tech">
+      <a class="pf-screen pkx-screen" href="portfolios/luke-zhang.html" aria-label="Open Luke Zhang's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Luke Zhang</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/luke-zhang.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/luke-zhang.html" title="Preview of Luke Zhang's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Data &middot; Sidebar</span><h3>Luke Zhang</h3><p>Machine learning engineer &mdash; recommendation systems at scale.</p>
+        <p class="pkx-links"><a href="portfolios/luke-zhang.html">Open</a><a href="#themes" data-studio-person="luke-zhang">Try other themes</a><a href="samples/data-cv-3.html">View the CV</a></p></div>
+    </article>
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/anika-patel.html" aria-label="Open Anika Patel's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Anika Patel</span></span>
@@ -187,6 +206,14 @@
       </a>
       <div class="pkx-copy"><span class="eyebrow">Sales &middot; Swiss</span><h3>Ryan O'Brien</h3><p>VP Sales EMEA &mdash; quota record and enterprise wins.</p>
         <p class="pkx-links"><a href="portfolios/ryan-obrien.html">Open</a><a href="#themes" data-studio-person="ryan-obrien">Try other themes</a><a href="samples/sales-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="business">
+      <a class="pf-screen pkx-screen" href="portfolios/karthik-raghavan.html" aria-label="Open Karthik Raghavan's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Karthik Raghavan</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/karthik-raghavan.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/karthik-raghavan.html" title="Preview of Karthik Raghavan's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Sales &middot; Aurora</span><h3>Karthik Raghavan</h3><p>Mid-market account executive &mdash; 128% of quota in Bengaluru.</p>
+        <p class="pkx-links"><a href="portfolios/karthik-raghavan.html">Open</a><a href="#themes" data-studio-person="karthik-raghavan">Try other themes</a><a href="samples/sales-cv-2.html">View the CV</a></p></div>
     </article>
     <article class="pkx" data-group="business">
       <a class="pf-screen pkx-screen" href="portfolios/isabelle-fontaine.html" aria-label="Open Isabelle Fontaine's sample portfolio">
@@ -212,6 +239,14 @@
       <div class="pkx-copy"><span class="eyebrow">Law &middot; Sidebar</span><h3>Marcus Webb</h3><p>M&amp;A senior associate &mdash; matters described as confidentially as the CV.</p>
         <p class="pkx-links"><a href="portfolios/marcus-webb.html">Open</a><a href="#themes" data-studio-person="marcus-webb">Try other themes</a><a href="samples/law-cv.html">View the CV</a></p></div>
     </article>
+    <article class="pkx" data-group="business">
+      <a class="pf-screen pkx-screen" href="portfolios/ishita-deshpande.html" aria-label="Open Ishita Deshpande's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Ishita Deshpande</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/ishita-deshpande.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/ishita-deshpande.html" title="Preview of Ishita Deshpande's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Law &middot; Noir</span><h3>Ishita Deshpande</h3><p>Corporate &amp; M&amp;A associate in Mumbai &mdash; deals without naming clients.</p>
+        <p class="pkx-links"><a href="portfolios/ishita-deshpande.html">Open</a><a href="#themes" data-studio-person="ishita-deshpande">Try other themes</a><a href="samples/law-cv-2.html">View the CV</a></p></div>
+    </article>
     <article class="pkx" data-group="care">
       <a class="pf-screen pkx-screen" href="portfolios/aisha-bello.html" aria-label="Open Aisha Bello's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Aisha Bello</span></span>
@@ -228,6 +263,22 @@
       <div class="pkx-copy"><span class="eyebrow">Academia &middot; Clinic</span><h3>Sof&iacute;a Reyes</h3><p>Associate professor &mdash; grants, lab and publications.</p>
         <p class="pkx-links"><a href="portfolios/sofia-reyes.html">Open</a><a href="#themes" data-studio-person="sofia-reyes">Try other themes</a><a href="samples/academia-cv.html">View the CV</a></p></div>
     </article>
+    <article class="pkx" data-group="care">
+      <a class="pf-screen pkx-screen" href="portfolios/shreya-hegde.html" aria-label="Open Shreya Hegde's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Shreya Hegde</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/shreya-hegde.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/shreya-hegde.html" title="Preview of Shreya Hegde's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Academia &middot; Paper</span><h3>Shreya Hegde</h3><p>PhD researcher &mdash; from lab bench to a 20-litre flow reactor.</p>
+        <p class="pkx-links"><a href="portfolios/shreya-hegde.html">Open</a><a href="#themes" data-studio-person="shreya-hegde">Try other themes</a><a href="samples/academia-cv-2.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="creative">
+      <a class="pf-screen pkx-screen" href="portfolios/tanvi-sawant.html" aria-label="Open Tanvi Sawant's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Tanvi Sawant</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/tanvi-sawant.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/tanvi-sawant.html" title="Preview of Tanvi Sawant's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Design &middot; Gallery</span><h3>Tanvi Sawant</h3><p>Graphic &amp; brand designer &mdash; identities, packaging and campaigns.</p>
+        <p class="pkx-links"><a href="portfolios/tanvi-sawant.html">Open</a><a href="#themes" data-studio-person="tanvi-sawant">Try other themes</a><a href="samples/creative-cv-2.html">View the CV</a></p></div>
+    </article>
     <article class="pkx" data-group="creative">
       <a class="pf-screen pkx-screen" href="portfolios/chiara-rossini.html" aria-label="Open Chiara Rossini's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Chiara Rossini</span></span>
@@ -237,12 +288,28 @@
         <p class="pkx-links"><a href="portfolios/chiara-rossini.html">Open</a><a href="#themes" data-studio-person="chiara-rossini">Try other themes</a><a href="samples/film-cv.html">View the CV</a></p></div>
     </article>
     <article class="pkx" data-group="creative">
+      <a class="pf-screen pkx-screen" href="portfolios/kabir-fernandes.html" aria-label="Open Kabir Fernandes' sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Kabir Fernandes</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/kabir-fernandes.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/kabir-fernandes.html" title="Preview of Kabir Fernandes' portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Music &middot; Brutal</span><h3>Kabir Fernandes</h3><p>Music producer &amp; sound designer &mdash; films, ads and releases.</p>
+        <p class="pkx-links"><a href="portfolios/kabir-fernandes.html">Open</a><a href="#themes" data-studio-person="kabir-fernandes">Try other themes</a><a href="samples/film-cv-2.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="creative">
       <a class="pf-screen pkx-screen" href="portfolios/kwame-asante.html" aria-label="Open Kwame Asante's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Kwame Asante</span></span>
         <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/kwame-asante.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/kwame-asante.html" title="Preview of Kwame Asante's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Writing &middot; Paper</span><h3>Kwame Asante</h3><p>Investigative journalist &mdash; clips and investigations first.</p>
         <p class="pkx-links"><a href="portfolios/kwame-asante.html">Open</a><a href="#themes" data-studio-person="kwame-asante">Try other themes</a><a href="samples/writing-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="creative">
+      <a class="pf-screen pkx-screen" href="portfolios/mehak-bhatnagar.html" aria-label="Open Mehak Bhatnagar's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Mehak Bhatnagar</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/mehak-bhatnagar.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/mehak-bhatnagar.html" title="Preview of Mehak Bhatnagar's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Writing &middot; Pastel</span><h3>Mehak Bhatnagar</h3><p>Content writer &amp; copywriter, early career &mdash; work that moved numbers.</p>
+        <p class="pkx-links"><a href="portfolios/mehak-bhatnagar.html">Open</a><a href="#themes" data-studio-person="mehak-bhatnagar">Try other themes</a><a href="samples/writing-cv-2.html">View the CV</a></p></div>
     </article>
     <article class="pkx" data-group="edu">
       <a class="pf-screen pkx-screen" href="portfolios/amira-hassan.html" aria-label="Open Amira Hassan's sample portfolio">
@@ -253,12 +320,28 @@
         <p class="pkx-links"><a href="portfolios/amira-hassan.html">Open</a><a href="#themes" data-studio-person="amira-hassan">Try other themes</a><a href="samples/teaching-cv.html">View the CV</a></p></div>
     </article>
     <article class="pkx" data-group="edu">
+      <a class="pf-screen pkx-screen" href="portfolios/kavita-rathore.html" aria-label="Open Kavita Rathore's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Kavita Rathore</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/kavita-rathore.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/kavita-rathore.html" title="Preview of Kavita Rathore's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Teaching &middot; Clinic</span><h3>Kavita Rathore</h3><p>Middle school science teacher &mdash; results, a STEM club and mentoring.</p>
+        <p class="pkx-links"><a href="portfolios/kavita-rathore.html">Open</a><a href="#themes" data-studio-person="kavita-rathore">Try other themes</a><a href="samples/teaching-cv-2.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="edu">
       <a class="pf-screen pkx-screen" href="portfolios/jake-tran.html" aria-label="Open Jake Tran's sample portfolio">
         <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Jake Tran</span></span>
         <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/jake-tran.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/jake-tran.html" title="Preview of Jake Tran's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
       </a>
       <div class="pkx-copy"><span class="eyebrow">Trades &middot; Brutal</span><h3>Jake Tran</h3><p>Master electrician &mdash; sites, tickets and a clean safety record.</p>
         <p class="pkx-links"><a href="portfolios/jake-tran.html">Open</a><a href="#themes" data-studio-person="jake-tran">Try other themes</a><a href="samples/trades-cv.html">View the CV</a></p></div>
+    </article>
+    <article class="pkx" data-group="edu">
+      <a class="pf-screen pkx-screen" href="portfolios/santosh-jadhav.html" aria-label="Open Santosh Jadhav's sample portfolio">
+        <span class="pf-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Santosh Jadhav</span></span>
+        <span class="pf-viewport"><img class="pf-poster" src="portfolios/shots/santosh-jadhav.jpg" alt="" width="640" height="400" loading="lazy"><iframe data-src="portfolios/santosh-jadhav.html" title="Preview of Santosh Jadhav's portfolio" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no"></iframe></span>
+      </a>
+      <div class="pkx-copy"><span class="eyebrow">Trades &middot; Swiss</span><h3>Santosh Jadhav</h3><p>HVAC site supervisor &mdash; plant rooms, cleanrooms and zero lost-time injuries.</p>
+        <p class="pkx-links"><a href="portfolios/santosh-jadhav.html">Open</a><a href="#themes" data-studio-person="santosh-jadhav">Try other themes</a><a href="samples/trades-cv-2.html">View the CV</a></p></div>
     </article>
   </div>
 </section>
@@ -353,7 +436,7 @@
     </div>
   </article>
 
-  <p class="hint">All eighteen candidates are fictional; where real organisations are named, the people and results are invented. Every figure on their sites comes from
+  <p class="hint">All twenty-seven candidates are fictional; where real organisations are named, the people and results are invented. Every figure on their sites comes from
   their sample CVs.</p>
 </section>
 

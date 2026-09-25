@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" data-theme-default="sidebar" data-field="data">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Learning Engineer Portfolio Website Example (Luke Zhang) &mdash; Fieldcraft</title>
+<meta name="description" content="Sample portfolio for Luke Zhang, a fictional machine learning engineer building recommendation systems in Singapore — built with the Fieldcraft portfolio kit, shown in any of its themes.">
+<link rel="canonical" href="https://fieldcraft.co.in/portfolios/luke-zhang.html">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit/portfolio.css">
+<script src="kit/kit.js"></script>
+</head>
+<body class="pk">
+
+<div class="cvf-banner" role="note">
+  <span><strong>Sample portfolio</strong> · fictional candidate · built by Fieldcraft</span>
+  <span class="cvf-links"><span class="pk-theme-slot"></span><a href="../sample-portfolios.html">&larr; All portfolios</a><a href="../samples/data-cv-3.html">View the CV</a><a class="pk-use" href="../start.html?type=portfolio">Get yours</a></span>
+</div>
+
+<header class="pk-nav">
+  <div class="pk-wrap">
+    <a class="pk-mark" href="#top">Luke Zhang</a>
+    <nav aria-label="Sections"><a href="#case">Case study</a><a href="#work">Systems</a><a href="#stack">Stack</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="pk-hero">
+    <div class="pk-wrap pk-hero-grid">
+      <div class="pk-hero-text pk-reveal">
+        <p class="pk-kicker">Machine learning engineer · Recommendation systems · Singapore</p>
+        <h1 class="pk-name">Luke <em>Zhang</em></h1>
+        <p class="pk-headline">Four years building recommendation and personalisation systems at
+        ByteDance Singapore — from offline feature engineering on Spark to real-time serving for
+        14M daily active users.</p>
+        <div class="pk-cta"><a class="pk-btn" href="#case">See the work</a><a class="pk-btn pk-ghost" href="#contact">Get in touch</a></div>
+      </div>
+      <div class="pk-portrait pk-reveal" aria-hidden="true"><span>LZ</span><small>Singapore</small></div>
+    </div>
+    <div class="pk-wrap">
+      <ul class="pk-stats pk-reveal">
+        <li><b>14M</b><span>daily active users served by his models</span></li>
+        <li><b>+22%</b><span>click-through rate lift, recommendations v3</span></li>
+        <li><b>38 ms</b><span>p99 inference latency in production serving</span></li>
+        <li><b>4 TB/day</b><span>feature pipeline throughput</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="case">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Case study</p>
+        <h2>Replacing heuristic candidate generation</h2>
+        <p>The two-tower retrieval model behind the recommendations surface, from question to production.</p>
+      </header>
+      <article class="pk-case-card pk-reveal">
+        <p class="pk-meta">ByteDance, Singapore · Senior Machine Learning Engineer · Two-tower retrieval</p>
+        <h3>A learned retriever for the recommendations surface</h3>
+        <div class="pk-steps">
+          <div class="pk-step"><b>Business question</b><p>Could a two-tower retrieval model replace heuristic candidate generation and improve downstream ranking quality?</p></div>
+          <div class="pk-step"><b>Approach</b><p>Designed and trained a FAISS-backed two-tower model on 90 days of interaction history, then shadow-tested it against the heuristic for three weeks.</p></div>
+          <div class="pk-step"><b>Outcome</b><p>Adopted in production: recall@100 up 18%, contributing to a 22% CTR lift on the recommendations surface.</p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="pk-section" id="work">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal">
+        <p class="pk-eyebrow">Systems &amp; models</p>
+        <h2>Training, serving and the plumbing between</h2>
+        <p>Six pieces of work across three roles at ByteDance Singapore.</p>
+      </header>
+      <div class="pk-work">
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#0F2B46;--c2:#4FA3D9" aria-hidden="true"><span class="pk-cover-label">72 → 38 ms</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Senior MLE · Triton · Kubernetes</p><h3>Right-sizing GPU serving</h3>
+            <p>Profiled inference jobs, found 40% idle GPU time and moved batching to Triton dynamic batching with auto-scaling on Kubernetes.</p>
+            <p class="pk-result">Serving cost down 29%; p99 latency from 72 ms to 38 ms</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="frames" style="--c1:#3A1740;--c2:#D0707E" aria-hidden="true"><span class="pk-cover-label">Redis v5 → v7</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Senior MLE · Feature store</p><h3>Feature store migration</h3>
+            <p>Lead engineer for moving the feature store from Redis Cluster v5 to v7.</p>
+            <p class="pk-result">Zero-downtime cutover for 14M DAU traffic</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="lines" style="--c1:#12332A;--c2:#5FBF8F" aria-hidden="true"><span class="pk-cover-label">11h → 3.5h</span></div>
+          <div class="pk-project-body"><p class="pk-meta">MLE · Spark · Delta tables</p><h3>Daily retraining</h3>
+            <p>Rewrote the Spark feature pipeline to use delta tables with incremental processing, cutting full-scan jobs.</p>
+            <p class="pk-result">Training cycle from 11 hours to 3.5 hours — same-day model freshness</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="orb" style="--c1:#2A2413;--c2:#D98E3A" aria-hidden="true"><span class="pk-cover-label">Cold start</span></div>
+          <div class="pk-project-body"><p class="pk-meta">MLE · Ranking · Gating network</p><h3>A cold-start branch for new users</h3>
+            <p>Content-based embeddings blended with collaborative signals through a gating network, for users with sparse history.</p>
+            <p class="pk-result">+9 pts new-user 7-day retention in an A/B test across 620,000 users</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="grid" style="--c1:#1D1F4A;--c2:#6C7BE0" aria-hidden="true"><span class="pk-cover-label">12 model cards</span></div>
+          <div class="pk-project-body"><p class="pk-meta">MLE · MLflow</p><h3>Experiment tracking &amp; model cards</h3>
+            <p>Built and maintained MLflow experiment tracking infrastructure.</p>
+            <p class="pk-result">Model cards standardised for 12 production models</p></div>
+        </article>
+        <article class="pk-project pk-reveal">
+          <div class="pk-cover" data-kind="bars" style="--c1:#152238;--c2:#E3B25C" aria-hidden="true"><span class="pk-cover-label">NDCG@10</span></div>
+          <div class="pk-project-body"><p class="pk-meta">Graduate Data Scientist · Offline evaluation</p><h3>Watch-time prediction</h3>
+            <p>Watch-time regression with position-bias correction on logged data, evaluated offline with NDCG@10 and selected for an A/B test.</p>
+            <p class="pk-result">Average session length up 7% over a 4-week test</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pk-section" id="stack">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Technology stack</p><h2>What he builds with</h2></header>
+      <ul class="pk-tags pk-reveal">
+        <li>PyTorch</li><li>Python</li><li>Spark</li><li>Redis</li><li>Kubernetes</li><li>Docker</li><li>Kafka</li>
+        <li>Triton Inference Server</li><li>MLflow</li><li>Airflow</li><li>HDFS</li><li>Hive</li><li>Git</li><li>Helm</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="about">
+    <div class="pk-wrap pk-about">
+      <div class="pk-about-text pk-reveal">
+        <p>An ML engineer who works across the full model lifecycle — offline features and training on
+        Spark through to low-latency serving with Redis and Kubernetes.</p>
+        <p>Luke joined ByteDance in Singapore as a graduate data scientist in 2021, became a Machine
+        Learning Engineer in 2022 and a Senior Machine Learning Engineer in 2024. His models move
+        engagement metrics for tens of millions of daily active users.</p>
+        <p>Beyond shipping models, he wrote an internal wiki on feature engineering best practices that
+        three squads adopted. His wider skills include recommender systems design, A/B testing and
+        experimentation, distributed training (DDP) and feature store architecture.</p>
+      </div>
+      <ul class="pk-facts pk-reveal">
+        <li><span>Based in</span><b>Singapore</b></li>
+        <li><span>Currently</span><b>ByteDance, Singapore</b></li>
+        <li><span>Focus</span><b>Recommendation &amp; personalisation</b></li>
+        <li><span>Languages</span><b>English (fluent), Mandarin (native)</b></li>
+        <li><span>Education</span><b>BSc Computer Science, HKUST</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pk-section" id="experience">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Experience</p><h2>Three roles, one recommendations stack</h2></header>
+      <ol class="pk-timeline pk-reveal">
+        <li><span class="pk-when">Mar 2024 — Present</span><div><h3>Senior Machine Learning Engineer</h3><p class="pk-org">ByteDance, Singapore</p><p>Two-tower retrieval model (+18% recall@100), Triton serving (29% lower cost, 38 ms p99), Redis feature store migration.</p></div></li>
+        <li><span class="pk-when">Jul 2022 — Feb 2024</span><div><h3>Machine Learning Engineer</h3><p class="pk-org">ByteDance, Singapore</p><p>Incremental Spark feature pipeline for daily retraining, cold-start ranking branch, MLflow tracking and model cards.</p></div></li>
+        <li><span class="pk-when">Aug 2021 — Jun 2022</span><div><h3>Data Scientist (Graduate)</h3><p class="pk-org">ByteDance, Singapore</p><p>Watch-time prediction with position-bias correction; an internal feature engineering wiki adopted by 3 squads.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pk-section" id="education">
+    <div class="pk-wrap">
+      <header class="pk-head pk-reveal"><p class="pk-eyebrow">Education</p><h2>Computer science</h2></header>
+      <ol class="pk-timeline pk-reveal">
+        <li><span class="pk-when">Sep 2017 — May 2021</span><div><h3>BSc Computer Science</h3><p class="pk-org">Hong Kong University of Science and Technology (HKUST)</p><p>First Class Honours. Dean's List 2019–2021.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pk-section pk-contact" id="contact">
+    <div class="pk-wrap">
+      <div class="pk-contact-card pk-reveal">
+        <p class="pk-eyebrow">Contact</p>
+        <h2>Building a recommender at scale?</h2>
+        <p class="pk-contact-line">luke.zhang@email.com</p>
+        <ul class="pk-contact-list"><li>+65 9123 4567</li><li>Singapore</li><li>github.com/lukezhang-ml</li><li>linkedin.com/in/lukezhang</li></ul>
+        <p class="pk-note">Fictional candidate — contact details shown as plain text only.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pk-foot">Sample portfolio for a fictional candidate — built by <a href="../index.html">Fieldcraft</a>. Real organisations are named for context only; the person and every result are invented, and no endorsement is implied.</footer>
+</body>
+</html>

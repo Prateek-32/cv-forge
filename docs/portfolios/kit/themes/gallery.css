@@ -165,6 +165,79 @@ body.pk { font-size: 16px; }
 .pk-foot { max-width: var(--maxw); margin-inline: auto; padding: 22px var(--gutter) 40px; text-align: left; font-size: 12px; letter-spacing: .06em; }
 .pk-foot a { color: var(--ink); }
 
+/* ---------- art: a lit white cube — track lights, mats, frames, wall labels ---------- */
+
+/* the hero wall: a lighting track with warm pools falling from it */
+.pk-hero::before {
+  inset: 0;
+  background:
+    radial-gradient(circle 4px at 18% 22px, #2A2A28 90%, transparent),
+    radial-gradient(circle 4px at 50% 22px, #2A2A28 90%, transparent),
+    radial-gradient(circle 4px at 82% 22px, #2A2A28 90%, transparent),
+    linear-gradient(#D5D5D0, #D5D5D0) 0 21px / 100% 1px no-repeat,
+    radial-gradient(18% 80% at 18% 0%, rgba(255, 232, 196, .42), transparent 72%),
+    radial-gradient(18% 80% at 50% 0%, rgba(255, 232, 196, .32), transparent 72%),
+    radial-gradient(18% 80% at 82% 0%, rgba(255, 232, 196, .42), transparent 72%);
+}
+.pk-hero::after {                          /* the gallery floor: a hairline where wall meets bench */
+  left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, #E3E3DF 20%, #E3E3DF 80%, transparent);
+}
+/* the portrait: matted, framed, hung — with a red "sold" dot */
+.pk-portrait {
+  overflow: visible;
+  box-shadow: 0 0 0 10px #FFFFFF, 0 0 0 11px #1A1A1A, 0 0 0 12px #CFCFCA, 0 26px 30px -16px rgba(0, 0, 0, .35);
+  margin: 12px;
+}
+.pk-portrait::after {
+  content: ""; position: absolute; right: -4px; bottom: -34px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent);
+}
+
+.pk-stats b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(30px, 3vw, 42px); letter-spacing: -.01em; white-space: nowrap; }
+
+/* rooms: a big pale numeral in the label column */
+main { counter-reset: gl-sec; }
+.pk-head { counter-increment: gl-sec; }
+.pk-head .pk-eyebrow::after {
+  content: counter(gl-sec, upper-roman); display: block; margin-top: 12px;
+  font: italic 400 clamp(46px, 5vw, 72px)/.9 var(--serif); letter-spacing: 0; text-transform: none; color: #C9C9C3;
+}
+
+/* the works: matted and framed, casting a soft shadow on the wall */
+.pk-cover {
+  border: clamp(8px, 1.1vw, 14px) solid #FAFAF7;
+  outline: 1px solid #1A1A1A;
+  box-shadow: 0 1px 0 1px #D0D0CB, 0 28px 34px -22px rgba(0, 0, 0, .45);
+}
+.pk-project-body { padding-top: 16px; }
+/* wall labels: catalogue number, title, and a red dot where there was a result */
+.pk-work { counter-reset: gl-cat; }
+.pk-project { counter-increment: gl-cat; }
+.pk-project .pk-meta::before { content: "Cat.\00a0" counter(gl-cat, decimal-leading-zero) "\00a0\00a0\2014\00a0\00a0"; color: var(--ink); }
+.pk-project:has(.pk-result) h3::after {
+  content: ""; display: inline-block; width: 8px; height: 8px; margin-left: 8px; vertical-align: .12em; border-radius: 50%; background: var(--accent);
+}
+.pk-project h3 { font-weight: 600; }
+
+/* steps: a red pin on the rule between them */
+.pk-step:not(:last-child)::after {
+  content: ""; top: -5px; right: calc(clamp(16px, 2.4vw, 32px) / -2 - 4px); margin: 0;
+  width: 9px; height: 9px; border: 0; background: var(--accent);
+}
+/* the finale: an empty frame hung on the wall, waiting for the next piece */
+.pk-contact .pk-contact-card { overflow: visible; }
+.pk-contact .pk-contact-card::after {
+  content: ""; position: absolute; right: 0; top: 34px; width: min(24%, 260px); aspect-ratio: 4 / 5; pointer-events: none;
+  background: linear-gradient(160deg, #F1F1EE, #DEDED9);
+  border: 14px solid #FAFAF7; outline: 1px solid #1A1A1A;
+  box-shadow: 0 1px 0 1px #D0D0CB, 0 30px 34px -22px rgba(0, 0, 0, .4);
+}
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; right: calc(min(24%, 260px) + 24px); top: 36px; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); pointer-events: none;
+}
+.pk-contact h2::after { content: ""; display: inline-block; width: .16em; height: .16em; margin-left: .08em; border-radius: 50%; background: var(--accent); }
+
 /* ---------- smaller screens ---------- */
 @media (max-width: 1000px) {
   .pk-work { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -185,6 +258,9 @@ body.pk { font-size: 16px; }
   .pk-head { grid-template-columns: minmax(0, 1fr); }
   .pk-head .pk-eyebrow, .pk-head h2, .pk-head p:not(.pk-eyebrow) { grid-column: 1; grid-row: auto; }
   .pk-timeline li { grid-template-columns: 1fr; gap: 4px; }
+  .pk-head .pk-eyebrow::after { display: none; }
+  .pk-contact .pk-contact-card::before, .pk-contact .pk-contact-card::after { display: none; }
+  .pk-step:not(:last-child)::after { content: ""; top: auto; right: auto; left: 0; bottom: calc(clamp(16px, 2.4vw, 32px) / -2 - 4px); margin: 0; }
 }
 @media (max-width: 640px) {
   .pk-list li { grid-template-columns: minmax(0, 1fr); gap: 4px; }

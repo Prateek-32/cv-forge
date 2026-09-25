@@ -2968,3 +2968,39 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 }
 .ats-promo:hover { border-color: var(--accent); color: var(--ink); }
 .ats-promo-tag { padding: 2px 9px; border-radius: 999px; background: var(--accent); color: #04221E; font: 600 11.5px/1.5 var(--sans); }
+
+/* home portfolio cards: where the card shows the picture instead of the live site (phones,
+   touch screens), use the picture's own 16:10 shape so nothing is cropped off the sides */
+.pf-fan-item .pf-viewport:has(iframe:not([src])) { aspect-ratio: 16 / 10; }
+@media (max-width: 760px) { .pf-fan-item .pf-viewport { aspect-ratio: 16 / 10; } }
+.pf-poster { object-position: left top; }
+
+/* theme studio person card: the real <select> lies invisibly over the card, so the list
+   shows "Name — role · field" while the card shows the name and role on two lines */
+.st-person { position: relative; }
+.st-person select { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; opacity: 0; cursor: pointer; }
+.st-person-name { font: 600 16px var(--sans); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.st-caret { flex: none; margin-left: auto; color: var(--accent); font-size: 14px; }
+.st-person:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* profession pages: the sample portfolios for this field */
+.fpf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.fpf-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--card); border: 1px solid var(--line-2); border-radius: 14px;
+  color: var(--ink); text-decoration: none; box-shadow: var(--sh-1);
+  transition: transform .22s cubic-bezier(.2,.7,.3,1), border-color .22s ease, box-shadow .22s ease;
+}
+.fpf-card:hover, .fpf-card:focus-visible { transform: translateY(-4px); border-color: rgba(94,234,212,.5); box-shadow: var(--sh-3), 0 0 32px -10px rgba(94,234,212,.5); color: var(--ink); }
+.fpf-shot { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: #0B1024; border-bottom: 1px solid var(--line-2); }
+.fpf-shot img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+.fpf-badge { position: absolute; left: 10px; top: 10px; padding: 3px 9px; border-radius: 999px; background: rgba(6, 9, 22, .82); color: var(--accent); font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.fpf-body { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 16px; }
+.fpf-body strong { font-family: var(--serif); font-size: 20px; font-weight: 500; }
+.fpf-role { font-size: 14px; color: var(--muted); }
+.fpf-links { display: flex; gap: 16px; margin-top: 6px; font-size: 14px; }
+.fpf-links span { color: var(--accent); }
+.fpf-more { margin-top: 4px; color: var(--muted); font-size: 15px; }
+.fpf-more a { color: var(--accent); }
+@media (max-width: 760px) { .fpf-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .fpf-body { padding: 10px 12px 12px; } .fpf-body strong { font-size: 16px; } .fpf-links { display: none; } }
+@media (prefers-reduced-motion: reduce) { .fpf-card:hover, .fpf-card:focus-visible { transform: none; } }

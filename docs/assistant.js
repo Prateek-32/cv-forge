@@ -60,7 +60,7 @@
 
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name within 3–5 days. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on eighteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name within 3–5 days. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on twenty-seven sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
       },
       chips: ['pfthemes', 'hosting', 'domain', 'start'] },
 
@@ -207,7 +207,7 @@
 
     { id: 'samples', keys: ['sample', 'samples', 'example', 'examples', 'your work', 'demo', 'template', 'templates', 'show me'],
       answer: function () {
-        return 'There are <a href="sample-cvs.html">43 sample CVs</a> across 13 professions and <a href="sample-portfolios.html">4 sample portfolio sites</a>. All the candidates are fictional; each is built to the standard you receive.';
+        return 'There are <a href="sample-cvs.html">51 sample CVs</a> across 13 professions and <a href="sample-portfolios.html">4 sample portfolio sites</a>. All the candidates are fictional; each is built to the standard you receive.';
       },
       chips: ['portfolio', 'prices'] },
 
@@ -249,7 +249,7 @@
 
     { id: 'who', keys: ['who are you', 'about you', 'who writes', 'writer', 'legit', 'genuine', 'trust', 'scam', 'real company', 'reviews'],
       answer: function () {
-        return 'Fieldcraft restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">43 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
+        return 'Fieldcraft restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">51 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
       },
       chips: ['samples', 'process'] },
 

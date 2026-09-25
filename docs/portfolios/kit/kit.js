@@ -1,4 +1,5 @@
-/* Fieldcraft portfolio kit — theme loader, theme switcher and reveals.
+/* Fieldcraft portfolio kit — theme loader, theme switcher, reveals and a few
+   optional art hooks (hero data-mono, --i list indexes, pointer glow).
 
    Load this synchronously in <head>, after kit/portfolio.css. It reads ?t=,
    or the page's own data-theme-default, and adds kit/themes/<name>.css
@@ -57,13 +58,51 @@
       });
     }
 
-    // ---- reveal sections as they scroll in
+    // ---- art hooks (all optional: the CSS reads fine without them)
+    // the monogram, for themes that set it at display scale behind the hero
+    var hero = document.querySelector('.pk-hero');
+    var mono = document.querySelector('.pk-portrait span');
+    if (hero && mono) hero.setAttribute('data-mono', mono.textContent.replace(/\s+/g, ' ').trim());
+    // an index on every item of a list, for staggered entrances (--i)
+    document.querySelectorAll('.pk-work, .pk-stats, .pk-tags, .pk-steps, .pk-list, .pk-timeline, .pk-facts, .pk-contact-list')
+      .forEach(function (list) {
+        Array.prototype.forEach.call(list.children, function (c, i) { c.style.setProperty('--i', Math.min(i, 12)); });
+      });
+
+    var mq = function (q) { return !!(window.matchMedia && window.matchMedia(q).matches); };
+    var reduced = mq('(prefers-reduced-motion: reduce)');
+
+    // a soft light that follows the pointer across project cards (desktop only)
+    if (!reduced && mq('(hover: hover) and (pointer: fine)')) {
+      root.classList.add('pk-glow');
+      var last = null, raf = 0;
+      document.addEventListener('pointermove', function (ev) {
+        last = ev;
+        if (raf) return;
+        raf = window.requestAnimationFrame(function () {
+          raf = 0;
+          var card = last && last.target && last.target.closest ? last.target.closest('.pk-project') : null;
+          if (!card) return;
+          var r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', Math.round(last.clientX - r.left) + 'px');
+          card.style.setProperty('--my', Math.round(last.clientY - r.top) + 'px');
+        });
+      }, { passive: true });
+    }
+
+    // ---- reveal sections as they scroll in (items entering together stagger)
     var items = document.querySelectorAll('.pk-reveal');
-    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var showAll = function () { items.forEach(function (el) { el.classList.add('in'); }); };
     if (reduced || !('IntersectionObserver' in window)) { showAll(); return; }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      var n = 0;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, d = Math.min(n++, 6) * 90;
+        io.unobserve(el);
+        if (d) window.setTimeout(function () { el.classList.add('in'); }, d);
+        else el.classList.add('in');
+      });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     items.forEach(function (el) { io.observe(el); });
     window.setTimeout(showAll, 2500);   // nothing stays hidden, whatever happens

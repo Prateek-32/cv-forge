@@ -152,6 +152,70 @@ body.pk { font-size: 16.5px; line-height: 1.6; }
 
 .pk-foot { font-size: 13px; }
 
+/* ---------- art: a profile card with presence ---------- */
+
+:root { --glow: rgba(192, 65, 12, .06); }
+/* a warm dotted header wash at the top of the panel, arcs in its far corner */
+.pk-hero::before {
+  left: 0; right: 0; top: 0; height: 260px;
+  background:
+    radial-gradient(rgba(192, 65, 12, .22) 1.1px, transparent 1.5px) 0 0 / 12px 12px,
+    radial-gradient(120% 100% at 0% 0%, rgba(240, 168, 117, .35), transparent 70%);
+  -webkit-mask-image: linear-gradient(#000, transparent); mask-image: linear-gradient(#000, transparent);
+}
+.pk-hero::after {
+  right: -140px; bottom: -140px; width: 380px; aspect-ratio: 1; border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 22px, rgba(192, 65, 12, .12) 22px 23px);
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent);
+}
+/* the avatar: a gradient ring with a gap, like a live profile */
+.pk-portrait::before {
+  content: ""; position: absolute; inset: -9px; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 210deg, var(--accent), var(--accent-2), #FFD8BD, var(--accent) 80%, transparent 80% 86%, var(--accent));
+  -webkit-mask-image: radial-gradient(closest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+  mask-image: radial-gradient(closest-side, transparent calc(100% - 3px), #000 calc(100% - 2.5px));
+}
+.pk-portrait span { background: linear-gradient(150deg, var(--ink) 40%, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pk-name em { background: linear-gradient(transparent 80%, rgba(240, 168, 117, .45) 80%, rgba(240, 168, 117, .45) 94%, transparent 94%); width: fit-content; }
+
+/* stats: little cards that point up */
+.pk-stats li { position: relative; }
+.pk-stats li::after { content: "\2197"; position: absolute; top: 10px; right: 12px; font: 600 13px var(--text); color: var(--accent); opacity: .7; }
+.pk-stats b { background: linear-gradient(160deg, var(--ink) 30%, #7A2A08); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* section heads: an index in the mono */
+main { counter-reset: sb-sec; }
+.pk-head { counter-increment: sb-sec; }
+.pk-head .pk-eyebrow::before { content: counter(sb-sec, decimal-leading-zero) "\00a0/"; color: var(--muted); }
+
+/* project covers carry a number chip */
+.pk-work { counter-reset: sb-proj; }
+.pk-project { counter-increment: sb-proj; }
+.pk-project::before {
+  content: counter(sb-proj, decimal-leading-zero); position: absolute; z-index: 3; top: 12px; left: 12px;
+  padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, .92); box-shadow: 0 4px 10px -4px rgba(0, 0, 0, .3);
+  font: 600 11px var(--mono); color: var(--ink);
+}
+.pk-step:not(:last-child)::after { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+
+/* a rail through the timeline */
+.pk-timeline li { position: relative; }
+.pk-when::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 10px; border-radius: 50%; border: 2px solid var(--accent); background: var(--surface); vertical-align: -1px; }
+
+.pk-tags li { border-left: 3px solid var(--accent-2); }
+
+/* the contact card: an ember glow and a dot field in the dark */
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 90% at 100% 0%, rgba(192, 65, 12, .45), transparent 70%),
+    radial-gradient(rgba(255, 255, 255, .10) 1px, transparent 1.4px) 0 0 / 14px 14px;
+}
+.pk-contact .pk-contact-card::after {
+  content: "\2197"; position: absolute; right: clamp(16px, 4vw, 48px); bottom: -.2em; pointer-events: none;
+  font: 800 clamp(120px, 18vw, 240px)/1 var(--display); color: rgba(240, 168, 117, .12);
+}
+
 /* ---------- two columns: sticky profile panel + scrolling content ---------- */
 
 @media (min-width: 1000px) {
@@ -189,12 +253,15 @@ body.pk { font-size: 16.5px; line-height: 1.6; }
   .pk-section + .pk-section { border-top: 1px solid var(--line); }
 
   .pk-foot { margin-left: var(--side); text-align: left; padding-inline: clamp(32px, 4vw, 64px); border-left: 1px solid var(--line); }
+  /* the panel is sticky: its art stays put rather than drifting */
+  .pk-hero::before { animation: none; }
 }
 
 /* the right column is narrower than a full page: fold dense grids earlier */
 @media (min-width: 1000px) and (max-width: 1239px) {
   .pk-about { grid-template-columns: 1fr; }
   .pk-steps { grid-template-columns: 1fr; }
+  .pk-step:not(:last-child)::after { top: auto; right: auto; bottom: -14px; left: 50%; margin: 0 0 0 -14px; content: "\2193"; }
 }
 
 /* ---------- single column ---------- */

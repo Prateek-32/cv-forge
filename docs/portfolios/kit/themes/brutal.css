@@ -228,9 +228,93 @@ body.pk {
 .pk-foot { color: var(--ink-2); font-weight: 500; }
 .pk-foot a { color: var(--ink); font-weight: 700; }
 
+/* ---------- art: a sticker collage — bursts, tape, stamps, slight tilts ---------- */
+
+:root {
+  --burst: polygon(100% 50%, 88.6% 60.4%, 93.3% 75%, 78.3% 78.3%, 75% 93.3%, 60.4% 88.6%, 50% 100%, 39.6% 88.6%, 25% 93.3%, 21.7% 78.3%, 6.7% 75%, 11.4% 60.4%, 0% 50%, 11.4% 39.6%, 6.7% 25%, 21.7% 21.7%, 25% 6.7%, 39.6% 11.4%, 50% 0%, 60.4% 11.4%, 75% 6.7%, 78.3% 21.7%, 93.3% 25%, 88.6% 39.6%);
+}
+/* the hero: a strip of hazard tape behind the kicker, a big pink disc bleeding off the corner */
+.pk-hero::before {
+  left: -60px; top: clamp(34px, 6vw, 96px); width: min(520px, 70vw); height: 46px;
+  background: repeating-linear-gradient(-45deg, var(--yellow) 0 18px, #000 18px 36px);
+  border-block: 3px solid #000;
+  transform: rotate(-6deg);
+}
+.pk-hero::after {
+  right: -120px; bottom: -160px; width: 420px; aspect-ratio: 1; border-radius: 50%;
+  background:
+    radial-gradient(rgba(0, 0, 0, .22) 2px, transparent 2.5px) 0 0 / 14px 14px,
+    var(--lime);
+  border: 3px solid #000;
+}
+/* the portrait: a burst sticker slapped on its corner, with a hard shadow */
+.pk-portrait { overflow: visible; }
+.pk-portrait::before, .pk-portrait::after {
+  content: ""; position: absolute; z-index: 3; top: -34px; left: -34px; width: 108px; aspect-ratio: 1;
+  clip-path: var(--burst); pointer-events: none;
+}
+.pk-portrait::before { background: #000; translate: 6px 6px; }
+.pk-portrait::after {
+  content: "\2605"; display: grid; place-items: center;
+  background: radial-gradient(circle, var(--pink) 58%, #000 58% 62%, var(--pink) 62%); color: #000;
+  font: 400 40px/1 var(--display);
+}
+
+/* collage: everything sits a little off-square */
+.pk-stats li:nth-child(odd) { rotate: -1.6deg; }
+.pk-stats li:nth-child(even) { rotate: 1.2deg; }
+.pk-project:nth-child(3n+1) { rotate: -.8deg; }
+.pk-project:nth-child(3n+3) { rotate: .9deg; }
+.pk-cover-label { rotate: -2.5deg; box-shadow: 3px 3px 0 #000; }
+.pk-cover {
+  --grain: radial-gradient(rgba(0, 0, 0, .2) 1.3px, transparent 1.8px) 0 0 / 9px 9px;
+  --cover-extra: linear-gradient(transparent, transparent);
+}
+.pk-cover[data-kind="orb"] { --cover-extra: radial-gradient(rgba(255, 255, 255, .5) 1.4px, transparent 1.9px) 4px 4px / 18px 18px; }
+.pk-project p.pk-result { rotate: -1deg; box-shadow: 3px 3px 0 #000; }
+.pk-tags li:nth-child(3n+1) { rotate: -2deg; }
+.pk-tags li:nth-child(3n+2) { rotate: 1.5deg; }
+.pk-list li:nth-child(even) { rotate: .4deg; }
+.pk-list li:nth-child(odd) { rotate: -.4deg; }
+
+/* section heads: a numbered stamp in front of the label */
+main { counter-reset: br-sec; }
+.pk-head { counter-increment: br-sec; }
+.pk-head .pk-eyebrow::before {
+  content: counter(br-sec, decimal-leading-zero); display: inline-block; margin-right: 10px; padding: 1px 7px;
+  background: #000; color: var(--yellow); border-radius: 4px;
+}
+.pk-head h2 { text-shadow: 3px 3px 0 var(--cyan); }
+
+/* steps: fat arrows between the blocks */
+.pk-step:not(:last-child)::after {
+  width: 34px; height: 34px; margin-top: -17px; right: -19px;
+  border: 3px solid #000; border-radius: 50%; background: #FFFFFF; box-shadow: 3px 3px 0 #000;
+  font: 700 17px/1 var(--text); color: #000;
+}
+
+/* the finale: a burst in the corner and tape along the bottom */
+.pk-contact .pk-contact-card::before {
+  content: "\2605"; position: absolute; top: 18px; right: clamp(12px, 5vw, 60px); width: clamp(84px, 14vw, 150px); aspect-ratio: 1;
+  display: grid; place-items: center; clip-path: var(--burst);
+  background: var(--yellow); color: #000; font: 400 clamp(32px, 5vw, 54px)/1 var(--display); rotate: 12deg;
+}
+.pk-contact .pk-contact-card::after {
+  content: ""; position: absolute; left: -30px; right: -30px; bottom: 26px; height: 30px;
+  background: repeating-linear-gradient(-45deg, #000 0 14px, var(--cyan) 14px 28px);
+  rotate: -2deg; opacity: .9;
+}
+.pk-contact .pk-contact-card { padding-bottom: calc(clamp(28px, 5vw, 64px) + 44px); }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes pk-brutal-wobble { 0%, 100% { rotate: -6deg; } 50% { rotate: 6deg; } }
+  .pk-portrait::before, .pk-portrait::after { animation: pk-brutal-wobble 4s ease-in-out infinite; }
+}
+
 /* ---------- small screens ---------- */
 @media (max-width: 860px) {
-  .pk-portrait { max-width: 300px; }
+  .pk-portrait { max-width: 300px; margin: 30px 0 0 30px; }
+  .pk-step:not(:last-child)::after { right: auto; margin: 0 0 0 -17px; bottom: -19px; }
   .pk-timeline li, .pk-timeline li:last-child { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
 @media (max-width: 620px) {

@@ -19,9 +19,9 @@ Fieldcraft is a writing service, not a do-it-yourself resume builder: customers 
 
 - [Home](https://fieldcraft.co.in/): what Fieldcraft does, prices and common questions
 - [Pricing](https://fieldcraft.co.in/pricing.html): every product, bundle and FAQ
-- [Sample CVs](https://fieldcraft.co.in/sample-cvs.html): 43 resume and CV examples across 13 professions
+- [Sample CVs](https://fieldcraft.co.in/sample-cvs.html): 51 resume and CV examples across 13 professions
 - [Templates](https://fieldcraft.co.in/templates.html): 17 ATS-friendly resume and CV templates
-- [Portfolio examples](https://fieldcraft.co.in/sample-portfolios.html): 18 portfolio website examples in 10 themes
+- [Portfolio examples](https://fieldcraft.co.in/sample-portfolios.html): 27 portfolio website examples in 10 themes
 - [Professions](https://fieldcraft.co.in/fields.html): how resumes differ by field
 - [Order](https://fieldcraft.co.in/start.html): the brief for a resume, CV, LinkedIn rewrite or portfolio website
 - [Privacy](https://fieldcraft.co.in/privacy.html) and [Terms](https://fieldcraft.co.in/terms.html)
