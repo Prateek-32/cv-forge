@@ -799,6 +799,10 @@ var CV_FORGE_PF_REC = {
         if (o.value.toLowerCase() === tpl) form.elements.template.value = o.value;
       });
       prefillField(form);
+      // the home page's offer cards: start.html?need=resume|cv|linkedin
+      var NEED = { resume: 'Resume', cv: 'Curriculum vitae', linkedin: 'Profile rewrite' };
+      var need = NEED[param('need')];
+      if (need) all(form, 'input[name="needs"]').forEach(function (c) { if (c.value === need) c.checked = true; });
     }
   });
 
@@ -1127,6 +1131,20 @@ var CV_FORGE_PF_REC = {
   var screens = document.querySelectorAll('.pf-viewport');
   if (!screens.length) return;
 
+  // Each preview is a picture first. Computers then load the live site over
+  // it (hover scrolls it); phones keep the picture — eighteen live sites on
+  // one page is what made them stutter. A tap opens the real site either way.
+  var phone = window.matchMedia('(max-width: 760px), (hover: none)');
+  var goLive = function () {
+    if (phone.matches) return;
+    document.querySelectorAll('.pf-viewport iframe[data-src]').forEach(function (f) {
+      f.setAttribute('src', f.getAttribute('data-src'));
+      f.removeAttribute('data-src');
+    });
+  };
+  goLive();
+  if (phone.addEventListener) phone.addEventListener('change', goLive);
+
   var fit = function (vp) {
     var w = vp.clientWidth;
     if (w) vp.parentNode.style.setProperty('--s', (w / 1280).toFixed(4));
@@ -1342,4 +1360,146 @@ var CV_FORGE_PF_REC = {
   } else {
     window.addEventListener('resize', function () { viewports.forEach(fit); });
   }
+})();
+
+/* ---------------------------------------------------------------
+   Phones: find everything in one tap.
+   - a tab bar along the bottom of every page (Home, Samples,
+     Templates, Portfolios, Start);
+   - the ☰ menu says what each page holds, and ends with WhatsApp
+     and Call buttons;
+   - long lists show a few items and a "Show all" button
+     (data-m-limit="4" on the list; data-m-items picks the items
+     when the list has other children; data-m-free-when-alone lifts
+     the limit when a filter leaves only one group on screen).
+   Computers see none of this.
+   --------------------------------------------------------------- */
+
+(function () {
+  'use strict';
+
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var phone = window.matchMedia('(max-width: 760px)');
+
+  // ---- tab bar ------------------------------------------------------
+  var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  var icon = function (d) {
+    return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
+  };
+  var TABS = [
+    ['index.html', 'Home', '<path d="M3.5 11.5 12 4.5l8.5 7"/><path d="M6 10v9.5h12V10"/>'],
+    ['sample-cvs.html', 'Samples', '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/>'],
+    ['templates.html', 'Templates', '<rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>'],
+    ['sample-portfolios.html', 'Portfolios', '<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 8.5h19M6 6.3h.01M8.5 6.3h.01"/>'],
+    ['start.html', 'Start', '<path d="M12 5v14M5 12h14"/>']
+  ];
+  var bar = document.createElement('nav');
+  bar.className = 'tabbar';
+  bar.setAttribute('aria-label', 'Quick links');
+  bar.innerHTML = TABS.map(function (t) {
+    return '<a href="' + t[0] + '"' + (t[0] === 'start.html' ? ' class="tab-start"' : '') +
+      (here === t[0] ? ' aria-current="page"' : '') + '>' + icon(t[2]) + '<span>' + t[1] + '</span></a>';
+  }).join('');
+  document.body.appendChild(bar);
+  document.documentElement.classList.add('has-tabbar');
+
+  // ---- the ☰ menu: what each page holds, then how to reach us ---------
+  var BLURB = {
+    'fields.html': 'How we write for 13 professions',
+    'sample-cvs.html': '43 finished CVs, by field',
+    'templates.html': '17 CV designs to choose from',
+    'sample-portfolios.html': '18 sample sites, 10 themes',
+    'pricing.html': 'From ₹99 — bundles save more'
+  };
+  header.querySelectorAll('.site-nav a:not(.btn)').forEach(function (a) {
+    var b = BLURB[(a.getAttribute('href') || '').toLowerCase()];
+    if (!b || a.querySelector('.nav-sub')) return;
+    var label = document.createElement('span');
+    label.className = 'nav-label';
+    while (a.firstChild) label.appendChild(a.firstChild);
+    var sub = document.createElement('span');
+    sub.className = 'nav-sub';
+    sub.textContent = b;
+    a.appendChild(label);
+    a.appendChild(sub);
+  });
+  var c = window.CV_FORGE_CONTACT || {};
+  var wa = (c.whatsapp || '').replace(/\D/g, '');
+  var nav = header.querySelector('.site-nav');
+  if (nav && (wa || c.phone)) {
+    var box = document.createElement('div');
+    box.className = 'nav-contact';
+    if (wa) {
+      box.innerHTML += '<a class="nav-wa" href="https://wa.me/' + wa + '?text=' +
+        encodeURIComponent('Hi Fieldcraft, I have a question about getting my CV rebuilt.') +
+        '" target="_blank" rel="noopener">WhatsApp us</a>';
+    }
+    if (c.phone) box.innerHTML += '<a class="nav-call" href="tel:' + c.phone.replace(/[^\d+]/g, '') + '">Call</a>';
+    nav.appendChild(box);
+  }
+
+  // ---- long lists: a few, then "Show all" -------------------------------
+  var lists = Array.prototype.slice.call(document.querySelectorAll('[data-m-limit]'));
+  if (!lists.length) return;
+
+  var itemsOf = function (list) {
+    var sel = list.getAttribute('data-m-items');
+    var items = Array.prototype.slice.call(sel ? list.querySelectorAll(sel) : list.children)
+      .filter(function (el) { return !el.hidden && !el.classList.contains('m-more'); });
+    // follow what is on screen: some lists reorder cards with CSS order
+    return items.map(function (el, i) { return { el: el, i: i, o: parseInt(getComputedStyle(el).order, 10) || 0 }; })
+      .sort(function (a, b) { return a.o - b.o || a.i - b.i; })
+      .map(function (x) { return x.el; });
+  };
+
+  var apply = function (list) {
+    var limit = parseInt(list.getAttribute('data-m-limit'), 10) || 4;
+    var alone = list.getAttribute('data-m-free-when-alone');
+    var free = !phone.matches || list._open ||
+               (alone && document.querySelectorAll(alone + ':not([hidden])').length === 1);
+    var btn = list._more;
+    if (!btn) {
+      btn = list._more = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'm-more';
+      btn.addEventListener('click', function () { list._open = true; apply(list); });
+      if (list.getAttribute('data-m-items')) list.appendChild(btn);
+      else list.parentNode.insertBefore(btn, list.nextSibling);
+    }
+    Array.prototype.forEach.call(list.querySelectorAll('.m-cut'), function (el) { el.classList.remove('m-cut'); });
+    var items = itemsOf(list);
+    if (free || items.length <= limit) { btn.hidden = true; return; }
+    items.slice(limit).forEach(function (el) { el.classList.add('m-cut'); });
+    btn.textContent = (list.getAttribute('data-m-label') || 'Show all {n}').replace('{n}', items.length);
+    btn.hidden = false;
+  };
+  var applyAll = function () { lists.forEach(apply); };
+
+  // filters hide and show items: start each affected list short again
+  // (hidden anywhere, since a filter may hide a list's section; style only on
+  // a list's own items, where the templates page reorders cards — not
+  // page-wide, where the scroll bar rewrites its style on every frame)
+  var queued = false;
+  if ('MutationObserver' in window) {
+    var seen = function (records) {
+      var hit = false;
+      records.forEach(function (r) {
+        if (r.target.classList && r.target.classList.contains('m-more')) return;
+        lists.forEach(function (l) {
+          if (l.contains(r.target) || r.target.contains(l)) { l._open = false; hit = true; }
+        });
+      });
+      if (hit && !queued) { queued = true; window.requestAnimationFrame(function () { queued = false; applyAll(); }); }
+    };
+    new MutationObserver(seen).observe(document.body, { attributes: true, subtree: true, attributeFilter: ['hidden'] });
+    lists.forEach(function (l) {
+      new MutationObserver(function (records) {
+        seen(records.filter(function (r) { return r.target.parentNode === l; }));
+      }).observe(l, { attributes: true, subtree: true, attributeFilter: ['style'] });
+    });
+  }
+  applyAll();
+  if (phone.addEventListener) phone.addEventListener('change', applyAll);
 })();
