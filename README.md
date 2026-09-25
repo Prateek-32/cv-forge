@@ -34,7 +34,25 @@ GitHub Pages is set to serve from the `docs/` folder of `main` (Settings → Pag
 `docs/finance.html` is live at `/finance.html` — the same URLs as before the site moved
 into the folder. Every file named below lives in `docs/` unless the path says otherwise.
 
-Live at https://prateek-32.github.io/cv-forge/
+Live at https://fieldcraft.co.in/ (the old https://prateek-32.github.io/cv-forge/ address
+redirects there).
+
+### The domain
+
+`fieldcraft.co.in` is registered at Hostinger. `docs/CNAME` tells GitHub Pages to serve the
+site on it; the DNS at Hostinger points the domain at GitHub:
+
+| Type | Name | Points to |
+|---|---|---|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | prateek-32.github.io |
+
+Every absolute address in the pages (canonical links, share previews, `sitemap.xml`,
+`robots.txt`) uses `https://fieldcraft.co.in/`. If the domain ever changes, change those
+and `docs/CNAME` together.
 
 ## Positioning — read before editing the copy
 
