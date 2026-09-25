@@ -163,6 +163,30 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 - The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
   make room for "Templates".
 
+## Taking payment (pay.html)
+
+UPI, no fees. Send each client a link with the agreed price:
+
+    https://fieldcraft.co.in/pay.html?amount=199&for=Resume&ref=Priya%20Sharma
+
+The page shows a UPI QR code for that amount (any UPI app can scan it), an "Open my UPI
+app" button on phones, the UPI ID to copy, and an "I've paid" button that opens WhatsApp
+with the details filled in. The UPI ID lives in `CV_FORGE_CONTACT.upi` in `site.js`;
+`pay.js` builds the `upi://pay` link and `vendor/qrcode.js` (qrcode-generator, MIT) draws
+the code. The page is `noindex`, not in the sitemap and not linked from the menus.
+
+## Guides (content for search engines and AI assistants)
+
+Five free guides at the site root — `resume-format-for-freshers.html`,
+`ats-friendly-resume.html`, `resume-vs-cv.html`, `portfolio-website-guide.html`,
+`cv-for-jobs-abroad.html` — and a hub, `guides.html`, linked from every footer. Each has a
+one-sentence "In short" answer (the line AI assistants quote), a contents list, an FAQ, a
+call to action and Article + FAQPage + BreadcrumbList structured data.
+
+Don't edit the guide pages by hand: edit `content/guides/<slug>.html` and run
+`powershell -ExecutionPolicy Bypass -File tools/build-guides.ps1`. The guides contain no
+statistics or quotes that can't be checked — keep it that way.
+
 ## Search engines and AI assistants
 
 - **Titles and descriptions** lead with what people search for ("resume and CV writing",
