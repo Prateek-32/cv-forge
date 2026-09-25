@@ -16,6 +16,8 @@ var CV_FORGE_CONTACT = {
   city:     'Pune, Maharashtra',
   hours:    '10 AM – 10 PM IST',
   replyHoursIST: [10, 22],          // 24-hour clock; drives the "Replying now" badge
+  upi:      '6266965307@sbi',       // pay.html builds the UPI QR code and app link from this
+  upiName:  'Fieldcraft',           // shown in the UPI app; the bank shows the account holder's name too
   // The Apps Script web app (apps-script/Code.gs). The chat assistant sends
   // issues here; keep it the same as data-endpoint on start.html.
   formEndpoint: 'https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec'

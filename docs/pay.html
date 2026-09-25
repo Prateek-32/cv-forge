@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8">
-<base href="/">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — Fieldcraft</title>
-<meta name="description" content="This page does not exist. Find sample CVs, templates, portfolios and pricing on Fieldcraft.">
+<title>Pay for your order — Fieldcraft</title>
+<meta name="description" content="Pay for your Fieldcraft order by UPI.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -31,20 +30,43 @@
   </div>
 </header>
 <main>
+<section class="wrap pay">
+  <span class="eyebrow">Payment</span>
+  <h1>Pay for your order</h1>
+  <p class="lede">Pay the amount confirmed in your quote email, with any UPI app. Nothing is
+  charged until you have agreed the price.</p>
 
-<section class="wrap nf">
-  <span class="eyebrow">Error 404</span>
-  <h1>This page doesn't exist</h1>
-  <p class="lede">The link may be old, or the address mistyped. Everything we offer is one
-  click away from here.</p>
-  <nav class="nf-links" aria-label="Where to go">
-    <a class="nf-card" href="index.html"><strong>Home</strong><span>Start at the beginning</span></a>
-    <a class="nf-card" href="sample-cvs.html"><strong>Sample CVs</strong><span>43 finished CVs, by field</span></a>
-    <a class="nf-card" href="templates.html"><strong>Templates</strong><span>17 CV designs to choose from</span></a>
-    <a class="nf-card" href="sample-portfolios.html"><strong>Portfolios</strong><span>18 sample sites, 10 themes</span></a>
-    <a class="nf-card" href="pricing.html"><strong>Pricing</strong><span>From &#8377;99</span></a>
-    <a class="nf-card nf-start" href="start.html"><strong>Start a build</strong><span>About ten minutes, no payment yet</span></a>
-  </nav>
+  <div class="pay-grid">
+    <div class="pay-card">
+      <p class="pay-for" id="pay-for" hidden></p>
+      <label class="pay-amount" for="pay-amount">
+        <span class="pay-label">Amount</span>
+        <span class="pay-amount-row"><span class="pay-rupee" aria-hidden="true">&#8377;</span><input id="pay-amount" type="number" inputmode="numeric" min="1" max="100000" step="1" placeholder="199"></span>
+      </label>
+      <div class="pay-qr" id="pay-qr" role="img" aria-label="UPI QR code for this payment"></div>
+      <p class="pay-scan">Scan with Google Pay, PhonePe, Paytm, BHIM or your bank's app</p>
+      <a class="btn pay-open" id="pay-open" href="#">Open my UPI app</a>
+      <div class="pay-id">
+        <span>UPI ID</span><code id="pay-upi"></code>
+        <button type="button" class="linklike" id="pay-copy">Copy</button>
+      </div>
+    </div>
+
+    <div class="pay-steps">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Check the amount</strong> matches the price in your quote email.</li>
+        <li><strong>Scan the code</strong> with any UPI app, or on your phone tap
+        <em>Open my UPI app</em>. Your app shows the account holder's name before you pay.</li>
+        <li><strong>Tell us you've paid</strong> &mdash; send the payment screenshot or the UPI
+        reference number on WhatsApp, or reply to your quote email. Work starts as soon as we
+        see it.</li>
+      </ol>
+      <a class="btn btn-outline pay-wa" id="pay-wa" href="#" target="_blank" rel="noopener" hidden>I've paid &mdash; tell Fieldcraft on WhatsApp</a>
+      <p class="hint">Only pay an amount we have confirmed with you by email. Refunds follow our
+      <a href="terms.html">terms</a>.</p>
+    </div>
+  </div>
 </section>
 
 </main>
@@ -82,6 +104,8 @@
 </footer>
 <script src="stars.js" defer></script>
 <script src="site.js" defer></script>
+<script src="vendor/qrcode.js" defer></script>
+<script src="pay.js" defer></script>
 <script src="assistant.js" defer></script>
 </body>
 </html>
