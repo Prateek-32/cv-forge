@@ -1182,6 +1182,7 @@ var CV_FORGE_PF_REC = {
   var note = document.getElementById('st-note');
   var avatar = document.getElementById('st-avatar');
   var sub = document.getElementById('st-person-sub');
+  var nameEl = document.getElementById('st-person-name');
   var nowName = document.getElementById('st-now-name');
   var nowTag = document.getElementById('st-now-tag');
   var desc = document.getElementById('st-desc');
@@ -1199,9 +1200,11 @@ var CV_FORGE_PF_REC = {
     if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
     screen.href = open.href = url;
     use.href = 'start.html?type=portfolio&theme=' + theme + '&field=' + field;
-    var name = opt.text.trim();
+    // options read "Name — role · field" in the list; the card shows the parts
+    var name = opt.getAttribute('data-name') || opt.text.split(' — ')[0].trim();
     var role = opt.getAttribute('data-role');
     var words = name.split(/\s+/);
+    if (nameEl) nameEl.textContent = name;
     label.textContent = name + ' · ' + title(theme);
     avatar.textContent = (words[0].charAt(0) + (words.length > 1 ? words[words.length - 1].charAt(0) : '')).toUpperCase();
     sub.textContent = role ? title(role) + ' · ' + title(field) : title(field);
@@ -1410,9 +1413,9 @@ var CV_FORGE_PF_REC = {
   // ---- the ☰ menu: what each page holds, then how to reach us ---------
   var BLURB = {
     'fields.html': 'How we write for 13 professions',
-    'sample-cvs.html': '43 finished CVs, by field',
+    'sample-cvs.html': '51 finished CVs, by field',
     'templates.html': '17 CV designs to choose from',
-    'sample-portfolios.html': '18 sample sites, 10 themes',
+    'sample-portfolios.html': '27 sample sites, 10 themes',
     'pricing.html': 'From ₹99 — bundles save more',
     'ats-checker.html': 'Your resume’s ATS score in seconds, free',
     'guides.html': 'Resume format, ATS, resume vs CV and more'

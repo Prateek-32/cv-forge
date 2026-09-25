@@ -200,9 +200,59 @@ body.pk {
 .pk-foot { font-family: var(--mono); font-size: 12.5px; }
 .pk-foot::before { content: "-- EOF --"; display: block; margin-bottom: 8px; color: #4A5E53; }
 
+/* ---------- art: a phosphor screen — hex dumps, markdown, ASCII meters ---------- */
+
+:root { --glow: rgba(90, 247, 142, .08); }
+.pk-hero::before {                         /* a hex dump scrolling past the right edge */
+  right: -1ch; top: 8%;
+  content: "0000  7f 45 4c 46 02 01 01 00  |.ELF....|\A 0010  02 00 3e 00 01 00 00 00  |..>.....|\A 0020  40 00 00 00 00 00 00 00  |@.......|\A 0030  e8 1f 00 00 00 00 00 00  |........|\A 0040  5a f7 8e 00 38 00 0d 00  |Z...8...|\A 0050  40 00 1f 00 1e 00 06 00  |@.......|\A 0060  04 00 00 00 40 00 00 00  |....@...|\A 0070  6f 6b 20 21 0a 00 00 00  |ok !....|\A 0080  c3 90 90 90 48 89 e5 5d  |....H..]|\A 0090  2f 2f 20 62 75 69 6c 64  |// build|\A 00a0  20 70 61 73 73 69 6e 67  | passing|\A 00b0  0a 00 00 00 00 00 00 00  |........|";
+  white-space: pre; font: 500 13px/1.9 var(--mono); color: rgba(90, 247, 142, .10);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 40%); mask-image: linear-gradient(90deg, transparent, #000 40%);
+}
+.pk-hero::after {                          /* the CRT: a soft phosphor bloom */
+  inset: 0;
+  background: radial-gradient(60% 70% at 20% 40%, rgba(90, 247, 142, .07), transparent 70%);
+}
+.pk-portrait { box-shadow: var(--shadow), 0 0 60px -20px rgba(90, 247, 142, .35); }
+.pk-portrait span::after { content: "_"; margin-left: .04em; animation: pk-console-blink 1.1s steps(1) infinite; }
+
+/* stats: an ASCII meter under each figure */
+.pk-stats li::after { font: 500 12px/1 var(--mono); letter-spacing: .08em; color: rgba(90, 247, 142, .55); content: "[\2588\2588\2588\2588\2588\2588\2591\2591\2591\2591]"; margin-top: 4px; }
+.pk-stats li:nth-child(4n+2)::after { content: "[\2588\2588\2588\2588\2588\2588\2588\2588\2588\2591]"; }
+.pk-stats li:nth-child(4n+3)::after { content: "[\2588\2588\2588\2588\2591\2591\2591\2591\2591\2591]"; }
+.pk-stats li:nth-child(4n+4)::after { content: "[\2588\2588\2588\2588\2588\2588\2588\2588\2591\2591]"; }
+
+/* headings read as markdown */
+.pk-head h2::before { content: "##\00a0"; color: var(--accent); opacity: .55; font-weight: 500; }
+
+/* covers: the screen's own scanlines, bloom and vignette over the drawing */
+.pk-cover {
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, .45) 100%),
+    var(--cover-extra),
+    radial-gradient(120% 90% at 8% -12%, rgba(255, 255, 255, .22), transparent 55%),
+    linear-gradient(var(--ang), var(--c1) 0%, color-mix(in srgb, var(--c1) 45%, var(--c2)) 52%, var(--c2) 100%);
+}
+
+.pk-tags li::before { content: "--"; color: var(--accent); margin-right: 2px; }
+.pk-step:not(:last-child)::after {
+  content: ">>"; border-radius: 4px; border-color: var(--line); background: var(--bar);
+  font: 600 12px/1 var(--mono); color: var(--accent);
+}
+
+/* the finale: braces in the background and a waiting cursor */
+.pk-contact .pk-contact-card::after {
+  content: "{ }"; position: absolute; right: clamp(8px, 4vw, 48px); bottom: -.15em; pointer-events: none;
+  font: 600 clamp(110px, 18vw, 240px)/1 var(--mono); letter-spacing: -.08em; color: rgba(90, 247, 142, .07);
+}
+.pk-contact-line::after { content: "_"; margin-left: 2px; animation: pk-console-blink 1.1s steps(1) infinite; }
+
 /* ---------- small screens ---------- */
 @media (max-width: 860px) {
   .pk-portrait { width: 100%; max-width: 340px; aspect-ratio: 4 / 3; }
+  .pk-hero::before { opacity: .6; }
+  .pk-step:not(:last-child)::after { content: "vv"; }
   .pk-timeline li { grid-template-columns: 1fr; gap: 6px; }
 }
 @media (max-width: 640px) {
@@ -211,6 +261,6 @@ body.pk {
   .pk-list span { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pk-mark::after, .pk-name em::after { animation: none; }
+  .pk-mark::after, .pk-name em::after, .pk-portrait span::after, .pk-contact-line::after { animation: none; }
   .pk-btn, .pk-project, .pk-tags li { transition: none; }
 }

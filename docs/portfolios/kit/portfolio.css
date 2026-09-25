@@ -158,65 +158,188 @@ html.embedded .pk-nav { top: 0; }
 .pk-result { margin-top: 4px; padding-top: 10px; border-top: 1px dashed var(--line); color: var(--ink); font-weight: 500; }
 .pk-result::before { content: "\2192  "; color: var(--accent); }
 
-/* covers: drawn, not photographed — two colours and a pattern per project */
+/* covers: drawn, not photographed. Two colours per project (--c1, --c2), a
+   composition per data-kind, and per-card variation (--tilt, --ox, --ang, bar
+   heights...) set by :nth-child so a grid never repeats itself. Layers: grain,
+   an optional per-kind extra (--cover-extra), a key light, a shadow, the wash.
+   Themes that replace the background should keep var(--grain) and
+   var(--cover-extra) in their stack. */
 .pk-cover {
   --c1: var(--accent); --c2: var(--accent-2);
-  position: relative; display: flex; align-items: flex-end;
+  --ang: 135deg; --tilt: -6deg; --ox: 62%; --oy: 50%; --lift: 0px;
+  --h1: 38%; --h2: 58%; --h3: 46%; --h4: 78%; --h5: 100%; --donut: 68%;
+  --grain:
+    radial-gradient(rgba(255,255,255,.09) .6px, transparent 1.1px) 0 0 / 5px 5px,
+    radial-gradient(rgba(0,0,0,.11) .6px, transparent 1.1px) 2px 3px / 7px 7px;
+  --cover-extra: linear-gradient(transparent, transparent);
+  position: relative; isolation: isolate; display: flex; align-items: flex-end;
   aspect-ratio: 4 / 3; padding: 18px; overflow: hidden;
-  background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
+  background:
+    var(--grain),
+    var(--cover-extra),
+    radial-gradient(120% 90% at 8% -12%, rgba(255,255,255,.30), transparent 55%),
+    radial-gradient(90% 80% at 106% 112%, rgba(0,0,0,.38), transparent 62%),
+    linear-gradient(var(--ang), var(--c1) 0%, color-mix(in srgb, var(--c1) 45%, var(--c2)) 52%, var(--c2) 100%);
   color: #fff;
 }
 .pk-cover-label {
   position: relative; z-index: 2;
   padding: 5px 11px; border-radius: 999px;
-  background: rgba(0,0,0,.35); backdrop-filter: blur(4px);
+  background: rgba(0,0,0,.42); backdrop-filter: blur(4px);
+  box-shadow: 0 8px 18px -10px rgba(0,0,0,.6);
   font: 500 12px var(--mono); letter-spacing: .06em;
 }
-.pk-cover::before, .pk-cover::after { content: ""; position: absolute; pointer-events: none; }
-/* frames: a strip of film */
+.pk-cover::before, .pk-cover::after {
+  content: ""; position: absolute; pointer-events: none;
+  transition: transform .7s cubic-bezier(.2,.7,.3,1);
+}
+.pk-project:hover .pk-cover { --lift: -7px; }
+
+/* per-card variation: the same kind never looks twice the same in a row */
+.pk-project:nth-child(3n+2) .pk-cover { --ang: 200deg; --tilt: 5deg; --ox: 38%; --oy: 46%; --h1: 72%; --h2: 44%; --h3: 90%; --h4: 58%; --h5: 66%; --donut: 42%; }
+.pk-project:nth-child(3n+3) .pk-cover { --ang: 62deg; --tilt: -2.5deg; --ox: 66%; --oy: 56%; --h1: 28%; --h2: 46%; --h3: 60%; --h4: 74%; --h5: 94%; --donut: 84%; }
+.pk-project:nth-child(4n+4) .pk-cover { --ang: 160deg; --tilt: 8deg; --ox: 30%; }
+
+/* frames: a strip of film, each frame a tiny sunset, with a light leak */
 .pk-cover[data-kind="frames"]::before {
-  inset: 22% -10% auto -10%; height: 46%; transform: rotate(-6deg);
+  left: -14%; right: -14%; top: 22%; height: 54%;
+  transform: translateY(var(--lift)) rotate(var(--tilt));
   background:
-    repeating-linear-gradient(90deg, rgba(0,0,0,.55) 0 8px, transparent 8px 22px) top / 100% 12px no-repeat,
-    repeating-linear-gradient(90deg, rgba(0,0,0,.55) 0 8px, transparent 8px 22px) bottom / 100% 12px no-repeat,
-    repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 26%, rgba(0,0,0,.25) 26% 27%);
-  border-block: 12px solid rgba(0,0,0,.55);
+    radial-gradient(closest-side, rgba(255,255,255,.78) 62%, transparent 76%) 0 5px / 18px 9px repeat-x,
+    radial-gradient(closest-side, rgba(255,255,255,.78) 62%, transparent 76%) 0 calc(100% - 5px) / 18px 9px repeat-x,
+    linear-gradient(90deg, #0E0D10 0 7px, transparent 7px) 0 0 / 23% 100% repeat-x,
+    radial-gradient(circle 10px at 64% 44%, rgba(255,246,226,.96) 86%, transparent) 0 19px / 23% calc(100% - 38px) repeat-x,
+    linear-gradient(transparent 62%, color-mix(in srgb, var(--c1) 62%, #000) 62%) 0 19px / 23% calc(100% - 38px) repeat-x,
+    linear-gradient(180deg, color-mix(in srgb, var(--c2) 45%, #fff), var(--c2) 70%) 0 19px / 23% calc(100% - 38px) repeat-x,
+    #0E0D10;
+  box-shadow: 0 26px 40px -18px rgba(0,0,0,.7);
 }
-/* bars: a chart */
+.pk-cover[data-kind="frames"]::after {
+  width: 80%; aspect-ratio: 1; left: -26%; top: -44%; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255,184,110,.55), rgba(255,120,70,.18) 55%, transparent);
+  mix-blend-mode: screen;
+}
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="frames"]::before { top: 30%; }
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="frames"]::after { left: auto; right: -30%; top: auto; bottom: -50%; }
+
+/* bars: a glass chart panel in perspective, with a donut KPI chip pinned on */
 .pk-cover[data-kind="bars"]::before {
-  left: 12%; right: 12%; bottom: 22%; height: 52%;
+  left: 11%; right: 15%; top: 16%; bottom: 20%;
+  padding: 9% 7% 7%; border-radius: 12px;
   background:
-    linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)) 0% 100% / 12% 38% no-repeat,
-    linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)) 22% 100% / 12% 58% no-repeat,
-    linear-gradient(rgba(255,255,255,.85), rgba(255,255,255,.85)) 44% 100% / 12% 46% no-repeat,
-    linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)) 66% 100% / 12% 78% no-repeat,
-    linear-gradient(rgba(255,255,255,.95), rgba(255,255,255,.95)) 88% 100% / 12% 100% no-repeat;
+    linear-gradient(rgba(255,255,255,.75) 0 0) 0 100% / 100% 2px no-repeat,
+    linear-gradient(#fff, color-mix(in srgb, #fff 45%, var(--c2))) 0% 100% / 13% var(--h1) no-repeat,
+    linear-gradient(#fff, color-mix(in srgb, #fff 45%, var(--c2))) 25% 100% / 13% var(--h2) no-repeat,
+    linear-gradient(#fff, color-mix(in srgb, #fff 45%, var(--c2))) 50% 100% / 13% var(--h3) no-repeat,
+    linear-gradient(#fff, color-mix(in srgb, #fff 45%, var(--c2))) 75% 100% / 13% var(--h4) no-repeat,
+    linear-gradient(color-mix(in srgb, #fff 70%, var(--c2)), color-mix(in srgb, #fff 30%, var(--c2))) 100% 100% / 13% var(--h5) no-repeat,
+    repeating-linear-gradient(rgba(255,255,255,.16) 0 1px, transparent 1px 25%),
+    rgba(255,255,255,.10);
+  background-origin: content-box;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), inset 0 1px 0 rgba(255,255,255,.4), 0 30px 50px -24px rgba(0,0,0,.6);
+  transform: translateY(var(--lift)) perspective(700px) rotateY(-13deg) rotateX(5deg);
 }
-/* grid: tiles, like a layout or a floor plan */
+.pk-cover[data-kind="bars"]::after {
+  width: 23%; aspect-ratio: 1; right: 6%; top: 8%; border-radius: 14px;
+  background:
+    radial-gradient(circle closest-side, #fff 56%, transparent 58%) center / 66% 66% no-repeat,
+    radial-gradient(circle closest-side, transparent 96%, #fff 100%) center / 66% 66% no-repeat,
+    conic-gradient(from -90deg, var(--c1) 0 var(--donut), color-mix(in srgb, var(--c2) 28%, #fff) 0) center / 66% 66% no-repeat,
+    #fff;
+  box-shadow: 0 18px 30px -12px rgba(0,0,0,.5);
+  transform: translateY(calc(var(--lift) * 1.8)) rotate(5deg);
+}
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="bars"]::before { left: 15%; right: 11%; transform: translateY(var(--lift)) perspective(700px) rotateY(12deg) rotateX(5deg); }
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="bars"]::after { top: auto; bottom: 9%; right: 5%; transform: translateY(calc(var(--lift) * 1.8)) rotate(-6deg); }
+
+/* grid: an isometric floor plan with one raised block */
+.pk-cover[data-kind="grid"] { --rz: -36deg; }
 .pk-cover[data-kind="grid"]::before {
-  inset: 14% 14% 26% 14%;
+  left: 20%; right: 20%; top: 14%; bottom: 20%;
   background:
-    linear-gradient(rgba(255,255,255,.3) 2px, transparent 2px) 0 0 / 100% 25%,
-    linear-gradient(90deg, rgba(255,255,255,.3) 2px, transparent 2px) 0 0 / 25% 100%;
-  border: 2px solid rgba(255,255,255,.5);
+    linear-gradient(rgba(255,255,255,.36) 2px, transparent 2px) 0 0 / 100% 25%,
+    linear-gradient(90deg, rgba(255,255,255,.36) 2px, transparent 2px) 0 0 / 25% 100%,
+    linear-gradient(color-mix(in srgb, var(--c2) 60%, transparent) 0 0) 0 100% / 50% 25% no-repeat,
+    linear-gradient(rgba(255,255,255,.16) 0 0) 100% 0 / 25% 50% no-repeat,
+    rgba(255,255,255,.07);
+  border: 2px solid rgba(255,255,255,.62);
+  box-shadow: 0 0 0 6px rgba(255,255,255,.06);
+  transform: translateY(var(--lift)) perspective(900px) rotateX(54deg) rotateZ(var(--rz));
 }
-.pk-cover[data-kind="grid"]::after { left: 39%; top: 38%; width: 25%; height: 22%; background: rgba(255,255,255,.85); }
-/* lines: pages of text */
+.pk-cover[data-kind="grid"]::after {       /* the cell x 50-75%, y 25-50% of the plan, lifted */
+  left: 50%; top: 30.5%; width: 15%; height: 16.5%;
+  transform-origin: 0% 100%;
+  background: linear-gradient(135deg, #fff, color-mix(in srgb, #fff 62%, var(--c2)));
+  box-shadow:
+    3px 3px 0 color-mix(in srgb, var(--c1) 40%, #fff),
+    6px 6px 0 color-mix(in srgb, var(--c1) 55%, #000),
+    9px 9px 0 color-mix(in srgb, var(--c1) 55%, #000),
+    22px 26px 22px rgba(0,0,0,.35);
+  transform: translateY(var(--lift)) perspective(900px) rotateX(54deg) rotateZ(var(--rz)) translateZ(calc(14px - var(--lift) * 2));
+}
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="grid"] { --rz: 32deg; }
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="grid"]::after { left: 35%; top: 47%; transform-origin: 100% 0%; }
+.pk-project:nth-child(3n+3) .pk-cover[data-kind="grid"] { --rz: -52deg; }
+
+/* lines: a spread of pages, the top one set with a headline and a picture */
 .pk-cover[data-kind="lines"]::before {
-  left: 18%; right: 18%; top: 14%; bottom: 26%;
-  background: #fff;
-  box-shadow: 10px 10px 0 rgba(0,0,0,.18);
+  left: 20%; right: 26%; top: 13%; bottom: 13%;
+  background:
+    repeating-linear-gradient(rgba(0,0,0,.10) 0 3px, transparent 3px 10px) 50% 70% / 76% 60% no-repeat,
+    rgba(255,255,255,.62);
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.5);
+  transform: translateY(var(--lift)) rotate(calc(var(--tilt) * -1.3));
 }
 .pk-cover[data-kind="lines"]::after {
-  left: 24%; right: 26%; top: 22%; bottom: 34%;
-  background: repeating-linear-gradient(transparent 0 10px, rgba(0,0,0,.18) 10px 13px);
+  left: 28%; right: 18%; top: 9%; bottom: 15%;
+  padding: 7% 7% 8%;
+  background:
+    linear-gradient(var(--c2) 0 0) 0 0 / 22% 3% no-repeat,
+    linear-gradient(color-mix(in srgb, var(--c1) 80%, #000) 0 0) 0 9% / 74% 7% no-repeat,
+    linear-gradient(160deg, color-mix(in srgb, var(--c2) 50%, #fff), var(--c2) 60%, color-mix(in srgb, var(--c1) 60%, var(--c2))) 0 42% / 100% 30% no-repeat,
+    repeating-linear-gradient(rgba(0,0,0,.16) 0 3px, transparent 3px 10px) 0 100% / 100% 30% no-repeat,
+    #FFFFFF;
+  background-origin: content-box;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 28px 42px -18px rgba(0,0,0,.6);
+  transform: translateY(calc(var(--lift) * 1.6)) rotate(calc(var(--tilt) * .45));
 }
-/* orb: a single bold shape */
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="lines"]::after {
+  background:
+    linear-gradient(var(--c2) 0 0) 0 0 / 22% 3% no-repeat,
+    linear-gradient(color-mix(in srgb, var(--c1) 80%, #000) 0 0) 0 9% / 60% 7% no-repeat,
+    linear-gradient(160deg, color-mix(in srgb, var(--c2) 50%, #fff), var(--c2)) 100% 62% / 44% 50% no-repeat,
+    repeating-linear-gradient(rgba(0,0,0,.16) 0 3px, transparent 3px 10px) 0 76% / 48% 56% no-repeat,
+    #FFFFFF;
+  background-origin: content-box;
+}
+
+/* orb: a lit planet with a ring, over a field of stars */
+.pk-cover[data-kind="orb"] {
+  --cover-extra:
+    radial-gradient(circle 1.1px at 30% 40%, rgba(255,255,255,.85) 90%, transparent) 0 0 / 53px 47px,
+    radial-gradient(circle 1.4px at 70% 20%, rgba(255,255,255,.7) 90%, transparent) 0 0 / 89px 71px,
+    radial-gradient(circle .9px at 50% 80%, rgba(255,255,255,.55) 90%, transparent) 0 0 / 37px 61px;
+}
 .pk-cover[data-kind="orb"]::before {
-  width: 62%; aspect-ratio: 1; right: -8%; top: -10%; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,.15) 60%, transparent 70%);
+  height: 66%; aspect-ratio: 1; left: var(--ox); top: var(--oy);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,.95) 0, rgba(255,255,255,.45) 7%, transparent 24%),
+    radial-gradient(circle at 34% 28%, color-mix(in srgb, var(--c2) 58%, #fff) 0%, var(--c2) 36%, color-mix(in srgb, var(--c1) 55%, #000) 92%);
+  box-shadow:
+    inset -12px -16px 30px rgba(0,0,0,.35),
+    0 0 70px -8px color-mix(in srgb, var(--c2) 70%, transparent),
+    0 30px 50px -20px rgba(0,0,0,.55);
+  transform: translate(-50%, -50%) translateY(var(--lift));
 }
-.pk-cover[data-kind="orb"]::after { width: 40%; aspect-ratio: 1; left: -6%; bottom: -14%; border-radius: 50%; border: 10px solid rgba(255,255,255,.35); }
+.pk-cover[data-kind="orb"]::after {
+  height: 25%; aspect-ratio: 4.2; left: var(--ox); top: var(--oy);
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.75); border-top-color: transparent;
+  box-shadow: 0 6px 14px -6px rgba(0,0,0,.35);
+  transform: translate(-50%, -50%) translateY(var(--lift)) rotate(-16deg);
+}
+.pk-project:nth-child(3n+2) .pk-cover[data-kind="orb"]::after { transform: translate(-50%, -50%) translateY(var(--lift)) rotate(14deg); }
 
 /* ---------- case study ---------- */
 
@@ -270,10 +393,67 @@ html.embedded .pk-nav { top: 0; }
 .pk-foot { padding: 34px var(--gutter) 48px; text-align: center; font-size: 13.5px; color: var(--muted); }
 .pk-foot a { color: var(--accent); }
 
+/* ---------- art layer: the hooks every theme dresses ----------
+
+   .pk-hero gets two free decorative layers (::before, ::after) behind its
+   content; kit.js copies the monogram into .pk-hero[data-mono] so a theme can
+   set it at display scale with content: attr(data-mono). Themes position hero
+   art with inset/transform only — the scroll drift below animates `translate`.
+   Case-study steps are joined by a node on each seam (restyle via
+   .pk-step::after). A project can glow under the pointer when a theme sets
+   --glow (kit.js feeds --mx/--my on desktop). */
+
+.pk-hero { position: relative; isolation: isolate; overflow: clip; }
+.pk-hero::before, .pk-hero::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
+
+.pk-contact .pk-contact-card { position: relative; isolation: isolate; overflow: hidden; }
+.pk-contact .pk-contact-card > * { position: relative; z-index: 1; }
+
+.pk-step { position: relative; }
+.pk-step:not(:last-child)::after {
+  content: "\2192"; position: absolute; z-index: 2; top: 50%; right: -14px;
+  display: grid; place-items: center; width: 28px; height: 28px; margin-top: -14px;
+  border-radius: 50%; border: 1px solid var(--line); background: var(--surface);
+  font: 600 13px/1 var(--text); color: var(--accent);
+}
+
+.pk-project { position: relative; }
+.pk-glow .pk-project::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), var(--glow, transparent), transparent 62%);
+  opacity: 0; transition: opacity .35s ease;
+}
+.pk-glow .pk-project:hover::after { opacity: 1; }
+
 /* ---------- motion: reveal on scroll (kit.js adds .pk-js) ---------- */
 
 .pk-js .pk-reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
 .pk-js .pk-reveal.in { opacity: 1; transform: none; }
+
+@keyframes pk-rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes pk-float { from { translate: 0 0; } to { translate: 0 -10px; } }
+@keyframes pk-drift { to { translate: 0 var(--drift, 80px); } }
+@keyframes pk-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* motion lives only here: nothing moves for people who ask for less */
+@media (prefers-reduced-motion: no-preference) {
+  /* list items follow their list in, one after another (kit.js sets --i) */
+  .pk-js .pk-reveal.in > li, .pk-js .pk-reveal.in .pk-step {
+    animation: pk-rise .7s cubic-bezier(.2,.7,.3,1) backwards;
+    animation-delay: calc(140ms + var(--i, 0) * 70ms);
+  }
+  @supports (animation-timeline: scroll()) {
+    /* a reading-progress hairline under the nav */
+    .pk-nav::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform-origin: 0 50%; transform: scaleX(0);
+      animation: pk-progress linear both; animation-timeline: scroll(root);
+    }
+    /* the hero's back layer drifts a little slower than the page */
+    .pk-hero::before { animation: pk-drift linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+  }
+}
 
 /* ---------- small screens ---------- */
 
@@ -281,14 +461,16 @@ html.embedded .pk-nav { top: 0; }
   .pk-hero-grid, .pk-about { grid-template-columns: 1fr; }
   .pk-portrait { max-width: 320px; aspect-ratio: 1; }
   .pk-steps { grid-template-columns: 1fr; }
+  .pk-step:not(:last-child)::after { top: auto; right: auto; bottom: -14px; left: 50%; margin: 0 0 0 -14px; content: "\2193"; }
   .pk-timeline li { grid-template-columns: 1fr; gap: 6px; }
   .pk-nav nav { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .pk-js .pk-reveal { opacity: 1; transform: none; transition: none; }
-  .pk-project, .pk-btn { transition: none; }
+  .pk-project, .pk-btn, .pk-cover::before, .pk-cover::after { transition: none; }
   .pk-project:hover, .pk-btn:hover { transform: none; }
+  .pk-project:hover .pk-cover { --lift: 0px; }
 }
 @media print {
   .cvf-banner, .pk-nav { display: none; }

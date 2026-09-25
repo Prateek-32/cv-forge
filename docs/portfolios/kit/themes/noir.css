@@ -79,13 +79,13 @@ body.pk::before {
 .pk-ghost:hover { background: rgba(212, 178, 106, .1); border-color: var(--gold); }
 
 .pk-portrait {
-  order: -1; width: 148px; aspect-ratio: 1; margin-bottom: 26px; overflow: visible;
+  order: -1; width: 148px; aspect-ratio: 1; margin-top: 12px; margin-bottom: 44px; overflow: visible;
   border-radius: 50%; border: 1px solid var(--gold);
   background: radial-gradient(circle at 50% 30%, #2B2318 0%, #0E0C09 72%);
   box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px rgba(212, 178, 106, .35), 0 0 70px -10px rgba(212, 178, 106, .35);
 }
 .pk-portrait span { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 54px; letter-spacing: .02em; color: var(--gold-hi); opacity: 1; }
-.pk-portrait small { left: 50%; bottom: auto; top: calc(100% + 18px); transform: translateX(-50%); white-space: nowrap; font-size: 10.5px; color: var(--muted); }
+.pk-portrait small { left: 50%; bottom: auto; top: calc(100% + 36px); transform: translateX(-50%); white-space: nowrap; font-size: 10.5px; color: var(--muted); }
 
 .pk .pk-stats {
   grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
@@ -191,8 +191,93 @@ body.pk::before {
 .pk-foot::before { content: ""; display: block; width: 64px; height: 1px; margin: 0 auto 26px; background: var(--gold); }
 .pk-foot a { color: var(--gold-hi); }
 
+/* ---------- art: a spotlight, an art-deco sunburst and gold foil ---------- */
+:root {
+  --foil: linear-gradient(100deg, #9C7A3A 0%, #EBD39D 20%, #B8913F 40%, #F8EAC4 56%, #A8843E 76%, #E4C77F 100%);
+  --glow: rgba(212, 178, 106, .10);
+}
+.pk-hero { --portrait-y: calc(clamp(48px, 7vw, 100px) + 86px); }
+.pk-hero::before {                       /* a follow-spot falling from above the frame */
+  inset: -10% 0 0;
+  background:
+    conic-gradient(from 158deg at 50% -6%, transparent 0deg, rgba(235, 211, 157, .07) 12deg, rgba(235, 211, 157, .11) 22deg, rgba(235, 211, 157, .07) 32deg, transparent 44deg);
+  -webkit-mask-image: linear-gradient(#000 20%, transparent 88%); mask-image: linear-gradient(#000 20%, transparent 88%);
+}
+.pk-hero::after {                        /* deco rays radiating from the monogram */
+  left: 50%; top: var(--portrait-y); width: min(1100px, 150vw); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(from 0deg, rgba(212, 178, 106, .16) 0 .6deg, transparent .6deg 7.5deg);
+  -webkit-mask-image: radial-gradient(closest-side, transparent 14%, #000 16%, rgba(0,0,0,.5) 42%, transparent 72%);
+  mask-image: radial-gradient(closest-side, transparent 14%, #000 16%, rgba(0,0,0,.5) 42%, transparent 72%);
+}
+/* gold foil: the accent word and the numerals */
+.pk-name em, .pk-stats b {
+  background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.pk-name em { padding-right: .1em; margin-right: -.1em; }
+/* the monogram plate: a ring of gold ticks, like a reel */
+.pk-portrait::before {
+  content: ""; position: absolute; inset: -22px; border-radius: 50%; pointer-events: none;
+  background: repeating-conic-gradient(rgba(212, 178, 106, .75) 0 1.2deg, transparent 1.2deg 6deg);
+  -webkit-mask-image: radial-gradient(closest-side, transparent calc(100% - 7px), #000 calc(100% - 6px), #000 99%, transparent);
+  mask-image: radial-gradient(closest-side, transparent calc(100% - 7px), #000 calc(100% - 6px), #000 99%, transparent);
+}
+.pk-portrait span { background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; padding: 0 .08em; }
+
+/* a gold lozenge closes every section head */
+.pk-head::after { content: ""; width: 8px; height: 8px; margin-top: 6px; border: 1px solid var(--gold); transform: rotate(45deg); }
+
+/* stills: letterboxed, graded, grained, and numbered like reels */
+.pk-work { counter-reset: nreel; }
+.pk-project { counter-increment: nreel; }
+.pk-cover {
+  border-block: 11px solid #050504;
+  --grain:
+    radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(0, 0, 0, .5) 100%),
+    radial-gradient(rgba(255, 244, 220, .12) .6px, transparent 1.1px) 0 0 / 4px 4px,
+    radial-gradient(rgba(0, 0, 0, .2) .7px, transparent 1.2px) 1px 2px / 6px 6px;
+}
+.pk-project::before {
+  content: "N\00ba\00a0" counter(nreel, decimal-leading-zero); position: absolute; z-index: 3; top: 30px; left: 28px;
+  padding: 3px 4px 3px 8px; background: rgba(8, 7, 6, .55);
+  font: 500 10px var(--text); letter-spacing: .3em; color: rgba(243, 235, 220, .85);
+}
+
+/* the steps: lozenges on the rule between them */
+.pk-step:not(:last-child)::after {
+  content: ""; top: -5px; right: calc(clamp(18px, 3vw, 40px) / -2 - 5px); margin: 0;
+  width: 9px; height: 9px; border-radius: 0; border: 1px solid var(--gold); background: var(--bg);
+  transform: rotate(45deg);
+}
+.pk-tags li::before { content: "\25C6"; margin-right: 10px; font-size: 7px; vertical-align: 2px; color: var(--gold); }
+
+/* the finale: a sunrise of rays behind the closing card */
+.pk-contact .pk-contact-card::after {
+  content: ""; position: absolute; z-index: 0; left: 50%; bottom: 0; width: 1300px; aspect-ratio: 1; pointer-events: none;
+  transform: translate(-50%, 50%);
+  background: repeating-conic-gradient(rgba(212, 178, 106, .13) 0 .7deg, transparent .7deg 6deg);
+  -webkit-mask-image: radial-gradient(closest-side, transparent 8%, #000 12%, transparent 62%);
+  mask-image: radial-gradient(closest-side, transparent 8%, #000 12%, transparent 62%);
+}
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; z-index: 0; inset: 22px; pointer-events: none;
+  background:
+    linear-gradient(var(--gold), var(--gold)) 0 0 / 28px 1px no-repeat, linear-gradient(var(--gold), var(--gold)) 0 0 / 1px 28px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) 100% 0 / 28px 1px no-repeat, linear-gradient(var(--gold), var(--gold)) 100% 0 / 1px 28px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) 0 100% / 28px 1px no-repeat, linear-gradient(var(--gold), var(--gold)) 0 100% / 1px 28px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) 100% 100% / 28px 1px no-repeat, linear-gradient(var(--gold), var(--gold)) 100% 100% / 1px 28px no-repeat;
+}
+.pk-contact-line { background: var(--foil); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .1em; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes pk-noir-spin { to { transform: rotate(360deg); } }
+  .pk-portrait::before { animation: pk-noir-spin 60s linear infinite; }
+}
+
 /* ---------- small screens ---------- */
 @media (max-width: 860px) {
+  .pk-hero { --portrait-y: calc(clamp(48px, 7vw, 100px) + 74px); }
+  .pk-step:not(:last-child)::after { content: ""; top: auto; right: auto; bottom: -5px; left: 50%; margin: 0 0 0 -5px; }
   .pk-work { grid-template-columns: minmax(0, 1fr); }
   .pk-portrait { width: 124px; max-width: none; }
   .pk-portrait span { font-size: 44px; }

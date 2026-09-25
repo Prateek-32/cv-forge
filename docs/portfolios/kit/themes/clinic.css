@@ -232,10 +232,97 @@ body.pk { font-size: 17.5px; line-height: 1.6; }
 
 .pk-foot { color: var(--muted); }
 
+/* ---------- art: calm precision — graph paper, a calibrated dial, clean light ---------- */
+
+:root { --glow: rgba(29, 95, 180, .07); }
+.pk-hero::before {                       /* graph paper that fades into the page */
+  inset: 0;
+  background:
+    linear-gradient(rgba(29, 95, 180, .09) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(90deg, rgba(29, 95, 180, .09) 1px, transparent 1px) 0 0 / 120px 120px,
+    linear-gradient(rgba(29, 95, 180, .045) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(29, 95, 180, .045) 1px, transparent 1px) 0 0 / 24px 24px;
+  -webkit-mask-image: radial-gradient(70% 90% at 78% 30%, #000 10%, transparent 75%);
+  mask-image: radial-gradient(70% 90% at 78% 30%, #000 10%, transparent 75%);
+}
+.pk-hero::after {                        /* concentric rings, like a lens or a scan */
+  right: -120px; top: -160px; width: 640px; aspect-ratio: 1; border-radius: 50%;
+  background: repeating-radial-gradient(circle, transparent 0 46px, rgba(29, 95, 180, .08) 46px 47px);
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+}
+.pk-kicker::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; vertical-align: 1px; border-radius: 50%; background: #2F9E62; box-shadow: 0 0 0 3px rgba(47, 158, 98, .18); }
+.pk-name em { background: linear-gradient(transparent 86%, rgba(111, 179, 200, .45) 86%, rgba(111, 179, 200, .45) 96%, transparent 96%); padding: 0 .04em; }
+
+/* the portrait: a calibrated dial of ticks around a soft plate */
+.pk-portrait { overflow: visible; }
+.pk-portrait::after {
+  content: ""; position: absolute; inset: -16px; border-radius: 36px; pointer-events: none;
+  border: 1px solid rgba(29, 95, 180, .14);
+  background:
+    linear-gradient(var(--accent), var(--accent)) 50% 0 / 1px 12px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 50% 100% / 1px 12px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 0 50% / 12px 1px no-repeat,
+    linear-gradient(var(--accent), var(--accent)) 100% 50% / 12px 1px no-repeat,
+    repeating-linear-gradient(90deg, rgba(29, 95, 180, .35) 0 1px, transparent 1px 16px) 50% 0 / 60% 6px no-repeat,
+    repeating-linear-gradient(90deg, rgba(29, 95, 180, .35) 0 1px, transparent 1px 16px) 50% 100% / 60% 6px no-repeat,
+    repeating-linear-gradient(0deg, rgba(29, 95, 180, .35) 0 1px, transparent 1px 16px) 0 50% / 6px 60% no-repeat,
+    repeating-linear-gradient(0deg, rgba(29, 95, 180, .35) 0 1px, transparent 1px 16px) 100% 50% / 6px 60% no-repeat;
+}
+.pk-portrait span {
+  background: linear-gradient(160deg, #2A7BE0, #16498C 70%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: clamp(80px, 10vw, 136px);
+}
+
+/* stats: precise read-outs with a scale bar */
+.pk-stats li { position: relative; overflow: hidden; padding-top: 22px; }
+.pk-stats li::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+  background: linear-gradient(90deg, var(--accent) calc(40% + var(--i, 0) * 15%), var(--soft) 0);
+}
+.pk-stats li::after {
+  content: ""; position: absolute; right: 14px; top: 16px; width: 44px; height: 10px;
+  background: repeating-linear-gradient(90deg, rgba(29, 95, 180, .28) 0 1px, transparent 1px 6px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000); mask-image: linear-gradient(90deg, transparent, #000);
+}
+.pk-stats b { font-size: clamp(34px, 3.4vw, 46px); }
+
+/* section heads: a numbered index chip */
+main { counter-reset: cl-sec; }
+.pk-head { counter-increment: cl-sec; }
+.pk-head .pk-eyebrow::before {
+  content: counter(cl-sec, decimal-leading-zero); width: auto; height: auto; border-radius: 6px;
+  padding: 2px 7px; background: var(--accent); color: #fff; font-size: 11.5px; letter-spacing: .04em;
+}
+.pk-head .pk-eyebrow::after { content: ""; width: 40px; height: 1px; background: linear-gradient(90deg, currentColor, transparent); }
+
+/* covers: a clean inner bezel, as if seen on a screen */
+.pk-cover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22); }
+
+/* case study: a step indicator joining the cards */
+.pk-step:not(:last-child)::after { border: 0; background: var(--accent); color: #fff; box-shadow: 0 0 0 5px var(--surface), 0 4px 12px -2px rgba(29, 95, 180, .5); }
+
+.pk-tags li { display: inline-flex; align-items: center; gap: 8px; }
+.pk-tags li::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--accent-2); transform: rotate(45deg); }
+
+/* contact: rings and a fine grid in the blue */
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px) 0 0 / 32px 32px;
+  -webkit-mask-image: linear-gradient(110deg, transparent 30%, #000 90%); mask-image: linear-gradient(110deg, transparent 30%, #000 90%);
+}
+.pk-contact .pk-contact-card::after {
+  right: -140px; top: -140px; width: 440px; height: 440px; border: 0;
+  background: repeating-radial-gradient(circle, transparent 0 34px, rgba(255, 255, 255, .09) 34px 36px);
+  -webkit-mask-image: radial-gradient(closest-side, #000 50%, transparent); mask-image: radial-gradient(closest-side, #000 50%, transparent);
+}
+
 /* ---------- small screens ---------- */
 
 @media (max-width: 860px) {
-  .pk-portrait { justify-self: start; max-width: 260px; }
+  .pk-portrait { justify-self: start; max-width: 260px; margin: 16px; }
   .pk-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   /* the rail moves to the whole entry, so dates sit on it too */
   .pk-timeline li { position: relative; grid-template-columns: 1fr; gap: 0; margin-left: 8px; padding-left: 24px; border-left: 2px solid var(--line); }

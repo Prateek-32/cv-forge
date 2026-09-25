@@ -313,6 +313,26 @@ Fourteen examples share one markup and one stylesheet, so each can be shown in a
 | `portfolios/anika-patel.html` | Chief financial officer | Sidebar | `samples/finance-cv-6.html` |
 | `portfolios/aisha-bello.html` | Senior clinical pharmacist | Clinic | `samples/healthcare-cv-6.html` |
 | `portfolios/priya-singh.html` | Business analyst, early career | Paper | `samples/consulting-cv-3.html` |
+| `portfolios/luke-zhang.html` | Machine learning engineer | Sidebar | `samples/data-cv-3.html` |
+| `portfolios/karthik-raghavan.html` | Mid-market account executive, Bengaluru | Aurora | `samples/sales-cv-2.html` |
+| `portfolios/ishita-deshpande.html` | Corporate & M&A associate, Mumbai | Noir | `samples/law-cv-2.html` |
+| `portfolios/santosh-jadhav.html` | HVAC site supervisor, Pune | Swiss | `samples/trades-cv-2.html` |
+| `portfolios/tanvi-sawant.html` | Graphic & brand designer, Mumbai | Gallery | `samples/creative-cv-2.html` |
+| `portfolios/kabir-fernandes.html` | Music producer & sound designer, Mumbai | Brutal | `samples/film-cv-2.html` |
+| `portfolios/mehak-bhatnagar.html` | Content writer, early career, Delhi | Pastel | `samples/writing-cv-2.html` |
+| `portfolios/kavita-rathore.html` | Middle school science teacher, Jaipur | Clinic | `samples/teaching-cv-2.html` |
+| `portfolios/shreya-hegde.html` | PhD researcher, materials, Bengaluru | Paper | `samples/academia-cv-2.html` |
+
+The eight `*-cv-2.html` samples above are new (India-based, fictional, with fictional or
+generic employers). Every profession page now has a **Sample portfolios** section (`#portfolios`,
+`.fpf-card`) listing that field's portfolios with their picture from `portfolios/shots/`. When
+you add a portfolio, add it there, to the gallery grid and studio list on
+`sample-portfolios.html`, to the sitemap, and take its picture (1280×800 in an iframe, saved
+as a 640×400 JPEG).
+
+The kit's art layer (hero decorations, drawn covers, per-theme ornaments, staggered motion)
+lives in `kit/portfolio.css` and the themes; `kit/kit.js` adds only optional touches (the
+display monogram, stagger indexes and a desktop pointer glow).
 
 To add a theme: write `kit/themes/<name>.css`, add it to `THEME_GROUPS` in `kit.js`, to
 the studio and the brief's theme cards (`start.html`, with a `.tp-<name>` swatch in

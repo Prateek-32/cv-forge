@@ -202,9 +202,94 @@ body.pk {
 .pk-foot { color: var(--muted); font-weight: 600; }
 .pk-foot a { font-weight: 800; }
 
+/* ---------- art: soft clay — spheres and blobs lit from the top left ---------- */
+
+:root {
+  --clay-shade: inset -16px -20px 38px rgba(76, 52, 150, .22), inset 14px 14px 30px rgba(255, 255, 255, .75);
+  --clay-drop: 0 26px 40px -22px rgba(106, 75, 196, .45);
+  --glow: rgba(106, 75, 196, .07);
+}
+.pk-hero::before {                        /* a big lavender sphere behind the portrait */
+  right: max(-60px, calc(50% - var(--maxw) / 2 - 40px)); top: clamp(20px, 4vw, 60px);
+  width: clamp(150px, 20vw, 260px); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #EEE7FF 18%, #C9B6FF 58%, #A68BF0 100%);
+  box-shadow: var(--clay-shade), var(--clay-drop);
+}
+.pk-hero::after {                         /* a peach pebble resting low on the left */
+  left: max(-70px, calc(50% - var(--maxw) / 2 - 110px)); bottom: clamp(40px, 8vw, 120px);
+  width: clamp(120px, 15vw, 200px); aspect-ratio: 1.25; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  background: radial-gradient(circle at 32% 28%, #FFFFFF 0, #FFE9DE 16%, #FFC4AB 58%, #F29A78 100%);
+  box-shadow: inset -16px -20px 38px rgba(180, 80, 40, .22), inset 14px 14px 30px rgba(255, 255, 255, .7), 0 26px 40px -22px rgba(244, 146, 111, .6);
+  transform: rotate(-14deg);
+}
+
+/* the portrait blob gets depth, and two small spheres to keep it company */
+.pk-portrait { overflow: visible; box-shadow: inset -22px -28px 60px rgba(76, 52, 150, .16), inset 18px 18px 40px rgba(255, 255, 255, .7), 0 30px 60px -30px rgba(106, 75, 196, .5); }
+.pk-portrait::before, .pk-portrait::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+.pk-portrait::before {
+  width: 22%; aspect-ratio: 1; right: -4%; top: 6%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #E6FAF0 18%, #A9EACB 60%, #6FCFA4 100%);
+  box-shadow: inset -8px -10px 18px rgba(30, 110, 80, .22), inset 6px 6px 14px rgba(255, 255, 255, .7), 0 16px 24px -14px rgba(44, 138, 102, .55);
+}
+.pk-portrait::after {
+  width: 12%; aspect-ratio: 1; left: 2%; bottom: 14%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #FFF6D8 18%, #FFE08A 60%, #F2C14E 100%);
+  box-shadow: inset -5px -6px 12px rgba(160, 110, 10, .22), inset 4px 4px 8px rgba(255, 255, 255, .7), 0 12px 18px -10px rgba(200, 150, 40, .6);
+}
+.pk-portrait span {
+  background: linear-gradient(160deg, #6A4BC4, #2E2A47 70%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: clamp(72px, 10vw, 132px); filter: drop-shadow(0 8px 14px rgba(106, 75, 196, .25));
+}
+
+/* stats: each card holds a little clay ball */
+.pk-stats li { position: relative; box-shadow: inset 0 2px 0 rgba(255, 255, 255, .7), 0 14px 26px -20px rgba(46, 42, 71, .35); }
+.pk-stats li::after {
+  content: ""; position: absolute; top: 14px; right: 14px; width: 22px; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, rgba(255, 255, 255, .6) 20%, transparent 60%), #F4926F;
+  box-shadow: inset -4px -5px 8px rgba(0, 0, 0, .12), 0 6px 10px -5px rgba(0, 0, 0, .25);
+}
+.pk-stats li:nth-child(4n+2)::after { background-color: #9B80F0; }
+.pk-stats li:nth-child(4n+3)::after { background-color: #5FC79A; }
+.pk-stats li:nth-child(4n+4)::after { background-color: #F2C14E; }
+.pk-stats b { font-size: clamp(34px, 4vw, 52px); }
+
+/* section heads: a bead before each label */
+.pk-eyebrow { display: inline-flex; align-items: center; gap: 8px; }
+.pk-eyebrow::before {
+  content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, transparent 55%), var(--accent);
+}
+
+/* cards: softer, puffier */
+.pk-project { box-shadow: inset 0 2px 0 rgba(255, 255, 255, .9), var(--shadow); }
+.pk-cover { box-shadow: inset 0 -30px 40px -30px rgba(46, 42, 71, .25); }
+.pk-tags li { box-shadow: inset 0 -3px 0 rgba(46, 42, 71, .07), inset 0 2px 0 rgba(255, 255, 255, .7); }
+.pk-step:not(:last-child)::after {
+  border: 0; color: var(--accent); background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #F3EEFF 40%, #DCCFFF 100%);
+  box-shadow: inset -3px -4px 8px rgba(76, 52, 150, .18), 0 8px 14px -6px rgba(106, 75, 196, .45);
+}
+
+/* the finale: clay spheres drifting in the gradient */
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; right: -40px; top: -50px; width: clamp(140px, 18vw, 220px); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #EEE7FF 18%, #C9B6FF 58%, #A68BF0 100%);
+  box-shadow: var(--clay-shade);
+}
+.pk-contact .pk-contact-card::after {
+  content: ""; position: absolute; right: clamp(120px, 20vw, 260px); bottom: -34px; width: clamp(70px, 9vw, 110px); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0, #E6FAF0 18%, #A9EACB 60%, #6FCFA4 100%);
+  box-shadow: inset -8px -10px 18px rgba(30, 110, 80, .22), inset 6px 6px 14px rgba(255, 255, 255, .7);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pk-hero::after, .pk-portrait::before { animation: pk-float 6s ease-in-out infinite alternate; }
+  .pk-portrait::after { animation: pk-float 4.5s ease-in-out -2s infinite alternate; }
+}
+
 /* ---------- small screens ---------- */
 @media (max-width: 860px) {
   .pk-portrait { max-width: 300px; }
+  .pk-hero::before { top: auto; bottom: 34%; right: -60px; }
   .pk-timeline li, .pk-timeline li:last-child { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
 @media (max-width: 620px) {
