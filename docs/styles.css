@@ -1478,7 +1478,28 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
 /* the dark section tints every link teal; the carousel keeps its names white */
 .carousel .carousel-item, .carousel .carousel-item:hover { color: var(--ink); }
 
+/* turned by hand (site.js): the script owns the spin, sideways swipes are ours,
+   up-and-down swipes still scroll the page */
+.carousel.is-live { touch-action: pan-y; cursor: grab; -webkit-user-select: none; user-select: none; }
+.carousel.is-live .carousel-ring { animation: none; }
+.carousel.is-dragging { cursor: grabbing; }
+.carousel.is-dragging .carousel-item { pointer-events: none; }
+.carousel-item { -webkit-user-drag: none; }
+.carousel-arrow {
+  position: absolute; top: 50%; z-index: 2; transform: translateY(-50%);
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0 0 3px;
+  background: rgba(10, 15, 33, .78); border: 1px solid var(--line); border-radius: 50%;
+  color: var(--ink); font: 400 28px/1 var(--sans); cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .45);
+  transition: border-color .15s ease, color .15s ease;
+}
+.carousel-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-prev { left: 4px; }
+.carousel-next { right: 4px; }
+.carousel-hint { position: absolute; left: 0; right: 0; bottom: -6px; z-index: 1; margin: 0; text-align: center; pointer-events: none; font: 500 12px var(--mono); letter-spacing: .06em; color: var(--muted); }
+
 @media (max-width: 700px) {
+  .carousel-arrow { width: 38px; height: 38px; font-size: 24px; }
   .carousel { height: 270px; perspective: 900px; }
   .carousel-ring { --r: 250px; width: 118px; height: 160px; margin-left: -59px; top: 36px; }
   .carousel-item { padding: 10px 8px; gap: 6px; }
