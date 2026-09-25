@@ -1413,7 +1413,9 @@ var CV_FORGE_PF_REC = {
     'sample-cvs.html': '43 finished CVs, by field',
     'templates.html': '17 CV designs to choose from',
     'sample-portfolios.html': '18 sample sites, 10 themes',
-    'pricing.html': 'From ₹99 — bundles save more'
+    'pricing.html': 'From ₹99 — bundles save more',
+    'ats-checker.html': 'Your resume’s ATS score in seconds, free',
+    'guides.html': 'Resume format, ATS, resume vs CV and more'
   };
   header.querySelectorAll('.site-nav a:not(.btn)').forEach(function (a) {
     var b = BLURB[(a.getAttribute('href') || '').toLowerCase()];

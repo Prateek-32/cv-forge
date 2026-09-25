@@ -6,7 +6,8 @@ Fieldcraft is a writing service, not a do-it-yourself resume builder: customers 
 
 ## Prices (launch pricing, Indian rupees)
 
-- Resume health check (ATS parse test and written notes): ₹49
+- Free ATS resume checker (score and top fixes, runs in the browser): https://fieldcraft.co.in/ats-checker.html
+- Expert resume review (the full ATS report plus a person's notes on the resume you already have): ₹49
 - Resume, one page, ATS-friendly: ₹99
 - CV (curriculum vitae), long-form: ₹199
 - LinkedIn profile rewrite: ₹149
