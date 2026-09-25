@@ -163,6 +163,31 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 - The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
   make room for "Templates".
 
+## Free ATS resume checker (ats-checker.html, ats.js)
+
+Visitors upload a PDF or Word (.docx) resume, or paste the text, plus an optional job
+description. `ats.js` reads it **in the browser** — pdf.js and JSZip load from cdnjs only
+when needed — runs about 30 checks (readability, contact, sections, content, keywords,
+length and file) and gives a score out of 100.
+
+- **Free:** the score, the category bars, the **top 3 fixes** in full and what is already
+  working.
+- **Locked:** every other fix is shown only as a locked row (severity and category, a
+  blurred line). The fix text is never written into the page.
+- **Unlock = the ₹49 expert review.** The visitor sends their name, email and consent; the
+  resume file and the full report (all fixes) go to the brief endpoint as a normal brief
+  (Career stage "Resume review ₹49 — ATS checker"), then they pay on
+  `pay.html?amount=49&for=Resume review`. You email the full report plus a person's notes
+  within 24 hours of payment. It cannot unlock instantly: a static site cannot confirm a UPI
+  payment (that would need a payment gateway with a server-side check).
+- Tested on the site's own sample CVs (all score 100) and on deliberately bad PDFs and
+  .docx files (two columns, tables, header-only contact details, personal details,
+  "responsible for", declaration).
+- The ₹49 product is called **Expert resume review** everywhere (pricing, home FAQ,
+  assistant, llms.txt, structured data). The checker is linked from the home hero, the
+  pricing page, the ATS guide, every footer and the ☰ menu (menu-only links use
+  `.nav-extra`, hidden on wide screens).
+
 ## Taking payment (pay.html)
 
 UPI, no fees. Send each client a link with the agreed price:

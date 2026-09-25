@@ -90,9 +90,9 @@
       },
       chips: ['bundles', 'start'] },
 
-    { id: 'health', keys: ['health check', 'review my resume', 'check my resume', 'feedback', 'audit', 'critique', 'just review'],
+    { id: 'health', keys: ['health check', 'review my resume', 'check my resume', 'feedback', 'audit', 'critique', 'just review', 'ats check', 'ats checker', 'ats score', 'resume score', 'resume checker', 'expert review'],
       answer: function () {
-        return 'The <strong>resume health check</strong> is ' + R + PRICES.health + ': a read-through of the resume you already have, with an ATS parse test, the errors listed, and written notes on structure, ordering and wording. No rewriting — you make the changes. A good start if you are unsure.';
+        return 'Start with the <a href="ats-checker.html">free ATS resume checker</a>: upload your resume and get a score and your top fixes in seconds, in your browser. The <strong>expert resume review</strong> (' + R + PRICES.health + ') unlocks every fix plus notes from a person on structure, ordering and wording, emailed within 24 hours. No rewriting — you make the changes.';
       },
       chips: ['resume', 'prices'] },
 
@@ -110,7 +110,7 @@
 
     { id: 'prices', keys: ['price', 'prices', 'pricing', 'cost', 'costs', 'charge', 'charges', 'fee', 'fees', 'rate', 'rates', 'how much', 'kitna', 'kitne', 'paisa', 'paise', 'rupees', 'budget', 'expensive', 'afford'],
       answer: function () {
-        return 'Launch prices (first 25 clients):<br>• Resume health check — ' + R + PRICES.health +
+        return 'Launch prices (first 25 clients):<br>• Expert resume review — ' + R + PRICES.health + ' (the ATS checker is free)' +
           '<br>• Resume — ' + R + PRICES.resume + '<br>• CV — ' + R + PRICES.cv +
           '<br>• LinkedIn rewrite — ' + R + PRICES.linkedin + '<br>• Portfolio site — ' + R + PRICES.portfolio +
           '<br>• Custom domain setup — +' + R + PRICES.domain +
@@ -281,7 +281,7 @@
     revisions: 'Revisions', payment: 'When do I pay?', portfolio: 'Portfolio sites', hosting: 'Hosting',
     domain: 'Custom domain', samples: 'See samples', issue: 'Raise an issue', contact: 'Talk to a person',
     start: 'Start a brief', send: 'What do I send?', cvvs: 'Resume or CV?', ats: 'ATS-safe?',
-    resume: 'The resume', health: 'Health check', formats: 'File formats', hours: 'Reply hours',
+    resume: 'The resume', health: 'Free ATS check', formats: 'File formats', hours: 'Reply hours',
     templates: 'Templates', pfthemes: 'Portfolio themes'
   };
 
