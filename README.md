@@ -163,6 +163,22 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 - The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
   make room for "Templates".
 
+## Privacy, terms and promises
+
+- `privacy.html` and `terms.html` describe how the service really works: the brief goes to
+  your Google Sheet, Drive and Gmail; briefs are kept up to 12 months after delivery (3 if no
+  order); one revision within 14 days; full refund if cancelled before work starts. Change
+  the pages if the practice changes. They are linked from every footer, and both briefs end
+  with a required "I agree" tick box (`name="consent"`, carried in the summary).
+- Turnaround: resumes, CVs and LinkedIn in 24 hours; portfolio sites live in 3–5 days. The
+  footer line, pricing card and FAQ, the start page and the assistant all say so — change
+  them together.
+- Samples name real employers for realism. Every sample CV's notice, every portfolio footer,
+  both listing pages and the terms say the people and results are invented and no
+  endorsement is implied.
+- `404.html` uses `<base href="/">` so its links work at any depth. It only renders
+  properly on the live domain, not opened as a local file.
+
 ## On phones
 
 At 760px and below the site changes shape so everything we sell is easy to find, and it

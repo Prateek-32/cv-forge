@@ -60,7 +60,7 @@
 
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on eighteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name within 3–5 days. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on eighteen sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
       },
       chips: ['pfthemes', 'hosting', 'domain', 'start'] },
 
@@ -128,7 +128,7 @@
     { id: 'turnaround', keys: ['how long', 'turnaround', 'time', 'fast', 'quick', 'when', 'deliver', 'delivery', 'days', 'hours', '24', 'kab', 'jaldi', 'kitne din', 'ready',
                                'milega', 'milegi', 'kab tak', 'how soon', 'get it'],
       answer: function () {
-        return 'Your files come back <strong>within 24 hours of payment</strong>. The order is: you send the brief → we confirm price and deadline by email → you pay → files within 24 hours.';
+        return 'Your files come back <strong>within 24 hours of payment</strong>. The order is: you send the brief → we confirm price and deadline by email → you pay → files within 24 hours. <strong>Portfolio sites</strong> go live within 3–5 days of payment and your material.';
       },
       chips: ['process', 'revisions', 'payment'] },
 
@@ -146,7 +146,13 @@
 
     { id: 'refund', keys: ['refund', 'money back', 'cancel', 'cancellation', 'return'],
       answer: function () {
-        return 'For anything about a payment, a refund or cancelling an order, please email us with your name and order details and we will reply within our hours. I can open that email for you, filled in.';
+        return 'Cancel before we start work and you get a <strong>full refund</strong>; the same if we do not deliver what we agreed. Once your files or site are delivered, your included revision is how we put things right. The <a href="terms.html">terms</a> have the details. To ask for a refund or cancel, email us with your name and order details — I can raise it for you now.';
+      },
+      chips: ['issue', 'contact'] },
+
+    { id: 'privacy', keys: ['privacy', 'my data', 'personal data', 'delete my data', 'delete my details', 'data safe', 'is my cv safe', 'who sees my cv', 'confidential', 'gdpr', 'dpdp'],
+      answer: function () {
+        return 'Your brief and files go only to Fieldcraft\'s own Google Sheet, Drive and inbox, and are used only for your order — never sold, published or shared with employers. We keep them for up to 12 months after delivery, and you can ask us to delete them at any time. The <a href="privacy.html">privacy policy</a> has everything.';
       },
       chips: ['issue', 'contact'] },
 
