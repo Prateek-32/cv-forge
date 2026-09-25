@@ -1621,11 +1621,6 @@ var CV_FORGE_PF_REC = {
     });
     box.appendChild(b);
   });
-  var hint = document.createElement('p');
-  hint.className = 'carousel-hint';
-  hint.textContent = window.matchMedia('(hover: none)').matches ? 'Swipe to turn · tap a field to open it'
-                                                               : 'Drag to turn · click a field to open it';
-  box.appendChild(hint);
 
   box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
   box.addEventListener('pointerleave', function () { hover = false; });
