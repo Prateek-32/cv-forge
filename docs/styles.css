@@ -1485,20 +1485,8 @@ dialog.qv::backdrop { background: rgba(3, 5, 14, .74); backdrop-filter: blur(6px
 .carousel.is-dragging { cursor: grabbing; }
 .carousel.is-dragging .carousel-item { pointer-events: none; }
 .carousel-item { -webkit-user-drag: none; }
-.carousel-arrow {
-  position: absolute; top: 50%; z-index: 2; transform: translateY(-50%);
-  display: grid; place-items: center; width: 44px; height: 44px; padding: 0 0 3px;
-  background: rgba(10, 15, 33, .78); border: 1px solid var(--line); border-radius: 50%;
-  color: var(--ink); font: 400 28px/1 var(--sans); cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .45);
-  transition: border-color .15s ease, color .15s ease;
-}
-.carousel-arrow:hover { border-color: var(--accent); color: var(--accent); }
-.carousel-prev { left: 4px; }
-.carousel-next { right: 4px; }
 
 @media (max-width: 700px) {
-  .carousel-arrow { width: 38px; height: 38px; font-size: 24px; }
   .carousel { height: 270px; perspective: 900px; }
   .carousel-ring { --r: 250px; width: 118px; height: 160px; margin-left: -59px; top: 36px; }
   .carousel-item { padding: 10px 8px; gap: 6px; }
