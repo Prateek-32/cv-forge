@@ -5,13 +5,15 @@
 
    Costs are kept honest: star count scales with viewport area and is
    capped, the loop stops when the tab is hidden, and the whole thing
-   renders one static frame under prefers-reduced-motion. */
+   renders one static frame under prefers-reduced-motion — and on phones,
+   where a sky that never stops redrawing costs smooth scrolling and
+   battery, and there is no pointer for it to follow anyway. */
 
 (function () {
   'use strict';
 
   var reduced = window.matchMedia &&
-                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 760px), (hover: none)').matches;
 
   // Modest machines get a lighter sky, and lose the aurora wash entirely.
   var lowPower = (navigator.hardwareConcurrency || 8) <= 2 ||

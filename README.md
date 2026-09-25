@@ -145,6 +145,29 @@ Seventeen CV templates, all single-column and ATS-safe. **Modern** is the defaul
 - The top menu no longer has "Home" (the wordmark links home; the footer keeps it), to
   make room for "Templates".
 
+## On phones
+
+At 760px and below the site changes shape so everything we sell is easy to find, and it
+scrolls smoothly. Computers see none of it. The pieces:
+
+- **Tab bar** along the bottom of every page (Home, Samples, Templates, Portfolios, Start),
+  added by `site.js`. The floating WhatsApp button and the chat teaser are hidden; WhatsApp
+  and Call buttons sit at the end of the ☰ menu, and each menu link says what the page holds.
+- **Home**: four offer cards with prices (`.offer-grid` in `index.html`) sit right under the
+  headline; the decorative CV card and the third button are hidden. The cards open the
+  brief with that item ticked (`start.html?need=resume|cv|linkedin`).
+- **Short lists**: a list with `data-m-limit="4"` shows that many items and a "Show all"
+  button (`data-m-label`, `data-m-items`, `data-m-free-when-alone` — see the comment in
+  `site.js`). Used on sample CVs (2 per field), templates (6) and portfolios (4 examples,
+  2 showcase designs). Sample CVs and templates go two to a row.
+- **Speed**: portfolio previews are pictures (`portfolios/shots/*.jpg`, 640×400). Computers
+  load the live site over the picture; phones never load it. The star sky draws one still
+  frame, and the fixed, blurred and animated background layers are switched off.
+  If a portfolio's top screen changes, retake its picture: a 1280×800 screenshot of the
+  page inside an iframe (so the sample banner hides), saved as a 640×400 JPEG.
+- **Theme studio**: the live preview moves above the controls and stays pinned while
+  themes are tapped. In the order form, Back / Next stay pinned above the tab bar.
+
 ## Sample portfolios
 
 `sample-portfolios.html` has three parts: a **theme studio** (pick one of the fourteen kit
