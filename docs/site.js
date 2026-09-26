@@ -20,7 +20,7 @@ var CV_FORGE_CONTACT = {
   upiName:  'Fieldcraft',           // shown in the UPI app; the bank shows the account holder's name too
   // The Apps Script web app (apps-script/Code.gs). The chat assistant sends
   // issues here; keep it the same as data-endpoint on start.html.
-  formEndpoint: 'https://script.google.com/macros/s/AKfycbwggldqgpNJMffp56ZQqU0idMmG1ILO1r9s5KsumvbjmQbmGsyhPF7FPszSb_Iz37yB/exec'
+  formEndpoint: 'https://script.google.com/macros/s/AKfycbyEmTv1h50e7OH2YoKov8veDd9WsUEv2JjslAa9QqpEgQjKSsuvMWMg89SnXDE3Rrlr/exec'
 };
 
 (function () {
