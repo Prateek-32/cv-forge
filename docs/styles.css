@@ -3119,3 +3119,6 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 @media (max-width: 900px) and (min-width: 761px) {
   .forge.duo { width: min(100%, 520px); justify-self: center; }
 }
+.footer-social { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14.5px; color: var(--ink-2); text-decoration: none; }
+.footer-social:hover { color: var(--accent); }
+.footer-social svg { flex: none; }
