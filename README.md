@@ -176,8 +176,8 @@ length and file) and gives a score out of 100.
   blurred line). The fix text is never written into the page.
 - **Unlock = the ₹49 expert review.** The visitor sends their name, email and consent; the
   resume file and the full report (all fixes) go to the brief endpoint as a normal brief
-  (Career stage "Resume review ₹49 — ATS checker"), then they pay on
-  `pay.html?service=review`. You email the full report plus a person's notes
+  (Career stage "Resume review ₹49 — ATS checker"). The checker shows no payment step:
+  you confirm with them by email or WhatsApp, they pay on `pay.html` (every footer), and you email the full report plus a person's notes
   within 24 hours of payment. It cannot unlock instantly: a static site cannot confirm a UPI
   payment (that would need a payment gateway with a server-side check).
 - Tested on the site's own sample CVs (all score 100) and on deliberately bad PDFs and

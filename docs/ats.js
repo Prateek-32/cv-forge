@@ -5,7 +5,8 @@
    shows the score, the categories and the top FREE_SHOWN fixes in full. Every
    other fix is shown only as a locked row: its text is never put on the page.
    The full report (all fixes, plus a person's notes) is the ₹49 review: the
-   visitor sends the resume and report to the brief endpoint, pays on pay.html,
+   visitor sends the resume and report to the brief endpoint; Fieldcraft confirms
+   by email or WhatsApp, the visitor pays (pay.html, linked from every footer)
    and gets the report by email.
 
    Nothing leaves the browser unless the visitor asks for the full report.
@@ -451,7 +452,7 @@
     $('ats-tool').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // ---- unlock: send the resume and the full report, then pay ----------------------
+  // ---- unlock: send the resume and the full report for the ₹49 review -------------
   var form = $('ats-unlock-form');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -491,7 +492,6 @@
       .then(function (out) {
         if (!out || out.ok === false) throw new Error((out && out.error) || 'Rejected');
         form.hidden = true;
-        $('ats-pay').href = 'pay.html?service=review&ref=' + encodeURIComponent(name);
         $('ats-sent').hidden = false;
         st.textContent = '';
       })
