@@ -27,7 +27,7 @@
 var SHEET_NAME    = 'Briefs';
 var ISSUE_SHEET   = 'Issues';
 var UPLOAD_FOLDER = 'CV Forge uploads';        // the pre-rename name, kept so uploads stay in one folder
-var NOTIFY_EMAIL  = 'prateek.32gupta@gmail.com';   // blank sends nothing
+var NOTIFY_EMAIL  = 'orders@fieldcraft.co.in';   // blank sends nothing
 
 // New columns only ever go on the end, so existing sheets keep lining up.
 var HEADERS = ['Received', 'Name', 'Email', 'Field', 'Career stage',
