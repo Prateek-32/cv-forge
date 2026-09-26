@@ -3030,3 +3030,92 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 .fpf-more a { color: var(--accent); }
 @media (max-width: 760px) { .fpf-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .fpf-body { padding: 10px 12px 12px; } .fpf-body strong { font-size: 16px; } .fpf-links { display: none; } }
 @media (prefers-reduced-motion: reduce) { .fpf-card:hover, .fpf-card:focus-visible { transform: none; } }
+
+/* ---------- home hero: resume + portfolio, and the free ATS check ---------- */
+
+/* the two words that say what we make */
+.hero-copy h1 .hl {
+  background: linear-gradient(100deg, #5EEAD4 10%, #A78BFA 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* the artwork: a portfolio site in a browser window, with the resume in front of it */
+.forge.duo { padding-top: clamp(8px, 1.5vw, 18px); }
+.duo-site {
+  position: relative; margin-left: 16%;
+  overflow: hidden; border-radius: 12px; background: #0B0B0C;
+  box-shadow: 0 30px 70px -22px rgba(0,0,0,.8), 0 0 0 1px rgba(160,178,235,.18), 0 0 70px -16px rgba(139,92,246,.45);
+  transform: rotate(2.5deg);
+}
+.duo-chrome { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; background: #161B2E; font: 500 11px var(--mono); color: var(--muted); }
+.duo-chrome i { width: 8px; height: 8px; border-radius: 50%; background: #FF5F57; }
+.duo-chrome i:nth-child(2) { background: #FEBC2E; }
+.duo-chrome i:nth-child(3) { background: #28C840; }
+.duo-chrome span { margin-left: 8px; padding: 1px 10px; border-radius: 999px; background: rgba(255,255,255,.07); }
+.duo-site img { display: block; width: 100%; height: auto; }
+.duo .forge-paper { z-index: 1; width: 72%; margin-top: -24%; padding: 24px 22px 26px; gap: 7px; transform: rotate(-2deg); }
+.duo .f-name { font-size: clamp(20px, 2vw, 26px); }
+.duo .f-title { font-size: 13px; }
+.duo .f-boxes span { padding: 8px; font-size: 10px; }
+.duo .f-boxes b { font-size: clamp(14px, 1.35vw, 18px); }
+.duo .f-chips i { font-size: 10.5px; }
+.duo .forge-badge.b1 { top: auto; bottom: 20%; right: 0; }
+.duo .forge-badge.b2 { top: 2%; bottom: auto; left: 4%; }
+.duo .forge-badge.b3 { bottom: 3%; right: 6%; }
+
+/* the free ATS check: a card, not a footnote */
+.ats-card {
+  position: relative; overflow: hidden; isolation: isolate;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px;
+  width: 100%; max-width: 580px; padding: 14px 14px 14px 16px;
+  border: 1px solid rgba(94, 234, 212, .55); border-radius: 18px;
+  background: linear-gradient(120deg, rgba(94, 234, 212, .16), rgba(139, 92, 246, .16)), rgba(10, 16, 36, .85);
+  box-shadow: 0 18px 44px -22px rgba(94, 234, 212, .6);
+  color: var(--ink); text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.ats-card:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 22px 50px -20px rgba(94, 234, 212, .75); color: var(--ink); }
+.ats-card-ring {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: radial-gradient(closest-side, #0B1226 78%, transparent 80%),
+              conic-gradient(#5EEAD4 0 86%, rgba(255, 255, 255, .1) 0);
+}
+.ats-card-ring b { font: 600 21px/1 var(--serif); color: var(--ink); }
+.ats-card-ring small { font-size: 9.5px; color: var(--muted); }
+.ats-card-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ats-card-tag {
+  align-self: flex-start; padding: 2px 9px; border-radius: 999px;
+  background: var(--accent); color: #04221E; font: 700 10.5px/1.6 var(--sans); letter-spacing: .06em; text-transform: uppercase;
+}
+.ats-card-copy strong { font-size: 17px; font-weight: 600; line-height: 1.3; }
+.ats-card-sub { font-size: 13.5px; line-height: 1.4; color: var(--muted); }
+.ats-card-go {
+  padding: 11px 16px; border-radius: 12px; background: var(--accent); color: #04221E;
+  font-size: 14.5px; font-weight: 600; white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ats-card::after {                                     /* a slow sheen, to catch the eye */
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .09) 50%, transparent 65%);
+    transform: translateX(-100%); animation: ats-sheen 5s ease-in-out 1.5s infinite;
+  }
+}
+@keyframes ats-sheen { 0% { transform: translateX(-100%); } 35%, 100% { transform: translateX(100%); } }
+
+@media (max-width: 760px) {
+  /* phones: the free check straight after the pitch, then what we sell */
+  .hero-copy > * { order: 2; }
+  .hero-copy > .eyebrow, .hero-copy > h1, .hero-copy > .lede { order: 0; }
+  .hero-copy > .ats-card { order: 1; margin-top: 4px; }
+}
+@media (max-width: 520px) {
+  .ats-card { grid-template-columns: auto minmax(0, 1fr); gap: 12px 14px; padding: 14px; }
+  .ats-card-ring { width: 56px; height: 56px; }
+  .ats-card-ring b { font-size: 18px; }
+  .ats-card-copy strong { font-size: 16px; }
+  .ats-card-go { grid-column: 1 / -1; text-align: center; padding: 12px; }
+}
+@media (max-width: 900px) and (min-width: 761px) {
+  .forge.duo { width: min(100%, 520px); justify-self: center; }
+}
