@@ -316,7 +316,7 @@ Fourteen examples share one markup and one stylesheet, so each can be shown in a
 | `portfolios/ryan-obrien.html` | VP Sales EMEA | Swiss | `samples/sales-cv.html` |
 | `portfolios/isabelle-fontaine.html` | Strategy consultant | Aurora | `samples/consulting-cv.html` |
 | `portfolios/tariq-osei.html` | Senior data scientist | Console | `samples/data-cv.html` |
-| `portfolios/fatima-al-rashid.html` | Frontend lead, design systems | Gallery | `samples/engineering-cv-7.html` |
+| `portfolios/mark-jensen.html` | Frontend lead, design systems | Gallery | `samples/engineering-cv-7.html` |
 | `portfolios/diego-reyes.html` | Backend engineer, payments | Aurora | `samples/engineering-cv-2.html` |
 | `portfolios/anika-patel.html` | Chief financial officer | Sidebar | `samples/finance-cv-6.html` |
 | `portfolios/aisha-bello.html` | Senior clinical pharmacist | Clinic | `samples/healthcare-cv-6.html` |
