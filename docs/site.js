@@ -10,7 +10,7 @@
    empty field never shows up as a placeholder.
    --------------------------------------------------------------- */
 var CV_FORGE_CONTACT = {
-  email:    'prateek.32gupta@gmail.com',
+  email:    'hello@fieldcraft.co.in',
   phone:    '+91 96364 79447',      // as it should be shown
   whatsapp: '919636479447',         // digits only, country code first
   city:     'Pune, Maharashtra',
