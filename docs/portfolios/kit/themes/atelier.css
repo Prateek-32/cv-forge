@@ -1,0 +1,179 @@
+/* Atelier — a maker's studio: warm linen, a soft serif, handwritten notes in the
+   margin, and work pinned up with washi tape. Suits painters, textile and resin
+   artists, illustrators and anyone whose work is made by hand. Bold & expressive. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;600&family=Caveat:wght@500;600&display=swap');
+
+:root {
+  --bg: #F4EDE1;
+  --surface: #FBF7F0;
+  --ink: #2A2019;
+  --ink-2: #4A3D32;
+  --muted: #7A6A5B;
+  --line: rgba(92, 62, 34, .2);
+  --accent: #B4532A;
+  --accent-ink: #FFF8EF;
+  --accent-2: #2F4B7C;
+  --display: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+  --text: 'Karla', 'Segoe UI', Arial, sans-serif;
+  --mono: 'Karla', 'Segoe UI', Arial, sans-serif;
+  --hand: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
+  --radius: 6px;
+  --radius-sm: 3px;
+  --shadow: 0 1px 1px rgba(60, 36, 14, .08), 0 14px 30px -18px rgba(60, 36, 14, .45);
+  --name-size: clamp(52px, 8.6vw, 116px);
+  --art-frame: 10px solid #FFFDF8;
+  --art-shadow: 0 1px 2px rgba(60, 36, 14, .18), 0 18px 30px -18px rgba(60, 36, 14, .55);
+  --tape: rgba(214, 170, 120, .55);
+}
+
+/* linen: fine warp and weft over a warm ground */
+body.pk {
+  background:
+    repeating-linear-gradient(0deg, rgba(120, 90, 50, .035) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(120, 90, 50, .03) 0 1px, transparent 1px 4px),
+    radial-gradient(1200px 700px at 85% -10%, rgba(180, 83, 42, .07), transparent 60%),
+    var(--bg);
+}
+:where(.pk) h1, :where(.pk) h2, :where(.pk) h3 { font-weight: 600; letter-spacing: -.005em; }
+
+.pk-eyebrow { font: 600 23px/1 var(--hand); letter-spacing: 0; text-transform: none; color: var(--accent); }
+.pk-kicker, .pk-meta, .pk-when, .pk-list span, .pk-portrait small { font-family: var(--text); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; font-size: 11.5px; }
+
+/* ---------- nav ---------- */
+.pk-nav { background: rgba(244, 237, 225, .9); border-bottom: 1px dashed var(--line); }
+.pk-mark { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 25px; }
+.pk-nav nav a { font-size: 14px; color: var(--ink-2); }
+.pk-nav nav a:hover { color: var(--accent); }
+
+/* ---------- hero: a watercolour wash behind the name ---------- */
+.pk-hero::before {
+  inset: -10% -6% auto auto; width: min(760px, 70vw); aspect-ratio: 1.3;
+  background:
+    radial-gradient(38% 42% at 34% 40%, rgba(47, 75, 124, .20), transparent 70%),
+    radial-gradient(34% 36% at 62% 52%, rgba(180, 83, 42, .20), transparent 72%),
+    radial-gradient(30% 30% at 50% 28%, rgba(214, 160, 60, .22), transparent 70%);
+  filter: blur(18px);
+}
+.pk-hero::after {                               /* a line of running stitch */
+  left: var(--gutter); right: var(--gutter); bottom: 12px; height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(180, 83, 42, .55) 0 12px, transparent 12px 20px);
+}
+.pk-kicker { color: var(--muted); }
+.pk-name { font-weight: 500; letter-spacing: -.02em; line-height: .92; }
+.pk-name em { font-weight: 500; color: var(--accent); }
+.pk-headline { font-size: clamp(18px, 1.7vw, 21px); color: var(--ink-2); }
+.pk-btn { border-radius: 4px; background: var(--ink); border-color: var(--ink); color: var(--bg) !important; letter-spacing: .02em; }
+.pk-btn:hover { background: var(--accent); border-color: var(--accent); box-shadow: none; }
+.pk-ghost { background: transparent; border: 1px dashed var(--ink-2); color: var(--ink) !important; }
+.pk-ghost:hover { background: rgba(180, 83, 42, .08); color: var(--ink) !important; }
+
+/* the portrait / signature piece: pinned up, a little crooked, taped */
+.pk-portrait {
+  overflow: visible; border: 12px solid #FFFDF8; border-bottom-width: 44px; border-radius: 2px;
+  background: linear-gradient(160deg, #EADBC4, #D8C2A2);
+  box-shadow: var(--art-shadow); transform: rotate(2deg);
+}
+.pk-portrait img { border-radius: 0; }
+.pk-portrait::after {
+  content: ""; position: absolute; z-index: 2; top: -26px; left: 50%; width: 110px; height: 30px; margin-left: -55px;
+  background: var(--tape); transform: rotate(-4deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+  -webkit-mask: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent 0);
+          mask: linear-gradient(90deg, transparent 0 3px, #000 3px calc(100% - 3px), transparent 0);
+}
+.pk-portrait span { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--ink); }
+.pk-portrait small, .pk-portrait:has(img) small {
+  left: 0; right: 0; bottom: -34px; padding: 0; text-align: center; background: none; backdrop-filter: none;
+  font: 600 20px/1 var(--hand); letter-spacing: 0; text-transform: none; color: var(--ink-2);
+}
+
+.pk-stats { border-top: 1px dashed var(--line); }
+.pk-stats b { font-weight: 600; color: var(--accent-2); }
+
+/* ---------- section heads: a hand-drawn underline ---------- */
+.pk-head h2 { font-weight: 500; }
+.pk-head h2::after {
+  content: ""; display: block; width: 150px; height: 12px; margin-top: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 12'%3E%3Cpath d='M2 8 C 30 2, 50 11, 78 6 S 128 3, 148 7' fill='none' stroke='%23B4532A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+}
+.pk-head p:not(.pk-eyebrow) { color: var(--ink-2); }
+
+/* ---------- projects: paper cards, taped ---------- */
+.pk-project { overflow: visible; border: 0; border-radius: 3px; background: var(--surface); }
+.pk-project:nth-child(odd) { transform: rotate(-.6deg); }
+.pk-project:nth-child(even) { transform: rotate(.5deg); }
+.pk-project:hover { transform: rotate(0) translateY(-4px); }
+.pk-project::before {
+  content: ""; position: absolute; z-index: 4; top: -12px; left: 50%; width: 92px; height: 24px; margin-left: -46px;
+  background: var(--tape); transform: rotate(3deg); pointer-events: none;
+}
+.pk-project:nth-child(3n+2)::before { background: rgba(140, 170, 200, .5); transform: rotate(-3deg); }
+.pk-cover { margin: 10px 10px 0; border-radius: 2px; }
+.pk-project h3 { font-size: 27px; font-weight: 600; }
+.pk-result { border-top: 1px dashed var(--line); }
+
+/* ---------- artworks: matted, pinned, a gentle hang ---------- */
+.pk-art { position: relative; }
+.pk-art-link { border-radius: 1px; }
+.pk-art:nth-child(4n+1) .pk-art-link { transform: rotate(-.7deg); }
+.pk-art:nth-child(4n+3) .pk-art-link { transform: rotate(.6deg); }
+.pk-art::before {
+  content: ""; position: absolute; z-index: 2; top: -9px; left: 50%; width: 76px; height: 20px; margin-left: -38px;
+  background: var(--tape); transform: rotate(-3deg); pointer-events: none;
+}
+.pk-art:nth-child(3n+2)::before { background: rgba(140, 170, 200, .5); transform: rotate(2deg); left: 30%; }
+.pk-art:nth-child(3n)::before { background: rgba(190, 200, 150, .55); left: 68%; }
+.pk-art figcaption { padding: 2px 4px 0; }
+.pk-art figcaption b { font-size: 21px; font-style: italic; font-weight: 500; }
+.pk-status { font-family: var(--hand); font-size: 19px; letter-spacing: 0; text-transform: none; }
+.pk-filter button { border-style: dashed; border-radius: 4px; background: transparent; font-weight: 500; }
+.pk-filter button[aria-pressed="true"] { border-style: solid; background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.pk-feature img { border: 12px solid #FFFDF8; border-radius: 2px; box-shadow: var(--art-shadow); }
+.pk-feature figcaption { font-size: 14px; }
+.pk-feature figcaption b { font: 600 21px/1.1 var(--hand); color: var(--accent); }
+
+/* ---------- case study ---------- */
+.pk-case-card { border: 1px dashed var(--line); background: var(--surface); }
+.pk-steps { counter-reset: at-step; }
+.pk-step { counter-increment: at-step; background: transparent; border: 1px dashed var(--line); border-radius: 4px; }
+.pk-step b { font: 600 24px/1 var(--hand); letter-spacing: 0; text-transform: none; color: var(--accent); }
+.pk-step b::before { content: counter(at-step) ". "; }
+.pk-step:not(:last-child)::after { border-style: dashed; background: var(--bg); }
+
+/* ---------- about, tags, lists, timeline ---------- */
+.pk-about-text p:first-child { font-style: italic; font-weight: 500; font-size: clamp(25px, 2.7vw, 33px); }
+.pk-facts, .pk-facts li { border-color: var(--line); border-style: dashed; }
+.pk-tags li { border: 1px dashed rgba(92, 62, 34, .35); border-radius: 3px; background: var(--surface); }
+.pk-tags li:nth-child(4n+1) { background: #F7E6D8; }
+.pk-tags li:nth-child(4n+3) { background: #E4EAF3; }
+.pk-list li, .pk-list li:last-child { border-style: dashed; border-color: var(--line); }
+.pk-list b { font-family: var(--display); font-size: 20px; font-weight: 600; }
+.pk-timeline li, .pk-timeline li:last-child { border-style: dashed; border-color: var(--line); }
+.pk-timeline h3 { font-size: 24px; }
+.pk-org { color: var(--accent-2); }
+
+/* ---------- contact: indigo cloth, stitched ---------- */
+.pk-contact .pk-contact-card { background: var(--accent-2); color: #F4EDE1; border-radius: 6px; }
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; inset: 10px; z-index: 0; pointer-events: none; border-radius: 3px;
+  border: 2px dashed rgba(244, 237, 225, .5);
+}
+.pk-contact .pk-contact-card::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .04) 0 1px, transparent 1px 3px),
+              repeating-linear-gradient(90deg, rgba(0, 0, 0, .05) 0 1px, transparent 1px 3px);
+}
+.pk-contact .pk-eyebrow { color: #F2C49B; }
+.pk-contact h2 { color: #FBF7F0; font-weight: 500; font-style: italic; }
+.pk-contact-line { font-style: italic; }
+
+.pk-foot { font-size: 13px; }
+
+@media (max-width: 860px) {
+  .pk-portrait { max-width: 280px; margin: 18px 0 40px 8px; }
+  .pk-project:nth-child(n), .pk-art:nth-child(n) .pk-art-link { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pk-project:hover { transform: none; }
+}

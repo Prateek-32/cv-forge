@@ -14,8 +14,8 @@
 
   var THEME_GROUPS = [
     ['Clean & professional', ['paper', 'clinic', 'sidebar', 'swiss']],
-    ['Bold & expressive',    ['brutal', 'pastel', 'gallery']],
-    ['Dark & dramatic',      ['aurora', 'noir', 'console']]
+    ['Bold & expressive',    ['brutal', 'pastel', 'gallery', 'atelier']],
+    ['Dark & dramatic',      ['aurora', 'noir', 'console', 'darkroom']]
   ];
   var THEMES = [];
   THEME_GROUPS.forEach(function (g) { THEMES = THEMES.concat(g[1]); });
@@ -90,6 +90,18 @@
       }, { passive: true });
     }
 
+    // ---- artworks: series filter and a lightbox (see .pk-gallery in portfolio.css)
+    var arts = Array.prototype.slice.call(document.querySelectorAll('.pk-art'));
+    var filter = document.querySelector('.pk-filter');
+    if (filter) filter.addEventListener('click', function (ev) {
+      var b = ev.target.closest ? ev.target.closest('button[data-series]') : null;
+      if (!b) return;
+      var s = b.getAttribute('data-series');
+      filter.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      arts.forEach(function (a) { a.hidden = s !== 'all' && (' ' + (a.getAttribute('data-series') || '') + ' ').indexOf(' ' + s + ' ') < 0; });
+    });
+    if (arts.length) lightbox(arts);
+
     // ---- reveal sections as they scroll in (items entering together stagger)
     var items = document.querySelectorAll('.pk-reveal');
     var showAll = function () { items.forEach(function (el) { el.classList.add('in'); }); };
@@ -108,3 +120,72 @@
     window.setTimeout(showAll, 2500);   // nothing stays hidden, whatever happens
   });
 })();
+
+// A lightbox for .pk-art figures: the full image (the link's href), its label,
+// previous / next among the works on show, Esc, arrow keys and swipe.
+function lightbox(arts) {
+  'use strict';
+  var box = null, img, cap, count, cur = -1, opener = null, x0 = null;
+  var shown = function () { return arts.filter(function (a) { return !a.hidden; }); };
+  var build = function () {
+    box = document.createElement('div');
+    box.className = 'pk-lightbox'; box.hidden = true;
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', 'Artwork viewer');
+    box.innerHTML = '<figure><img alt=""></figure><div class="pk-lb-cap" aria-live="polite"></div>' +
+      '<span class="pk-lb-count"></span>' +
+      '<button type="button" class="pk-lb-close" aria-label="Close">&times;</button>' +
+      '<button type="button" class="pk-lb-prev" aria-label="Previous work">&#8249;</button>' +
+      '<button type="button" class="pk-lb-next" aria-label="Next work">&#8250;</button>';
+    document.body.appendChild(box);
+    img = box.querySelector('img'); cap = box.querySelector('.pk-lb-cap'); count = box.querySelector('.pk-lb-count');
+    box.querySelector('.pk-lb-close').addEventListener('click', close);
+    box.querySelector('.pk-lb-prev').addEventListener('click', function () { step(-1); });
+    box.querySelector('.pk-lb-next').addEventListener('click', function () { step(1); });
+    box.addEventListener('click', function (e) { if (e.target === box || e.target.tagName === 'FIGURE') close(); });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+      else if (e.key === 'Tab') {                      // keep focus inside
+        var f = box.querySelectorAll('button, a'), first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+    });
+  };
+  var show = function (fig) {
+    var list = shown(); cur = list.indexOf(fig);
+    var a = fig.querySelector('.pk-art-link'), t = fig.querySelector('img');
+    img.src = a.getAttribute('href'); img.alt = t ? t.alt : '';
+    var c = fig.querySelector('figcaption');
+    cap.innerHTML = c ? c.innerHTML : '';
+    count.textContent = (cur + 1) + ' / ' + list.length;
+    var next = list[(cur + 1) % list.length];                   // warm the next one
+    if (next) { var p = new Image(); p.src = next.querySelector('.pk-art-link').getAttribute('href'); }
+  };
+  var step = function (d) { var list = shown(); if (list.length) show(list[(cur + d + list.length) % list.length]); };
+  var close = function () {
+    box.classList.remove('open'); document.documentElement.classList.remove('pk-lb-lock');
+    window.setTimeout(function () { box.hidden = true; img.removeAttribute('src'); }, 200);
+    if (opener) opener.focus();
+  };
+  arts.forEach(function (fig) {
+    var a = fig.querySelector('.pk-art-link');
+    if (!a) return;
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;        // let people open the file in a tab
+      e.preventDefault();
+      if (!box) build();
+      opener = a; show(fig);
+      box.hidden = false; document.documentElement.classList.add('pk-lb-lock');
+      window.requestAnimationFrame(function () { box.classList.add('open'); });
+      box.querySelector('.pk-lb-close').focus();
+    });
+  });
+}
