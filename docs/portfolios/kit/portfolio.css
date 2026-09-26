@@ -475,3 +475,110 @@ html.embedded .pk-nav { top: 0; }
 @media print {
   .cvf-banner, .pk-nav { display: none; }
 }
+
+/* ---------- artworks: portfolios for painters, makers and photographers ----------
+
+   Image-led pieces for art portfolios, dressed by the same custom properties
+   so they work in every theme:
+   .pk-portrait > img  a signature piece in place of the monogram
+   .pk-feature         a wide hero image (a room view, a landscape) with a caption
+   .pk-filter          series buttons; kit.js hides .pk-art items outside the series
+   .pk-gallery         a masonry wall of .pk-art figures; each .pk-art-link opens
+                       kit.js's lightbox (without JS it simply opens the image)
+   .pk-status          Sold / Available / Commission, on a work's label
+   Themes can reframe works through --art-frame (a border) and --art-shadow. */
+
+.pk-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.pk-portrait:has(img) span { display: none; }
+.pk-portrait:has(img) small {
+  z-index: 1; padding: 4px 9px; border-radius: 999px;
+  background: rgba(0, 0, 0, .55); color: #fff; backdrop-filter: blur(4px);
+}
+
+.pk-feature { margin: 0; }
+.pk-feature-band { padding-block: 0 clamp(20px, 3vw, 40px); }
+.pk-feature img {
+  display: block; width: 100%; height: auto; aspect-ratio: var(--feature-ratio, 16 / 9); object-fit: cover;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.pk-feature figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 18px; margin-top: 12px; font-size: 13.5px; color: var(--muted); }
+.pk-feature figcaption b { color: var(--ink); font-weight: 600; }
+.pk-credit { font-size: 12px; color: var(--muted); }
+.pk-credit a { color: inherit; }
+
+.pk-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 clamp(18px, 2.6vw, 30px); }
+.pk-filter button {
+  min-height: 40px; padding: 8px 16px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink-2);
+  font: 500 14px var(--text); transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.pk-filter button:hover { border-color: var(--accent); color: var(--ink); }
+.pk-filter button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.pk-filter button:focus-visible, .pk-art-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.pk-gallery { columns: 3 260px; column-gap: clamp(16px, 2.2vw, 28px); }
+.pk-art { break-inside: avoid; margin: 0 0 clamp(18px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 10px; }
+.pk-art[hidden] { display: none; }
+.pk-art-link {
+  position: relative; display: block; overflow: hidden; cursor: zoom-in;
+  border: var(--art-frame, 0 solid transparent); border-radius: var(--radius-sm);
+  box-shadow: var(--art-shadow, var(--shadow)); background: var(--surface);
+}
+.pk-art-link img { display: block; width: 100%; height: auto; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
+.pk-art-link:hover img { transform: scale(1.035); }
+.pk-art-link::after {                                  /* a small zoom hint in the corner */
+  content: "\2922"; position: absolute; right: 10px; bottom: 10px;
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(0, 0, 0, .55); color: #fff; font: 15px/1 var(--text);
+  opacity: 0; transform: translateY(4px); transition: opacity .25s ease, transform .25s ease;
+}
+.pk-art-link:hover::after, .pk-art-link:focus-visible::after { opacity: 1; transform: none; }
+.pk-art figcaption { display: flex; flex-direction: column; gap: 2px; }
+.pk-art figcaption b { font-family: var(--display); font-size: 18px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+.pk-art figcaption span { font-size: 13.5px; color: var(--muted); }
+.pk-art figcaption .pk-credit { font-size: 11.5px; }
+.pk-status {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+  font: 500 11.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; font-style: normal; color: var(--ink-2);
+}
+.pk-status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2E9D5B; }
+.pk-status[data-s="sold"]::before { background: #C8362B; }
+.pk-status[data-s="commission"]::before { background: #D59A20; }
+
+/* the lightbox (kit.js builds it on first open) */
+.pk-lightbox {
+  position: fixed; inset: 0; z-index: 100; display: grid; grid-template-rows: minmax(0, 1fr) auto;
+  padding: clamp(12px, 3vw, 36px); background: rgba(8, 8, 10, .96); color: #F2F2F2;
+  font-family: var(--text); opacity: 0; transition: opacity .25s ease;
+}
+.pk-lightbox.open { opacity: 1; }
+.pk-lightbox[hidden] { display: none; }
+.pk-lightbox figure { margin: 0; display: grid; place-items: center; min-height: 0; }
+.pk-lightbox img { width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 150px); max-height: calc(100dvh - 150px); object-fit: contain; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .8); }
+.pk-lightbox .pk-lb-cap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 4px 16px; padding: 14px 60px 0; text-align: center; font-size: 14px; color: #C9C9C9; }
+.pk-lightbox .pk-lb-cap b { font-size: 17px; color: #fff; }
+.pk-lightbox .pk-lb-cap a { color: inherit; }
+.pk-lightbox .pk-status { color: #DADADA; margin: 0; }
+.pk-lightbox button {
+  position: absolute; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; background: rgba(20, 20, 24, .7); color: #fff; font: 22px/1 Arial, sans-serif;
+}
+.pk-lightbox button:hover { background: rgba(60, 60, 66, .85); }
+.pk-lightbox button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.pk-lb-close { top: 14px; right: 14px; }
+.pk-lb-prev { left: 14px; top: 50%; margin-top: -24px; }
+.pk-lb-next { right: 14px; top: 50%; margin-top: -24px; }
+.pk-lb-count { position: absolute; top: 26px; left: 22px; font: 500 12px var(--mono); letter-spacing: .12em; color: #A8A8A8; }
+html.pk-lb-lock, html.pk-lb-lock body { overflow: hidden; }
+@media (max-width: 640px) {
+  .pk-gallery { columns: 2 140px; column-gap: 12px; }
+  .pk-art { margin-bottom: 18px; gap: 7px; }
+  .pk-art figcaption b { font-size: 15px; }
+  .pk-art figcaption span { font-size: 12.5px; }
+  .pk-lb-prev, .pk-lb-next { top: auto; bottom: 12px; margin: 0; }
+  .pk-lightbox .pk-lb-cap { padding: 12px 56px 4px; font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pk-art-link img, .pk-lightbox { transition: none; }
+  .pk-art-link:hover img { transform: none; }
+}

@@ -3,7 +3,7 @@
 > *Every field reads a page differently.* — formerly the working name CV Forge. The repository and the live URL keep
 > `cv-forge`; renaming the repo would change the GitHub Pages address.
 
-Static site: home, a fields index, thirteen field pages with sample CVs, pricing and the
+Static site: home, a fields index, fourteen field pages with sample CVs, pricing and the
 intake form. No build step, no dependencies, no framework.
 
 ```
@@ -14,7 +14,7 @@ docs/                   The website — everything GitHub Pages serves
                         (sample-cvs.html#finance opens on one field)
   pricing.html          Prices and bundles
   start.html            Start page, with the brief form
-  academia.html …       Thirteen field pages, one per profession — each shows its
+  academia.html …       Fourteen field pages, one per profession — each shows its
   writing.html          sample CVs directly under the intro
   samples/              The sample CVs themselves, named {field}-cv.html
                         (consulting, data, engineering, finance and healthcare also
@@ -113,12 +113,12 @@ tagline and the `pricing.html` meta description; those need editing by hand too.
 - **Type:** Newsreader (headings) over IBM Plex Sans (body), IBM Plex Mono for labels.
   Loaded from Google Fonts; each has a system fallback.
 - **Palette:** warm paper ground, pine green accent, brass secondary, charcoal panels.
-- **Illustrations:** thirteen isometric scenes, one per profession, drawn inline as SVG
+- **Illustrations:** fourteen isometric scenes, one per profession, drawn inline as SVG
   on a single 2:1 projection with one light source. They inherit CSS custom properties,
   so they recolour with the theme — the dark section applies a cooler variant
   automatically. No image files, nothing to load.
 - **3D motion:** each field page shows its scene large on a glowing stage — layers drop
-  in, float, and shift by depth with the pointer. The Professions page spins all thirteen
+  in, float, and shift by depth with the pointer. The Professions page spins all fourteen
   on a 3D carousel (pauses on hover). The "3D PROFESSION SCENES" block at the end of
   `styles.css` explains how the three motions share each layer. All of it stops under
   `prefers-reduced-motion`.
@@ -276,7 +276,7 @@ scrolls smoothly. Computers see none of it. The pieces:
 ## Sample portfolios
 
 `sample-portfolios.html` has three parts: a **theme studio** (pick one of the fourteen kit
-examples and any of the ten themes; the preview is the real page), the **fourteen kit
+examples and any of the twelve themes; the preview is the real page), the **fourteen kit
 examples** in their own default themes with a filter by field group (`data-group` on each
 card), and the **four showcase designs** built by hand. The examples grid and the studio's
 person list carry the same people in the same order — add a new example to both.
@@ -293,8 +293,10 @@ Fourteen examples share one markup and one stylesheet, so each can be shown in a
   adds `kit/themes/<name>.css` before first paint, fills the banner's theme switcher and
   points "Get yours" at `start.html?type=portfolio&theme=<t>&field=<data-field>`.
   `THEME_GROUPS` there is the master list of themes.
-- `kit/themes/*.css` — ten themes: Paper, Clinic, Sidebar, Swiss (clean & professional),
-  Brutal, Pastel, Gallery (bold & expressive), Aurora, Noir, Console (dark & dramatic).
+- `kit/themes/*.css` — twelve themes: Paper, Clinic, Sidebar, Swiss (clean & professional),
+  Brutal, Pastel, Gallery, Atelier (bold & expressive), Aurora, Noir, Console, Darkroom
+  (dark & dramatic). Atelier (warm linen, handwritten notes, taped-up work) is made for
+  painters and makers; Darkroom (black, condensed type, edge-to-edge images) for photographers.
   Sidebar changes the layout (a sticky profile column from 1000px up); the rest restyle.
 
 | File | Candidate | Default theme | Facts from |
@@ -322,6 +324,10 @@ Fourteen examples share one markup and one stylesheet, so each can be shown in a
 | `portfolios/mehak-bhatnagar.html` | Content writer, early career, Delhi | Pastel | `samples/writing-cv-2.html` |
 | `portfolios/kavita-rathore.html` | Middle school science teacher, Jaipur | Clinic | `samples/teaching-cv-2.html` |
 | `portfolios/shreya-hegde.html` | PhD researcher, materials, Bengaluru | Paper | `samples/academia-cv-2.html` |
+| `portfolios/meera-iyer.html` | Painter, acrylic & oil, Chennai | Gallery | `samples/art-cv.html` |
+| `portfolios/zoya-mirza.html` | Resin artist, Pune | Noir | `samples/art-cv-2.html` |
+| `portfolios/lavanya-reddy.html` | Fabric painter / textile artist, Hyderabad | Atelier | `samples/art-cv-3.html` |
+| `portfolios/vikram-sahni.html` | Wildlife & landscape photographer, Dehradun | Darkroom | `samples/art-cv-4.html` |
 
 The eight `*-cv-2.html` samples above are new (India-based, fictional, with fictional or
 generic employers). Every profession page now has a **Sample portfolios** section (`#portfolios`,
@@ -332,7 +338,17 @@ as a 640×400 JPEG).
 
 The kit's art layer (hero decorations, drawn covers, per-theme ornaments, staggered motion)
 lives in `kit/portfolio.css` and the themes; `kit/kit.js` adds only optional touches (the
-display monogram, stagger indexes and a desktop pointer glow).
+display monogram, stagger indexes and a desktop pointer glow), plus the series filter and
+lightbox for artwork galleries.
+
+**Art portfolios** (`art.html`, the four `art-cv*` samples) are image-led: a signature piece in
+`.pk-portrait > img`, a wide `.pk-feature` image, and a `.pk-gallery` of `.pk-art` figures (title,
+medium, size, year, `.pk-status` Sold / Available / Commission) that open full screen in the
+kit.js lightbox, filtered by `.pk-filter` series buttons. Their images live in
+`portfolios/art/<person>/` as `name.jpg` (1400px, for the lightbox) and `name-s.jpg` (720px, for
+the grid). The paintings, resin and textile pieces were generated for these samples (painterly
+stroke rendering and per-pixel resin / cloth shading on canvas); the photographer's pictures are
+Unsplash photos (via Lorem Picsum) used as credited placeholders under the Unsplash License.
 
 To add a theme: write `kit/themes/<name>.css`, add it to `THEME_GROUPS` in `kit.js`, to
 the studio and the brief's theme cards (`start.html`, with a `.tp-<name>` swatch in

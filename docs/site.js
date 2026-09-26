@@ -300,6 +300,7 @@ var CV_FORGE_PF_REC = {
   law: ['paper', 'sidebar', 'noir'],           consulting: ['sidebar', 'swiss', 'paper'],
   engineering: ['console', 'aurora', 'swiss'], data: ['console', 'aurora', 'swiss'],
   trades: ['brutal', 'clinic', 'swiss'],       creative: ['gallery', 'brutal', 'pastel'],
+  art: ['atelier', 'gallery', 'darkroom'],
   film: ['noir', 'gallery', 'aurora'],         writing: ['paper', 'swiss', 'noir'],
   healthcare: ['clinic', 'paper', 'sidebar'],  teaching: ['pastel', 'clinic', 'paper'],
   academia: ['sidebar', 'paper', 'clinic']
@@ -313,7 +314,7 @@ var CV_FORGE_PF_REC = {
   if (!cvForm && !pfForm) return;
 
   var FIELD_ORDER = ['finance', 'sales', 'law', 'consulting', 'engineering', 'data', 'trades',
-                     'creative', 'film', 'writing', 'healthcare', 'teaching', 'academia'];
+                     'creative', 'art', 'film', 'writing', 'healthcare', 'teaching', 'academia'];
   var PF_REC = CV_FORGE_PF_REC;
   var OLD_STYLES = { creative: 'yuki', technical: 'lena', corporate: 'arjun', care: 'nair' };
   var MAX_FILES = 5, MAX_TOTAL = 10 * 1024 * 1024, MAX_PROJECTS = 8;
@@ -1165,7 +1166,7 @@ var CV_FORGE_PF_REC = {
 
 /* ---------------------------------------------------------------
    Theme studio (sample-portfolios.html#themes): any kit example in
-   any of the ten themes. ?person=jake-tran&t=noir opens on that pair.
+   any of the twelve themes. ?person=jake-tran&t=noir opens on that pair.
    --------------------------------------------------------------- */
 
 (function () {
@@ -1293,6 +1294,7 @@ var CV_FORGE_PF_REC = {
     data:        ['tech', 'slate', 'modern', 'compact'],
     trades:      ['workwear', 'compact', 'modern'],
     creative:    ['studio', 'creative', 'editorial', 'minimal'],
+    art:         ['studio', 'creative', 'minimal', 'editorial'],
     film:        ['studio', 'creative', 'typewriter'],
     writing:     ['editorial', 'typewriter', 'classic'],
     healthcare:  ['clinical', 'classic', 'executive', 'compact'],
@@ -1412,10 +1414,10 @@ var CV_FORGE_PF_REC = {
 
   // ---- the ☰ menu: what each page holds, then how to reach us ---------
   var BLURB = {
-    'fields.html': 'How we write for 13 professions',
-    'sample-cvs.html': '51 finished CVs, by field',
+    'fields.html': 'How we write for 14 professions',
+    'sample-cvs.html': '55 finished CVs, by field',
     'templates.html': '17 CV designs to choose from',
-    'sample-portfolios.html': '27 sample sites, 10 themes',
+    'sample-portfolios.html': '31 sample sites, 12 themes',
     'pricing.html': 'From ₹99 — bundles save more',
     'ats-checker.html': 'Your resume’s ATS score in seconds, free',
     'guides.html': 'Resume format, ATS, resume vs CV and more'

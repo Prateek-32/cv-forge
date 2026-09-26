@@ -32,7 +32,7 @@
     '<a href="finance.html">Finance</a>, <a href="sales.html">Sales &amp; marketing</a>, ' +
     '<a href="law.html">Law</a>, <a href="consulting.html">Consulting</a>, ' +
     '<a href="engineering.html">Engineering</a>, <a href="data.html">Data &amp; analytics</a>, ' +
-    '<a href="trades.html">Skilled trades</a>, <a href="creative.html">Art &amp; design</a>, ' +
+    '<a href="trades.html">Skilled trades</a>, <a href="creative.html">Design</a>, <a href="art.html">Art &amp; photography</a>, ' +
     '<a href="film.html">Film &amp; performance</a>, <a href="writing.html">Writing &amp; media</a>, ' +
     '<a href="healthcare.html">Healthcare</a>, <a href="teaching.html">Teaching</a> and ' +
     '<a href="academia.html">Academia</a>';
@@ -58,9 +58,15 @@
       },
       chips: ['samples', 'bundles'] },
 
+    { id: 'artists', keys: ['artist', 'painter', 'painting', 'paintings', 'resin', 'photographer', 'photography', 'textile', 'fabric painting', 'saree', 'illustrator', 'handmade', 'artwork', 'my art'],
+      answer: function () {
+        return 'Yes — we build for <strong>artists and photographers</strong>: painters, resin artists, fabric and textile artists, photographers and makers. The <strong>portfolio site</strong> (' + R + PRICES.portfolio + ') shows your work large in a gallery that opens full screen, grouped into series with title, medium, size and Sold / Available; the artist CV (' + R + PRICES.cv + ') lists shows, commissions and sales. See <a href="art.html">Art &amp; Photography</a> for four sample portfolios — a painter, a resin artist, a fabric painter and a photographer.';
+      },
+      chips: ['pfthemes', 'portfolio', 'start'] },
+
     { id: 'portfolio', keys: ['portfolio', 'website', 'personal site', 'webpage', 'web page', 'my site'],
       answer: function () {
-        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name within 3–5 days. There are <strong>ten themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on twenty-seven sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
+        return 'The <strong>portfolio site</strong> is ' + R + PRICES.portfolio + ' at launch: a one-page site for your work, built from the material you send, fast on a phone, and put live on free hosting in your name within 3–5 days. There are <strong>twelve themes</strong> plus four showcase designs — <a href="sample-portfolios.html#themes">try any theme on thirty-one sample portfolios</a>, then send the <a href="start.html?type=portfolio">portfolio brief</a>. It asks for your projects, links, files and the theme you like, so we rarely need to come back with questions.';
       },
       chips: ['pfthemes', 'hosting', 'domain', 'start'] },
 
@@ -68,7 +74,7 @@
                              'portfolio look', 'portfolio style', 'website theme', 'website template', 'website design', 'site design', 'site theme',
                              'theme for my portfolio', 'themes for portfolio'],
       answer: function () {
-        return 'Portfolio sites come in <strong>ten themes</strong>: clean and professional (Paper, Clinic, Sidebar, Swiss), bold and expressive (Brutal, Pastel, Gallery) and dark and dramatic (Aurora, Noir, Console) — or one of four showcase designs. All are the same price, and any theme can take your own colours. <a href="sample-portfolios.html#themes">Try every theme on a real sample</a>, then pick one on the <a href="start.html?type=portfolio">portfolio brief</a> — or let us choose for your field.';
+        return 'Portfolio sites come in <strong>twelve themes</strong>: clean and professional (Paper, Clinic, Sidebar, Swiss), bold and expressive (Brutal, Pastel, Gallery, Atelier) and dark and dramatic (Aurora, Noir, Console, Darkroom) — or one of four showcase designs. All are the same price, and any theme can take your own colours. <a href="sample-portfolios.html#themes">Try every theme on a real sample</a>, then pick one on the <a href="start.html?type=portfolio">portfolio brief</a> — or let us choose for your field.';
       },
       chips: ['portfolio', 'start'] },
 
@@ -171,7 +177,7 @@
     { id: 'templates', keys: ['template', 'templates', 'layout', 'style', 'theme', 'colour', 'color', 'font', 'cv design',
                               'resume design', 'choose a design', 'different design', 'how it looks', 'what it looks like'],
       answer: function () {
-        return 'There are <strong>seventeen templates</strong> in four styles — traditional (Classic, Legal, Banker, Academic, Executive), contemporary (Modern, Minimal, Slate, Tech, Clinical), expressive (Creative, Studio, Editorial, Typewriter, Warm) and practical (Compact, Workwear). All are single-column, ATS-safe and included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects. Portfolio sites have <a href="sample-portfolios.html#themes">ten themes</a> of their own.';
+        return 'There are <strong>seventeen templates</strong> in four styles — traditional (Classic, Legal, Banker, Academic, Executive), contemporary (Modern, Minimal, Slate, Tech, Clinical), expressive (Creative, Studio, Editorial, Typewriter, Warm) and practical (Compact, Workwear). All are single-column, ATS-safe and included in the price. <a href="templates.html">See them on a sample from your field</a>, then pick one on the brief — or leave it on "Let us choose" and we use the one your field expects. Portfolio sites have <a href="sample-portfolios.html#themes">twelve themes</a> of their own.';
       },
       chips: ['samples', 'start'] },
 
@@ -201,13 +207,13 @@
 
     { id: 'fields', keys: ['field', 'fields', 'profession', 'professions', 'industry', 'industries', 'engineer', 'doctor', 'nurse', 'teacher', 'lawyer', 'designer', 'banker', 'analyst', 'developer', 'marketing', 'my field', 'do you do'],
       answer: function () {
-        return 'We build for thirteen professions: ' + fieldLinks + '. Not listed? Choose "Another field" on the brief and describe what you do.';
+        return 'We build for fourteen professions: ' + fieldLinks + '. Not listed? Choose "Another field" on the brief and describe what you do.';
       },
       chips: ['samples', 'start'] },
 
     { id: 'samples', keys: ['sample', 'samples', 'example', 'examples', 'your work', 'demo', 'template', 'templates', 'show me'],
       answer: function () {
-        return 'There are <a href="sample-cvs.html">51 sample CVs</a> across 13 professions and <a href="sample-portfolios.html">4 sample portfolio sites</a>. All the candidates are fictional; each is built to the standard you receive.';
+        return 'There are <a href="sample-cvs.html">55 sample CVs</a> across 14 professions and <a href="sample-portfolios.html">4 sample portfolio sites</a>. All the candidates are fictional; each is built to the standard you receive.';
       },
       chips: ['portfolio', 'prices'] },
 
@@ -249,7 +255,7 @@
 
     { id: 'who', keys: ['who are you', 'about you', 'who writes', 'writer', 'legit', 'genuine', 'trust', 'scam', 'real company', 'reviews'],
       answer: function () {
-        return 'Fieldcraft restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">51 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
+        return 'Fieldcraft restructures resumes, CVs and portfolios on the rules of your field. We are at launch, so there are no reviews yet — instead you can read <a href="sample-cvs.html">55 complete sample CVs</a> before ordering, and nothing is charged until you agree the price by email.';
       },
       chips: ['samples', 'process'] },
 

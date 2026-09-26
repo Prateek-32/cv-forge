@@ -1,0 +1,144 @@
+/* Darkroom — a photographer's contact sheet: black, condensed type, frame
+   numbers and film edges, under a safelight red. The pictures go edge to edge.
+   Dark & dramatic. */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0B0B0C;
+  --surface: #151517;
+  --ink: #F1EFEA;
+  --ink-2: #C8C4BC;
+  --muted: #8F8A82;
+  --line: rgba(255, 255, 255, .12);
+  --accent: #FF5A36;
+  --accent-ink: #0B0B0C;
+  --accent-2: #E8C547;
+  --display: 'Big Shoulders Display', 'Oswald', 'Arial Narrow', sans-serif;
+  --text: 'Inter Tight', 'Segoe UI', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  --radius: 2px;
+  --radius-sm: 1px;
+  --shadow: 0 24px 60px -30px rgba(0, 0, 0, .9);
+  --name-size: clamp(64px, 12vw, 170px);
+  --art-shadow: none;
+  --feature-ratio: 21 / 9;
+  --sprockets: radial-gradient(closest-side, rgba(241, 239, 234, .16) 60%, transparent 70%) 0 0 / 22px 12px repeat-x;
+}
+
+body.pk { background: radial-gradient(900px 520px at 100% -5%, rgba(255, 90, 54, .12), transparent 60%), var(--bg); }
+:where(.pk) h1, :where(.pk) h2, :where(.pk) h3 { font-weight: 800; letter-spacing: .005em; text-transform: uppercase; line-height: .95; }
+:where(.pk) a { color: var(--accent); }
+
+.pk-eyebrow, .pk-kicker, .pk-meta, .pk-when, .pk-step b, .pk-list span, .pk-facts span, .pk-portrait small {
+  font-family: var(--mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase;
+}
+
+/* ---------- nav ---------- */
+.pk-nav { background: rgba(11, 11, 12, .86); border-bottom-color: var(--line); }
+.pk-mark { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: .04em; text-transform: uppercase; }
+.pk-mark::before { content: ""; display: inline-block; width: 9px; height: 9px; margin: 0 10px 3px 0; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.pk-nav nav a { font: 500 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.pk-nav nav a:hover { color: var(--ink); }
+
+/* ---------- hero: a title over a strip of film ---------- */
+.pk-hero { padding-bottom: clamp(56px, 7vw, 96px); }
+.pk-hero::before {                    /* safelight */
+  top: -20%; right: -10%; width: 60vw; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 90, 54, .16), transparent 70%);
+}
+.pk-hero::after {                     /* a film edge along the foot */
+  left: 0; right: 0; bottom: 18px; height: 30px;
+  background:
+    linear-gradient(transparent 9px, rgba(232, 197, 71, .06) 9px 21px, transparent 21px),
+    radial-gradient(closest-side, rgba(241, 239, 234, .14) 60%, transparent 72%) 0 0 / 24px 9px repeat-x,
+    radial-gradient(closest-side, rgba(241, 239, 234, .14) 60%, transparent 72%) 0 100% / 24px 9px repeat-x;
+}
+.pk-kicker { color: var(--accent-2); }
+.pk-name { font-weight: 800; letter-spacing: -.005em; line-height: .86; }
+.pk-name em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--ink); }
+.pk-headline { font-size: clamp(17px, 1.6vw, 20px); color: var(--ink-2); }
+.pk-btn { border-radius: 0; font: 600 13px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.pk-btn:hover { box-shadow: 0 0 0 4px rgba(255, 90, 54, .2); }
+.pk-ghost { border-color: rgba(255, 255, 255, .3); color: var(--ink) !important; }
+
+.pk-portrait { border: 0; border-radius: 0; background: linear-gradient(160deg, #222, #0E0E0F); box-shadow: 0 0 0 1px var(--line), var(--shadow); }
+.pk-portrait::after {                 /* frame number, like a negative */
+  content: "\25B6  12A"; position: absolute; z-index: 1; top: 12px; left: 12px;
+  font: 500 11px var(--mono); letter-spacing: .14em; color: var(--accent-2);
+}
+.pk-portrait span { font-family: var(--display); font-weight: 800; color: var(--ink); }
+.pk-portrait:has(img) small { background: rgba(0, 0, 0, .6); border-radius: 0; }
+
+.pk-stats { border-top-color: var(--line); }
+.pk-stats b { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 4.6vw, 62px); color: var(--ink); }
+.pk-stats span { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
+
+/* ---------- sections: numbered like frames on a roll ---------- */
+main { counter-reset: dr-sec; }
+.pk-head { counter-increment: dr-sec; }
+.pk-head .pk-eyebrow::before { content: "FR " counter(dr-sec, decimal-leading-zero) "  \2014  "; color: var(--accent); white-space: pre; }
+.pk-head h2 { font-size: clamp(40px, 6vw, 84px); }
+
+/* ---------- the feature: edge to edge ---------- */
+.pk-feature-band .pk-wrap { max-width: none; padding-inline: 0; }
+.pk-feature img { border-radius: 0; box-shadow: none; }
+.pk-feature figcaption { padding-inline: var(--gutter); font: 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.pk-feature figcaption b { font-weight: 500; color: var(--accent-2); }
+
+/* ---------- gallery: tight, like a contact sheet ---------- */
+.pk-gallery { column-gap: 10px; }
+.pk-art { margin-bottom: 18px; gap: 8px; }
+.pk-art-link { border-radius: 0; box-shadow: 0 0 0 1px rgba(255, 255, 255, .06); }
+.pk-art-link img { filter: saturate(.94); transition: transform .8s cubic-bezier(.2,.7,.3,1), filter .5s ease; }
+.pk-art-link:hover img { filter: saturate(1.08); }
+.pk-art figcaption b { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .02em; text-transform: uppercase; }
+.pk-art figcaption span { font: 11.5px var(--mono); letter-spacing: .04em; }
+.pk-filter button { border-radius: 0; background: transparent; font: 500 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.pk-filter button[aria-pressed="true"] { color: var(--accent-ink); }
+
+/* ---------- projects: frames cut from a roll of film ---------- */
+.pk-project { border: 0; border-radius: 0; background: var(--surface); box-shadow: 0 0 0 1px var(--line); }
+.pk-project:hover { transform: translateY(-3px); box-shadow: 0 0 0 1px rgba(255, 90, 54, .5); }
+.pk-cover { border-top: 14px solid #050505; border-bottom: 14px solid #050505; }
+.pk-cover::after { z-index: 1; }
+.pk-project .pk-cover { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4); }
+.pk-project .pk-cover { background-clip: padding-box; }
+.pk-project::before {
+  content: ""; position: absolute; z-index: 3; left: 0; right: 0; top: 3px; height: 8px; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(241, 239, 234, .5) 60%, transparent 72%) 4px 0 / 18px 8px repeat-x;
+}
+.pk-project h3 { font-size: 28px; }
+.pk-result { border-top-color: var(--line); color: var(--accent-2); }
+.pk-cover-label { border-radius: 0; font-family: var(--mono); }
+:root { --glow: rgba(255, 90, 54, .14); }
+
+/* ---------- case study ---------- */
+.pk-case-card { background: var(--surface); border-color: var(--line); border-radius: 0; }
+.pk-step { background: #0F0F11; border: 1px solid var(--line); border-radius: 0; }
+.pk-step b { color: var(--accent); }
+.pk-step:not(:last-child)::after { background: var(--bg); border-color: var(--line); }
+
+/* ---------- about, tags, lists, timeline ---------- */
+.pk-about-text p:first-child { font-family: var(--text); font-weight: 500; font-size: clamp(22px, 2.3vw, 28px); line-height: 1.35; }
+.pk-tags li { border-radius: 0; background: transparent; font: 12.5px var(--mono); letter-spacing: .04em; }
+.pk-list b { font-weight: 500; }
+.pk-timeline h3 { font-size: 26px; }
+.pk-org { color: var(--accent-2); }
+
+/* ---------- contact: under the safelight ---------- */
+.pk-contact .pk-contact-card { background: #140C0A; color: var(--ink); border-radius: 0; box-shadow: 0 0 0 1px rgba(255, 90, 54, .3); }
+.pk-contact .pk-contact-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(70% 90% at 90% 0%, rgba(255, 90, 54, .28), transparent 65%);
+}
+.pk-contact h2 { color: var(--ink); font-size: clamp(48px, 8vw, 110px); }
+.pk-contact-line { font-family: var(--mono); font-size: clamp(16px, 2vw, 22px); color: var(--accent); }
+.pk-contact .pk-eyebrow { color: var(--accent-2); }
+
+.pk-foot { font: 12px var(--mono); letter-spacing: .04em; }
+
+@media (max-width: 640px) {
+  .pk-gallery { column-gap: 8px; }
+  .pk-name em { -webkit-text-stroke-width: 1.5px; }
+}
