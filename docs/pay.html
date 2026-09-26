@@ -35,17 +35,23 @@
 <section class="wrap pay">
   <span class="eyebrow">Payment</span>
   <h1>Pay for your order</h1>
-  <p class="lede">Pay the amount confirmed in your quote email, with any UPI app. Nothing is
-  charged until you have agreed the price.</p>
+  <p class="lede">Choose the service you ordered and pay with any UPI app. The amount is set by
+  the service, so there is nothing to type.</p>
 
   <div class="pay-grid">
     <div class="pay-card">
       <p class="pay-for" id="pay-for" hidden></p>
-      <label class="pay-amount" for="pay-amount">
+      <div class="field pay-field"><label for="pay-service">What are you paying for?</label>
+        <select id="pay-service" name="service"><option value="" selected disabled>Choose a service</option></select></div>
+      <div class="pay-amount" aria-live="polite">
         <span class="pay-label">Amount</span>
-        <span class="pay-amount-row"><span class="pay-rupee" aria-hidden="true">&#8377;</span><input id="pay-amount" type="number" inputmode="numeric" min="1" max="100000" step="1" placeholder="199"></span>
-      </label>
-      <div class="pay-qr" id="pay-qr" role="img" aria-label="UPI QR code for this payment"></div>
+        <span class="pay-amount-row"><span class="pay-rupee" aria-hidden="true">&#8377;</span><span class="pay-total" id="pay-total">&mdash;</span></span>
+        <span class="pay-fixed">Fixed price for this service</span>
+      </div>
+      <div class="field pay-field"><label for="pay-name">Your name <span class="opt">(optional)</span></label>
+        <input id="pay-name" name="name" type="text" autocomplete="name" maxlength="40" placeholder="So we can match your payment"></div>
+      <p class="pay-choose" id="pay-choose">Choose a service to see your QR code.</p>
+      <div class="pay-qr" id="pay-qr" role="img" aria-label="UPI QR code for this payment" hidden></div>
       <p class="pay-scan">Scan with Google Pay, PhonePe, Paytm, BHIM or your bank's app</p>
       <a class="btn pay-open" id="pay-open" href="#">Open my UPI app</a>
       <div class="pay-id">
@@ -57,7 +63,7 @@
     <div class="pay-steps">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Check the amount</strong> matches the price in your quote email.</li>
+        <li><strong>Choose the service</strong> you ordered. The amount fills in by itself and can't be changed; for anything not listed, message us on WhatsApp.</li>
         <li><strong>Scan the code</strong> with any UPI app, or on your phone tap
         <em>Open my UPI app</em>. Your app shows the account holder's name before you pay.</li>
         <li><strong>Tell us you've paid</strong> &mdash; send the payment screenshot or the UPI
@@ -66,7 +72,7 @@
         see it.</li>
       </ol>
       <a class="btn btn-outline pay-wa" id="pay-wa" href="#" target="_blank" rel="noopener" hidden>I've paid &mdash; tell Fieldcraft on WhatsApp</a>
-      <p class="hint">Only pay an amount we have confirmed with you by email. Refunds follow our
+      <p class="hint">Prices are the launch prices on our <a href="pricing.html">pricing page</a>. Refunds follow our
       <a href="terms.html">terms</a>.</p>
     </div>
   </div>
@@ -91,7 +97,7 @@
         <a href="pricing.html">Pricing</a>
         <a href="guides.html">Guides</a>
         <a href="ats-checker.html">Free ATS check</a>
-        <a href="start.html">Start a build</a>
+        <a href="start.html">Start a build</a><a href="pay.html">Pay for an order</a>
       </div>
       <div class="footer-col" data-contact-block hidden>
         <span class="h">Contact</span>

@@ -663,7 +663,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
   color: var(--ink);
 }
 input::placeholder, textarea::placeholder { color: #7D87A8; }
-select option { background: #131A33; color: var(--ink); }
+select option, select optgroup { background: #131A33; color: var(--ink); }
 legend { background: var(--accent-tint); border: 1px solid var(--line); color: var(--ink); border-radius: 3px; }
 .field label { color: var(--ink); }
 .hint { color: var(--muted); }
@@ -2805,6 +2805,13 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 .pay-rupee { font: 500 34px var(--serif); color: var(--ink); }
 .pay-amount input { width: 100%; font: 500 34px var(--serif); min-height: 0; padding: 4px 10px; color: var(--ink); background: rgba(6,10,24,.6); border: 1px solid var(--line); border-radius: 10px; }
 .pay-amount input:focus-visible { border-color: var(--accent); }
+.pay-total { font: 500 34px var(--serif); color: var(--ink); line-height: 1.2; }
+.pay-fixed { font-size: 12.5px; color: var(--muted); }
+.pay-field { display: flex; flex-direction: column; gap: 6px; margin: 0; font-size: 14px; color: var(--muted); }
+.pay-field select, .pay-field input { width: 100%; }
+.pay-field .opt { font-weight: 400; color: var(--muted); }
+.pay-choose { margin: 0; padding: 44px 18px; text-align: center; font-size: 14.5px; color: var(--muted); border: 1px dashed var(--line); border-radius: 14px; }
+.pay-choose[hidden], .pay-qr[hidden], .pay-scan[hidden] { display: none; }
 .pay-qr { background: #fff; border-radius: 14px; padding: 12px; }
 .pay-qr svg { display: block; width: 100%; height: auto; }
 .pay-scan { margin: 0; text-align: center; font-size: 13.5px; color: var(--muted); }

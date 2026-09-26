@@ -177,7 +177,7 @@ length and file) and gives a score out of 100.
 - **Unlock = the ₹49 expert review.** The visitor sends their name, email and consent; the
   resume file and the full report (all fixes) go to the brief endpoint as a normal brief
   (Career stage "Resume review ₹49 — ATS checker"), then they pay on
-  `pay.html?amount=49&for=Resume review`. You email the full report plus a person's notes
+  `pay.html?service=review`. You email the full report plus a person's notes
   within 24 hours of payment. It cannot unlock instantly: a static site cannot confirm a UPI
   payment (that would need a payment gateway with a server-side check).
 - Tested on the site's own sample CVs (all score 100) and on deliberately bad PDFs and
@@ -190,15 +190,21 @@ length and file) and gives a score out of 100.
 
 ## Taking payment (pay.html)
 
-UPI, no fees. Send each client a link with the agreed price:
+UPI, no fees. The customer chooses the service they ordered from a dropdown and the
+price is fixed by the service — there is no amount to type. The list (services, bundles,
+add-ons) is `SERVICES` in `pay.js`; keep it in step with `pricing.html` and `PRICES` in
+`assistant.js`. To send a client straight to their service:
 
-    https://fieldcraft.co.in/pay.html?amount=199&for=Resume&ref=Priya%20Sharma
+    https://fieldcraft.co.in/pay.html?service=cv&ref=Priya%20Sharma
 
-The page shows a UPI QR code for that amount (any UPI app can scan it), an "Open my UPI
+(keys: review, resume, linkedin, cv, portfolio, job-ready, full-record, complete, domain,
+portfolio-domain, complete-domain; older `?amount=` links pick the service with that price).
+The page shows a UPI QR code for that price (any UPI app can scan it), an "Open my UPI
 app" button on phones, the UPI ID to copy, and an "I've paid" button that opens WhatsApp
 with the details filled in. The UPI ID lives in `CV_FORGE_CONTACT.upi` in `site.js`;
 `pay.js` builds the `upi://pay` link and `vendor/qrcode.js` (qrcode-generator, MIT) draws
-the code. The page is `noindex`, not in the sitemap and not linked from the menus.
+the code. The page is `noindex` and not in the sitemap; it is linked from every footer ("Pay for an
+order"), the pricing page and the ATS checker.
 
 ## Guides (content for search engines and AI assistants)
 

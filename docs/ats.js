@@ -491,7 +491,7 @@
       .then(function (out) {
         if (!out || out.ok === false) throw new Error((out && out.error) || 'Rejected');
         form.hidden = true;
-        $('ats-pay').href = 'pay.html?amount=' + PRICE + '&for=' + encodeURIComponent('Resume review') + '&ref=' + encodeURIComponent(name);
+        $('ats-pay').href = 'pay.html?service=review&ref=' + encodeURIComponent(name);
         $('ats-sent').hidden = false;
         st.textContent = '';
       })
