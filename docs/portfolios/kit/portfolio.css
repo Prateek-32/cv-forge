@@ -83,7 +83,7 @@ html.embedded::-webkit-scrollbar { display: none; }
 .pk-wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
 
 .pk-nav {
-  position: sticky; top: 40px; z-index: 40;
+  position: sticky; top: 54px; z-index: 40;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
