@@ -44,6 +44,13 @@ var PORTFOLIO_HEADERS = ['Received', 'Name', 'Email', 'WhatsApp', 'Field', 'Head
                          'Awards, clients, press', 'Testimonials', 'Show on site', 'Deadline', 'Full brief'];
 var MAX_UPLOADS = 5;
 
+// Duplicates: the same form from the same email is ignored if it is identical
+// to one received in the last DUP_HOURS, or once that email has sent this kind
+// of form MAX_PER_EMAIL times in that window. Different people are never
+// limited. The sender still sees "received", so a spammer learns nothing.
+var DUP_HOURS     = 6;      // Apps Script's cache keeps entries for at most 6 hours
+var MAX_PER_EMAIL = 5;
+
 
 function doPost(e) {
   try {
@@ -51,6 +58,9 @@ function doPost(e) {
 
     // Honeypot: real people never fill a hidden field. Answer politely and drop it.
     if (p.website) return json({ ok: true });
+
+    // Duplicates and repeats from one email: no row, no files, no email.
+    if (isDuplicate_(p)) return json({ ok: true, duplicate: true });
 
     // Issues raised from the site assistant (the chat button).
     if (p.kind === 'issue') return handleIssue_(p);
@@ -224,6 +234,40 @@ function handleIssue_(p) {
     }
   }
   return json({ ok: true });
+}
+
+
+/* ---------- duplicates ---------- */
+
+/* True if this submission should be ignored. The kind of form (CV brief,
+   portfolio brief, ATS review, issue) and the sender's email are the key;
+   a fingerprint of the content (file names, not file data) spots exact
+   repeats. Without an email there is nothing to key on, so it goes through. */
+function isDuplicate_(p) {
+  var email = String(p.email || '').trim().toLowerCase();
+  if (!email) return false;
+  var kind = p.kind || (/ATS checker/.test(p.stage || '') ? 'ats' : 'brief');
+  var content = Object.keys(p).sort().filter(function (k) {
+    return k.indexOf('fileData') !== 0 && k !== 'website';
+  }).map(function (k) { return k + '=' + p[k]; }).join('\n');
+
+  var cache = CacheService.getScriptCache();
+  var seconds = DUP_HOURS * 3600;
+  var printKey = 'dup:' + hash_(kind + '|' + email + '|' + content);
+  var countKey = 'cnt:' + hash_(kind + '|' + email);
+
+  if (cache.get(printKey)) return true;                    // the very same form again
+  var count = parseInt(cache.get(countKey), 10) || 0;
+  if (count >= MAX_PER_EMAIL) return true;                 // this email, too many times
+
+  cache.put(printKey, '1', seconds);
+  cache.put(countKey, String(count + 1), seconds);
+  return false;
+}
+
+function hash_(s) {
+  return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8)
+    .map(function (b) { return ('0' + (b & 255).toString(16)).slice(-2); }).join('').slice(0, 40);
 }
 
 

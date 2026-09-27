@@ -3123,3 +3123,19 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
 .footer-social:hover { color: var(--accent); }
 .footer-social svg { flex: none; }
 .footer-social + .footer-social { margin-top: 10px; }
+
+/* type-ahead suggestions on the briefs (suggest.js) */
+.ac-list {
+  position: absolute; z-index: 1000; margin: 0; padding: 6px; list-style: none;
+  max-height: 264px; overflow-y: auto;
+  background: #0E1430; border: 1px solid rgba(94, 234, 212, .45); border-radius: 12px;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .75);
+}
+.ac-list[hidden] { display: none; }
+.ac-list li {
+  padding: 9px 12px; border-radius: 8px; cursor: pointer;
+  font-size: 15px; line-height: 1.35; color: var(--ink-2);
+}
+.ac-list li b { font-weight: 600; color: var(--accent); }
+.ac-list li:hover, .ac-list li[aria-selected="true"] { background: rgba(94, 234, 212, .12); color: var(--ink); }
+@media (max-width: 760px) { .ac-list li { padding: 11px 12px; font-size: 16px; } }

@@ -711,6 +711,36 @@ var CV_FORGE_PF_REC = {
     return data;
   }
 
+  // ---- duplicates: the same brief twice from this browser within a day ----
+  // A fingerprint of everything sent (file names and sizes, not contents). The
+  // Apps Script checks again on its side; this just saves a pointless send.
+  var SENT_KEY = 'fc-sent', SENT_FOR = 24 * 3600 * 1000;
+  function fingerprint(data, files) {
+    var parts = [];
+    data.forEach(function (v, k) { if (k.indexOf('fileData') !== 0) parts.push(k + '=' + v); });
+    files.forEach(function (f) { parts.push('file=' + f.name + ':' + f.size); });
+    var s = parts.sort().join('\n'), h = 2166136261;
+    for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0).toString(36);
+  }
+  function sentLog() {
+    try { return JSON.parse(localStorage.getItem(SENT_KEY) || '{}') || {}; } catch (err) { return {}; }
+  }
+  function sentBefore(id, print) {
+    var t = sentLog()[id + ':' + print];
+    if (!t || Date.now() - t > SENT_FOR) return '';
+    return new Date(t).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) +
+      (new Date(t).toDateString() === new Date().toDateString() ? ' today' : ' yesterday');
+  }
+  function rememberSent(id, print) {
+    try {
+      var log = sentLog(), now = Date.now();
+      Object.keys(log).forEach(function (k) { if (now - log[k] > SENT_FOR) delete log[k]; });
+      log[id + ':' + print] = now;
+      localStorage.setItem(SENT_KEY, JSON.stringify(log));
+    } catch (err) { /* storage blocked: the server-side check still applies */ }
+  }
+
   function setup(form, opts) {
     var statusEl = form.querySelector('.form-status');
     var button = form.querySelector('button[type="submit"]');
@@ -758,6 +788,13 @@ var CV_FORGE_PF_REC = {
       if (problem) { say(problem, 'error'); return; }
 
       var data = opts.payload(form);
+      var print = fingerprint(data, filesOf(form));
+      var already = sentBefore(form.id, print);
+      if (already) {
+        say('We already have this brief — you sent it at ' + already + '. We will email you soon. ' +
+            'If something has changed, edit it and send again.', 'ok');
+        return;
+      }
       button.disabled = true;
       say(filesOf(form).length ? 'Sending your brief and files…' : 'Sending your brief…');
 
@@ -766,6 +803,7 @@ var CV_FORGE_PF_REC = {
         .then(function (res) { return res.json().catch(function () { return { ok: res.ok }; }); })
         .then(function (out) {
           if (!out || out.ok === false) throw new Error(out && out.error ? out.error : 'Rejected');
+          rememberSent(form.id, print);
           clearDraft(form);
           form.innerHTML =
             '<div class="card card-raised" style="gap:14px;">' +

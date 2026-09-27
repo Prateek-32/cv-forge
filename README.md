@@ -551,3 +551,19 @@ illustrations carry `aria-hidden`.
 
 Edit a file and commit — GitHub Pages redeploys in under a minute. It caches hard, so
 check in a private window before assuming a change did not land.
+
+## Form helpers: type-ahead suggestions and duplicate protection
+
+- **`docs/suggest.js`** (loaded on `start.html`) suggests entries as people type in the
+  briefs: roles (current role, target roles, portfolio project role), skills, education
+  (degrees and institutions), certifications, cities, employers and languages. Entries for
+  the profession chosen in the brief rank first; boxes that take several values (skills,
+  certifications, languages, target roles, education) complete the part after the last
+  comma. The lists live at the top of the file — add to them freely. Nothing is sent
+  anywhere, and anything not in a list can still be typed.
+- **Duplicates.** The site fingerprints each brief and won't resend an identical one from
+  the same browser within 24 hours (`fc-sent` in localStorage). The Apps Script checks
+  again: the same form from the same email, identical to one in the last 6 hours, or more
+  than 5 of that kind from one email in 6 hours, is ignored — no row, no files, no email —
+  while the sender still sees "received" (`DUP_HOURS`, `MAX_PER_EMAIL` in `Code.gs`).
+  Different people are never limited.
