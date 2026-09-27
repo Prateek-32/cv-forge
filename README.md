@@ -567,3 +567,14 @@ check in a private window before assuming a change did not land.
   than 5 of that kind from one email in 6 hours, is ignored — no row, no files, no email —
   while the sender still sees "received" (`DUP_HOURS`, `MAX_PER_EMAIL` in `Code.gs`).
   Different people are never limited.
+
+## Site search (search.js)
+
+A magnifier in every header (beside the ☰ on phones) opens a search box that grows across
+the header; "/" opens it on a computer, Esc closes it. It finds professions by the words
+people type (`FIELDS` in `search.js` — "B Tech" → Engineering, "R" → Data, "CA" →
+Finance, "nurse" → Healthcare, "resin" → Art), career stages ("fresher", "senior"), every
+sample CV and portfolio (read from `sample-cvs.html` and `sample-portfolios.html` when the
+box first opens, so new samples need no change here), and the guides and key pages
+(`PAGES`). No match points to the brief and "Another field". To add a word people use, add
+it to the profession's keyword string in `FIELDS`.
