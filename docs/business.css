@@ -377,8 +377,58 @@ html.biz .sign li::before, .ticks li::before {
 .sign-icon[data-c="2"] { background: linear-gradient(150deg, #2A8A5C, #17593A); box-shadow: 0 12px 24px -12px rgba(23, 89, 58, .8); }
 .sign-icon[data-c="3"] { background: linear-gradient(150deg, #F5B53A, #D98A06); color: #3A2203; box-shadow: 0 12px 24px -12px rgba(217, 138, 6, .8); }
 .sign-icon svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.biz-price { margin-top: auto; padding-top: 14px; border-top: 1.5px dashed var(--line); font-size: 15px; color: var(--ink-2); }
+.biz-price { margin-top: auto; padding-top: 14px; border-top: 1.5px dashed var(--line); font-size: 15px; line-height: 1.7; color: var(--ink-2); }
 .biz-price strong { color: var(--accent); font-weight: 700; }
+.biz-price .amt { font: 700 26px/1 var(--serif); color: var(--ink); letter-spacing: -.01em; }
+.biz-price .amt-2 { font-weight: 700; color: var(--ink); }
+html.biz .sign-best .biz-price .amt, html.biz .sign-best .biz-price .amt-2 { color: #FFF4E2; }
+
+/* =====================================================================
+   PRICES: a café bill, and what happens after launch
+   ===================================================================== */
+
+.price-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(22px, 3vw, 40px); align-items: start; }
+@media (max-width: 900px) { .price-wrap { grid-template-columns: 1fr; } }
+.receipt {
+  position: relative; padding: 26px clamp(20px, 3vw, 34px) 30px;
+  background: #FFFEFB; color: var(--ink);
+  box-shadow: 0 2px 4px rgba(74, 45, 20, .05), 0 30px 50px -30px rgba(74, 45, 20, .45);
+  transform: rotate(-.6deg);
+  /* a torn zigzag edge at the bottom */
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+                conic-gradient(from -45deg at 50% 100%, #000 90deg, transparent 0) 0 100% / 20px 10px repeat-x;
+          mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+                conic-gradient(from -45deg at 50% 100%, #000 90deg, transparent 0) 0 100% / 20px 10px repeat-x;
+}
+.receipt::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: repeating-linear-gradient(90deg, #C2410C 0 18px, #F2A516 18px 36px); }
+.receipt-head {
+  display: flex; justify-content: space-between; gap: 16px; padding: 6px 0 12px; margin-bottom: 4px;
+  border-bottom: 2px solid var(--ink);
+  font: 700 12.5px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+}
+.receipt-head span:first-child { color: var(--accent); }
+.receipt-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 14px 0; border-bottom: 1.5px dashed var(--line);
+}
+.receipt-row > span:first-child { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.receipt-row strong { font: 600 18px/1.25 var(--serif); }
+.receipt-row small { font-size: 13.5px; line-height: 1.4; color: var(--muted); }
+.receipt-row > span:last-child { flex: none; font: 700 22px/1 var(--serif); color: var(--ink); font-variant-numeric: tabular-nums; }
+.receipt-combo > span:last-child { color: var(--accent); }
+.receipt-combo strong::after {
+  content: "Best value"; margin-left: 8px; padding: 2px 8px; border-radius: 999px; vertical-align: 2px;
+  background: var(--brass-tint); color: var(--brass); font: 700 10.5px var(--sans); letter-spacing: .08em; text-transform: uppercase;
+}
+.receipt-foot { margin-top: 14px; font-size: 14px; color: var(--muted); }
+html.biz .after-live { gap: 14px; background: linear-gradient(170deg, #FFFCF5, #FDF3E1); border-color: #F1DDB9; }
+.after-live .ticks { gap: 12px; }
+.after-live .ticks strong { color: var(--ink); }
+@media (max-width: 520px) {
+  .receipt { transform: none; }
+  .receipt-combo strong::after { display: none; }
+  .receipt-row > span:last-child { font-size: 20px; }
+}
 html.biz .card .btn { align-self: flex-start; }
 
 /* the third board is the dark one */

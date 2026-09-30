@@ -6,6 +6,8 @@
    it cannot answer goes to a person (WhatsApp or email).
 
    Prices live in PRICES below; keep them in step with pricing.html.
+   On the business page (html.biz) it answers from BIZ_TOPICS instead, with
+   BIZ_PRICES; keep those in step with the Prices section of business.html.
    Contact details come from CV_FORGE_CONTACT in site.js, which loads first. */
 
 (function () {
@@ -292,6 +294,186 @@
   };
 
   // ------------------------------------------------------------------
+  // The business side: websites and QR menus for local businesses.
+  // Shares greetings, contact, hours and issues with the list above.
+  // ------------------------------------------------------------------
+
+  var BIZ = document.documentElement.classList.contains('biz');
+  var BIZ_PRICES = {
+    qr: 1499, qrLarge: 2499, onePage: 3999, fullSite: 6999,
+    onePageQr: 4999, fullSiteQr: 7999, yearly: 799
+  };
+  var rs = function (n) { return R + String(n).replace(/(\d)(\d{3})$/, '$1,$2'); };
+
+  var BIZ_TOPICS = [
+    { id: 'greet', keys: ['hi', 'hello', 'hey', 'hii', 'namaste', 'namaskar', 'good morning', 'good evening', 'good afternoon'],
+      answer: function () { return 'Hi! I can help with prices for QR menus and websites, how long they take, how updates work, or what happens after the first year. What would you like to know?'; },
+      chips: ['bprices', 'bqr', 'bsite', 'bturnaround'] },
+
+    { id: 'thanks', keys: ['thanks', 'thank', 'thx', 'ty', 'dhanyavad', 'shukriya', 'great', 'awesome', 'perfect', 'ok thanks'],
+      answer: function () { return 'Happy to help. The <a href="#enquire">quote form</a> takes two minutes, or just WhatsApp us a photo of your menu — nothing is charged until you approve what we build.'; },
+      chips: ['bstart', 'contact'] },
+
+    { id: 'bqr', keys: ['qr', 'qr menu', 'qr code', 'digital menu', 'menu card', 'e menu', 'scan', 'scanner', 'restaurant', 'restaurants', 'cafe', 'hotel', 'dhaba', 'bar', 'pub', 'food menu'],
+      answer: function () {
+        return 'A <strong>QR menu</strong> is <strong>' + rs(BIZ_PRICES.qr) + ' one-time</strong> for up to about 60 dishes, or <strong>' + rs(BIZ_PRICES.qrLarge) + '</strong> for 60–150 dishes or separate food and bar menus. ' +
+          'That includes English, Hindi and Marathi, veg / non-veg / egg marks, search, a table card design, and a year of updates. It is live in 2–3 days. <a href="menu/monsoon-cafe/">Try the demo menu</a>';
+      },
+      chips: ['brenew', 'bupdates', 'bprint', 'bstart'] },
+
+    { id: 'bsite', keys: ['website', 'site', 'web', 'webpage', 'web page', 'online presence', 'landing page', 'business page', 'one page', 'pages'],
+      answer: function () {
+        return 'A <strong>one-page website</strong> is <strong>' + rs(BIZ_PRICES.onePage) + '</strong>: Call, WhatsApp and Directions buttons, your services or menu with prices, photos, hours and a map. ' +
+          'A <strong>full website</strong> with up to 5 sections or pages is <strong>' + rs(BIZ_PRICES.fullSite) + '</strong>. Both are one-time and live in 5–7 days. <a href="#samples">See the sample sites</a>';
+      },
+      chips: ['bboth', 'bdomain', 'brenew', 'bstart'] },
+
+    { id: 'bboth', keys: ['both', 'combo', 'bundle', 'package', 'together', 'website and menu', 'menu and website', 'site and menu', 'everything'],
+      answer: function () {
+        return 'Website + QR menu, one-time:<br>• One-page website + QR menu — <strong>' + rs(BIZ_PRICES.onePageQr) + '</strong><br>• Full website + QR menu — <strong>' + rs(BIZ_PRICES.fullSiteQr) + '</strong><br>' +
+          'The menu lives inside your site, so one link works on the table, in your Instagram bio and on Google.';
+      },
+      chips: ['brenew', 'bturnaround', 'bstart'] },
+
+    { id: 'brenew', keys: ['monthly', 'per month', 'every month', 'subscription', 'yearly', 'per year', 'annual', 'every year', 'renew', 'renewal', 'next year', 'second year',
+                           'after one year', 'after a year', 'maintenance', 'hosting', 'hidden', 'extra charges', 'recurring', 'ongoing'],
+      answer: function () {
+        return '<strong>No monthly fee.</strong> The first year of hosting and menu updates is included. From the second year it is <strong>' + rs(BIZ_PRICES.yearly) + ' a year</strong> — not a month — for hosting and your menu and price updates on WhatsApp. ' +
+          'The only other costs are optional: your own domain (about ' + R + '600–900 a year, paid to the registrar) and printing table cards (at cost).';
+      },
+      chips: ['bupdates', 'bdomain', 'bprices'] },
+
+    { id: 'bprices', keys: ['price', 'prices', 'pricing', 'cost', 'costs', 'charge', 'charges', 'fee', 'fees', 'rate', 'rates', 'how much', 'kitna', 'kitne', 'kiti', 'paisa', 'paise', 'rupees', 'budget', 'expensive', 'afford'],
+      answer: function () {
+        return 'Launch prices, all one-time:<br>• QR menu — ' + rs(BIZ_PRICES.qr) + ' (large menus ' + rs(BIZ_PRICES.qrLarge) + ')' +
+          '<br>• One-page website — ' + rs(BIZ_PRICES.onePage) + '<br>• Full website — ' + rs(BIZ_PRICES.fullSite) +
+          '<br>• Website + QR menu — from ' + rs(BIZ_PRICES.onePageQr) +
+          '<br>No monthly fee: the first year is included, then ' + rs(BIZ_PRICES.yearly) + ' a year. <a href="#prices">All prices</a>';
+      },
+      chips: ['brenew', 'bpayment', 'bturnaround'] },
+
+    { id: 'bupdates', keys: ['update', 'updates', 'change price', 'change prices', 'price change', 'new dish', 'new item', 'sold out', 'edit menu', 'change menu', 'reprint', 'change', 'edit', 'modify'],
+      answer: function () {
+        return 'Send the change on WhatsApp — a new price, a sold-out dish, a few new items — and we update the live menu. <strong>The QR on your tables stays the same</strong>, so you never reprint. Updates are included in the first year and in the ' + rs(BIZ_PRICES.yearly) + '-a-year plan after that.';
+      },
+      chips: ['brenew', 'contact'] },
+
+    { id: 'bdomain', keys: ['domain', 'dot com', '.com', '.in', 'own url', 'custom url', 'web address', 'my own address'],
+      answer: function () {
+        return 'Your own domain is <strong>optional</strong>. Without one, your site or menu goes on a free Fieldcraft address, like fieldcraft.co.in/menu/your-cafe. If you want yourbusiness.in or .com, you buy it in your own name — usually ' + R + '600–900 a year — and we connect it at no extra charge.';
+      },
+      chips: ['brenew', 'bsite'] },
+
+    { id: 'bprint', keys: ['print', 'printing', 'table card', 'table cards', 'sticker', 'stickers', 'standee', 'tent card', 'acrylic'],
+      answer: function () {
+        return 'We design the <strong>table cards and stickers</strong> in your colours — that is included. Printing is at cost, or you can print them at any shop near you. <a href="menu/monsoon-cafe/table-card.html">See the sample table cards</a>';
+      },
+      chips: ['bqr', 'bprices'] },
+
+    { id: 'bturnaround', keys: ['how long', 'turnaround', 'how soon', 'how fast', 'when', 'days', 'time', 'kab', 'kitne din', 'jaldi', 'urgent', 'asap', 'ready'],
+      answer: function () {
+        return 'A <strong>QR menu</strong> is usually live within <strong>2–3 days</strong> of getting your menu. A <strong>website</strong> takes <strong>5–7 days</strong>, depending on how quickly we get your photos and details.';
+      },
+      chips: ['bprocess', 'bsend', 'bstart'] },
+
+    { id: 'bprocess', keys: ['how does it work', 'how it works', 'process', 'steps', 'procedure', 'what happens', 'next steps', 'kaise'],
+      answer: function () {
+        return 'Three steps:<br>1. <strong>Tell us about your business</strong> — the form or a WhatsApp with your menu or services.<br>2. <strong>We confirm the price, then send a preview</strong> to check on your own phone. Changes are included.<br>3. <strong>You approve, pay and go live</strong> — table cards included for QR menus.';
+      },
+      chips: ['bsend', 'bpayment', 'bstart'] },
+
+    { id: 'bsend', keys: ['what do i send', 'what to send', 'need from me', 'photos', 'photo', 'logo', 'details needed', 'information needed', 'what do you need'],
+      answer: function () {
+        return 'Send your menu or list of services with prices (a photo of the printed menu is fine), your timings, address, phone and WhatsApp number, and a few photos — phone photos work. A logo helps but is not needed.';
+      },
+      chips: ['bprocess', 'bstart'] },
+
+    { id: 'bpayment', keys: ['pay', 'payment', 'upi', 'gpay', 'google pay', 'phonepe', 'paytm', 'advance', 'pay first', 'when do i pay', 'invoice'],
+      answer: function () {
+        return 'You pay <strong>after you approve</strong>. We confirm the price first, build it, and send a preview to check on your phone. Once you are happy, you pay and we put it live.';
+      },
+      chips: ['bprocess', 'bprices'] },
+
+    { id: 'blangs', keys: ['hindi', 'marathi', 'language', 'languages', 'english', 'bhasha', 'translate', 'translation'],
+      answer: function () {
+        return 'QR menus come in <strong>English, हिन्दी and मराठी</strong>. Guests switch with one tap, and a menu can open in Marathi first if your guests prefer it — like the <a href="menu/swaad-wada/">Swaad Wada sample</a>.';
+      },
+      chips: ['bqr', 'bsamples'] },
+
+    { id: 'bapp', keys: ['app', 'download', 'install', 'play store', 'android', 'iphone'],
+      answer: function () {
+        return 'No app. Any phone camera opens the QR menu — it is a web page, so it works on Android and iPhone without installing anything.';
+      },
+      chips: ['bqr', 'bsamples'] },
+
+    { id: 'border', keys: ['online order', 'online ordering', 'order online', 'delivery', 'zomato', 'swiggy', 'payment gateway', 'table booking', 'booking', 'reservation', 'reservations'],
+      answer: function () {
+        return 'Orders and bookings go through <strong>WhatsApp</strong>: a button opens a chat with your number and a ready-made message, such as a table booking or a cake order. Online payments and delivery apps are not part of the site.';
+      },
+      chips: ['bsite', 'bboth'] },
+
+    { id: 'bgoogle', keys: ['google', 'google listing', 'google business', 'gmb', 'google maps', 'maps', 'seo', 'search results', 'instagram'],
+      answer: function () {
+        return 'We link your website to your existing <strong>Google listing and Instagram</strong>, and the site is built to load fast and be read by search engines. We do not set up or manage Google Business Profiles.';
+      },
+      chips: ['bsite', 'bprices'] },
+
+    { id: 'bsamples', keys: ['sample', 'samples', 'example', 'examples', 'demo', 'your work', 'show me', 'portfolio'],
+      answer: function () {
+        return 'There are <a href="#samples">eight sample websites</a> — a café, a rooftop bar, an Irani café, a bakery, a salon, a dental clinic, a gym and a coaching class — and <a href="#menus">five sample QR menus</a>. All the businesses are made up; yours is built around your own name, photos and prices.';
+      },
+      chips: ['bprices', 'bstart'] },
+
+    { id: 'bdiscount', keys: ['discount', 'coupon', 'offer', 'cheaper', 'negotiate', 'less price', 'kam', 'best price', 'reduce'],
+      answer: function () {
+        return 'These are launch prices, and they are already well below what menu apps (' + R + '499 or more every month) and most website designers charge — with no monthly fee. Getting a website and a QR menu together saves the most.';
+      },
+      chips: ['bboth', 'bprices'] },
+
+    { id: 'bwho', keys: ['who are you', 'about you', 'legit', 'genuine', 'trust', 'scam', 'real company', 'reviews', 'clients', 'references'],
+      answer: function () {
+        return 'Fieldcraft is based in Pune and has just started building for businesses, so there are no client reviews yet. What you can do instead: open the <a href="#samples">sample sites</a> and <a href="#menus">menus</a> on your phone, and see your own preview before you pay anything.';
+      },
+      chips: ['bsamples', 'bpayment'] },
+
+    { id: 'bstudent', keys: ['resume', 'cv', 'linkedin', 'job', 'jobs', 'career', 'student', 'fresher', 'my portfolio', 'personal website', 'ats'],
+      answer: function () {
+        return 'Resumes, CVs, LinkedIn rewrites and personal portfolio sites are on the <a href="index.html">students &amp; professionals side</a> — resumes from ' + R + PRICES.resume + ', see the <a href="pricing.html">pricing page</a>. Here it is websites and QR menus for businesses.';
+      },
+      chips: ['bprices', 'contact'] },
+
+    { id: 'bstart', keys: ['order', 'start', 'begin', 'buy', 'get started', 'sign up', 'i want', 'interested', 'quote', 'lets do it', 'book'],
+      answer: function () {
+        return 'Great — fill the <a href="#enquire">quote form</a> (two minutes) or WhatsApp us a photo of your menu or list of services. We reply with your exact price, usually the same day.';
+      },
+      chips: ['bsend', 'contact'] }
+  ];
+
+  // shared with the student side
+  ['hours', 'location', 'contact', 'issue'].forEach(function (id) {
+    for (var i = 0; i < TOPICS.length; i++) if (TOPICS[i].id === id) BIZ_TOPICS.push(TOPICS[i]);
+  });
+
+  var BIZ_LABELS = {
+    bprices: 'Prices', bqr: 'QR menu', bsite: 'Website', bboth: 'Website + menu', brenew: 'Any yearly fee?',
+    bupdates: 'Changing prices', bdomain: 'Own domain', bprint: 'Table cards', bturnaround: 'How long?',
+    bprocess: 'How it works', bsend: 'What do I send?', bpayment: 'When do I pay?', bsamples: 'See samples',
+    bstart: 'Get a quote'
+  };
+  Object.keys(BIZ_LABELS).forEach(function (k) { CHIP_LABELS[k] = BIZ_LABELS[k]; });
+
+  var ACTIVE = BIZ ? BIZ_TOPICS : TOPICS;
+  if (BIZ) {
+    // "location" on the student side talks about briefs by email
+    ACTIVE = ACTIVE.map(function (t) {
+      if (t.id !== 'location') return t;
+      return { id: 'location', keys: t.keys, chips: ['bprocess', 'contact'], answer: function () {
+        return 'We are based in ' + (C.city || 'Pune') + '. Most of it happens on WhatsApp, so you do not need to meet us — just send your menu or details.';
+      } };
+    });
+  }
+
+  // ------------------------------------------------------------------
   // Matching
   // ------------------------------------------------------------------
 
@@ -306,14 +488,15 @@
   // "When will I get my resume?" names a product but asks about turnaround,
   // so the question wins; "how much is the portfolio?" asks the price of one
   // product, so that product's own answer (which carries its price) wins.
-  var PRODUCTS = ['resume', 'cvvs', 'portfolio', 'linkedin', 'health', 'bundles', 'domain'];
-  var SOFT = ['greet', 'thanks', 'prices'];
+  var PRODUCTS = BIZ ? ['bqr', 'bsite', 'bboth', 'bdomain', 'bprint', 'bstudent'] : ['resume', 'cvvs', 'portfolio', 'linkedin', 'health', 'bundles', 'domain'];
+  var PRICES_ID = BIZ ? 'bprices' : 'prices';
+  var SOFT = ['greet', 'thanks', PRICES_ID];
 
   var match = function (text) {
     var t = normalise(text);
     var words = t.trim().split(' ');
     var scored = [];
-    TOPICS.forEach(function (topic) {
+    ACTIVE.forEach(function (topic) {
       var score = 0;
       topic.keys.forEach(function (key) {
         var k = normalise(key).trim();
@@ -339,14 +522,14 @@
     if (PRODUCTS.indexOf(top.id) > -1) {
       return first(function (id) { return PRODUCTS.indexOf(id) < 0 && SOFT.indexOf(id) < 0; }) || top;
     }
-    if (top.id === 'prices') {
+    if (top.id === PRICES_ID) {
       return first(function (id) { return PRODUCTS.indexOf(id) > -1; }) || top;
     }
     return top;
   };
 
   var byId = function (id) {
-    for (var i = 0; i < TOPICS.length; i++) if (TOPICS[i].id === id) return TOPICS[i];
+    for (var i = 0; i < ACTIVE.length; i++) if (ACTIVE[i].id === id) return ACTIVE[i];
     return null;
   };
 
@@ -476,12 +659,12 @@
         '<label>Your name<input name="name" type="text" required autocomplete="name"></label>' +
         '<label>Your email<input name="email" type="email" required autocomplete="email"></label>' +
         '<label>What is it about?<select name="type">' +
-          '<option>A revision to my document</option>' +
-          '<option>My files have not arrived</option>' +
+          (BIZ ? '<option>A change to my site or menu</option><option>My site or menu is not live yet</option>'
+               : '<option>A revision to my document</option><option>My files have not arrived</option>') +
           '<option>Payment or refund</option>' +
           '<option>Something on the website is not working</option>' +
           '<option>Something else</option></select></label>' +
-        '<label>Details<textarea name="details" rows="3" required placeholder="What happened, and your order or brief name if you have one"></textarea></label>' +
+        '<label>Details<textarea name="details" rows="3" required placeholder="' + (BIZ ? 'What happened, and your business name' : 'What happened, and your order or brief name if you have one') + '"></textarea></label>' +
         '<button type="submit">Send to Fieldcraft</button>' +
         '<p class="cfa-form-note" role="status" aria-live="polite"></p>';
       f.elements.type.selectedIndex = guessIssue(q);
@@ -556,7 +739,7 @@
   var reply = function (topic, q) {
     if (!topic) {
       addBot('I am not sure about that one — I only answer from what is on this site. Try one of these, or ask a person:',
-             ['prices', 'turnaround', 'process', 'contact']);
+             BIZ ? ['bprices', 'brenew', 'bturnaround', 'contact'] : ['prices', 'turnaround', 'process', 'contact']);
       return;
     }
     if (topic.answer === 'ISSUE_FORM') { issueForm(q); return; }
@@ -572,8 +755,13 @@
     hideTeaser();
     if (!started) {
       started = true;
-      addBot('Hi, I am the Fieldcraft assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
-             ['prices', 'templates', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
+      if (BIZ) {
+        addBot('Hi, I am the Fieldcraft assistant. Ask me about QR menu and website prices, how long it takes, yearly fees or how updates work. What can I help with?',
+               ['bprices', 'bqr', 'bsite', 'brenew', 'bturnaround', 'bprocess', 'contact']);
+      } else {
+        addBot('Hi, I am the Fieldcraft assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
+               ['prices', 'templates', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
+      }
     }
     window.setTimeout(function () { input.focus(); }, 60);
   };
