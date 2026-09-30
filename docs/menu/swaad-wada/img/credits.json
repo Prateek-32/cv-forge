@@ -1,0 +1,596 @@
+{
+    "aamras-in-season":  {
+                             "dish":  "Aamras (in season)",
+                             "file":  "aamras-in-season.jpg",
+                             "title":  "File:Aamras Custard.JPG",
+                             "author":  "Dr. Manavpreet Kaur",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Aamras_Custard.JPG",
+                             "query":  "Aamras"
+                         },
+    "alu-vadi":  {
+                     "dish":  "Alu vadi",
+                     "file":  "alu-vadi.jpg",
+                     "title":  "File:Crispy Alu Vadi from my Kitchen, Pune, Maharashtra.jpg",
+                     "author":  "Sharvarism",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Crispy_Alu_Vadi_from_my_Kitchen,_Pune,_Maharashtra.jpg",
+                     "query":  "Alu vadi"
+                 },
+    "amrakhand-in-season":  {
+                                "dish":  "Amrakhand (in season)",
+                                "file":  "amrakhand-in-season.jpg",
+                                "title":  "File:Aamrakhand.jpg",
+                                "author":  "Harshaddhawale",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Aamrakhand.jpg",
+                                "query":  "File:Aamrakhand.jpg"
+                            },
+    "bajra-bhakri":  {
+                         "dish":  "Bajra bhakri",
+                         "file":  "bajra-bhakri.jpg",
+                         "title":  "File:Bhakri 1.jpg",
+                         "author":  "Hemal0105",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Bhakri_1.jpg",
+                         "query":  "Bajra bhakri"
+                     },
+    "basundi":  {
+                    "dish":  "Basundi",
+                    "file":  "basundi.jpg",
+                    "title":  "File:Basundi Indian Dessert Mithai Sweets.jpg",
+                    "author":  "Edsel Little",
+                    "licence":  "CC BY-SA 2.0",
+                    "page":  "https://commons.wikimedia.org/wiki/File:Basundi_Indian_Dessert_Mithai_Sweets.jpg",
+                    "query":  "Basundi"
+                },
+    "batata-bhaji-dry":  {
+                             "dish":  "Batata bhaji (dry)",
+                             "file":  "batata-bhaji-dry.jpg",
+                             "title":  "File:Batata bhaji and chai-Pune-Maharashtra.jpg",
+                             "author":  "Wattamwarsamiksha",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Batata_bhaji_and_chai-Pune-Maharashtra.jpg",
+                             "query":  "Batata bhaji"
+                         },
+    "batata-vada":  {
+                        "dish":  "Batata vada",
+                        "file":  "batata-vada.jpg",
+                        "title":  "File:Indian BatataVada.JPG",
+                        "author":  "Arthrajsinh Solanki",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Indian_BatataVada.JPG",
+                        "query":  "Batata vada"
+                    },
+    "bharli-vangi":  {
+                         "dish":  "Bharli vangi",
+                         "file":  "bharli-vangi.jpg",
+                         "title":  "File:Bharali Vangi (Stuffed Brinjal Curry).jpg",
+                         "author":  "Nilekha",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Bharali_Vangi_(Stuffed_Brinjal_Curry).jpg",
+                         "query":  "File:Bharali Vangi (Stuffed Brinjal Curry).jpg"
+                     },
+    "curd":  {
+                 "dish":  "Curd",
+                 "file":  "curd.jpg",
+                 "title":  "File:Curd in steel bowl.jpg",
+                 "author":  "Netha Hussain",
+                 "licence":  "CC BY-SA 3.0",
+                 "page":  "https://commons.wikimedia.org/wiki/File:Curd_in_steel_bowl.jpg",
+                 "query":  "File:Curd in steel bowl.jpg"
+             },
+    "cutting-chai":  {
+                         "dish":  "Cutting chai",
+                         "file":  "cutting-chai.jpg",
+                         "title":  "File:Cutting Chai (Tea).jpg",
+                         "author":  "Jinymystery",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Cutting_Chai_(Tea).jpg",
+                         "query":  "Cutting chai"
+                     },
+    "dahi-misal":  {
+                       "dish":  "Dahi misal",
+                       "file":  "dahi-misal.jpg",
+                       "title":  "File:Pune Special- Dahi Misal Pav (Hotel Savtamali).jpg",
+                       "author":  "Gauravadeshpande",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Pune_Special-_Dahi_Misal_Pav_(Hotel_Savtamali).jpg",
+                       "query":  "Dahi misal"
+                   },
+    "extra-pav-2":  {
+                        "dish":  "Extra pav (2)",
+                        "file":  "extra-pav-2.jpg",
+                        "title":  "File:Indian Bread in Butter Ocean.JPG",
+                        "author":  "Pratik1203",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Indian_Bread_in_Butter_Ocean.JPG",
+                        "query":  "Extra pav"
+                    },
+    "fried-modak-3":  {
+                          "dish":  "Fried modak (3)",
+                          "file":  "fried-modak-3.jpg",
+                          "title":  "File:Modak - wheat modak fried.JPG",
+                          "author":  "Milindb05",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Modak_-_wheat_modak_fried.JPG",
+                          "query":  "Fried modak"
+                      },
+    "ghadichi-poli":  {
+                          "dish":  "Ghadichi poli",
+                          "file":  "ghadichi-poli.jpg",
+                          "title":  "File:Chapati 1.jpg",
+                          "author":  "Gaurav Dhwaj Khadka",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Chapati_1.jpg",
+                          "query":  "File:Chapati 1.jpg"
+                      },
+    "ghavan-with-chutney":  {
+                                "dish":  "Ghavan with chutney",
+                                "file":  "ghavan-with-chutney.jpg",
+                                "title":  "File:Ghavan - Malvani Dish.jpg",
+                                "author":  "Jiyajale",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Ghavan_-_Malvani_Dish.jpg",
+                                "query":  "Ghavan with chutney"
+                            },
+    "ghee-tup":  {
+                     "dish":  "Ghee (tup)",
+                     "file":  "ghee-tup.jpg",
+                     "title":  "File:Desi ghee1.JPG",
+                     "author":  "Hartej.hundal",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Desi_ghee1.JPG",
+                     "query":  "File:Desi ghee1.JPG"
+                 },
+    "green-chilli-thecha":  {
+                                "dish":  "Green chilli thecha",
+                                "file":  "green-chilli-thecha.jpg",
+                                "title":  "File:Varhadi Thecha.jpg",
+                                "author":  "CookNJoy",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Varhadi_Thecha.jpg",
+                                "query":  "File:Varhadi Thecha.jpg"
+                            },
+    "gulab-jamun-2":  {
+                          "dish":  "Gulab jamun (2)",
+                          "file":  "gulab-jamun-2.jpg",
+                          "title":  "File:Two Gulab Jamun in a plate 01.jpg",
+                          "author":  "Suyash.dwivedi",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Two_Gulab_Jamun_in_a_plate_01.jpg",
+                          "query":  "Gulab jamun"
+                      },
+    "jowar-bhakri":  {
+                         "dish":  "Jowar bhakri",
+                         "file":  "jowar-bhakri.jpg",
+                         "title":  "File:Jowar Roti.jpg",
+                         "author":  "Chaitaliijagtap",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Jowar_Roti.jpg",
+                         "query":  "File:Jowar Roti.jpg"
+                     },
+    "kanda-bhaji":  {
+                        "dish":  "Kanda bhaji",
+                        "file":  "kanda-bhaji.jpg",
+                        "title":  "File:Puneri Kanda Bhaji.jpg",
+                        "author":  "Fatfoodie",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Puneri_Kanda_Bhaji.jpg",
+                        "query":  "File:Puneri Kanda Bhaji.jpg"
+                    },
+    "kanda-pohe":  {
+                       "dish":  "Kanda pohe",
+                       "file":  "kanda-pohe.jpg",
+                       "title":  "File:Kanda Pohe.jpg",
+                       "author":  "JayanandS",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Kanda_Pohe.jpg",
+                       "query":  "File:Kanda Pohe.jpg"
+                   },
+    "katachi-amti":  {
+                         "dish":  "Katachi amti",
+                         "file":  "katachi-amti.jpg",
+                         "title":  "File:Puran Poli and Katachi Amti by Dr. Raju Kasambe 02.jpg",
+                         "author":  "Dr. Raju Kasambe",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Puran_Poli_and_Katachi_Amti_by_Dr._Raju_Kasambe_02.jpg",
+                         "query":  "Katachi amti"
+                     },
+    "kokum-sarbat":  {
+                         "dish":  "Kokum sarbat",
+                         "file":  "kokum-sarbat.jpg",
+                         "title":  "File:Kokum or Punarpuli sharbat.jpg",
+                         "author":  "Prajna Prabhu",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Kokum_or_Punarpuli_sharbat.jpg",
+                         "query":  "File:Kokum or Punarpuli sharbat.jpg"
+                     },
+    "kolhapuri-misal":  {
+                            "dish":  "Kolhapuri misal",
+                            "file":  "kolhapuri-misal.jpg",
+                            "title":  "File:Special Kolhapuri Misal Pav.jpg",
+                            "author":  "Amitsu12",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Special_Kolhapuri_Misal_Pav.jpg",
+                            "query":  "Kolhapuri misal"
+                        },
+    "kolhapuri-thali-veg":  {
+                                "dish":  "Kolhapuri thali (veg)",
+                                "file":  "kolhapuri-thali-veg.jpg",
+                                "title":  "File:Kolhapuri Thali of Kolhapur, Maharashtra.jpg",
+                                "author":  "Nadeem.gaikwad",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Kolhapuri_Thali_of_Kolhapur,_Maharashtra.jpg",
+                                "query":  "Kolhapuri thali"
+                            },
+    "koshimbir":  {
+                      "dish":  "Koshimbir",
+                      "file":  "koshimbir.jpg",
+                      "title":  "File:Raita with cucumber and mint.jpg",
+                      "author":  "Elisabeth Nara at English Wikipedia",
+                      "licence":  "CC BY-SA 3.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Raita_with_cucumber_and_mint.jpg",
+                      "query":  "Koshimbir"
+                  },
+    "kothimbir-vadi":  {
+                           "dish":  "Kothimbir vadi",
+                           "file":  "kothimbir-vadi.jpg",
+                           "title":  "File:Kothimbir vadi.JPG",
+                           "author":  "सदस्य:वि.नरसीकर",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Kothimbir_vadi.JPG",
+                           "query":  "Kothimbir vadi"
+                       },
+    "lemon-sarbat":  {
+                         "dish":  "Lemon sarbat",
+                         "file":  "lemon-sarbat.jpg",
+                         "title":  "File:Nimbu pani.JPG",
+                         "author":  "Archana Joshi",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Nimbu_pani.JPG",
+                         "query":  "File:Nimbu pani.JPG"
+                     },
+    "maharashtrian-thali-unlimited":  {
+                                          "dish":  "Maharashtrian thali (unlimited)",
+                                          "file":  "maharashtrian-thali-unlimited.jpg",
+                                          "title":  "File:Maharashtrian Thali 2.JPG",
+                                          "author":  "Advaitj11",
+                                          "licence":  "CC BY-SA 4.0",
+                                          "page":  "https://commons.wikimedia.org/wiki/File:Maharashtrian_Thali_2.JPG",
+                                          "query":  "Maharashtrian thali"
+                                      },
+    "masala-doodh":  {
+                         "dish":  "Masala doodh",
+                         "file":  "masala-doodh.jpg",
+                         "title":  "File:Kesaria Doodh(Saffron Milk)-Varanasi-UttarPradesh-DSC001.jpg",
+                         "author":  "Sayantanb211",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Kesaria_Doodh(Saffron_Milk)-Varanasi-UttarPradesh-DSC001.jpg",
+                         "query":  "File:Kesaria Doodh(Saffron Milk)-Varanasi-UttarPradesh-DSC001.jpg"
+                     },
+    "masala-taak":  {
+                        "dish":  "Masala taak",
+                        "file":  "masala-taak.jpg",
+                        "title":  "File:Chaach.JPG",
+                        "author":  "Rayraider",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Chaach.JPG",
+                        "query":  "File:Chaach.JPG"
+                    },
+    "masale-bhaat":  {
+                         "dish":  "Masale bhaat",
+                         "file":  "masale-bhaat.jpg",
+                         "title":  "File:Masale Bhat -Homemade - Maharashtra.jpg",
+                         "author":  "Phadke09",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Masale_Bhat_-Homemade_-_Maharashtra.jpg",
+                         "query":  "File:Masale Bhat -Homemade - Maharashtra.jpg"
+                     },
+    "matki-usal":  {
+                       "dish":  "Matki usal",
+                       "file":  "matki-usal.jpg",
+                       "title":  "File:Matki sprout usal chapati ambehalad pickel taak salad.jpg",
+                       "author":  "Meena Kharatmal",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Matki_sprout_usal_chapati_ambehalad_pickel_taak_salad.jpg",
+                       "query":  "File:Matki sprout usal chapati ambehalad pickel taak salad.jpg"
+                   },
+    "mini-thali":  {
+                       "dish":  "Mini thali",
+                       "file":  "mini-thali.jpg",
+                       "title":  "File:Fish Curry Rice Thali (28111667531).jpg",
+                       "author":  "Joegoaukfishcurry2",
+                       "licence":  "CC BY-SA 2.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Fish_Curry_Rice_Thali_(28111667531).jpg",
+                       "query":  "Mini thali"
+                   },
+    "misal-pav":  {
+                      "dish":  "Misal pav",
+                      "file":  "misal-pav.jpg",
+                      "title":  "File:*Misal Pav*.jpg",
+                      "author":  "Ishanya 1507",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:*Misal_Pav*.jpg",
+                      "query":  "Misal pav"
+                  },
+    "mixed-bhaji-plate":  {
+                              "dish":  "Mixed bhaji plate",
+                              "file":  "mixed-bhaji-plate.jpg",
+                              "title":  "File:Pakora plate.jpg",
+                              "author":  "JogiAsad",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Pakora_plate.jpg",
+                              "query":  "File:Pakora plate.jpg"
+                          },
+    "nachni-ragi-bhakri":  {
+                               "dish":  "Nachni (ragi) bhakri",
+                               "file":  "nachni-ragi-bhakri.jpg",
+                               "title":  "File:Ragi roti.jpg",
+                               "author":  "Medhi jyoti",
+                               "licence":  "CC BY-SA 4.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Ragi_roti.jpg",
+                               "query":  "File:Ragi roti.jpg"
+                           },
+    "pav-bhaji":  {
+                      "dish":  "Pav bhaji",
+                      "file":  "pav-bhaji.jpg",
+                      "title":  "File:Bhaji pav 2.jpg",
+                      "author":  "BHAAGIi",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Bhaji_pav_2.jpg",
+                      "query":  "Pav bhaji"
+                  },
+    "pithla-bhakri":  {
+                          "dish":  "Pithla bhakri",
+                          "file":  "pithla-bhakri.jpg",
+                          "title":  "File:Pithla-Bhakri (51373736404).jpg",
+                          "author":  "solarisgirl",
+                          "licence":  "CC BY-SA 2.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Pithla-Bhakri_(51373736404).jpg",
+                          "query":  "Pithla bhakri"
+                      },
+    "piyush":  {
+                   "dish":  "Piyush",
+                   "file":  "piyush.jpg",
+                   "title":  "File:Plain Lassi in a glass.jpg",
+                   "author":  "Kyu3a",
+                   "licence":  "CC BY-SA 4.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Plain_Lassi_in_a_glass.jpg",
+                   "query":  "File:Plain Lassi in a glass.jpg"
+               },
+    "puneri-misal":  {
+                         "dish":  "Puneri misal",
+                         "file":  "puneri-misal.jpg",
+                         "title":  "File:Puneri misal pav.jpg",
+                         "author":  "Wind Hashira",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Puneri_misal_pav.jpg",
+                         "query":  "Puneri misal"
+                     },
+    "puran-poli-with-ghee":  {
+                                 "dish":  "Puran poli with ghee",
+                                 "file":  "puran-poli-with-ghee.jpg",
+                                 "title":  "File:Puran Poli with Ghee.jpg",
+                                 "author":  "Pratha Bopche",
+                                 "licence":  "CC BY-SA 4.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Puran_Poli_with_Ghee.jpg",
+                                 "query":  "Puran poli with ghee"
+                             },
+    "puri-3":  {
+                   "dish":  "Puri (3)",
+                   "file":  "puri-3.jpg",
+                   "title":  "File:Puri (food).jpg",
+                   "author":  "Gaurav Dhwaj Khadka",
+                   "licence":  "CC BY-SA 4.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Puri_(food).jpg",
+                   "query":  "File:Puri (food).jpg"
+               },
+    "puri-bhaji-tikhat":  {
+                              "dish":  "Puri bhaji (tikhat)",
+                              "file":  "puri-bhaji-tikhat.jpg",
+                              "title":  "File:Puri Bhajji in Mumbai Restaurant.JPG",
+                              "author":  "Ask27",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Puri_Bhajji_in_Mumbai_Restaurant.JPG",
+                              "query":  "Puri bhaji"
+                          },
+    "rice-bhakri":  {
+                        "dish":  "Rice bhakri",
+                        "file":  "rice-bhakri.jpg",
+                        "title":  "File:Bhakri 1.jpg",
+                        "author":  "Hemal0105",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Bhakri_1.jpg",
+                        "query":  "File:Bhakri 1.jpg"
+                    },
+    "roasted-papad":  {
+                          "dish":  "Roasted papad",
+                          "file":  "roasted-papad.jpg",
+                          "title":  "File:Papad (roasted).jpg",
+                          "author":  "Navaneeth Krishnan S",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Papad_(roasted).jpg",
+                          "query":  "Roasted papad"
+                      },
+    "sabudana-kheer":  {
+                           "dish":  "Sabudana kheer",
+                           "file":  "sabudana-kheer.jpg",
+                           "title":  "File:Sabudana Kheer , A dist of Rajasthan.jpg",
+                           "author":  "Omkarwiki81",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Sabudana_Kheer_,_A_dist_of_Rajasthan.jpg",
+                           "query":  "Sabudana kheer"
+                       },
+    "sabudana-khichdi":  {
+                             "dish":  "Sabudana khichdi",
+                             "file":  "sabudana-khichdi.jpg",
+                             "title":  "File:Sabudana Khichdi with Sweet curd.JPG",
+                             "author":  "Dheerajk88",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Sabudana_Khichdi_with_Sweet_curd.JPG",
+                             "query":  "Sabudana khichdi"
+                         },
+    "sabudana-vada":  {
+                          "dish":  "Sabudana vada",
+                          "file":  "sabudana-vada.jpg",
+                          "title":  "File:Sabudana Vada.jpg",
+                          "author":  "Yakshitha",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Sabudana_Vada.jpg",
+                          "query":  "Sabudana vada"
+                      },
+    "sheera":  {
+                   "dish":  "Sheera",
+                   "file":  "sheera.jpg",
+                   "title":  "File:Sooji Halwa (Semolina Pudding).JPG",
+                   "author":  "Mdsmds0",
+                   "licence":  "CC BY-SA 4.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Sooji_Halwa_(Semolina_Pudding).JPG",
+                   "query":  "Sheera"
+               },
+    "shev-bhaji":  {
+                       "dish":  "Shev bhaji",
+                       "file":  "shev-bhaji.jpg",
+                       "title":  "File:Shev Bhaaji.JPG",
+                       "author":  "Rahul Patil",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Shev_Bhaaji.JPG",
+                       "query":  "Shev bhaji"
+                   },
+    "shrikhand":  {
+                      "dish":  "Shrikhand",
+                      "file":  "shrikhand.jpg",
+                      "title":  "File:Shrikhand london kastoori.jpg",
+                      "author":  "Secretlondon",
+                      "licence":  "CC BY-SA 3.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Shrikhand_london_kastoori.jpg",
+                      "query":  "Shrikhand"
+                  },
+    "solkadhi":  {
+                     "dish":  "Solkadhi",
+                     "file":  "solkadhi.jpg",
+                     "title":  "File:Sol kadhi.jpg",
+                     "author":  "Bhagyashree1501",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Sol_kadhi.jpg",
+                     "query":  "File:Sol kadhi.jpg"
+                 },
+    "special-thali-with-puran-poli":  {
+                                          "dish":  "Special thali with puran poli",
+                                          "file":  "special-thali-with-puran-poli.jpg",
+                                          "title":  "File:Maharashtrian Thali 2.JPG",
+                                          "author":  "Advaitj11",
+                                          "licence":  "CC BY-SA 4.0",
+                                          "page":  "https://commons.wikimedia.org/wiki/File:Maharashtrian_Thali_2.JPG",
+                                          "query":  "File:Maharashtrian Thali 2.JPG"
+                                      },
+    "sugarcane-juice-in-season":  {
+                                      "dish":  "Sugarcane juice (in season)",
+                                      "file":  "sugarcane-juice-in-season.jpg",
+                                      "title":  "File:Sugarcanejuice.jpg",
+                                      "author":  "Food Trails",
+                                      "licence":  "CC BY-SA 2.0",
+                                      "page":  "https://commons.wikimedia.org/wiki/File:Sugarcanejuice.jpg",
+                                      "query":  "Sugarcane juice"
+                                  },
+    "thalipeeth-with-white-butter":  {
+                                         "dish":  "Thalipeeth with white butter",
+                                         "file":  "thalipeeth-with-white-butter.jpg",
+                                         "title":  "File:Thalipeeth - Maharashtra.jpg",
+                                         "author":  "Avinashvh1n1",
+                                         "licence":  "CC BY-SA 4.0",
+                                         "page":  "https://commons.wikimedia.org/wiki/File:Thalipeeth_-_Maharashtra.jpg",
+                                         "query":  "File:Thalipeeth - Maharashtra.jpg"
+                                     },
+    "ukadiche-modak-tuesdays":  {
+                                    "dish":  "Ukadiche modak (Tuesdays)",
+                                    "file":  "ukadiche-modak-tuesdays.jpg",
+                                    "title":  "File:Ukadiche Modak, full and split.jpg",
+                                    "author":  "Dharmadhyaksha",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Ukadiche_Modak,_full_and_split.jpg",
+                                    "query":  "Ukadiche modak"
+                                },
+    "upma":  {
+                 "dish":  "Upma",
+                 "file":  "upma.jpg",
+                 "title":  "File:Upma South India.JPG",
+                 "author":  "Intodustin",
+                 "licence":  "CC BY-SA 4.0",
+                 "page":  "https://commons.wikimedia.org/wiki/File:Upma_South_India.JPG",
+                 "query":  "Upma"
+             },
+    "upvas-misal-fasting":  {
+                                "dish":  "Upvas misal (fasting)",
+                                "file":  "upvas-misal-fasting.jpg",
+                                "title":  "File:Home made Sabudana Khichdi Fasting Delicacies.jpg",
+                                "author":  "Daksha2705",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Home_made_Sabudana_Khichdi_Fasting_Delicacies.jpg",
+                                "query":  "File:Home made Sabudana Khichdi Fasting Delicacies.jpg"
+                            },
+    "upvas-thali":  {
+                        "dish":  "Upvas thali",
+                        "file":  "upvas-thali.jpg",
+                        "title":  "File:Shivratri fast thali.jpg",
+                        "author":  "YKanchan07",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Shivratri_fast_thali.jpg",
+                        "query":  "File:Shivratri fast thali.jpg"
+                    },
+    "upvas-thalipeeth":  {
+                             "dish":  "Upvas thalipeeth",
+                             "file":  "upvas-thalipeeth.jpg",
+                             "title":  "File:Bhajani Thalipeeth.jpg",
+                             "author":  "Sulabha prabhune",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Bhajani_Thalipeeth.jpg",
+                             "query":  "File:Bhajani Thalipeeth.jpg"
+                         },
+    "vada-pav":  {
+                     "dish":  "Vada pav",
+                     "file":  "vada-pav.jpg",
+                     "title":  "File:Crunchy Crispy Vada pav.jpg",
+                     "author":  "Sharvarism",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Crunchy_Crispy_Vada_pav.jpg",
+                     "query":  "Vada pav"
+                 },
+    "vangi-bhaat":  {
+                        "dish":  "Vangi bhaat",
+                        "file":  "vangi-bhaat.jpg",
+                        "title":  "File:Vaanghi Baath.jpg",
+                        "author":  "Sherin",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Vaanghi_Baath.jpg",
+                        "query":  "File:Vaanghi Baath.jpg"
+                    },
+    "varan-bhaat-tup":  {
+                            "dish":  "Varan bhaat \u0026 tup",
+                            "file":  "varan-bhaat-tup.jpg",
+                            "title":  "File:Varan Bhat.jpg",
+                            "author":  "Kashmira3091",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Varan_Bhat.jpg",
+                            "query":  "File:Varan Bhat.jpg"
+                        },
+    "white-butter-loni":  {
+                              "dish":  "White butter (loni)",
+                              "file":  "white-butter-loni.jpg",
+                              "title":  "File:Butter dish.jpg",
+                              "author":  "The Digital Pimp",
+                              "licence":  "CC BY 2.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Butter_dish.jpg",
+                              "query":  "File:Butter dish.jpg"
+                          },
+    "zunka-bhakri":  {
+                         "dish":  "Zunka bhakri",
+                         "file":  "zunka-bhakri.jpg",
+                         "title":  "File:Zunka Bhakar.jpg",
+                         "author":  "Satyajit Dhawale (Satyajit888)",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Zunka_Bhakar.jpg",
+                         "query":  "Zunka bhakri"
+                     }
+}

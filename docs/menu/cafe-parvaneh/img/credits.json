@@ -1,0 +1,560 @@
+{
+    "akuri-on-toast":  {
+                           "dish":  "Akuri on toast",
+                           "file":  "akuri-on-toast.jpg",
+                           "title":  "File:Scrambled eggs on toast - Joe\u0027s Cafe 2024-04-14.jpg",
+                           "author":  "Andy Li",
+                           "licence":  "CC0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Scrambled_eggs_on_toast_-_Joe%27s_Cafe_2024-04-14.jpg",
+                           "query":  "File:Scrambled eggs on toast - Joe\u0027s Cafe 2024-04-14.jpg"
+                       },
+    "boiled-eggs-two":  {
+                            "dish":  "Boiled eggs, two",
+                            "file":  "boiled-eggs-two.jpg",
+                            "title":  "File:Boiled eggs on a white plate.jpg",
+                            "author":  "Nana Pearls",
+                            "licence":  "CC0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Boiled_eggs_on_a_white_plate.jpg",
+                            "query":  "File:Boiled eggs on a white plate.jpg"
+                        },
+    "bombay-sandwich":  {
+                            "dish":  "Bombay sandwich",
+                            "file":  "bombay-sandwich.jpg",
+                            "title":  "File:Bombay cheese sandwich.jpg",
+                            "author":  "Wind Hashira",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Bombay_cheese_sandwich.jpg",
+                            "query":  "Bombay sandwich"
+                        },
+    "bread-pudding":  {
+                          "dish":  "Bread pudding",
+                          "file":  "bread-pudding.jpg",
+                          "title":  "File:Rew13c05-745a Bread Pudding.JPG",
+                          "author":  "Roly Williams",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Rew13c05-745a_Bread_Pudding.JPG",
+                          "query":  "Bread pudding"
+                      },
+    "brun-maska":  {
+                       "dish":  "Brun maska",
+                       "file":  "brun-maska.jpg",
+                       "title":  "File:Brun Maska.jpg",
+                       "author":  "Avinashvh1n1",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Brun_Maska.jpg",
+                       "query":  "Brun maska"
+                   },
+    "brun-omelette":  {
+                          "dish":  "Brun omelette",
+                          "file":  "brun-omelette.jpg",
+                          "title":  "File:Bread Omelette 2.jpg",
+                          "author":  "Gannu03",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Bread_Omelette_2.jpg",
+                          "query":  "File:Bread Omelette 2.jpg"
+                      },
+    "bun-jam":  {
+                    "dish":  "Bun jam",
+                    "file":  "bun-jam.jpg",
+                    "title":  "File:Bean-jam-bun,anpan,katori-city,japan.JPG",
+                    "author":  "katorisi",
+                    "licence":  "CC BY 3.0",
+                    "page":  "https://commons.wikimedia.org/wiki/File:Bean-jam-bun,anpan,katori-city,japan.JPG",
+                    "query":  "Bun jam"
+                },
+    "bun-maska":  {
+                      "dish":  "Bun maska",
+                      "file":  "bun-maska.jpg",
+                      "title":  "File:Bun Maska Pav.jpg",
+                      "author":  "Sanket Oswal",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Bun_Maska_Pav.jpg",
+                      "query":  "Bun maska"
+                  },
+    "bun-maska-jam":  {
+                          "dish":  "Bun maska jam",
+                          "file":  "bun-maska-jam.jpg",
+                          "title":  "File:Bun-Maska.jpg",
+                          "author":  "Anoopb15",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Bun-Maska.jpg",
+                          "query":  "Bun maska jam"
+                      },
+    "bun-omelette":  {
+                         "dish":  "Bun omelette",
+                         "file":  "bun-omelette.jpg",
+                         "title":  "File:Omelette on cutting board.jpg",
+                         "author":  "HungryHuy",
+                         "licence":  "CC BY 2.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Omelette_on_cutting_board.jpg",
+                         "query":  "Bun omelette"
+                     },
+    "butter-biscuits":  {
+                            "dish":  "Butter biscuits",
+                            "file":  "butter-biscuits.jpg",
+                            "title":  "File:Butter biscuits.jpg",
+                            "author":  "Anandha abirami Govindan",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Butter_biscuits.jpg",
+                            "query":  "Butter biscuits"
+                        },
+    "cake-rusk":  {
+                      "dish":  "Cake rusk",
+                      "file":  "cake-rusk.jpg",
+                      "title":  "File:قرشلة، بقسماط، Cake Rusk.jpg",
+                      "author":  "فيصل العدناني",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:%D9%82%D8%B1%D8%B4%D9%84%D8%A9%D8%8C_%D8%A8%D9%82%D8%B3%D9%85%D8%A7%D8%B7%D8%8C_Cake_Rusk.jpg",
+                      "query":  "Cake rusk"
+                  },
+    "caramel-custard":  {
+                            "dish":  "Caramel custard",
+                            "file":  "caramel-custard.jpg",
+                            "title":  "File:Homemade Flan.jpg",
+                            "author":  "Cary Bass",
+                            "licence":  "CC BY-SA 2.5",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Homemade_Flan.jpg",
+                            "query":  "Caramel custard"
+                        },
+    "cheese-chutney-sandwich":  {
+                                    "dish":  "Cheese chutney sandwich",
+                                    "file":  "cheese-chutney-sandwich.jpg",
+                                    "title":  "File:Cheese and Pickle Sandwich Step 4 (8576760021).jpg",
+                                    "author":  "LearningLark from United States",
+                                    "licence":  "CC BY 2.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Cheese_and_Pickle_Sandwich_Step_4_(8576760021).jpg",
+                                    "query":  "Cheese chutney sandwich"
+                                },
+    "cheese-toast":  {
+                         "dish":  "Cheese toast",
+                         "file":  "cheese-toast.jpg",
+                         "title":  "File:Cheese on toast-11.jpg",
+                         "author":  "jules",
+                         "licence":  "CC BY 2.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Cheese_on_toast-11.jpg",
+                         "query":  "Cheese toast"
+                     },
+    "chicken-berry-pulao":  {
+                                "dish":  "Chicken berry pulao",
+                                "file":  "chicken-berry-pulao.jpg",
+                                "title":  "File:Parsi Mutton Berry Pulao.jpg",
+                                "author":  "Sumit Surai",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Parsi_Mutton_Berry_Pulao.jpg",
+                                "query":  "File:Parsi Mutton Berry Pulao.jpg"
+                            },
+    "chicken-cutlet-gravy":  {
+                                 "dish":  "Chicken cutlet \u0026 gravy",
+                                 "file":  "chicken-cutlet-gravy.jpg",
+                                 "title":  "File:Chicken cutlets.jpg",
+                                 "author":  "nayeli @ nyam.ru",
+                                 "licence":  "CC BY 3.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Chicken_cutlets.jpg",
+                                 "query":  "File:Chicken cutlets.jpg"
+                             },
+    "chicken-dhansak-sundays":  {
+                                    "dish":  "Chicken dhansak (Sundays)",
+                                    "file":  "chicken-dhansak-sundays.jpg",
+                                    "title":  "File:Chicken Dhansak (3173280389).jpg",
+                                    "author":  "David Pursehouse from Kawasaki, Japan",
+                                    "licence":  "CC BY 2.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Chicken_Dhansak_(3173280389).jpg",
+                                    "query":  "Chicken dhansak"
+                                },
+    "chicken-farcha":  {
+                           "dish":  "Chicken farcha",
+                           "file":  "chicken-farcha.jpg",
+                           "title":  "File:Fried chicken drumsticks.jpg",
+                           "author":  "Mumujit",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Fried_chicken_drumsticks.jpg",
+                           "query":  "File:Fried chicken drumsticks.jpg"
+                       },
+    "chicken-mayo-sandwich":  {
+                                  "dish":  "Chicken mayo sandwich",
+                                  "file":  "chicken-mayo-sandwich.jpg",
+                                  "title":  "File:Maggie Mayo Hot Chicken Sandwich and Veggie Strips with Mango Hab dip - Lost Boys Land.jpg",
+                                  "author":  "Andy Li",
+                                  "licence":  "CC0",
+                                  "page":  "https://commons.wikimedia.org/wiki/File:Maggie_Mayo_Hot_Chicken_Sandwich_and_Veggie_Strips_with_Mango_Hab_dip_-_Lost_Boys_Land.jpg",
+                                  "query":  "Chicken mayo sandwich"
+                              },
+    "chocolate-milkshake":  {
+                                "dish":  "Chocolate milkshake",
+                                "file":  "chocolate-milkshake.jpg",
+                                "title":  "File:Chocolate milkshake ... 😋.jpg",
+                                "author":  "Bernard DUPONT",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Chocolate_milkshake_..._%F0%9F%98%8B.jpg",
+                                "query":  "Chocolate milkshake"
+                            },
+    "coconut-macaroons-two":  {
+                                  "dish":  "Coconut macaroons, two",
+                                  "file":  "coconut-macaroons-two.jpg",
+                                  "title":  "File:Coconut macaroon.jpg",
+                                  "author":  "Gzuckier",
+                                  "licence":  "CC BY-SA 4.0",
+                                  "page":  "https://commons.wikimedia.org/wiki/File:Coconut_macaroon.jpg",
+                                  "query":  "Coconut macaroons"
+                              },
+    "cold-coffee":  {
+                        "dish":  "Cold coffee",
+                        "file":  "cold-coffee.jpg",
+                        "title":  "File:Cold Cofee op.jpg",
+                        "author":  "Wind Hashira",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Cold_Cofee_op.jpg",
+                        "query":  "Cold coffee"
+                    },
+    "cold-coffee-with-ice-cream":  {
+                                       "dish":  "Cold coffee with ice cream",
+                                       "file":  "cold-coffee-with-ice-cream.jpg",
+                                       "title":  "File:Coffee float and ice cream soda 2017 Ginza Renoir 1.jpg",
+                                       "author":  "Morio",
+                                       "licence":  "CC BY-SA 4.0",
+                                       "page":  "https://commons.wikimedia.org/wiki/File:Coffee_float_and_ice_cream_soda_2017_Ginza_Renoir_1.jpg",
+                                       "query":  "File:Coffee float and ice cream soda 2017 Ginza Renoir 1.jpg"
+                                   },
+    "cream-roll":  {
+                       "dish":  "Cream roll",
+                       "file":  "cream-roll.jpg",
+                       "title":  "File:Apple cake with vanilla ice cream 2.jpg",
+                       "author":  "W.carter",
+                       "licence":  "CC0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Apple_cake_with_vanilla_ice_cream_2.jpg",
+                       "query":  "Cream roll"
+                   },
+    "dal-pulao-with-kachumber":  {
+                                     "dish":  "Dal pulao with kachumber",
+                                     "file":  "dal-pulao-with-kachumber.jpg",
+                                     "title":  "File:Vegetable Dhansak With Brown Rice.jpg",
+                                     "author":  "Aparna Balasubramanian",
+                                     "licence":  "CC BY-SA 4.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Vegetable_Dhansak_With_Brown_Rice.jpg",
+                                     "query":  "File:Vegetable Dhansak With Brown Rice.jpg"
+                                 },
+    "egg-bhurji-pav":  {
+                           "dish":  "Egg bhurji pav",
+                           "file":  "egg-bhurji-pav.jpg",
+                           "title":  "File:Egg bhurji with pav (bread).jpg",
+                           "author":  "Urniel",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Egg_bhurji_with_pav_(bread).jpg",
+                           "query":  "Egg bhurji pav"
+                       },
+    "egg-kejriwal":  {
+                         "dish":  "Egg kejriwal",
+                         "file":  "egg-kejriwal.jpg",
+                         "title":  "File:Kejriwal- Two fried eggs on chili cheese toast.jpg",
+                         "author":  "Lachlan Hardy",
+                         "licence":  "CC BY 2.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Kejriwal-_Two_fried_eggs_on_chili_cheese_toast.jpg",
+                         "query":  "Egg kejriwal"
+                     },
+    "falooda":  {
+                    "dish":  "Falooda",
+                    "file":  "falooda.jpg",
+                    "title":  "File:ঘরে তৈরি ফালুদা.JPG",
+                    "author":  "Kanchana Bose",
+                    "licence":  "CC BY-SA 4.0",
+                    "page":  "https://commons.wikimedia.org/wiki/File:%E0%A6%98%E0%A6%B0%E0%A7%87_%E0%A6%A4%E0%A7%88%E0%A6%B0%E0%A6%BF_%E0%A6%AB%E0%A6%BE%E0%A6%B2%E0%A7%81%E0%A6%A6%E0%A6%BE.JPG",
+                    "query":  "Falooda"
+                },
+    "filter-coffee":  {
+                          "dish":  "Filter coffee",
+                          "file":  "filter-coffee.jpg",
+                          "title":  "File:Indian filter coffee in Dabarah.jpg",
+                          "author":  "",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Indian_filter_coffee_in_Dabarah.jpg",
+                          "query":  "Filter coffee"
+                      },
+    "fruit-cake-slice":  {
+                             "dish":  "Fruit cake slice",
+                             "file":  "fruit-cake-slice.jpg",
+                             "title":  "File:Sliced fruit on a cream cake.jpg",
+                             "author":  "OKJaguar",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Sliced_fruit_on_a_cream_cake.jpg",
+                             "query":  "Fruit cake slice"
+                         },
+    "ginger-chai":  {
+                        "dish":  "Ginger chai",
+                        "file":  "ginger-chai.jpg",
+                        "title":  "File:A Cup Of Ginger Tea.jpg",
+                        "author":  "ওয়ালিদ ভূইয়া",
+                        "licence":  "CC0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:A_Cup_Of_Ginger_Tea.jpg",
+                        "query":  "File:A Cup Of Ginger Tea.jpg"
+                    },
+    "half-fry-two-eggs":  {
+                              "dish":  "Half fry, two eggs",
+                              "file":  "half-fry-two-eggs.jpg",
+                              "title":  "File:Fried egg sunny side up 2.jpg",
+                              "author":  "Kurt Kaiser",
+                              "licence":  "CC0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Fried_egg_sunny_side_up_2.jpg",
+                              "query":  "File:Fried egg sunny side up 2.jpg"
+                          },
+    "hot-chocolate":  {
+                          "dish":  "Hot chocolate",
+                          "file":  "hot-chocolate.jpg",
+                          "title":  "File:Hot chocolate mug with whipped cream.jpg",
+                          "author":  "User Jonik on en.wikipedia",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Hot_chocolate_mug_with_whipped_cream.jpg",
+                          "query":  "File:Hot chocolate mug with whipped cream.jpg"
+                      },
+    "irani-chai":  {
+                       "dish":  "Irani chai",
+                       "file":  "irani-chai.jpg",
+                       "title":  "File:Irani chai and osmania biscuits.jpg",
+                       "author":  "manojkumar chidambaram",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Irani_chai_and_osmania_biscuits.jpg",
+                       "query":  "Irani chai"
+                   },
+    "jam-tart":  {
+                     "dish":  "Jam tart",
+                     "file":  "jam-tart.jpg",
+                     "title":  "File:Jam tarts (3687942537).jpg",
+                     "author":  "Sarah from Bristol, UK",
+                     "licence":  "CC BY 2.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Jam_tarts_(3687942537).jpg",
+                     "query":  "Jam tart"
+                 },
+    "jeera-biscuits":  {
+                           "dish":  "Jeera biscuits",
+                           "file":  "jeera-biscuits.jpg",
+                           "title":  "File:Salted Cookies with Cumin (6138972719).jpg",
+                           "author":  "Leslie Seaton from Seattle, WA, USA",
+                           "licence":  "CC BY 2.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Salted_Cookies_with_Cumin_(6138972719).jpg",
+                           "query":  "File:Salted Cookies with Cumin (6138972719).jpg"
+                       },
+    "kala-khatta":  {
+                        "dish":  "Kala khatta",
+                        "file":  "kala-khatta.jpg",
+                        "title":  "File:Ice Gola.jpg",
+                        "author":  "Vanitasharma",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Ice_Gola.jpg",
+                        "query":  "File:Ice Gola.jpg"
+                    },
+    "keema-pattice-2-pcs":  {
+                                "dish":  "Keema pattice (2 pcs)",
+                                "file":  "keema-pattice-2-pcs.jpg",
+                                "title":  "File:Kheema petis.jpg",
+                                "author":  "Akshay Bharath",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Kheema_petis.jpg",
+                                "query":  "File:Kheema petis.jpg"
+                            },
+    "khari-biscuits":  {
+                           "dish":  "Khari biscuits",
+                           "file":  "khari-biscuits.jpg",
+                           "title":  "File:Puff pastry with sugar.jpg",
+                           "author":  "LukaszKatlewa",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Puff_pastry_with_sugar.jpg",
+                           "query":  "File:Puff pastry with sugar.jpg"
+                       },
+    "kheema-pav":  {
+                       "dish":  "Kheema pav",
+                       "file":  "kheema-pav.jpg",
+                       "title":  "File:Beef Kheema Pav.jpg",
+                       "author":  "Dr. Chinchu C.",
+                       "licence":  "CC BY 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Beef_Kheema_Pav.jpg",
+                       "query":  "Kheema pav"
+                   },
+    "lagan-nu-custard":  {
+                             "dish":  "Lagan nu custard",
+                             "file":  "lagan-nu-custard.jpg",
+                             "title":  "File:Custard.jpg",
+                             "author":  "No machine-readable author provided. Interiot~commonswiki assumed (based on copy...",
+                             "licence":  "CC BY-SA 3.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Custard.jpg",
+                             "query":  "File:Custard.jpg"
+                         },
+    "lemon-soda":  {
+                       "dish":  "Lemon soda",
+                       "file":  "lemon-soda.jpg",
+                       "title":  "File:Nimbu Soda Or Lemon Soda.jpg",
+                       "author":  "Manjeshwari poet mysore",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Nimbu_Soda_Or_Lemon_Soda.jpg",
+                       "query":  "File:Nimbu Soda Or Lemon Soda.jpg"
+                   },
+    "malai-chai":  {
+                       "dish":  "Malai chai",
+                       "file":  "malai-chai.jpg",
+                       "title":  "File:Kulhad Chai.jpg",
+                       "author":  "Gannu03",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Kulhad_Chai.jpg",
+                       "query":  "File:Kulhad Chai.jpg"
+                   },
+    "masala-omelette-pav":  {
+                                "dish":  "Masala omelette pav",
+                                "file":  "masala-omelette-pav.jpg",
+                                "title":  "File:Masala omelette.JPG",
+                                "author":  "SwingingUvula",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Masala_omelette.JPG",
+                                "query":  "File:Masala omelette.JPG"
+                            },
+    "mawa-cake":  {
+                      "dish":  "Mawa cake",
+                      "file":  "mawa-cake.jpg",
+                      "title":  "File:Home made Mawa Cake.jpg",
+                      "author":  "Sanika Dhumal",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Home_made_Mawa_Cake.jpg",
+                      "query":  "Mawa cake"
+                  },
+    "mawa-cakes-box-of-6":  {
+                                "dish":  "Mawa cakes, box of 6",
+                                "file":  "mawa-cakes-box-of-6.jpg",
+                                "title":  "File:Home made Mawa Cake.jpg",
+                                "author":  "Sanika Dhumal",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Home_made_Mawa_Cake.jpg",
+                                "query":  "Mawa cakes"
+                            },
+    "mutton-cutlet":  {
+                          "dish":  "Mutton cutlet",
+                          "file":  "mutton-cutlet.jpg",
+                          "title":  "File:Mutton cutlet and salad.JPG",
+                          "author":  "Prabirghose",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Mutton_cutlet_and_salad.JPG",
+                          "query":  "Mutton cutlet"
+                      },
+    "nankhatai":  {
+                      "dish":  "Nankhatai",
+                      "file":  "nankhatai.jpg",
+                      "title":  "File:Nankhatai biscuits.jpg",
+                      "author":  "Yuyutzu",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Nankhatai_biscuits.jpg",
+                      "query":  "Nankhatai"
+                  },
+    "parsi-poro-omelette":  {
+                                "dish":  "Parsi poro omelette",
+                                "file":  "parsi-poro-omelette.jpg",
+                                "title":  "File:Omelette on a plate.jpg",
+                                "author":  "Infrogmation of New Orleans",
+                                "licence":  "CC BY 2.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Omelette_on_a_plate.jpg",
+                                "query":  "File:Omelette on a plate.jpg"
+                            },
+    "patra-ni-machhi-weekends":  {
+                                     "dish":  "Patra ni machhi (weekends)",
+                                     "file":  "patra-ni-machhi-weekends.jpg",
+                                     "title":  "File:Fish cooked in banana leaf.JPG",
+                                     "author":  "Ravirajdayal",
+                                     "licence":  "CC BY-SA 4.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Fish_cooked_in_banana_leaf.JPG",
+                                     "query":  "File:Fish cooked in banana leaf.JPG"
+                                 },
+    "plum-cake-december":  {
+                               "dish":  "Plum cake (December)",
+                               "file":  "plum-cake-december.jpg",
+                               "title":  "File:Plum cake 08 ies.jpg",
+                               "author":  "Frank Vincentz",
+                               "licence":  "CC BY-SA 3.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Plum_cake_08_ies.jpg",
+                               "query":  "Plum cake"
+                           },
+    "pudina-chai":  {
+                        "dish":  "Pudina chai",
+                        "file":  "pudina-chai.jpg",
+                        "title":  "File:Muntthee 02.JPG",
+                        "author":  "Onderwijsgek",
+                        "licence":  "CC BY-SA 3.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Muntthee_02.JPG",
+                        "query":  "Pudina chai"
+                    },
+    "raspberry-soda":  {
+                           "dish":  "Raspberry soda",
+                           "file":  "raspberry-soda.jpg",
+                           "title":  "File:Raspberryade.jpg",
+                           "author":  "Ubcule",
+                           "licence":  "CC BY-SA 3.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Raspberryade.jpg",
+                           "query":  "File:Raspberryade.jpg"
+                       },
+    "rose-milk":  {
+                      "dish":  "Rose milk",
+                      "file":  "rose-milk.jpg",
+                      "title":  "File:Rose milk ice cream with candied pistachios.jpg",
+                      "author":  "Bhuvana Meenakshi",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Rose_milk_ice_cream_with_candied_pistachios.jpg",
+                      "query":  "Rose milk"
+                  },
+    "salli-boti-with-pav":  {
+                                "dish":  "Salli boti with pav",
+                                "file":  "salli-boti-with-pav.jpg",
+                                "title":  "File:IMG-20240601-WA0053Mutton curry with potatoes.jpg",
+                                "author":  "Fouzia\u0027s Catering Services",
+                                "licence":  "CC BY 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:IMG-20240601-WA0053Mutton_curry_with_potatoes.jpg",
+                                "query":  "File:IMG-20240601-WA0053Mutton curry with potatoes.jpg"
+                            },
+    "shrewsbury-style-butter-biscuits-400-g-box":  {
+                                                       "dish":  "Shrewsbury-style butter biscuits, 400 g box",
+                                                       "file":  "shrewsbury-style-butter-biscuits-400-g-box.jpg",
+                                                       "title":  "File:Shrewsbury biscuits.jpg",
+                                                       "author":  "Alistair young",
+                                                       "licence":  "CC BY 2.0",
+                                                       "page":  "https://commons.wikimedia.org/wiki/File:Shrewsbury_biscuits.jpg",
+                                                       "query":  "File:Shrewsbury biscuits.jpg"
+                                                   },
+    "strawberry-milkshake":  {
+                                 "dish":  "Strawberry milkshake",
+                                 "file":  "strawberry-milkshake.jpg",
+                                 "title":  "File:Strawberry milk shake (cropped).jpg",
+                                 "author":  "Renee Comet (Photographer)",
+                                 "licence":  "Public domain",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Strawberry_milk_shake_(cropped).jpg",
+                                 "query":  "Strawberry milkshake"
+                             },
+    "sulemani-chai":  {
+                          "dish":  "Sulemani chai",
+                          "file":  "sulemani-chai.jpg",
+                          "title":  "File:Sulemani.jpg",
+                          "author":  "Vj18081991",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Sulemani.jpg",
+                          "query":  "Sulemani chai"
+                      },
+    "toast-rusk":  {
+                       "dish":  "Toast rusk",
+                       "file":  "toast-rusk.jpg",
+                       "title":  "File:Rusk eats with tea.jpg",
+                       "author":  "Baap8969",
+                       "licence":  "CC0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Rusk_eats_with_tea.jpg",
+                       "query":  "File:Rusk eats with tea.jpg"
+                   },
+    "veg-puff":  {
+                     "dish":  "Veg puff",
+                     "file":  "veg-puff.jpg",
+                     "title":  "File:Curry Puffs.jpg",
+                     "author":  "Earthkingfather",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Curry_Puffs.jpg",
+                     "query":  "File:Curry Puffs.jpg"
+                 },
+    "veg-pulao":  {
+                      "dish":  "Veg pulao",
+                      "file":  "veg-pulao.jpg",
+                      "title":  "File:Veg pulao, self-cooked, Roing, Arunachal Pradesh, jpg.0002.jpg",
+                      "author":  "Abhi881991",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Veg_pulao,_self-cooked,_Roing,_Arunachal_Pradesh,_jpg.0002.jpg",
+                      "query":  "Veg pulao"
+                  }
+}
