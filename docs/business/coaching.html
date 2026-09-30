@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pathshala Commerce Classes — Kothrud, Pune (sample site)</title>
+<meta name="description" content="Pathshala Commerce Classes, Paud Road, Kothrud, Pune: small-batch coaching for 11th–12th Commerce, CA Foundation, CA Inter, CS Executive and B.Com. Weekly tests, doubt-solving and WhatsApp updates for parents. Sample website by Fieldcraft.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#13235B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#13235B;--navy2:#0C1840;--navy3:#1E3278;--sun:#FFC93C;--sun2:#FFB300;--sun-soft:#FFF1C7;
+  --bg:#FFFBF1;--paper:#FFFFFF;--text:#18203A;--muted:#566079;--line:#E9E3D2;--line2:#D9D2BD;--sky:#EAF0FF;--wa:#25D366;--green:#16794A;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--chalk:'Caveat','Segoe Print','Comic Sans MS',cursive;
+  --r:16px;--wrap:1180px;--shadow:0 1px 2px rgba(19,35,91,.06),0 12px 32px -12px rgba(19,35,91,.18);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--navy3);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:2000;background:var(--navy);color:#fff;padding:10px 14px;font-weight:700;border-radius:8px}
+.skip:focus{top:64px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:52px;padding:0 1.35em;border-radius:12px;border:2px solid transparent;
+  font:700 1rem/1.1 var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s,border-color .15s;text-align:center}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--navy2);box-shadow:0 8px 20px -8px rgba(255,179,0,.7)}
+.btn-sun:hover{background:#FFD35F}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy3)}
+.btn-line{border-color:var(--navy);color:var(--navy);background:transparent}
+.btn-line:hover{background:var(--navy);color:#fff}
+.btn-wa{background:var(--wa);color:#05290F}
+.btn-wa:hover{background:#3BE27A}
+.btn-sm{min-height:44px;padding:0 1.05em;font-size:.95rem;border-radius:10px}
+.btn-block{width:100%}
+
+/* header */
+.site-head{background:var(--paper);border-bottom:1px solid var(--line);position:relative;z-index:50}
+.head-in{display:flex;align-items:center;gap:14px;min-height:74px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto;min-width:0}
+.brand-mark{width:44px;height:44px;flex:none}
+.brand-name{font:700 1.3rem/1 var(--serif);color:var(--navy);letter-spacing:-.01em}
+.brand-name small{display:block;margin-top:5px;font:600 .72rem/1 var(--sans);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.nav{display:none;gap:2px}
+.nav a{font-weight:600;font-size:.95rem;text-decoration:none;color:var(--muted);padding:10px 12px;border-radius:8px}
+.nav a:hover{color:var(--navy);background:var(--sky)}
+.head-call{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:2px solid var(--line2);color:var(--navy);flex:none}
+.head-call svg{width:20px;height:20px}
+.head-call:hover{border-color:var(--navy)}
+.head-demo{display:none}
+@media (min-width:480px){.head-demo{display:inline-flex}}
+@media (min-width:1060px){.nav{display:flex}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:44px 0 60px;background:
+  linear-gradient(rgba(19,35,91,.045) 1px,transparent 1px) 0 0/100% 32px,
+  linear-gradient(90deg,transparent 0 60px,rgba(230,90,70,.14) 60px 62px,transparent 62px),var(--bg)}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line2);border-radius:999px;padding:7px 14px 7px 8px;font-size:.88rem;font-weight:600;color:var(--navy)}
+.pill b{background:var(--green);color:#fff;border-radius:999px;padding:3px 9px;font-size:.75rem;letter-spacing:.04em}
+.hero h1{margin:20px 0 18px;font:700 clamp(2.6rem,10.5vw,4.6rem)/1.02 var(--serif);color:var(--navy);letter-spacing:-.02em}
+.mark{position:relative;white-space:nowrap;z-index:0}
+.mark::after{content:"";position:absolute;left:-.08em;right:-.08em;bottom:.06em;height:.38em;background:var(--sun);z-index:-1;border-radius:4px;transform:rotate(-1.5deg)}
+.lede{font-size:1.1rem;color:#3C4663;max-width:33em}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.cta-row .btn-sun,.cta-row .btn-line{grid-column:1/-1}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-size:.93rem;font-weight:600;color:var(--navy)}
+.trust li{display:flex;align-items:center;gap:8px}
+.trust svg{width:20px;height:20px;color:var(--green);flex:none}
+.hero-art{position:relative;max-width:560px;margin:0 auto;width:100%}
+.note{position:absolute;right:2%;top:-4%;background:var(--sun-soft);border:1px solid #F3DB8C;border-radius:4px;padding:10px 14px 12px;transform:rotate(4deg);box-shadow:0 10px 24px -12px rgba(19,35,91,.35);font:700 1.2rem/1.1 var(--chalk);color:var(--navy);max-width:170px}
+.note::before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:18px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.05)}
+@media (min-width:640px){.cta-row{display:flex;flex-wrap:wrap}}
+@media (min-width:980px){.hero{padding:70px 0 90px}.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px}}
+
+/* quick facts */
+.facts{position:relative;z-index:2;margin-top:-28px}
+.facts ul{display:grid;grid-template-columns:1fr 1fr;background:var(--navy);color:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.facts li{padding:22px 18px;border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.facts b{display:block;font:700 clamp(1.7rem,6vw,2.4rem)/1 var(--serif);color:var(--sun)}
+.facts span{display:block;margin-top:8px;font-size:.9rem;color:#C9D1EE;line-height:1.35}
+@media (min-width:820px){.facts ul{grid-template-columns:repeat(4,1fr)}.facts li{padding:28px 26px;border-bottom:0}.facts li:last-child{border-right:0}}
+
+/* sections */
+.sec{padding:76px 0}
+.sec-white{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#9A6A00;margin-bottom:12px}
+.kicker::before{content:"";width:22px;height:4px;border-radius:4px;background:var(--sun)}
+.h2{font:700 clamp(2rem,7vw,3.1rem)/1.1 var(--serif);color:var(--navy);letter-spacing:-.015em;text-wrap:balance}
+.h2 em{font-style:italic;color:var(--navy3)}
+.sec-head{max-width:720px;margin-bottom:40px}
+.sec-head p{margin-top:14px;color:var(--muted);font-size:1.06rem}
+.sec-head.center{text-align:center;margin-left:auto;margin-right:auto}
+@media (min-width:980px){.sec{padding:104px 0}.sec-head{margin-bottom:52px}}
+
+/* courses */
+.courses{display:grid;gap:16px}
+.course{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:0 1px 2px rgba(19,35,91,.04);transition:transform .2s,box-shadow .2s,border-color .2s}
+.course:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line2)}
+.course-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.c-ic{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--sky);color:var(--navy)}
+.c-ic svg{width:28px;height:28px}
+.lvl{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--sun-soft);border:1px solid #F3DB8C;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.course h3{font:700 1.4rem/1.2 var(--serif);color:var(--navy)}
+.course > p{margin-top:8px;color:var(--muted);font-size:.97rem}
+.meta{display:grid;gap:0;margin:18px 0 20px;border-top:1px dashed var(--line2)}
+.meta div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line2);font-size:.92rem}
+.meta dt{color:var(--muted)}
+.meta dd{margin:0;font-weight:600;text-align:right;color:var(--text)}
+.fee{display:flex;align-items:baseline;gap:6px;margin-top:auto;margin-bottom:16px}
+.fee small{font-size:.85rem;color:var(--muted);font-weight:600}
+.fee b{font:700 1.7rem/1 var(--serif);color:var(--navy)}
+.fee span{font-size:.85rem;color:var(--muted)}
+.course-cta{background:var(--navy);color:#fff;border-color:var(--navy);justify-content:center;position:relative;overflow:hidden}
+.course-cta h3{color:#fff}
+.course-cta > p{color:#C9D1EE}
+.course-cta::after{content:"?";position:absolute;right:-10px;bottom:-60px;font:700 15rem/1 var(--serif);color:rgba(255,201,60,.14);pointer-events:none}
+.course-cta .btn{margin-top:22px;align-self:flex-start;position:relative;z-index:1}
+@media (min-width:680px){.courses{grid-template-columns:1fr 1fr}}
+@media (min-width:1040px){.courses{grid-template-columns:repeat(3,1fr);gap:20px}.course{padding:28px 26px}}
+
+/* why us */
+.why{display:grid;gap:40px;align-items:center}
+.why-visual{position:relative;padding:0 0 70px}
+.photo{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:#E8DCC4;box-shadow:var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,24,64,.35))}
+.why-visual::before{content:"";position:absolute;left:-14px;top:-14px;width:120px;height:120px;border-radius:20px;background:repeating-linear-gradient(45deg,var(--sun) 0 6px,transparent 6px 14px);opacity:.7;z-index:-1}
+.chat{position:absolute;right:0;bottom:0;width:min(300px,86%);background:#ECE5DD;border-radius:16px;box-shadow:0 24px 50px -18px rgba(12,24,64,.45);overflow:hidden;font-size:.86rem}
+.chat-head{display:flex;align-items:center;gap:10px;background:#075E54;color:#fff;padding:10px 12px}
+.chat-head i{width:30px;height:30px;border-radius:50%;background:var(--sun);display:grid;place-items:center;color:var(--navy);font:700 .8rem/1 var(--serif);font-style:normal}
+.chat-head b{display:block;font-size:.88rem}
+.chat-head span{font-size:.72rem;opacity:.8}
+.bubble{margin:10px 12px 12px;background:#fff;border-radius:0 10px 10px 10px;padding:10px 12px;line-height:1.5;color:#1F2A37;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.bubble b{color:var(--navy)}
+.bubble time{display:block;text-align:right;font-size:.7rem;color:#8696A0;margin-top:2px}
+.feats{display:grid;gap:12px}
+.feat{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:16px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
+.feat .f-ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--sun);color:var(--navy2)}
+.feat .f-ic svg{width:24px;height:24px}
+.feat h3{font-size:1.06rem;font-weight:700;color:var(--navy)}
+.feat p{font-size:.95rem;color:var(--muted);margin-top:2px}
+@media (min-width:980px){.why{grid-template-columns:1fr 1fr;gap:64px}.why-visual{padding:0 0 60px 0}}
+
+/* faculty */
+.faculty{display:grid;gap:18px}
+.prof{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.prof-top{display:flex;align-items:center;gap:16px}
+.avatar{width:84px;height:84px;flex:none;border-radius:50%;position:relative;overflow:hidden}
+.avatar svg{width:100%;height:100%}
+.prof h3{font:700 1.35rem/1.15 var(--serif);color:var(--navy)}
+.prof .deg{font-size:.88rem;font-weight:600;color:#9A6A00;margin-top:4px}
+.prof p{color:var(--muted);font-size:.97rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-size:.8rem;font-weight:600;color:var(--navy);background:var(--sky);border-radius:999px;padding:5px 11px}
+.exp{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.exp b{font:700 1.5rem/1 var(--serif);color:var(--navy)}
+@media (min-width:860px){.faculty{grid-template-columns:repeat(3,1fr);gap:20px}}
+
+/* results */
+.results{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.results::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 90% 0%,rgba(255,201,60,.16),transparent 70%),radial-gradient(40% 50% at 0% 100%,rgba(90,120,230,.25),transparent 70%);pointer-events:none}
+.results .wrap{position:relative}
+.results .h2{color:#fff}
+.results .h2 em{color:var(--sun)}
+.results .sec-head p{color:#C9D1EE}
+.results .kicker{color:var(--sun)}
+.sample-tag{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFE08A;border:1px dashed rgba(255,224,138,.6);border-radius:8px;padding:6px 10px}
+.board{display:grid;gap:14px}
+.tile{background:#0B1638;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.digits{display:flex;gap:4px;flex-wrap:wrap}
+.digits span{position:relative;display:inline-grid;place-items:center;min-width:.72em;padding:6px 5px;border-radius:8px;background:linear-gradient(#1A2A5E 50%,#15244F 50%);font:700 clamp(2.1rem,8vw,2.8rem)/1 var(--serif);color:var(--sun);box-shadow:0 2px 0 rgba(0,0,0,.35)}
+.digits span::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.45)}
+.digits span.u{font-size:1.3rem;background:none;box-shadow:none;color:#FFE08A;padding:0 2px;align-self:end}
+.digits span.u::after{display:none}
+.tile h3{margin-top:14px;font-size:1rem;font-weight:700}
+.tile p{font-size:.9rem;color:#AEB8DF;margin-top:2px}
+.toppers{margin-top:18px;background:#0B1638;border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden}
+.toppers h3{padding:16px 20px;font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);border-bottom:1px solid rgba(255,255,255,.1)}
+.toppers ol{display:grid}
+.toppers li{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.95rem}
+.toppers li:last-child{border-bottom:0}
+.rank{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--sun);color:var(--navy2);font-weight:800;font-size:.85rem}
+.toppers li span small{display:block;color:#AEB8DF;font-size:.82rem}
+.toppers li strong{font:700 1.2rem/1 var(--serif);color:#fff}
+@media (min-width:700px){.board{grid-template-columns:1fr 1fr}.toppers ol{grid-template-columns:1fr 1fr}.toppers li:nth-child(odd){border-right:1px solid rgba(255,255,255,.07)}.toppers li:nth-last-child(2):nth-child(odd){border-bottom:0}}
+@media (min-width:1040px){.board{grid-template-columns:repeat(4,1fr)}}
+
+/* timetable */
+.tt-wrap{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 1px 2px rgba(19,35,91,.04)}
+.tt{width:100%;border-collapse:collapse}
+.tt caption{text-align:left}
+.tt th,.tt td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:.96rem;vertical-align:middle}
+.tt thead th{background:var(--navy);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tt tbody tr:last-child>*{border-bottom:0}
+.tt tbody tr:nth-child(even){background:#FFFDF6}
+.tt tbody th{font-weight:700;color:var(--navy)}
+.tt .sub{display:block;font-weight:500;font-size:.85rem;color:var(--muted)}
+.seat{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.seat::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.s-open{background:#E3F5EA;color:#146C3F}
+.s-few{background:#FFF1D1;color:#8A5A00}
+.s-full{background:#FDE5E1;color:#A3321F}
+.tt-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:18px;color:var(--muted);font-size:.95rem}
+@media (max-width:759px){
+  .tt thead{display:none}
+  .tt,.tt tbody,.tt tr,.tt th,.tt td{display:block;width:100%}
+  .tt tr{padding:16px 18px;border-bottom:1px solid var(--line)}
+  .tt tbody tr:last-child{border-bottom:0}
+  .tt th,.tt td{padding:4px 0;border:0}
+  .tt tbody th{font-size:1.05rem;margin-bottom:6px}
+  .tt td{display:flex;justify-content:space-between;gap:16px;font-size:.93rem}
+  .tt td::before{content:attr(data-label);color:var(--muted);font-weight:500}
+  .tt td:last-child{margin-top:6px}
+}
+
+/* steps */
+.steps{display:grid;gap:16px;counter-reset:s}
+.step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 22px 24px}
+.step-no{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.step-no b{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--sun);font:700 1.4rem/1 var(--serif)}
+.step-no span{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.step h3{font:700 1.3rem/1.2 var(--serif);color:var(--navy)}
+.step p{margin-top:8px;color:var(--muted)}
+.steps-cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+@media (min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:22px}
+  .step:not(:last-child)::after{content:"";position:absolute;top:50px;right:-22px;width:22px;height:2px;background:repeating-linear-gradient(90deg,var(--navy) 0 5px,transparent 5px 9px)}}
+
+/* faq */
+.faq-grid{display:grid;gap:30px}
+.faqs{display:grid;gap:10px}
+.faq{background:var(--paper);border:1px solid var(--line);border-radius:14px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-weight:700;font-size:1.02rem;color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--sun-soft);color:var(--navy);font:600 1.3rem/1 var(--sans)}
+.faq[open] summary::after{content:"\2212";background:var(--sun)}
+.faq[open]{border-color:var(--line2);box-shadow:var(--shadow)}
+.faq p{padding:0 20px 20px;color:var(--muted)}
+.faq summary:focus-visible{outline-offset:-3px}
+.faq-side{background:var(--navy);color:#fff;border-radius:20px;padding:28px 24px;align-self:start}
+.faq-side .h2{color:#fff}
+.faq-side p{color:#C9D1EE;margin-top:12px}
+.faq-side .kicker{color:var(--sun)}
+.faq-side .btns{display:grid;gap:10px;margin-top:22px}
+@media (min-width:980px){.faq-grid{grid-template-columns:.8fr 1.2fr;gap:48px}.faq-side{padding:36px 32px;position:relative}}
+
+/* visit */
+.visit{display:grid;gap:18px}
+.map{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line2);background:#F4EEDD;min-height:360px}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map-card{position:absolute;left:14px;bottom:14px;right:14px;max-width:320px;background:var(--paper);border-radius:14px;padding:13px 16px;box-shadow:var(--shadow)}
+.map-card b{display:block;font:700 1.05rem/1.2 var(--serif);color:var(--navy)}
+.map-card span{font-size:.87rem;color:var(--muted)}
+.info{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 22px}
+.info h3{font:700 1.5rem/1.2 var(--serif);color:var(--navy)}
+.addr{margin-top:10px;color:#3C4663}
+.landmark{display:inline-flex;gap:8px;align-items:center;margin-top:12px;font-size:.88rem;font-weight:600;color:#8A5A00;background:var(--sun-soft);border-radius:8px;padding:6px 10px}
+.hours{width:100%;border-collapse:collapse;margin:20px 0 22px}
+.hours th,.hours td{padding:11px 0;border-bottom:1px solid var(--line);font-size:.96rem;text-align:left}
+.hours th{font-weight:500;color:var(--muted)}
+.hours td{text-align:right;font-weight:700;color:var(--navy);white-space:nowrap;padding-left:12px}
+.info-btns{display:grid;gap:10px}
+@media (min-width:560px){.info-btns{grid-template-columns:1fr 1fr}.info-btns .btn:first-child{grid-column:1/-1}}
+@media (min-width:980px){.visit{grid-template-columns:1.3fr 1fr}.map{min-height:500px}.info{padding:34px 32px}}
+
+/* final cta */
+.final{background:var(--sun);border-radius:24px;padding:36px 24px;display:grid;gap:22px;align-items:center;position:relative;overflow:hidden}
+.final::after{content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;border:34px solid rgba(19,35,91,.07)}
+.final .h2{color:var(--navy2)}
+.final p{margin-top:10px;color:#3D3514;font-weight:500}
+.final .btns{display:grid;gap:10px;position:relative;z-index:1}
+@media (min-width:860px){.final{grid-template-columns:1.3fr 1fr;padding:52px}.final .btns{grid-template-columns:1fr 1fr}.final .btns .btn:first-child{grid-column:1/-1}}
+
+/* footer */
+.foot{background:var(--navy2);color:#C9D1EE;padding:56px 0 110px}
+.foot-grid{display:grid;gap:30px}
+.foot .brand-name{color:#fff}
+.foot .brand-name small{color:#AEB8DF}
+.foot p{margin-top:14px;max-width:30em;font-size:.95rem}
+.foot h4{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.foot-links{display:grid;gap:8px;font-size:.95rem}
+.foot-links a{text-decoration:none;color:#C9D1EE}
+.foot-links a:hover{color:var(--sun)}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.07);color:#fff}
+.social a:hover{background:var(--sun);color:var(--navy2)}
+.social svg{width:20px;height:20px}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem;color:#8F9AC4}
+.foot-base a{color:#C9D1EE}
+@media (min-width:760px){.foot-grid{grid-template-columns:1.6fr 1fr 1fr}.foot{padding-bottom:56px}}
+
+/* fab + toast */
+.fab{position:fixed;right:16px;bottom:16px;z-index:900;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(12,24,64,.55),0 0 0 4px rgba(37,211,102,.2)}
+.fab svg{width:32px;height:32px}
+@media (min-width:900px){.fab{display:none}}
+.toast{position:fixed;left:50%;bottom:92px;z-index:1100;transform:translate(-50%,20px);opacity:0;pointer-events:none;width:max-content;max-width:calc(100vw - 32px);background:var(--navy2);color:#fff;padding:12px 16px;border-radius:12px;font-size:.93rem;font-weight:500;line-height:1.4;box-shadow:0 18px 40px -12px rgba(12,24,64,.6);transition:opacity .25s,transform .25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (min-width:900px){.toast{bottom:28px}}
+
+.pre{opacity:0;transform:translateY(20px)}
+.rv{transition:opacity .7s ease,transform .7s ease}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pre{opacity:1;transform:none}.rv,.btn,.course{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Pathshala Commerce Classes, home">
+      <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#13235B"/><path d="M22 14c-3-2.2-7-3-11-2.6v17.2c4-.4 8 .4 11 2.6 3-2.2 7-3 11-2.6V11.4c-4-.4-8 .4-11 2.6z" fill="#FFC93C"/><path d="M22 14v17.2" stroke="#13235B" stroke-width="1.8"/><path d="M14 16.5c2 0 4 .5 5.5 1.3M14 20.5c2 0 4 .5 5.5 1.3M24.5 17.8c1.5-.8 3.5-1.3 5.5-1.3M24.5 21.8c1.5-.8 3.5-1.3 5.5-1.3" stroke="#13235B" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span class="brand-name">Pathshala<small>Commerce Classes · Kothrud</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#courses">Courses</a><a href="#why">Why us</a><a href="#faculty">Faculty</a><a href="#results">Results</a><a href="#timetable">Timetable</a><a href="#admissions">Admissions</a>
+    </nav>
+    <a class="head-call" href="#" data-demo="call" aria-label="Call Pathshala"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+    <a class="btn btn-sun btn-sm head-demo" href="#admissions">Free demo</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="pill"><b>OPEN</b> Admissions open for new batches</p>
+      <h1 id="hero-title">Commerce, <span class="mark">made clear.</span></h1>
+      <p class="lede">Small-batch coaching for 11th–12th Commerce, CA Foundation &amp; Inter, CS Executive and B.Com — on Paud Road, Kothrud. Concepts first, then practice until the numbers tally.</p>
+      <div class="cta-row">
+        <a class="btn btn-sun" href="#admissions">Book a free demo lecture <span aria-hidden="true">→</span></a>
+        <a class="btn btn-wa" href="#" data-demo="whatsapp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.1 24l6.3-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.1-3.6-8.4z"/></svg>WhatsApp</a>
+        <a class="btn btn-navy" href="#" data-demo="call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+        <a class="btn btn-line" href="#" data-demo="download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>Download timetable</a>
+      </div>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Max 25 per batch</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Weekly tests</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Parent updates on WhatsApp</li>
+      </ul>
+    </div>
+
+    <div class="hero-art">
+      <svg viewBox="0 0 560 500" role="img" aria-label="Illustration: a chalkboard showing a tallied balance sheet, with a stack of books, a graduation cap and a calculator">
+        <defs>
+          <linearGradient id="wood" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E2A94B"/><stop offset="1" stop-color="#C98A2E"/></linearGradient>
+          <radialGradient id="boardG" cx="40%" cy="35%" r="80%"><stop offset="0" stop-color="#23397A"/><stop offset="1" stop-color="#15245C"/></radialGradient>
+        </defs>
+        <circle cx="300" cy="200" r="190" fill="#FFE7A3" opacity=".6"/>
+        <circle cx="80" cy="420" r="60" fill="#DDE6FF"/>
+        <!-- board -->
+        <rect x="36" y="30" width="488" height="300" rx="16" fill="url(#wood)"/>
+        <rect x="50" y="44" width="460" height="264" rx="8" fill="url(#boardG)"/>
+        <g opacity=".06" fill="#fff"><ellipse cx="160" cy="120" rx="90" ry="30"/><ellipse cx="380" cy="240" rx="110" ry="26"/></g>
+        <g font-family="Caveat, 'Segoe Print', cursive" fill="#F3F0E6">
+          <text x="280" y="82" text-anchor="middle" font-size="27" font-weight="700">Balance Sheet as at 31 March 2026</text>
+          <text x="92" y="118" font-size="19" fill="#FFD66B" font-weight="700">Liabilities</text>
+          <text x="248" y="118" font-size="19" fill="#FFD66B" font-weight="700" text-anchor="end">₹</text>
+          <text x="300" y="118" font-size="19" fill="#FFD66B" font-weight="700">Assets</text>
+          <text x="474" y="118" font-size="19" fill="#FFD66B" font-weight="700" text-anchor="end">₹</text>
+          <g font-size="19">
+            <text x="92" y="150">Capital</text><text x="248" y="150" text-anchor="end">5,00,000</text>
+            <text x="300" y="150">Machinery</text><text x="474" y="150" text-anchor="end">3,20,000</text>
+            <text x="92" y="178">Creditors</text><text x="248" y="178" text-anchor="end">1,20,000</text>
+            <text x="300" y="178">Debtors</text><text x="474" y="178" text-anchor="end">1,80,000</text>
+            <text x="92" y="206">Bank loan</text><text x="248" y="206" text-anchor="end">80,000</text>
+            <text x="300" y="206">Cash at bank</text><text x="474" y="206" text-anchor="end">2,00,000</text>
+          </g>
+          <text x="248" y="248" text-anchor="end" font-size="22" font-weight="700">7,00,000</text>
+          <text x="474" y="248" text-anchor="end" font-size="22" font-weight="700">7,00,000</text>
+          <text x="92" y="248" font-size="21" font-weight="700">Total</text>
+          <text x="300" y="248" font-size="21" font-weight="700">Total</text>
+          <text x="92" y="288" font-size="21" fill="#FFD66B" font-weight="700">Tallied! ✓</text>
+        </g>
+        <g stroke="#F3F0E6" stroke-linecap="round" fill="none" opacity=".85">
+          <path d="M84 126 H478" stroke-width="1.6"/>
+          <path d="M280 104 V258" stroke-width="1.6"/>
+          <path d="M170 226 H252 M396 226 H478" stroke-width="1.4"/>
+          <path d="M170 256 H252 M170 260 H252 M396 256 H478 M396 260 H478" stroke-width="1.3"/>
+          <path d="M150 88 C 220 94, 330 92, 412 88" stroke-width="1.8"/>
+        </g>
+        <circle cx="436" cy="237" r="26" fill="none" stroke="#FFD66B" stroke-width="2.4" stroke-dasharray="4 5" opacity=".8" transform="rotate(-8 436 237)"/>
+        <!-- chalk tray -->
+        <rect x="120" y="326" width="320" height="12" rx="4" fill="#B9792A"/>
+        <rect x="170" y="318" width="34" height="9" rx="4" fill="#fff"/>
+        <rect x="214" y="319" width="22" height="8" rx="4" fill="#FFD66B"/>
+        <rect x="380" y="312" width="44" height="16" rx="3" fill="#3A4A7F"/><rect x="380" y="312" width="44" height="6" rx="3" fill="#8C98C6"/>
+        <!-- book stack -->
+        <g>
+          <ellipse cx="160" cy="476" rx="130" ry="10" fill="#13235B" opacity=".12"/>
+          <rect x="44" y="430" width="224" height="42" rx="6" fill="#13235B"/><rect x="44" y="430" width="16" height="42" fill="#0C1840"/><rect x="228" y="434" width="36" height="34" fill="#F5F0E1"/>
+          <rect x="84" y="444" width="120" height="6" rx="3" fill="#FFC93C"/>
+          <rect x="62" y="392" width="200" height="40" rx="6" fill="#FFC93C"/><rect x="62" y="392" width="14" height="40" fill="#E0A800"/><rect x="226" y="396" width="32" height="32" fill="#FFF8E4"/>
+          <text x="150" y="418" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#13235B" letter-spacing="1.5">ACCOUNTANCY</text>
+          <rect x="52" y="356" width="196" height="38" rx="6" fill="#E4624A"/><rect x="52" y="356" width="14" height="38" fill="#C4492F"/><rect x="214" y="360" width="30" height="30" fill="#FDEFE9"/>
+          <text x="140" y="380" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" fill="#fff" letter-spacing="1.5">ECONOMICS</text>
+          <!-- graduation cap --><g transform="translate(-6 -22)">
+          <path d="M92 346 L150 322 L208 346 L150 370 Z" fill="#0C1840"/>
+          <path d="M118 356 V368 C 118 378, 182 378, 182 368 V356 L150 369 Z" fill="#13235B"/>
+          <path d="M150 346 L198 356 V380" stroke="#FFC93C" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M193 378 h10 l-2 16 h-6z" fill="#FFC93C"/></g>
+        </g>
+        <!-- calculator -->
+        <g transform="rotate(8 430 410)">
+          <rect x="360" y="330" width="130" height="160" rx="16" fill="#2B3A6B"/>
+          <rect x="360" y="330" width="130" height="160" rx="16" fill="none" stroke="#13235B" stroke-width="3"/>
+          <rect x="374" y="344" width="102" height="32" rx="6" fill="#CFE6C9"/>
+          <text x="468" y="368" text-anchor="end" font-family="'Courier New', monospace" font-weight="700" font-size="17" fill="#1C3321">7,00,000</text>
+          <g fill="#4A5A8E">
+            <rect x="374" y="388" width="20" height="16" rx="4"/><rect x="401" y="388" width="20" height="16" rx="4"/><rect x="428" y="388" width="20" height="16" rx="4"/>
+            <rect x="374" y="412" width="20" height="16" rx="4"/><rect x="401" y="412" width="20" height="16" rx="4"/><rect x="428" y="412" width="20" height="16" rx="4"/>
+            <rect x="374" y="436" width="20" height="16" rx="4"/><rect x="401" y="436" width="20" height="16" rx="4"/><rect x="428" y="436" width="20" height="16" rx="4"/>
+            <rect x="374" y="460" width="47" height="16" rx="4"/><rect x="428" y="460" width="20" height="16" rx="4"/>
+          </g>
+          <rect x="455" y="388" width="21" height="40" rx="4" fill="#FFC93C"/>
+          <rect x="455" y="436" width="21" height="40" rx="4" fill="#E4624A"/>
+        </g>
+        <!-- pencil -->
+        <g transform="rotate(-24 300 460)">
+          <rect x="246" y="452" width="110" height="14" rx="2" fill="#FFC93C"/>
+          <rect x="246" y="452" width="110" height="5" fill="#FFD66B"/>
+          <rect x="236" y="452" width="12" height="14" rx="3" fill="#E4624A"/>
+          <rect x="246" y="452" width="8" height="14" fill="#B8BCC9"/>
+          <path d="M356 452 L378 459 L356 466 Z" fill="#F1D3A6"/><path d="M372 457.2 L378 459 L372 460.8 Z" fill="#18203A"/>
+        </g>
+      </svg>
+      <p class="note">Free demo lecture this Saturday!</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap facts rv" aria-label="Quick facts">
+  <ul>
+    <li><b>25</b><span>Students max per batch</span></li>
+    <li><b>Weekly</b><span>Chapter tests with written feedback</span></li>
+    <li><b>Since 2011</b><span>Teaching commerce in Kothrud</span></li>
+    <li><b>100%</b><span>Lectures recorded for revision</span></li>
+  </ul>
+</div>
+
+<section class="sec" id="courses" aria-labelledby="courses-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Courses</p>
+      <h2 class="h2" id="courses-title">One institute, <em>every commerce step</em></h2>
+      <p>From your first ledger in 11th to CA and CS exams — taught by faculty who specialise in exactly that stage.</p>
+    </div>
+    <div class="courses">
+      <article class="course rv">
+        <div class="course-top"><span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10 12 5l9 5-9 5-9-5z"/><path d="M7 12v4.5c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5V12M21 10v5"/></svg></span><span class="lvl">State board · CBSE</span></div>
+        <h3>11th–12th Commerce</h3>
+        <p>Accounts, Economics, OCM/Business Studies and Maths &amp; Stats — the full board syllabus with past-paper practice.</p>
+        <dl class="meta"><div><dt>Batches</dt><dd>7–9 AM or 5–7 PM</dd></div><div><dt>Duration</dt><dd>10 months · Jun–Mar</dd></div></dl>
+        <p class="fee"><small>from</small><b>₹32,000</b><span>/ year</span></p>
+        <a class="btn btn-line btn-sm btn-block" href="#admissions">Book a free demo</a>
+      </article>
+      <article class="course rv">
+        <div class="course-top"><span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></span><span class="lvl">After 12th</span></div>
+        <h3>CA Foundation</h3>
+        <p>Accounting, Business Laws, Quantitative Aptitude and Economics, with fortnightly full-length mock papers.</p>
+        <dl class="meta"><div><dt>Batch</dt><dd>Mon–Sat, 2–5 PM</dd></div><div><dt>Duration</dt><dd>6 months</dd></div></dl>
+        <p class="fee"><small>from</small><b>₹38,000</b><span>/ attempt</span></p>
+        <a class="btn btn-line btn-sm btn-block" href="#admissions">Book a free demo</a>
+      </article>
+      <article class="course rv">
+        <div class="course-top"><span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span class="lvl">Intermediate</span></div>
+        <h3>CA Inter</h3>
+        <p>Group I &amp; II — Advanced Accounting, Taxation, Costing and Audit — with ICAI-pattern answer writing drills.</p>
+        <dl class="meta"><div><dt>Batch</dt><dd>Mon–Sat, 10 AM–1 PM</dd></div><div><dt>Duration</dt><dd>8 months per group</dd></div></dl>
+        <p class="fee"><small>from</small><b>₹52,000</b><span>/ group</span></p>
+        <a class="btn btn-line btn-sm btn-block" href="#admissions">Book a free demo</a>
+      </article>
+      <article class="course rv">
+        <div class="course-top"><span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7zM8 21h8"/></svg></span><span class="lvl">Company Secretary</span></div>
+        <h3>CS Executive</h3>
+        <p>Company Law, Tax Laws, Jurisprudence and Securities Law — case-based classes and weekly written tests.</p>
+        <dl class="meta"><div><dt>Batch</dt><dd>Mon–Fri, 6:30–9 PM</dd></div><div><dt>Duration</dt><dd>7 months</dd></div></dl>
+        <p class="fee"><small>from</small><b>₹36,000</b><span>/ module</span></p>
+        <a class="btn btn-line btn-sm btn-block" href="#admissions">Book a free demo</a>
+      </article>
+      <article class="course rv">
+        <div class="course-top"><span class="c-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></span><span class="lvl">University</span></div>
+        <h3>B.Com support</h3>
+        <p>Semester-wise help for SPPU B.Com — Financial Accounting, Cost, Corporate Accounting and Auditing.</p>
+        <dl class="meta"><div><dt>Batches</dt><dd>Evenings &amp; Sundays</dd></div><div><dt>Duration</dt><dd>Per semester</dd></div></dl>
+        <p class="fee"><small>from</small><b>₹9,000</b><span>/ semester</span></p>
+        <a class="btn btn-line btn-sm btn-block" href="#admissions">Book a free demo</a>
+      </article>
+      <article class="course course-cta rv">
+        <h3>Not sure which course fits?</h3>
+        <p>Tell us your class, board and goal. A faculty member will call you back and suggest the right batch — no pressure.</p>
+        <a class="btn btn-sun" href="#" data-demo="whatsapp">Ask on WhatsApp</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="why" aria-labelledby="why-title">
+  <div class="wrap why">
+    <div class="why-visual rv">
+      <div class="photo"><img src="img/coaching/book.jpg" alt="An open book resting on a wooden desk" width="1400" height="933" loading="lazy"></div>
+      <div class="chat">
+        <div class="chat-head"><i aria-hidden="true">P</i><span><b>Pathshala · Parent updates</b><span>Weekly report</span></span></div>
+        <p class="bubble"><b>Riya — 12th Commerce</b><br>Accounts test: <b>42/50</b> ✅<br>Attendance: 6/6 days<br>Next: Partnership revision, Sat 8 AM<time>Sun 7:12 PM</time></p>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head rv" style="margin-bottom:28px">
+        <p class="kicker">Why Pathshala</p>
+        <h2 class="h2" id="why-title">Small batches. <em>Big attention.</em></h2>
+        <p>Parents tell us what they value most: someone is actually tracking their child. Here is how we do it.</p>
+      </div>
+      <ul class="feats">
+        <li class="feat rv"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 11a3 3 0 1 0 0-6M21.5 20a5.5 5.5 0 0 0-4-5.3"/></svg></span><div><h3>Batches of 25, never more</h3><p>Every student is known by name, and every doubt gets asked.</p></div></li>
+        <li class="feat rv"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l1 3H8zM6 6h12v15H6z"/><path d="M9 12l2 2 4-4M9 17h6"/></svg></span><div><h3>Weekly tests</h3><p>Sunday chapter tests, checked by Tuesday with written feedback.</p></div></li>
+        <li class="feat rv"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg></span><div><h3>Daily doubt-solving</h3><p>A faculty desk from 4 to 6 PM, plus a moderated WhatsApp doubt group.</p></div></li>
+        <li class="feat rv"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg></span><div><h3>Parent updates on WhatsApp</h3><p>Marks, attendance and next week's plan — every Sunday evening.</p></div></li>
+        <li class="feat rv"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="M17 10l5-3v10l-5-3"/></svg></span><div><h3>Recorded lectures</h3><p>Missed a class or need a re-watch before exams? Every lecture is on the student app.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faculty" aria-labelledby="fac-title">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <p class="kicker">Faculty</p>
+      <h2 class="h2" id="fac-title">Teachers who've <em>sat these exams</em></h2>
+      <p>Qualified professionals who teach full-time — not a rotating cast of part-timers.</p>
+    </div>
+    <div class="faculty">
+      <article class="prof rv">
+        <div class="prof-top">
+          <span class="avatar" aria-hidden="true"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="42" fill="#13235B"/><path d="M0 60 L60 0 H84 V10 L10 84 H0Z" fill="#FFC93C" opacity=".22"/><text x="42" y="53" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="30" fill="#FFC93C">MJ</text></svg></span>
+          <div><h3>Meera J.</h3><p class="deg">Chartered Accountant · Founder</p></div>
+        </div>
+        <p>Makes Accounts feel like common sense. Known for her “T-account in 3 steps” method and very patient doubt sessions.</p>
+        <ul class="chips"><li>Accountancy</li><li>Taxation</li><li>CA Inter</li></ul>
+        <p class="exp"><b>15</b> years teaching</p>
+      </article>
+      <article class="prof rv">
+        <div class="prof-top">
+          <span class="avatar" aria-hidden="true"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="42" fill="#FFC93C"/><circle cx="42" cy="42" r="30" fill="none" stroke="#13235B" stroke-opacity=".15" stroke-width="6"/><text x="42" y="53" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="30" fill="#13235B">RD</text></svg></span>
+          <div><h3>Rahul D.</h3><p class="deg">M.Com, NET · Economics</p></div>
+        </div>
+        <p>Turns demand curves and national income into stories from Pune markets. Runs the 12th board revision marathons.</p>
+        <ul class="chips"><li>Economics</li><li>OCM / BST</li><li>Maths &amp; Stats</li></ul>
+        <p class="exp"><b>11</b> years teaching</p>
+      </article>
+      <article class="prof rv">
+        <div class="prof-top">
+          <span class="avatar" aria-hidden="true"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="42" fill="#E4624A"/><g stroke="#fff" stroke-opacity=".18" stroke-width="5"><path d="M0 20 H84M0 36 H84M0 52 H84M0 68 H84"/></g><text x="42" y="53" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="30" fill="#fff">SM</text></svg></span>
+          <div><h3>Sana M.</h3><p class="deg">Company Secretary · LLB</p></div>
+        </div>
+        <p>Teaches law through real board-meeting minutes and case studies. Her CS Executive notes are famously short.</p>
+        <ul class="chips"><li>Company Law</li><li>Business Law</li><li>CS Executive</li></ul>
+        <p class="exp"><b>9</b> years teaching</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec results" id="results" aria-labelledby="res-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Results</p>
+      <h2 class="h2" id="res-title">The <em>scoreboard</em></h2>
+      <p>Steady weekly practice shows up on results day. A snapshot of a typical year:</p>
+      <p class="sample-tag">Sample results — illustrative figures, not real students</p>
+    </div>
+    <div class="board">
+      <div class="tile rv"><p class="digits" aria-label="96.2 percent"><span>9</span><span>6</span><span>.</span><span>2</span><span class="u">%</span></p><h3>Top score, 12th Commerce</h3><p>State board, 2026</p></div>
+      <div class="tile rv"><p class="digits" aria-label="318 out of 400"><span>3</span><span>1</span><span>8</span><span class="u">/400</span></p><h3>Top score, CA Foundation</h3><p>June 2026 attempt</p></div>
+      <div class="tile rv"><p class="digits" aria-label="41 students"><span>4</span><span>1</span></p><h3>Students above 85% in 12th</h3><p>Across 3 batches</p></div>
+      <div class="tile rv"><p class="digits" aria-label="12 students"><span>1</span><span>2</span></p><h3>CA &amp; CS exemptions</h3><p>Papers cleared with 60+</p></div>
+    </div>
+    <div class="toppers rv">
+      <h3>Batch toppers · sample</h3>
+      <ol>
+        <li><span class="rank">1</span><span>Riya S.<small>12th Commerce · State board</small></span><strong>96.2%</strong></li>
+        <li><span class="rank">2</span><span>Omkar P.<small>CA Foundation</small></span><strong>318</strong></li>
+        <li><span class="rank">3</span><span>Aisha K.<small>12th Commerce · CBSE</small></span><strong>94.8%</strong></li>
+        <li><span class="rank">4</span><span>Tanmay G.<small>CS Executive · Module 1</small></span><strong>Pass</strong></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="timetable" aria-labelledby="tt-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Batch timetable</p>
+      <h2 class="h2" id="tt-title">Pick a batch that <em>fits your college</em></h2>
+      <p>Upcoming batches. Seats are limited to 25 — book a demo to hold one for three days.</p>
+    </div>
+    <div class="tt-wrap rv">
+      <table class="tt">
+        <caption class="sr">Upcoming batch timetable</caption>
+        <thead><tr><th scope="col">Course</th><th scope="col">Days</th><th scope="col">Timing</th><th scope="col">Starts</th><th scope="col">Seats</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">11th Commerce<span class="sub">Morning batch</span></th><td data-label="Days">Mon–Sat</td><td data-label="Timing">7:00 – 9:00 AM</td><td data-label="Starts">1 June 2027</td><td data-label="Seats"><span class="seat s-open">Open</span></td></tr>
+          <tr><th scope="row">12th Commerce<span class="sub">Morning batch</span></th><td data-label="Days">Mon–Sat</td><td data-label="Timing">7:00 – 9:00 AM</td><td data-label="Starts">15 April 2027</td><td data-label="Seats"><span class="seat s-few">Few seats</span></td></tr>
+          <tr><th scope="row">12th Commerce<span class="sub">Evening batch</span></th><td data-label="Days">Mon–Sat</td><td data-label="Timing">5:00 – 7:00 PM</td><td data-label="Starts">15 April 2027</td><td data-label="Seats"><span class="seat s-full">Waitlist</span></td></tr>
+          <tr><th scope="row">CA Foundation<span class="sub">June 2027 attempt</span></th><td data-label="Days">Mon–Sat</td><td data-label="Timing">2:00 – 5:00 PM</td><td data-label="Starts">10 November</td><td data-label="Seats"><span class="seat s-open">Open</span></td></tr>
+          <tr><th scope="row">CA Inter<span class="sub">Group I</span></th><td data-label="Days">Mon–Sat</td><td data-label="Timing">10:00 AM – 1:00 PM</td><td data-label="Starts">5 November</td><td data-label="Seats"><span class="seat s-few">Few seats</span></td></tr>
+          <tr><th scope="row">CS Executive<span class="sub">Module 1</span></th><td data-label="Days">Mon–Fri</td><td data-label="Timing">6:30 – 9:00 PM</td><td data-label="Starts">20 October</td><td data-label="Seats"><span class="seat s-open">Open</span></td></tr>
+          <tr><th scope="row">B.Com support<span class="sub">SPPU, Sem III &amp; V</span></th><td data-label="Days">Tue, Thu, Sun</td><td data-label="Timing">7:30 – 9:00 PM</td><td data-label="Starts">Every semester</td><td data-label="Seats"><span class="seat s-open">Open</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tt-foot"><span>Weekly tests: Sundays, 9:00 – 11:00 AM for all batches.</span><a class="btn btn-line btn-sm" href="#" data-demo="download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>Download timetable (PDF)</a></div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="admissions" aria-labelledby="adm-title">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <p class="kicker">Admissions</p>
+      <h2 class="h2" id="adm-title">Joining takes <em>three easy steps</em></h2>
+      <p>Most students are in class within a week of their first visit.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><div class="step-no"><b>1</b><span>This week</span></div><h3>Attend a free demo lecture</h3><p>Sit in on a real class for your course. Parents are welcome to join and meet the faculty afterwards.</p></li>
+      <li class="step rv"><div class="step-no"><b>2</b><span>Same day</span></div><h3>Quick chat &amp; placement</h3><p>A 15-minute conversation (and a short test for CA/CS) so we place you in the batch that suits your level.</p></li>
+      <li class="step rv"><div class="step-no"><b>3</b><span>Within a week</span></div><h3>Enrol &amp; get started</h3><p>Pay in full or in 3 instalments, collect your notes and study kit, and join your batch WhatsApp group.</p></li>
+    </ol>
+    <div class="steps-cta rv">
+      <a class="btn btn-sun" href="#" data-demo="demo">Book a free demo lecture <span aria-hidden="true">→</span></a>
+      <a class="btn btn-wa" href="#" data-demo="whatsapp">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <p class="kicker">FAQs</p>
+      <h2 class="h2" id="faq-title">Questions parents ask us</h2>
+      <p>Can't find your answer? Call or WhatsApp the office between 10 AM and 7 PM.</p>
+      <div class="btns">
+        <a class="btn btn-wa" href="#" data-demo="whatsapp">WhatsApp the office</a>
+        <a class="btn btn-sun" href="#" data-demo="call">Call now</a>
+      </div>
+    </div>
+    <div class="faqs rv">
+      <details class="faq" open><summary>Is the demo lecture really free?</summary><p>Yes. Attend one full lecture of your course at no cost and with no obligation to join. Just book a slot so we keep a seat for you.</p></details>
+      <details class="faq"><summary>Why only 25 students in a batch?</summary><p>So faculty can check every notebook, know every student's weak topics and answer every doubt in class. When a batch fills up, we open a waitlist rather than squeeze more in.</p></details>
+      <details class="faq"><summary>How will I know how my child is doing?</summary><p>Every Sunday evening, parents get a WhatsApp update with test marks, attendance and the next week's plan. We also hold a parent–teacher meeting after each term test.</p></details>
+      <details class="faq"><summary>Can fees be paid in instalments?</summary><p>Yes — up to three instalments for yearly and CA/CS courses. We accept UPI, cards and bank transfer, and give a proper receipt for every payment.</p></details>
+      <details class="faq"><summary>What if a student misses a lecture?</summary><p>Every lecture is recorded and available on the student app the same evening, and the doubt desk can help them catch up.</p></details>
+      <details class="faq"><summary>Do you provide study material?</summary><p>Yes. Printed notes, question banks and past papers are included in the fee for every course.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Visit us</p>
+      <h2 class="h2" id="visit-title">On Paud Road, <em>Kothrud</em></h2>
+      <p>A short walk from the bus stop, with two-wheeler parking in the building.</p>
+    </div>
+    <div class="visit">
+      <div class="map rv" role="img" aria-label="Stylised map showing Pathshala Commerce Classes on Paud Road, Kothrud, opposite Anand Van Garden">
+        <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="700" height="500" fill="#F4EEDD"/>
+          <g fill="#EAE2CB">
+            <rect x="20" y="20" width="160" height="110" rx="12"/><rect x="220" y="20" width="200" height="90" rx="12"/><rect x="470" y="20" width="210" height="80" rx="12"/>
+            <rect x="20" y="330" width="170" height="150" rx="12"/><rect x="490" y="310" width="190" height="170" rx="12"/>
+            <rect x="20" y="170" width="120" height="120" rx="12"/>
+          </g>
+          <path d="M240 330 L470 270 L470 480 L240 480 Z" fill="#DCEBD2"/>
+          <g fill="#C7DDBA"><circle cx="300" cy="380" r="20"/><circle cx="360" cy="420" r="26"/><circle cx="420" cy="350" r="18"/><circle cx="400" cy="450" r="14"/><circle cx="290" cy="450" r="16"/></g>
+          <text x="355" y="398" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#5C8A4B" letter-spacing="1">ANAND VAN GARDEN</text>
+          <!-- roads -->
+          <path d="M-20 300 L720 110" stroke="#FFFFFF" stroke-width="46" stroke-linecap="round"/>
+          <path d="M-20 300 L720 110" stroke="#FFC93C" stroke-width="3" stroke-dasharray="16 12"/>
+          <g stroke="#FFFFFF" stroke-width="22" fill="none" stroke-linecap="round">
+            <path d="M200 -20 V520"/><path d="M460 -20 V520"/><path d="M-20 150 H200"/><path d="M460 290 H720"/>
+          </g>
+          <g font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#6B7390" letter-spacing="1.5">
+            <text transform="translate(260 248) rotate(-14.4)">PAUD ROAD</text>
+            <text transform="translate(194 470) rotate(-90)" font-size="12">LANE 4</text>
+            <text transform="translate(454 470) rotate(-90)" font-size="12">LANE 7</text>
+          </g>
+          <!-- bus stop -->
+          <g transform="translate(372 272)"><rect x="-13" y="-13" width="26" height="26" rx="6" fill="#13235B"/><path d="M-6 -6 h12 v9 h-12z M-6 5 v3 M6 5 v3" stroke="#FFC93C" stroke-width="2.2" fill="none"/></g>
+          <!-- pin -->
+          <ellipse cx="330" cy="200" rx="18" ry="6" fill="#13235B" opacity=".2"/>
+          <path d="M330 198 C 312 176, 300 164, 300 148 A30 30 0 1 1 360 148 C 360 164, 348 176, 330 198Z" fill="#13235B"/>
+          <circle cx="330" cy="147" r="12" fill="#FFC93C"/>
+        </svg>
+        <div class="map-card"><b>Pathshala Commerce Classes</b><span>Paud Road · opp. Anand Van Garden</span></div>
+      </div>
+      <div class="info rv">
+        <h3>Pathshala, Kothrud</h3>
+        <p class="addr">1st floor, Shraddha Chambers, Paud Road, Kothrud, Pune 411038</p>
+        <p class="landmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Opposite Anand Van Garden bus stop</p>
+        <table class="hours">
+          <caption class="sr">Office and class timings</caption>
+          <tbody>
+            <tr><th scope="row">Classes, Mon – Sat</th><td>7:00 AM – 9:00 PM</td></tr>
+            <tr><th scope="row">Office &amp; admissions</th><td>10:00 AM – 7:00 PM</td></tr>
+            <tr><th scope="row">Sunday (tests)</th><td>9:00 AM – 1:00 PM</td></tr>
+          </tbody>
+        </table>
+        <div class="info-btns">
+          <a class="btn btn-navy" href="#" data-demo="directions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg>Get directions</a>
+          <a class="btn btn-wa" href="#" data-demo="whatsapp">WhatsApp</a>
+          <a class="btn btn-line" href="#" data-demo="call">Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="final-title">
+  <div class="wrap">
+    <div class="final rv">
+      <div>
+        <h2 class="h2" id="final-title">See how we teach — before you pay a rupee.</h2>
+        <p>Book a free demo lecture for any course this week. Bring a parent, bring your doubts.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-navy" href="#" data-demo="demo">Book a free demo lecture <span aria-hidden="true">→</span></a>
+        <a class="btn btn-wa" href="#" data-demo="whatsapp">WhatsApp</a>
+        <a class="btn btn-line" href="#" data-demo="call">Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Pathshala Commerce Classes, back to top">
+          <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#FFC93C"/><path d="M22 14c-3-2.2-7-3-11-2.6v17.2c4-.4 8 .4 11 2.6 3-2.2 7-3 11-2.6V11.4c-4-.4-8 .4-11 2.6z" fill="#13235B"/><path d="M22 14v17.2" stroke="#FFC93C" stroke-width="1.8"/></svg>
+          <span class="brand-name">Pathshala<small>Commerce Classes · Kothrud</small></span>
+        </a>
+        <p>Coaching for 11th–12th Commerce, CA Foundation, CA Inter, CS Executive and B.Com on Paud Road, Kothrud, Pune.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="#" aria-label="Google Maps listing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Courses</h4>
+        <ul class="foot-links"><li><a href="#courses">11th–12th Commerce</a></li><li><a href="#courses">CA Foundation</a></li><li><a href="#courses">CA Inter</a></li><li><a href="#courses">CS Executive</a></li><li><a href="#courses">B.Com support</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="foot-links"><li>Paud Road, Kothrud</li><li>Pune 411038</li><li><a href="#" data-demo="call">Call the office</a></li><li><a href="#" data-demo="whatsapp">WhatsApp us</a></li><li><a href="#timetable">Batch timetable</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Pathshala Commerce Classes. All rights reserved.</span>
+      <span>Book photo: <a href="https://unsplash.com/photos/cZhUxIQjILg" rel="noopener">Alejandro Escamilla</a> via <a href="https://picsum.photos/id/24/info" rel="noopener">Lorem Picsum</a> · illustrations drawn for this site</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="#" data-demo="whatsapp" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.1 24l6.3-1.7A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.1-3.6-8.4z"/></svg></a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+  var msgs = {
+    whatsapp: 'Demo button — on your real site this opens WhatsApp with your number.',
+    call: 'Demo button — on your real site this calls your number.',
+    directions: 'Demo button — on your real site this opens Google Maps directions to you.',
+    download: 'Demo button — on your real site this downloads your latest timetable PDF.',
+    demo: 'Demo button — on your real site this books a demo lecture (form or WhatsApp).'
+  };
+  var toast = document.getElementById('toast'), tmr;
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-demo]');
+    if (!el) return;
+    e.preventDefault();
+    toast.textContent = msgs[el.getAttribute('data-demo')] || msgs.call;
+    toast.classList.add('on');
+    clearTimeout(tmr); tmr = setTimeout(function () { toast.classList.remove('on'); }, 3200);
+  });
+
+  /* reveal on scroll: only things below the fold, so static screenshots never show blanks */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && !location.hash && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    var vh = window.innerHeight;
+    document.querySelectorAll('.rv').forEach(function (el) {
+      if (el.getBoundingClientRect().top > vh) { el.classList.add('pre'); io.observe(el); }
+    });
+  }
+})();
+</script>
+<script src="sample-bar.js" data-type="Coaching institute" defer></script>
+</body>
+</html>

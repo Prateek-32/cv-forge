@@ -1440,11 +1440,18 @@ var CV_FORGE_PF_REC = {
     ['sample-portfolios.html', 'Portfolios', '<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 8.5h19M6 6.3h.01M8.5 6.3h.01"/>'],
     ['start.html', 'Start', '<path d="M12 5v14M5 12h14"/>']
   ];
+  if (here === 'business.html') TABS = [
+    ['business.html', 'Business', '<path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18M9 20v-6h6v6"/>'],
+    ['business.html#samples', 'Samples', '<rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M2.5 8.5h19M6 6.3h.01M8.5 6.3h.01"/>'],
+    ['business.html#qr-menu', 'QR menu', '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/>'],
+    ['index.html', 'Students', '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/>'],
+    ['business.html#enquire', 'Quote', '<path d="M12 5v14M5 12h14"/>']
+  ];
   var bar = document.createElement('nav');
   bar.className = 'tabbar';
   bar.setAttribute('aria-label', 'Quick links');
   bar.innerHTML = TABS.map(function (t) {
-    return '<a href="' + t[0] + '"' + (t[0] === 'start.html' ? ' class="tab-start"' : '') +
+    return '<a href="' + t[0] + '"' + (t[0] === 'start.html' || /#enquire$/.test(t[0]) ? ' class="tab-start"' : '') +
       (here === t[0] ? ' aria-current="page"' : '') + '>' + icon(t[2]) + '<span>' + t[1] + '</span></a>';
   }).join('');
   document.body.appendChild(bar);

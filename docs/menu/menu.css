@@ -1,0 +1,185 @@
+/* Fieldcraft QR menu — shared styles. Each restaurant sets its colours in
+   MENU.theme (brand, ink, paper, card, accent); everything else lives here. */
+
+:root {
+  --brand: #B4532A;
+  --accent: #E9B872;
+  --ink: #2A1E17;
+  --muted: #7A6A5E;
+  --paper: #FBF6EE;
+  --card: #FFFFFF;
+  --line: rgba(42, 30, 23, .10);
+  --veg: #1E8E3E;
+  --nonveg: #B3261E;
+  --egg: #D08A00;
+  --display: 'Fraunces', 'Mukta', Georgia, serif;
+  --body: 'Mukta', 'Noto Sans Devanagari', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.45 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font: inherit; color: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.mn { max-width: 680px; margin: 0 auto; min-height: 100vh; background: var(--paper); }
+@media (min-width: 700px) {
+  body { background: color-mix(in srgb, var(--paper) 82%, var(--ink)); }
+  .mn { box-shadow: 0 0 0 1px var(--line), 0 30px 80px -40px rgba(0, 0, 0, .45); }
+}
+
+/* sample strip (demo menus only) */
+.mn-demo {
+  display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: center; justify-content: center;
+  padding: 8px 14px; background: #0B1024; color: #C9D2EA; font-size: 13px; text-align: center; text-decoration: none;
+}
+.mn-demo strong { color: #5EEAD4; font-weight: 600; }
+
+/* header */
+.mn-head {
+  position: relative; overflow: hidden;
+  padding: 26px 18px 18px;
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 60%),
+    linear-gradient(160deg, var(--brand), color-mix(in srgb, var(--brand) 70%, #000));
+  color: #fff;
+}
+.mn-head::after {
+  content: ''; position: absolute; inset: auto -40px -60px auto; width: 190px; height: 190px; border-radius: 50%;
+  border: 26px solid rgba(255, 255, 255, .08); pointer-events: none;
+}
+.mn-brand { display: flex; align-items: flex-start; gap: 14px; }
+.mn-brand > div { flex: 1; min-width: 0; }
+.mn-logo {
+  flex: none; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px;
+  background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25);
+}
+.mn-logo svg { width: 32px; height: 32px; }
+.mn-head h1 { margin: 0; font: 600 clamp(26px, 7vw, 34px)/1.05 var(--display); letter-spacing: -.01em; }
+.mn-head p { margin: 6px 0 0; color: rgba(255, 255, 255, .85); font-size: 15px; }
+.mn-head:has(.mn-langs:not(:empty)) { padding-top: 64px; }
+.mn-langs {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  display: flex; padding: 3px; gap: 2px; border-radius: 999px; background: rgba(0, 0, 0, .22);
+}
+.mn-langs:empty { display: none; }
+.mn-langs button {
+  min-width: 40px; min-height: 34px; padding: 0 9px; border: 0; border-radius: 999px;
+  background: transparent; color: rgba(255, 255, 255, .8); font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.mn-langs button[aria-pressed="true"] { background: #fff; color: var(--brand); }
+.mn-meta {
+  position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
+  margin-top: 16px; font-size: 13.5px; color: rgba(255, 255, 255, .88);
+}
+.mn-meta b { font-weight: 600; color: #fff; }
+.mn-meta i { font-style: normal; opacity: .5; }
+.mn-call {
+  margin-left: auto; display: inline-flex; align-items: center; min-height: 34px; padding: 0 14px;
+  border-radius: 999px; background: #fff; color: var(--brand); font-weight: 600; text-decoration: none;
+}
+
+/* sticky tools + category tabs */
+.mn-bar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.mn-tools { display: flex; gap: 8px; padding: 12px 14px 8px; }
+.mn-search {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 6px 0 12px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--muted);
+}
+.mn-search:focus-within { border-color: var(--brand); }
+.mn-search input { flex: 1; min-width: 0; height: 42px; border: 0; background: transparent; color: var(--ink); outline: none; font-size: 16px; }
+.mn-search input::-webkit-search-cancel-button { display: none; }
+.mn-clear { width: 32px; height: 32px; border: 0; border-radius: 8px; background: var(--paper); font-size: 20px; line-height: 1; cursor: pointer; }
+.mn-vegbtn {
+  flex: none; display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 12px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card); font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.mn-vegbtn[aria-pressed="true"] { border-color: var(--veg); background: color-mix(in srgb, var(--veg) 12%, var(--card)); color: var(--veg); }
+.mn-tabs {
+  display: flex; gap: 6px; overflow-x: auto; padding: 2px 14px 10px; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 22px), transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 22px), transparent);
+}
+.mn-tabs::-webkit-scrollbar { display: none; }
+.mn-tabs a {
+  flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line); color: var(--ink); font-size: 14.5px; text-decoration: none; white-space: nowrap;
+}
+.mn-tabs a.is-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* dishes */
+.mn-list { padding: 4px 14px 8px; }
+.mn-cat { padding-top: 18px; scroll-margin-top: 120px; }
+.mn-cat h2 {
+  display: flex; align-items: baseline; gap: 8px; margin: 0 0 4px;
+  font: 600 22px/1.2 var(--display); letter-spacing: -.005em;
+}
+.mn-cat h2 small { font: 500 13px var(--body); color: var(--muted); }
+.mn-note { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+.mn-items { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 10px; }
+.mn-item {
+  display: flex; gap: 12px; align-items: flex-start; padding: 14px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+}
+.mn-item img { flex: none; width: 76px; height: 76px; border-radius: 10px; object-fit: cover; }
+.mn-item-main { flex: 1; min-width: 0; }
+.mn-item h3 { display: flex; align-items: flex-start; gap: 8px; margin: 0; font-size: 17px; font-weight: 600; line-height: 1.3; }
+.mn-item h3 .mn-mark { margin-top: 4px; }
+.mn-item p { margin: 5px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+.mn-price { flex: none; font-weight: 700; font-size: 16px; white-space: nowrap; color: var(--ink); }
+.mn-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.mn-tag {
+  display: inline-flex; align-items: center; min-height: 22px; padding: 0 8px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 30%, var(--card)); color: var(--ink); font-size: 12px; font-weight: 600;
+}
+.mn-tag-best { background: color-mix(in srgb, var(--brand) 16%, var(--card)); color: var(--brand); }
+.mn-tag-spicy { background: #FDE7E4; color: #A8321F; }
+.mn-tag-new { background: #E3F1FF; color: #1D5FA8; }
+.mn-tag-jain { background: #EAF6EC; color: #1E6E35; }
+
+/* the Indian food marks: a square with a dot (veg), a triangle (non-veg) */
+.mn-mark {
+  flex: none; position: relative; display: inline-block; width: 15px; height: 15px;
+  border: 1.6px solid var(--veg); border-radius: 3px; background: #fff;
+}
+.mn-mark::after {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--veg); transform: translate(-50%, -50%);
+}
+.mn-nonveg { border-color: var(--nonveg); }
+.mn-nonveg::after {
+  width: 0; height: 0; border-radius: 0; background: none;
+  border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 7px solid var(--nonveg);
+}
+.mn-egg { border-color: var(--egg); }
+.mn-egg::after { background: var(--egg); }
+
+.mn-empty { margin: 30px 18px; padding: 22px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 14px; }
+
+.mn-foot { padding: 22px 18px 40px; color: var(--muted); font-size: 13.5px; text-align: center; }
+.mn-legend { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 16px; }
+.mn-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.mn-legend > .mn-mark { margin-right: -10px; }
+.mn-foot p { margin: 12px auto 14px; max-width: 42ch; }
+.mn-by {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px;
+  border: 1px solid var(--line); text-decoration: none; font-size: 12.5px; color: var(--muted);
+}
+
+@media (max-width: 360px) {
+  .mn-vegbtn { padding: 0 9px; font-size: 13px; }
+  .mn-langs button { min-width: 34px; padding: 0 6px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

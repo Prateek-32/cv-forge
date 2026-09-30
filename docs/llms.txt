@@ -15,6 +15,13 @@ Fieldcraft is a writing service, not a do-it-yourself resume builder: customers 
 - Bundles: Job Ready (resume + LinkedIn) ₹199; Full Record (resume + CV) ₹249; Complete (resume, CV, LinkedIn and portfolio) ₹999
 - Every order includes one revision round. Nothing is charged until the customer agrees the price by email.
 
+## Fieldcraft for business
+
+Fieldcraft also builds phone-first websites and QR menus for local businesses in Pune: cafés and restaurants, bakeries and home kitchens, salons, clinics, gyms, coaching classes and shops. Websites have Call, WhatsApp and Directions buttons, services or menu with prices, photos, hours and a map, and go live in 5–7 days. QR menus open a live menu page from a code on the table, in English, Hindi and Marathi, with veg, non-veg and egg marks, search and a veg-only filter; prices change without reprinting the QR, and print-ready table cards are included. Business prices are quoted per project.
+
+- [Websites and QR menus for businesses](https://fieldcraft.co.in/business.html): services, six sample business sites and a quote form
+- [Demo QR menu](https://fieldcraft.co.in/menu/monsoon-cafe/): a sample menu for a made-up café
+
 ## Key pages
 
 - [Home](https://fieldcraft.co.in/): what Fieldcraft does, prices and common questions

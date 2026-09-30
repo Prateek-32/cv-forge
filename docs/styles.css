@@ -3108,6 +3108,7 @@ input[type="radio"] { width: 18px; height: 18px; min-height: 0; padding: 0; acce
   .hero-copy > * { order: 2; }
   .hero-copy > .eyebrow, .hero-copy > h1, .hero-copy > .lede { order: 0; }
   .hero-copy > .ats-card { order: 1; margin-top: 4px; }
+  .hero-copy > .aud-switch { order: -1; margin-bottom: 0; }
 }
 @media (max-width: 520px) {
   .ats-card { grid-template-columns: auto minmax(0, 1fr); gap: 12px 14px; padding: 14px; }
@@ -3223,3 +3224,36 @@ html.search-open .wa-float, html.search-open .cfa-launch, html.search-open .cfa-
 }
 @media (prefers-reduced-motion: reduce) { .site-search { transition: none; } }
 .site-header.searching .site-nav, .site-header.searching .search-btn, .site-header.searching .nav-toggle { visibility: hidden; }
+
+/* =====================================================================
+   Fieldcraft for business (business.html) and the audience switch
+   ===================================================================== */
+
+/* the Students / Businesses switch at the top of both home pages */
+.aud-switch {
+  display: inline-flex; gap: 4px; padding: 4px; margin-bottom: 22px;
+  border: 1px solid var(--line); border-radius: 999px; background: rgba(12, 17, 36, .7);
+  max-width: 100%;
+}
+.aud-switch a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 18px;
+  border-radius: 999px; color: var(--ink-2); font-size: 15px; font-weight: 500; text-decoration: none;
+  white-space: nowrap; transition: background .2s ease, color .2s ease;
+}
+.aud-switch a svg { flex: none; opacity: .8; }
+.aud-switch a:hover { color: var(--ink); }
+.aud-switch a[aria-current="page"] {
+  background: var(--accent); color: #04201D; font-weight: 600;
+  box-shadow: 0 0 24px -6px rgba(94, 234, 212, .6);
+}
+.aud-switch a[aria-current="page"] svg { opacity: 1; }
+.aud-new {
+  padding: 1px 7px; border-radius: 999px; background: var(--brass); color: #2B1B02;
+  font: 600 10.5px/1.6 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+}
+.aud-switch a[aria-current="page"] .aud-new { background: #04201D; color: var(--accent); }
+@media (max-width: 460px) {
+  .aud-switch { display: flex; }
+  .aud-switch a { flex: 1; justify-content: center; padding: 0 10px; font-size: 14px; }
+  .aud-switch a svg { display: none; }
+}
