@@ -126,3 +126,20 @@
 
 /* outline buttons keep light text on the dark QR band */
 .sec-dark a.btn-outline, .sec-dark a.btn-outline:hover { color: var(--ink); }
+
+/* the five sample menus, as phones */
+.menu-row { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px; }
+.menu-card { display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--ink); }
+.menu-card strong { margin-top: 8px; font: 500 19px/1.2 var(--serif); color: var(--ink); }
+.menu-card > span:last-child { color: var(--muted); font-size: 14px; line-height: 1.4; }
+.menu-phone {
+  display: block; padding: 7px; border-radius: 26px; background: linear-gradient(160deg, #20294A, #0B1024);
+  border: 1px solid rgba(160, 178, 235, .28); box-shadow: var(--sh-2);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.menu-phone img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 800; object-fit: cover; object-position: top; border-radius: 20px; }
+.menu-card:hover .menu-phone, .menu-card:focus-visible .menu-phone { transform: translateY(-6px); box-shadow: var(--sh-3), 0 0 60px -16px rgba(94, 234, 212, .6); }
+@media (max-width: 1000px) {
+  .menu-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding-bottom: 10px; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scrollbar-width: thin; }
+  .menu-card { flex: 0 0 min(220px, 62vw); scroll-snap-align: start; }
+}

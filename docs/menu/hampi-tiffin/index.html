@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu — Hampi Tiffin House (sample QR menu)</title>
+<meta name="description" content="A sample QR menu by Fieldcraft for a made-up South Indian tiffin room on FC Road, Pune: dosas, idli, vada, uttapam and filter coffee, in English, Hindi and Marathi.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1E5B32">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../menu.css">
+</head>
+<body>
+<div id="menu"><noscript><p style="padding:20px">Please turn on JavaScript to see the menu, or ask at the counter.</p></noscript></div>
+<script>
+window.MENU = {
+  demo: true,
+  name: 'Hampi Tiffin House',
+  tagline: { en: 'Udupi-style tiffin · FC Road · since 1989', hi: 'उडुपी स्टाइल टिफ़िन · एफ़सी रोड · 1989 से', mr: 'उडुपी पद्धतीचे टिफिन · एफसी रोड · 1989 पासून' },
+  logo: '<svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22c6-10 18-10 24 0"/><path d="M4 22h24"/><path d="M16 9v4M10 11l2 3M22 11l-2 3"/></svg>',
+  theme: { brand: '#1E5B32', accent: '#F2B705', ink: '#1E2A1F', muted: '#65705F', paper: '#F5F3E6', card: '#FFFFFF' },
+  languages: ['en', 'hi', 'mr'],
+  notice: { en: 'Pure veg · Dosas from 7 AM, meals 12 – 3 PM', hi: 'शुद्ध शाकाहारी · डोसा सुबह 7 से, भोजन दोपहर 12 – 3', mr: 'शुद्ध शाकाहारी · डोसा सकाळी 7 पासून, जेवण दुपारी 12 – 3' },
+  info: {
+    hours: { en: '7 AM – 11 PM, every day', hi: 'सुबह 7 – रात 11, रोज़', mr: 'सकाळी 7 – रात्री 11, दररोज' },
+    address: { en: 'FC Road, Shivajinagar, Pune', hi: 'एफ़सी रोड, शिवाजीनगर, पुणे', mr: 'एफसी रोड, शिवाजीनगर, पुणे' }
+  },
+  categories: [
+    { id: 'dosa', name: { en: 'Dosas', hi: 'डोसा', mr: 'डोसा' },
+      note: { en: 'Served with sambar and three chutneys.', hi: 'सांबर और तीन चटनियों के साथ।', mr: 'सांबार आणि तीन चटण्यांसोबत.' },
+      items: [
+        { type: 'veg', price: 120, tags: ['best'], name: { en: 'Masala dosa', hi: 'मसाला डोसा', mr: 'मसाला डोसा' } },
+        { type: 'veg', price: 150, tags: ['best', 'spicy'], name: { en: 'Mysore masala dosa', hi: 'मैसूर मसाला डोसा', mr: 'म्हैसूर मसाला डोसा' },
+          desc: { en: 'Red garlic chutney spread inside, potato bhaji.', hi: 'अंदर लाल लहसुन की चटनी, आलू की भाजी।', mr: 'आत लाल लसूण चटणी, बटाट्याची भाजी.' } },
+        { type: 'veg', price: 140, tags: ['chef'], name: { en: 'Benne dosa', hi: 'बेन्ने डोसा', mr: 'बेण्णे डोसा' },
+          desc: { en: 'Davangere style, soft and crisp, cooked in white butter.', hi: 'दावणगेरे स्टाइल, सफ़ेद मक्खन में बना।', mr: 'दावणगेरे पद्धतीचा, लोण्यात भाजलेला.' } },
+        { type: 'veg', price: 150, name: { en: 'Rava onion dosa', hi: 'रवा ओनियन डोसा', mr: 'रवा कांदा डोसा' } },
+        { type: 'veg', price: 130, name: { en: 'Set dosa (three)', hi: 'सेट डोसा (तीन)', mr: 'सेट डोसा (तीन)' } },
+        { type: 'veg', price: 220, tags: ['new'], name: { en: 'Paper dosa (family size)', hi: 'पेपर डोसा (फ़ैमिली साइज़)', mr: 'पेपर डोसा (फॅमिली साईज)' } }
+      ] },
+    { id: 'idli', name: { en: 'Idli & vada', hi: 'इडली और वड़ा', mr: 'इडली आणि वडा' },
+      items: [
+        { type: 'veg', price: 70, tags: ['best'], name: { en: 'Idli (two)', hi: 'इडली (दो)', mr: 'इडली (दोन)' } },
+        { type: 'veg', price: 80, name: { en: 'Medu vada (two)', hi: 'मेदू वड़ा (दो)', mr: 'मेदू वडा (दोन)' } },
+        { type: 'veg', price: 90, name: { en: 'Idli–vada combo', hi: 'इडली–वड़ा कॉम्बो', mr: 'इडली–वडा कॉम्बो' } },
+        { type: 'veg', price: 100, tags: ['spicy'], name: { en: 'Podi ghee idli', hi: 'पोडी घी इडली', mr: 'पोडी तूप इडली' } },
+        { type: 'veg', price: 90, name: { en: 'Rava idli', hi: 'रवा इडली', mr: 'रवा इडली' } }
+      ] },
+    { id: 'uttapam', name: { en: 'Uttapam & more', hi: 'उत्तपम और भी', mr: 'उत्तपम आणि इतर' },
+      items: [
+        { type: 'veg', price: 130, name: { en: 'Onion tomato uttapam', hi: 'प्याज़ टमाटर उत्तपम', mr: 'कांदा टोमॅटो उत्तपम' } },
+        { type: 'veg', price: 110, name: { en: 'Upma', hi: 'उपमा', mr: 'उपमा' } },
+        { type: 'veg', price: 120, tags: ['chef'], name: { en: 'Bisi bele bath', hi: 'बिसी बेले भात', mr: 'बिसी बेळे भात' } }
+      ] },
+    { id: 'meals', name: { en: 'Meals (12 – 3 PM)', hi: 'भोजन (दोपहर 12 – 3)', mr: 'जेवण (दुपारी 12 – 3)' },
+      items: [
+        { type: 'veg', price: 220, tags: ['best'], name: { en: 'South Indian meals on a banana leaf', hi: 'केले के पत्ते पर दक्षिण भारतीय भोजन', mr: 'केळीच्या पानावर दाक्षिणात्य जेवण' },
+          desc: { en: 'Rice, sambar, rasam, two poriyals, curd, papad, payasam.', hi: 'चावल, सांबर, रसम, दो पोरियल, दही, पापड़, पायसम।', mr: 'भात, सांबार, रसम, दोन पोरियल, दही, पापड, पायसम.' } },
+        { type: 'veg', price: 140, name: { en: 'Curd rice', hi: 'दही चावल', mr: 'दहीभात' } }
+      ] },
+    { id: 'drinks', name: { en: 'Coffee & sweets', hi: 'कॉफ़ी और मिठाई', mr: 'कॉफी आणि गोड' },
+      items: [
+        { type: 'veg', price: 50, tags: ['best'], name: { en: 'Filter coffee', hi: 'फ़िल्टर कॉफ़ी', mr: 'फिल्टर कॉफी' },
+          desc: { en: 'Chicory blend, in a steel tumbler and dabara.', hi: 'चिकोरी ब्लेंड, स्टील के गिलास और डबरा में।', mr: 'चिकोरी ब्लेंड, स्टीलच्या पेल्यात आणि डबऱ्यात.' } },
+        { type: 'veg', price: 40, name: { en: 'Masala chai', hi: 'मसाला चाय', mr: 'मसाला चहा' } },
+        { type: 'veg', price: 90, name: { en: 'Kesari bath', hi: 'केसरी भात', mr: 'केशरी शिरा' } },
+        { type: 'veg', price: 80, name: { en: 'Badam milk', hi: 'बादाम दूध', mr: 'बदाम दूध' } }
+      ] }
+  ]
+};
+</script>
+<script src="../menu.js"></script>
+</body>
+</html>

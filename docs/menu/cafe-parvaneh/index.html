@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu — Café Parvaneh, est. 1958 (sample QR menu)</title>
+<meta name="description" content="A sample QR menu by Fieldcraft for a made-up Irani café and bakery in Camp, Pune: chai, bun maska, kheema pav, dhansak and the bakery counter, in English, Hindi and Marathi.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1F4E4A">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../menu.css">
+</head>
+<body>
+<div id="menu"><noscript><p style="padding:20px">Please turn on JavaScript to see the menu, or ask at the counter.</p></noscript></div>
+<script>
+window.MENU = {
+  demo: true,
+  name: 'Café Parvaneh',
+  tagline: { en: 'Irani café & bakery · est. 1958 · Camp', hi: 'ईरानी कैफ़े और बेकरी · 1958 से · कैंप', mr: 'इराणी कॅफे आणि बेकरी · 1958 पासून · कॅम्प' },
+  cover: 'cover.jpg',
+  logo: '<svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8c-3-5-11-3-9 3 1 3 5 5 9 5 4 0 8-2 9-5 2-6-6-8-9-3z"/><path d="M16 8v18M11 22c2 1 8 1 10 0"/></svg>',
+  theme: { brand: '#1F4E4A', accent: '#C9A15B', ink: '#2B211C', muted: '#76675C', paper: '#F6EFE3', card: '#FFFCF6' },
+  languages: ['en', 'hi', 'mr'],
+  notice: { en: 'Dhansak on Sundays only · Bakery boxes on WhatsApp', hi: 'धनसाक सिर्फ़ रविवार · बेकरी बॉक्स WhatsApp पर', mr: 'धनसाक फक्त रविवारी · बेकरी बॉक्स WhatsApp वर' },
+  info: {
+    hours: { en: '6:30 AM – 10 PM · closed Tuesdays', hi: 'सुबह 6:30 – रात 10 · मंगलवार बंद', mr: 'सकाळी 6:30 – रात्री 10 · मंगळवारी बंद' },
+    address: { en: 'Camp, Pune', hi: 'कैंप, पुणे', mr: 'कॅम्प, पुणे' }
+  },
+  footerNote: { en: 'Pay at the counter, please. Header photo: Carli Jean / Unsplash.', hi: 'कृपया काउंटर पर भुगतान करें।', mr: 'कृपया काउंटरवर पैसे द्या.' },
+  categories: [
+    { id: 'chai', name: { en: 'Chai & coffee', hi: 'चाय और कॉफ़ी', mr: 'चहा आणि कॉफी' },
+      items: [
+        { type: 'veg', price: 30, tags: ['best'], name: { en: 'Irani chai', hi: 'ईरानी चाय', mr: 'इराणी चहा' },
+          desc: { en: 'Slow-brewed, milky and sweet, the way it has been since 1958.', hi: 'धीमी आँच पर बनी, दूध वाली मीठी चाय — 1958 से वैसी ही।', mr: 'मंद आचेवर उकळलेला, दुधाळ, गोड — 1958 पासून तसाच.' } },
+        { type: 'veg', price: 35, name: { en: 'Sulemani chai', hi: 'सुलेमानी चाय', mr: 'सुलेमानी चहा' },
+          desc: { en: 'Black tea, lemon, a hint of mint.', hi: 'काली चाय, नींबू, हल्का पुदीना।', mr: 'कोरा चहा, लिंबू, थोडा पुदिना.' } },
+        { type: 'veg', price: 50, name: { en: 'Filter coffee', hi: 'फ़िल्टर कॉफ़ी', mr: 'फिल्टर कॉफी' } },
+        { type: 'veg', price: 70, name: { en: 'Cold coffee', hi: 'कोल्ड कॉफ़ी', mr: 'कोल्ड कॉफी' } }
+      ] },
+    { id: 'bun', name: { en: 'Bun & bread', hi: 'बन और ब्रेड', mr: 'बन आणि ब्रेड' },
+      note: { en: 'Baked in our own oven every morning.', hi: 'रोज़ सुबह हमारे अपने ओवन में बने।', mr: 'रोज सकाळी आमच्याच ओव्हनमध्ये भाजलेले.' },
+      items: [
+        { type: 'veg', price: 40, tags: ['best'], name: { en: 'Bun maska', hi: 'बन मस्का', mr: 'बन मस्का' },
+          desc: { en: 'Soft bun, a generous slab of butter. Dip it in your chai.', hi: 'मुलायम बन, भरपूर मक्खन। चाय में डुबोकर खाइए।', mr: 'मऊ बन, भरपूर लोणी. चहात बुडवून खा.' } },
+        { type: 'veg', price: 45, tags: ['chef'], name: { en: 'Brun maska', hi: 'ब्रून मस्का', mr: 'ब्रून मस्का' },
+          desc: { en: 'Crusty brun, crackly outside, buttered.', hi: 'कड़क परत वाला ब्रून, मक्खन के साथ।', mr: 'कडक कवचाचा ब्रून, लोण्यासोबत.' } },
+        { type: 'veg', price: 60, name: { en: 'Bun maska jam', hi: 'बन मस्का जैम', mr: 'बन मस्का जॅम' } },
+        { type: 'egg', price: 95, name: { en: 'Bun omelette', hi: 'बन ऑमलेट', mr: 'बन ऑम्लेट' } },
+        { type: 'veg', price: 80, name: { en: 'Cheese toast', hi: 'चीज़ टोस्ट', mr: 'चीज टोस्ट' } }
+      ] },
+    { id: 'eggs', name: { en: 'Eggs', hi: 'अंडे', mr: 'अंडी' },
+      items: [
+        { type: 'egg', price: 150, tags: ['best', 'spicy'], name: { en: 'Akuri on toast', hi: 'अकूरी टोस्ट', mr: 'अकुरी टोस्ट' },
+          desc: { en: 'Parsi-style scrambled eggs with green chilli and coriander.', hi: 'हरी मिर्च और धनिये वाली पारसी भुर्जी।', mr: 'हिरवी मिरची आणि कोथिंबीर घातलेली पारशी भुर्जी.' } },
+        { type: 'egg', price: 120, name: { en: 'Masala omelette pav', hi: 'मसाला ऑमलेट पाव', mr: 'मसाला ऑम्लेट पाव' } },
+        { type: 'egg', price: 110, name: { en: 'Half fry, two eggs', hi: 'हाफ़ फ़्राई, दो अंडे', mr: 'हाफ फ्राय, दोन अंडी' } }
+      ] },
+    { id: 'meals', name: { en: 'From the kitchen', hi: 'रसोई से', mr: 'स्वयंपाकघरातून' },
+      items: [
+        { type: 'nonveg', price: 180, tags: ['best'], name: { en: 'Kheema pav', hi: 'खीमा पाव', mr: 'खिमा पाव' },
+          desc: { en: 'Spiced mutton mince, two pav, onion and lemon.', hi: 'मसालेदार मटन खीमा, दो पाव, प्याज़ और नींबू।', mr: 'मसालेदार मटण खिमा, दोन पाव, कांदा आणि लिंबू.' } },
+        { type: 'nonveg', price: 220, name: { en: 'Chicken cutlet & gravy', hi: 'चिकन कटलेट और ग्रेवी', mr: 'चिकन कटलेट आणि ग्रेव्ही' } },
+        { type: 'veg', price: 140, name: { en: 'Veg puff', hi: 'वेज पफ़', mr: 'व्हेज पफ' } },
+        { type: 'nonveg', price: 320, tags: ['chef'], name: { en: 'Chicken dhansak (Sundays)', hi: 'चिकन धनसाक (रविवार)', mr: 'चिकन धनसाक (रविवार)' },
+          desc: { en: 'Lentils cooked with chicken and vegetables, brown rice, kachumber.', hi: 'दाल, चिकन और सब्ज़ियों के साथ, ब्राउन राइस और कचूमर।', mr: 'डाळ, चिकन आणि भाज्यांसोबत, ब्राऊन राईस आणि कचुंबर.' } }
+      ] },
+    { id: 'sweet', name: { en: 'Sweets & bakery', hi: 'मिठाई और बेकरी', mr: 'गोड आणि बेकरी' },
+      items: [
+        { type: 'egg', price: 110, tags: ['best'], name: { en: 'Caramel custard', hi: 'कैरामल कस्टर्ड', mr: 'कॅरमल कस्टर्ड' } },
+        { type: 'egg', price: 35, name: { en: 'Mawa cake', hi: 'मावा केक', mr: 'मावा केक' } },
+        { type: 'veg', price: '480 / kg', name: { en: 'Butter biscuits', hi: 'बटर बिस्कुट', mr: 'बटर बिस्किटे' } },
+        { type: 'veg', price: '420 / kg', name: { en: 'Nankhatai', hi: 'नानखटाई', mr: 'नानकटाई' } },
+        { type: 'egg', price: 200, tags: ['new'], name: { en: 'Mawa cakes, box of 6', hi: 'मावा केक, 6 का बॉक्स', mr: 'मावा केक, 6 चा बॉक्स' } }
+      ] },
+    { id: 'drinks', name: { en: 'Cold drinks', hi: 'ठंडे पेय', mr: 'थंड पेये' },
+      items: [
+        { type: 'veg', price: 90, tags: ['best'], name: { en: 'Raspberry soda', hi: 'रास्पबेरी सोडा', mr: 'रास्पबेरी सोडा' },
+          desc: { en: 'The pink fizzy one. You know the one.', hi: 'वही गुलाबी सोडा।', mr: 'तोच गुलाबी सोडा.' } },
+        { type: 'veg', price: 80, name: { en: 'Lemon soda', hi: 'लेमन सोडा', mr: 'लेमन सोडा' } },
+        { type: 'veg', price: 110, name: { en: 'Falooda', hi: 'फ़ालूदा', mr: 'फालुदा' } }
+      ] }
+  ]
+};
+</script>
+<script src="../menu.js"></script>
+</body>
+</html>
