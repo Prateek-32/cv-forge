@@ -38,7 +38,18 @@ window.MENU = {
           desc: { en: 'Davangere style, soft and crisp, cooked in white butter.', hi: 'दावणगेरे स्टाइल, सफ़ेद मक्खन में बना।', mr: 'दावणगेरे पद्धतीचा, लोण्यात भाजलेला.' } },
         { type: 'veg', price: 150, name: { en: 'Rava onion dosa', hi: 'रवा ओनियन डोसा', mr: 'रवा कांदा डोसा' } },
         { type: 'veg', price: 130, name: { en: 'Set dosa (three)', hi: 'सेट डोसा (तीन)', mr: 'सेट डोसा (तीन)' } },
-        { type: 'veg', price: 220, tags: ['new'], name: { en: 'Paper dosa (family size)', hi: 'पेपर डोसा (फ़ैमिली साइज़)', mr: 'पेपर डोसा (फॅमिली साईज)' } }
+        { type: 'veg', price: 220, tags: ['new'], name: { en: 'Paper dosa (family size)', hi: 'पेपर डोसा (फ़ैमिली साइज़)', mr: 'पेपर डोसा (फॅमिली साईज)' } },
+        { type: 'veg', price: 90, tags: ['jain'], name: { en: 'Plain dosa', hi: 'सादा डोसा', mr: 'साधा डोसा' },
+          desc: { en: 'Crisp and golden, with sambar and chutneys.', hi: 'कुरकुरा और सुनहरा, सांबर और चटनी के साथ।', mr: 'कुरकुरीत आणि सोनेरी, सांबार आणि चटणीसोबत.' } },
+        { type: 'veg', price: 140, name: { en: 'Butter masala dosa', hi: 'बटर मसाला डोसा', mr: 'बटर मसाला डोसा' },
+          desc: { en: 'Masala dosa finished with a generous knob of butter.', hi: 'ऊपर से भरपूर मक्खन के साथ मसाला डोसा।', mr: 'वरून भरपूर लोणी घातलेला मसाला डोसा.' } },
+        { type: 'veg', price: 160, tags: ['jain'], name: { en: 'Ghee roast dosa', hi: 'घी रोस्ट डोसा', mr: 'तूप रोस्ट डोसा' },
+          desc: { en: 'Thin, cone-shaped, roasted in pure ghee.', hi: 'पतला, कोन के आकार का, शुद्ध घी में सेंका हुआ।', mr: 'पातळ, शंकूच्या आकाराचा, साजूक तुपात भाजलेला.' } },
+        { type: 'veg', price: 150, name: { en: 'Open butter masala dosa', hi: 'ओपन बटर मसाला डोसा', mr: 'ओपन बटर मसाला डोसा' },
+          desc: { en: 'Served open, with the potato bhaji spread over the top.', hi: 'खुला परोसा जाता है, ऊपर आलू की भाजी फैली हुई।', mr: 'उघडा वाढला जातो, वर बटाट्याची भाजी पसरलेली.' } },
+        { type: 'veg', price: 170, name: { en: 'Cheese masala dosa', hi: 'चीज़ मसाला डोसा', mr: 'चीज मसाला डोसा' } },
+        { type: 'veg', price: 170, tags: ['spicy'], name: { en: 'Spring dosa', hi: 'स्प्रिंग डोसा', mr: 'स्प्रिंग डोसा' },
+          desc: { en: 'Stir-fried cabbage, carrot and capsicum with a Schezwan kick.', hi: 'पत्तागोभी, गाजर और शिमला मिर्च, शेज़वान तड़के के साथ।', mr: 'कोबी, गाजर आणि ढोबळी मिरची, शेजवान चवीसह.' } }
       ] },
     { id: 'idli', name: { en: 'Idli & vada', hi: 'इडली और वड़ा', mr: 'इडली आणि वडा' },
       items: [
@@ -46,27 +57,105 @@ window.MENU = {
         { type: 'veg', price: 80, name: { en: 'Medu vada (two)', hi: 'मेदू वड़ा (दो)', mr: 'मेदू वडा (दोन)' } },
         { type: 'veg', price: 90, name: { en: 'Idli–vada combo', hi: 'इडली–वड़ा कॉम्बो', mr: 'इडली–वडा कॉम्बो' } },
         { type: 'veg', price: 100, tags: ['spicy'], name: { en: 'Podi ghee idli', hi: 'पोडी घी इडली', mr: 'पोडी तूप इडली' } },
-        { type: 'veg', price: 90, name: { en: 'Rava idli', hi: 'रवा इडली', mr: 'रवा इडली' } }
+        { type: 'veg', price: 90, name: { en: 'Rava idli', hi: 'रवा इडली', mr: 'रवा इडली' } },
+        { type: 'veg', price: 80, name: { en: 'Sambar idli (two)', hi: 'सांबर इडली (दो)', mr: 'सांबार इडली (दोन)' },
+          desc: { en: 'Idlis soaked in a bowl of hot sambar.', hi: 'गरम सांबर के कटोरे में डूबी इडली।', mr: 'गरम सांबारच्या वाटीत बुडवलेल्या इडल्या.' } },
+        { type: 'veg', price: 90, tags: ['new'], name: { en: 'Button idli (fourteen)', hi: 'बटन इडली (चौदह)', mr: 'बटण इडली (चौदा)' },
+          desc: { en: 'Mini idlis in sambar with a spoon of ghee.', hi: 'छोटी-छोटी इडली, सांबर और एक चम्मच घी के साथ।', mr: 'छोट्या इडल्या, सांबार आणि चमचाभर तुपासोबत.' } },
+        { type: 'veg', price: 80, tags: ['jain'], name: { en: 'Thatte idli', hi: 'थट्टे इडली', mr: 'थट्टे इडली' },
+          desc: { en: 'Bidadi style, one plate-sized idli with butter.', hi: 'बिडदी स्टाइल, थाली जितनी बड़ी एक इडली, मक्खन के साथ।', mr: 'बिडदी पद्धतीची, ताटाएवढी मोठी एक इडली, लोण्यासोबत.' } },
+        { type: 'veg', price: 90, name: { en: 'Dahi vada', hi: 'दही वड़ा', mr: 'दही वडा' },
+          desc: { en: 'Medu vada in spiced curd, tempered with mustard and curry leaves.', hi: 'मसालेदार दही में मेदू वड़ा, राई और कढ़ी पत्ते का तड़का।', mr: 'मसालेदार दह्यात मेदू वडा, मोहरी आणि कढीपत्त्याची फोडणी.' } },
+        { type: 'veg', price: 90, name: { en: 'Sambar vada (two)', hi: 'सांबर वड़ा (दो)', mr: 'सांबार वडा (दोन)' } }
       ] },
     { id: 'uttapam', name: { en: 'Uttapam & more', hi: 'उत्तपम और भी', mr: 'उत्तपम आणि इतर' },
       items: [
         { type: 'veg', price: 130, name: { en: 'Onion tomato uttapam', hi: 'प्याज़ टमाटर उत्तपम', mr: 'कांदा टोमॅटो उत्तपम' } },
         { type: 'veg', price: 110, name: { en: 'Upma', hi: 'उपमा', mr: 'उपमा' } },
-        { type: 'veg', price: 120, tags: ['chef'], name: { en: 'Bisi bele bath', hi: 'बिसी बेले भात', mr: 'बिसी बेळे भात' } }
+        { type: 'veg', price: 120, tags: ['chef'], name: { en: 'Bisi bele bath', hi: 'बिसी बेले भात', mr: 'बिसी बेळे भात' } },
+        { type: 'veg', price: 110, tags: ['jain'], name: { en: 'Plain uttapam', hi: 'सादा उत्तपम', mr: 'साधा उत्तपम' } },
+        { type: 'veg', price: 140, name: { en: 'Mixed veg uttapam', hi: 'मिक्स वेज उत्तपम', mr: 'मिक्स व्हेज उत्तपम' },
+          desc: { en: 'Onion, tomato, capsicum, carrot and coriander.', hi: 'प्याज़, टमाटर, शिमला मिर्च, गाजर और धनिया।', mr: 'कांदा, टोमॅटो, ढोबळी मिरची, गाजर आणि कोथिंबीर.' } },
+        { type: 'veg', price: 160, name: { en: 'Cheese uttapam', hi: 'चीज़ उत्तपम', mr: 'चीज उत्तपम' } },
+        { type: 'veg', price: 120, tags: ['new'], name: { en: 'Neer dosa (three)', hi: 'नीर डोसा (तीन)', mr: 'नीर डोसा (तीन)' },
+          desc: { en: 'Mangalorean rice crepes, lacy and soft, with coconut chutney.', hi: 'मैंगलोर के पतले, मुलायम चावल के डोसे, नारियल चटनी के साथ।', mr: 'मंगळुरी तांदळाचे पातळ, मऊ डोसे, नारळाच्या चटणीसोबत.' } },
+        { type: 'veg', price: 140, name: { en: 'Pesarattu', hi: 'पेसरट्टू', mr: 'पेसरट्टू' },
+          desc: { en: 'Andhra green moong crepe with upma inside and ginger chutney.', hi: 'आंध्र का हरे मूंग का डोसा, अंदर उपमा, साथ में अदरक की चटनी।', mr: 'आंध्रचा हिरव्या मुगाचा डोसा, आत उपमा, सोबत आल्याची चटणी.' } },
+        { type: 'veg', price: 120, name: { en: 'Ragi dosa', hi: 'रागी डोसा', mr: 'नाचणी डोसा' },
+          desc: { en: 'Made with finger millet, crisp and light.', hi: 'रागी (नाचनी) से बना, कुरकुरा और हल्का।', mr: 'नाचणीपासून बनवलेला, कुरकुरीत आणि हलका.' } }
+      ] },
+    { id: 'rice', name: { en: 'Rice & bath', hi: 'चावल और भात', mr: 'भाताचे प्रकार' },
+      items: [
+        { type: 'veg', price: 110, tags: ['jain'], name: { en: 'Lemon rice', hi: 'लेमन राइस', mr: 'लिंबू भात' },
+          desc: { en: 'Turmeric, peanuts, curry leaves and fresh lime.', hi: 'हल्दी, मूंगफली, कढ़ी पत्ता और ताज़ा नींबू।', mr: 'हळद, शेंगदाणे, कढीपत्ता आणि ताजे लिंबू.' } },
+        { type: 'veg', price: 120, name: { en: 'Puliyogare (tamarind rice)', hi: 'पुलियोगरे (इमली वाले चावल)', mr: 'पुळियोगरे (चिंचेचा भात)' },
+          desc: { en: 'Tangy temple-style tamarind rice with roasted peanuts.', hi: 'मंदिर स्टाइल खट्टे इमली वाले चावल, भुनी मूंगफली के साथ।', mr: 'देवळातल्या पद्धतीचा आंबट चिंचेचा भात, भाजलेल्या शेंगदाण्यांसह.' } },
+        { type: 'veg', price: 120, name: { en: 'Tomato rice', hi: 'टमाटर चावल', mr: 'टोमॅटो भात' } },
+        { type: 'veg', price: 130, name: { en: 'Ghee rice with veg kurma', hi: 'घी राइस और वेज कुर्मा', mr: 'तूप भात आणि व्हेज कुर्मा' },
+          desc: { en: 'Fragrant rice cooked in ghee with cashews.', hi: 'घी में पके खुशबूदार चावल, काजू के साथ।', mr: 'तुपात शिजवलेला सुगंधी भात, काजूसह.' } },
+        { type: 'veg', price: 130, tags: ['spicy'], name: { en: 'Vangi bath', hi: 'वांगी भात', mr: 'वांगी भात' },
+          desc: { en: 'Brinjal rice with Karnataka-style vangi bath masala.', hi: 'कर्नाटक के वांगी भात मसाले में बना बैंगन वाला चावल।', mr: 'कर्नाटकी वांगी भात मसाल्यात केलेला वांग्याचा भात.' } }
       ] },
     { id: 'meals', name: { en: 'Meals (12 – 3 PM)', hi: 'भोजन (दोपहर 12 – 3)', mr: 'जेवण (दुपारी 12 – 3)' },
       items: [
         { type: 'veg', price: 220, tags: ['best'], name: { en: 'South Indian meals on a banana leaf', hi: 'केले के पत्ते पर दक्षिण भारतीय भोजन', mr: 'केळीच्या पानावर दाक्षिणात्य जेवण' },
           desc: { en: 'Rice, sambar, rasam, two poriyals, curd, papad, payasam.', hi: 'चावल, सांबर, रसम, दो पोरियल, दही, पापड़, पायसम।', mr: 'भात, सांबार, रसम, दोन पोरियल, दही, पापड, पायसम.' } },
-        { type: 'veg', price: 140, name: { en: 'Curd rice', hi: 'दही चावल', mr: 'दहीभात' } }
+        { type: 'veg', price: 140, name: { en: 'Curd rice', hi: 'दही चावल', mr: 'दहीभात' } },
+        { type: 'veg', price: 180, name: { en: 'Mini meals', hi: 'मिनी मील्स', mr: 'मिनी जेवण' },
+          desc: { en: 'Rice, sambar, rasam, one poriyal, curd and papad.', hi: 'चावल, सांबर, रसम, एक पोरियल, दही और पापड़।', mr: 'भात, सांबार, रसम, एक पोरियल, दही आणि पापड.' } },
+        { type: 'veg', price: 260, tags: ['chef'], name: { en: 'Special thali (unlimited)', hi: 'स्पेशल थाली (अनलिमिटेड)', mr: 'स्पेशल थाळी (अमर्याद)' },
+          desc: { en: 'Full meals with two chapatis, a sweet and a glass of majjige.', hi: 'पूरा भोजन, साथ में दो चपाती, एक मिठाई और एक गिलास छाछ।', mr: 'पूर्ण जेवण, सोबत दोन चपात्या, एक गोड पदार्थ आणि एक ग्लास ताक.' } },
+        { type: 'veg', price: 130, name: { en: 'Rasam rice', hi: 'रसम चावल', mr: 'रसम भात' } }
       ] },
-    { id: 'drinks', name: { en: 'Coffee & sweets', hi: 'कॉफ़ी और मिठाई', mr: 'कॉफी आणि गोड' },
+    { id: 'snacks', name: { en: 'Chaat & snacks', hi: 'चाट और नाश्ता', mr: 'चाट आणि नाश्ता' },
+      items: [
+        { type: 'veg', price: 80, name: { en: 'Mysore bonda (four)', hi: 'मैसूर बोंडा (चार)', mr: 'म्हैसूर बोंडा (चार)' },
+          desc: { en: 'Urad dal bondas, crisp outside and soft inside.', hi: 'उड़द दाल के बोंडे, बाहर से कुरकुरे, अंदर से मुलायम।', mr: 'उडीद डाळीचे बोंडे, बाहेरून कुरकुरीत, आतून मऊ.' } },
+        { type: 'veg', price: 80, tags: ['chef'], name: { en: 'Goli baje', hi: 'गोली बजे', mr: 'गोळी भजे' },
+          desc: { en: 'Mangalore-style fritters of curd and maida, with coconut chutney.', hi: 'मैंगलोर स्टाइल दही और मैदे के पकौड़े, नारियल चटनी के साथ।', mr: 'मंगळुरी पद्धतीची दही आणि मैद्याची भजी, नारळाच्या चटणीसोबत.' } },
+        { type: 'veg', price: 70, tags: ['spicy'], name: { en: 'Mirchi bajji', hi: 'मिर्ची बज्जी', mr: 'मिरची भजी' } },
+        { type: 'veg', price: 90, name: { en: 'Mangalore buns', hi: 'मैंगलोर बन्स', mr: 'मंगळूर बन्स' },
+          desc: { en: 'Soft, puffed sweet banana puris, with chutney and sambar.', hi: 'केले से बनी मीठी, फूली हुई पूरी, चटनी और सांबर के साथ।', mr: 'केळ्याच्या गोडसर, फुगलेल्या पुऱ्या, चटणी आणि सांबारसोबत.' } },
+        { type: 'veg', price: 120, name: { en: 'Chow chow bath', hi: 'चाउ चाउ भात', mr: 'चाऊ चाऊ भात' },
+          desc: { en: 'Khara bath and kesari bath on one plate.', hi: 'एक ही प्लेट में खारा भात और केसरी भात।', mr: 'एकाच प्लेटमध्ये खारा भात आणि केशरी शिरा.' } },
+        { type: 'veg', price: 150, tags: ['best'], name: { en: 'Pav bhaji', hi: 'पाव भाजी', mr: 'पावभाजी' },
+          desc: { en: 'The FC Road favourite, with butter pav, onion and lime.', hi: 'एफ़सी रोड की पसंदीदा, मक्खन वाले पाव, प्याज़ और नींबू के साथ।', mr: 'एफसी रोडची आवडती, लोणी लावलेला पाव, कांदा आणि लिंबासोबत.' } }
+      ] },
+    { id: 'sweets', name: { en: 'Sweets', hi: 'मिठाई', mr: 'गोड पदार्थ' },
+      items: [
+        { type: 'veg', price: 90, name: { en: 'Kesari bath', hi: 'केसरी भात', mr: 'केशरी शिरा' } },
+        { type: 'veg', price: 60, tags: ['best'], name: { en: 'Mysore pak (two pieces)', hi: 'मैसूर पाक (दो पीस)', mr: 'म्हैसूर पाक (दोन तुकडे)' },
+          desc: { en: 'Soft ghee Mysore pak that melts in the mouth.', hi: 'मुँह में घुल जाने वाला नरम घी का मैसूर पाक।', mr: 'तोंडात विरघळणारा मऊ तुपाचा म्हैसूर पाक.' } },
+        { type: 'veg', price: 70, name: { en: 'Payasam', hi: 'पायसम', mr: 'पायसम' },
+          desc: { en: 'Vermicelli in milk with cardamom, cashews and raisins.', hi: 'दूध में सेवई, इलायची, काजू और किशमिश के साथ।', mr: 'दुधात शेवया, वेलची, काजू आणि बेदाण्यांसह.' } },
+        { type: 'veg', price: 80, name: { en: 'Obbattu (holige)', hi: 'ओब्बट्टू (होलिगे)', mr: 'ओब्बट्टू (पुरणपोळी)' },
+          desc: { en: 'Chana dal and jaggery stuffed flatbread, with a spoon of ghee.', hi: 'चना दाल और गुड़ भरी मीठी रोटी, एक चम्मच घी के साथ।', mr: 'हरभरा डाळ आणि गुळाचे पुरण भरलेली पोळी, चमचाभर तुपासोबत.' } },
+        { type: 'veg', price: 60, name: { en: 'Jalebi', hi: 'जलेबी', mr: 'जिलेबी' } },
+        { type: 'veg', price: 60, name: { en: 'Gulab jamun (two)', hi: 'गुलाब जामुन (दो)', mr: 'गुलाबजाम (दोन)' } }
+      ] },
+    { id: 'drinks', name: { en: 'Coffee & drinks', hi: 'कॉफ़ी और पेय', mr: 'कॉफी आणि पेये' },
       items: [
         { type: 'veg', price: 50, tags: ['best'], name: { en: 'Filter coffee', hi: 'फ़िल्टर कॉफ़ी', mr: 'फिल्टर कॉफी' },
           desc: { en: 'Chicory blend, in a steel tumbler and dabara.', hi: 'चिकोरी ब्लेंड, स्टील के गिलास और डबरा में।', mr: 'चिकोरी ब्लेंड, स्टीलच्या पेल्यात आणि डबऱ्यात.' } },
         { type: 'veg', price: 40, name: { en: 'Masala chai', hi: 'मसाला चाय', mr: 'मसाला चहा' } },
-        { type: 'veg', price: 90, name: { en: 'Kesari bath', hi: 'केसरी भात', mr: 'केशरी शिरा' } },
-        { type: 'veg', price: 80, name: { en: 'Badam milk', hi: 'बादाम दूध', mr: 'बदाम दूध' } }
+        { type: 'veg', price: 80, name: { en: 'Badam milk', hi: 'बादाम दूध', mr: 'बदाम दूध' } },
+        { type: 'veg', price: 70, name: { en: 'Tender coconut', hi: 'नारियल पानी', mr: 'शहाळे' },
+          desc: { en: 'Cut fresh at the counter.', hi: 'काउंटर पर ताज़ा काटा हुआ।', mr: 'काउंटरवर ताजे फोडलेले.' } },
+        { type: 'veg', price: 40, name: { en: 'Neer majjige (spiced buttermilk)', hi: 'नीर मज्जिगे (मसाला छाछ)', mr: 'नीर मज्जिगे (मसाला ताक)' },
+          desc: { en: 'With ginger, green chilli and curry leaves.', hi: 'अदरक, हरी मिर्च और कढ़ी पत्ते के साथ।', mr: 'आलं, हिरवी मिरची आणि कढीपत्त्यासह.' } },
+        { type: 'veg', price: 70, name: { en: 'Rose milk', hi: 'रोज़ मिल्क', mr: 'रोझ मिल्क' } },
+        { type: 'veg', price: 60, name: { en: 'Fresh lime soda', hi: 'फ़्रेश लाइम सोडा', mr: 'फ्रेश लाइम सोडा' } },
+        { type: 'veg', price: 90, name: { en: 'Seasonal fresh juice', hi: 'मौसमी ताज़ा जूस', mr: 'हंगामी ताजा ज्यूस' },
+          desc: { en: 'Ask for today’s fruit.', hi: 'आज के फल के बारे में पूछें।', mr: 'आजचे फळ कोणते ते विचारा.' } }
+      ] },
+    { id: 'extras', name: { en: 'Extras', hi: 'एक्स्ट्रा', mr: 'अतिरिक्त' },
+      note: { en: 'Add to any dish.', hi: 'किसी भी डिश के साथ लें।', mr: 'कोणत्याही पदार्थासोबत घ्या.' },
+      items: [
+        { type: 'veg', price: 30, name: { en: 'Extra sambar', hi: 'एक्स्ट्रा सांबर', mr: 'जादा सांबार' } },
+        { type: 'veg', price: 20, name: { en: 'Extra chutney', hi: 'एक्स्ट्रा चटनी', mr: 'जादा चटणी' } },
+        { type: 'veg', price: 30, name: { en: 'Ghee (one spoon)', hi: 'घी (एक चम्मच)', mr: 'तूप (एक चमचा)' } },
+        { type: 'veg', price: 30, name: { en: 'Butter (one cube)', hi: 'मक्खन (एक क्यूब)', mr: 'लोणी (एक क्यूब)' } },
+        { type: 'veg', price: 40, name: { en: 'Curd (bowl)', hi: 'दही (कटोरी)', mr: 'दही (वाटी)' } }
       ] }
   ]
 };
