@@ -46,6 +46,7 @@
   var PAGES = [
     ['Websites & QR menus for businesses', 'Cafés, salons, clinics, gyms, coaching, bakeries', 'business.html', 'business website shop restaurant cafe hotel salon clinic doctor dentist gym coaching tuition class bakery store local google qr menu'],
     ['QR menu for restaurants', 'Scan-to-open menu in English, Hindi and Marathi', 'business.html#qr-menu', 'qr menu restaurant cafe table scan digital menu card hotel dhaba food'],
+    ['Business prices', 'QR menu ₹1,499 · website ₹3,999 · no monthly fee', 'business.html#prices', 'business price prices cost how much qr menu website restaurant cafe shop fee monthly yearly'],
     ['Demo QR menu', 'Monsoon Café — try it on your phone', 'menu/monsoon-cafe/', 'demo menu qr sample cafe restaurant'],
     ['Sample restaurant menus', 'Restro-bar, Irani café, thali, South Indian tiffin', 'business.html#menus', 'bar pub restro rooftop lounge irani cafe thali maharashtrian misal south indian dosa udupi tiffin menu'],
     ['Sample business websites', 'Café, bakery, salon, dental clinic, gym, coaching', 'business.html#samples', 'sample business site website example restaurant salon clinic gym coaching bakery'],
