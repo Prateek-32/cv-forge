@@ -10,7 +10,11 @@
    portfolios are read from sample-cvs.html and sample-portfolios.html the
    first time the box opens, so new samples are found without editing this
    file. Anything with no match is pointed at the brief — we write for every
-   field. */
+   field.
+
+   On the business page (html.biz) it searches only business things instead:
+   the page's sections, the sample business sites and the sample QR menus
+   (BIZ_PAGES, BIZ_SITES, BIZ_MENUS), and points anything else at the quote. */
 
 (function () {
   'use strict';
@@ -67,6 +71,39 @@
     ['Privacy policy', '', 'privacy.html', 'privacy data'],
     ['Terms', 'Refunds, revisions and more', 'terms.html', 'terms refund refunds revision cancel']
   ];
+  // ---- the business page searches only business things -----------------------
+  var BIZ = document.documentElement.classList.contains('biz');
+  var BIZ_PAGES = [
+    ['Prices', 'QR menu ₹1,499 · website ₹3,999 · no monthly fee', 'business.html#prices', 'price prices pricing cost costs how much rate rates fee fees charges rupees package kitna'],
+    ['After you go live', 'First year included, then ₹799 a year', 'business.html#prices', 'yearly year renewal renew hosting maintenance monthly subscription domain printing'],
+    ['QR menus', 'Scan-to-open menu in English, हिन्दी and मराठी', 'business.html#qr-menu', 'qr menu menus digital scan table restaurant cafe hotel dhaba bar hindi marathi language veg nonveg'],
+    ['What we build', 'A website, a QR menu, or both', 'business.html#services', 'website websites site services build both combo bundle package'],
+    ['Sample websites', 'Eight sample sites for made-up Pune businesses', 'business.html#samples', 'samples sample examples example demo website websites design designs'],
+    ['Sample QR menus', 'Five sample menus to open on your phone', 'business.html#menus', 'menus menu sample samples examples restaurant'],
+    ['How it works', 'From a WhatsApp message to live', 'business.html#how', 'how process steps work whatsapp time days long turnaround'],
+    ['Common questions', 'App, prices, domain, ordering, timing', 'business.html#questions', 'faq questions question app domain order ordering booking delivery swiggy zomato'],
+    ['Get a quote', 'Two minutes — we reply on WhatsApp', 'business.html#enquire', 'quote contact enquiry enquire form start order whatsapp call'],
+    ['Demo QR menu', 'Monsoon Café — try it on your phone', 'menu/monsoon-cafe/', 'demo try qr menu cafe'],
+    ['Table cards', 'Print-ready QR cards for your tables', 'menu/monsoon-cafe/table-card.html', 'table card cards print printing sticker stickers standee qr']
+  ];
+  var BIZ_SITES = [
+    ['Monsoon Café & Kitchen', 'Café & restaurant · Koregaon Park', 'business/cafe.html', 'cafe café restaurant coffee brunch food'],
+    ['Nimbus Rooftop Kitchen & Bar', 'Restro-bar · Kalyani Nagar', 'business/restrobar.html', 'bar pub restro restrobar rooftop lounge events'],
+    ['Café Parvaneh, est. 1958', 'Irani café & bakery · Camp', 'business/irani-cafe.html', 'irani cafe café bakery chai bun maska'],
+    ['Crumb & Co.', 'Home bakery · Viman Nagar', 'business/bakery.html', 'bakery baker cake cakes home kitchen'],
+    ['Kesar Salon & Studio', 'Salon & bridal · Baner', 'business/salon.html', 'salon beauty parlour parlor hair bridal makeup spa'],
+    ['SmileCraft Dental Studio', 'Dental clinic · Aundh', 'business/clinic.html', 'clinic dental dentist doctor hospital medical'],
+    ['Ironline Fitness', 'Gym & classes · Wakad', 'business/gym.html', 'gym fitness yoga trainer workout'],
+    ['Pathshala Commerce Classes', 'Coaching · Kothrud', 'business/coaching.html', 'coaching classes class tuition tutor institute academy education']
+  ];
+  var BIZ_MENUS = [
+    ['Nimbus Rooftop', 'Restro-bar · food and bar menus', 'menu/nimbus-rooftop/', 'bar pub restro restrobar rooftop drinks cocktails beer'],
+    ['Café Parvaneh', 'Irani café & bakery', 'menu/cafe-parvaneh/', 'irani cafe café bakery chai'],
+    ['Swaad Wada', 'Maharashtrian thali · opens in Marathi', 'menu/swaad-wada/', 'maharashtrian thali marathi misal veg'],
+    ['Hampi Tiffin House', 'South Indian tiffin · pure veg', 'menu/hampi-tiffin/', 'south indian dosa idli udupi tiffin veg'],
+    ['Monsoon Café', 'Brunch café', 'menu/monsoon-cafe/', 'cafe café brunch coffee pizza pasta']
+  ];
+
   var FIELD_BY_LABEL = { finance: 'finance', sales: 'sales', law: 'law', consulting: 'consulting', engineering: 'engineering',
     data: 'data', trades: 'trades', design: 'creative', creative: 'creative', art: 'art', photography: 'art', film: 'film',
     music: 'film', writing: 'writing', healthcare: 'healthcare', teaching: 'teaching', academia: 'academia', technical: 'engineering' };
@@ -90,7 +127,8 @@
   form.innerHTML =
     '<svg class="ss-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>' +
     '<label class="sr-only" for="ss-input">Search Fieldcraft</label>' +
-    '<input id="ss-input" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search" placeholder="Search a profession, degree or skill — e.g. B Tech, nurse, CA">' +
+    '<input id="ss-input" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search" placeholder="' +
+      (BIZ ? 'Search — e.g. QR menu, prices, salon, bakery' : 'Search a profession, degree or skill — e.g. B Tech, nurse, CA') + '">' +
     '<button type="button" class="ss-close" aria-label="Close search">&times;</button>';
   bar.appendChild(form);
   var input = form.querySelector('input');
@@ -199,8 +237,33 @@
   var group = function (title, html, more) {
     return html ? '<section class="sr-group"><h2 class="sr-head">' + title + '</h2>' + html + (more || '') + '</section>' : '';
   };
+  var bizHits = function (list, words) {
+    return list.filter(function (p) {
+      return hits(p[0] + ' ' + p[1] + ' ' + p[3], words) || words.some(function (w) { return (' ' + p[3] + ' ').indexOf(' ' + w + ' ') > -1; });
+    });
+  };
+  var renderBiz = function (q) {
+    if (!q) {
+      panel.innerHTML = '<p class="sr-hint">Try <button type="button" data-q="prices">prices</button> <button type="button" data-q="QR menu">QR menu</button> ' +
+        '<button type="button" data-q="restaurant">restaurant</button> <button type="button" data-q="salon">salon</button> ' +
+        '<button type="button" data-q="bakery">bakery</button> <button type="button" data-q="Marathi">Marathi</button></p>';
+      return;
+    }
+    var words = norm(q).split(' ').filter(Boolean);
+    var sites = bizHits(BIZ_SITES, words), menus = bizHits(BIZ_MENUS, words), pages = bizHits(BIZ_PAGES, words);
+    var html = group('Sample websites', sites.slice(0, 5).map(function (p) { return row(p[2], p[0], p[1], 'Website'); }).join('')) +
+      group('Sample QR menus', menus.slice(0, 5).map(function (p) { return row(p[2], p[0], p[1], 'QR menu'); }).join('')) +
+      group('On this page', pages.slice(0, 5).map(function (p) { return row(p[2], p[0], p[1], ''); }).join(''));
+    var none = !sites.length && !menus.length && !pages.length;
+    html += '<div class="sr-foot">' + (none ? '<strong>No exact match for “' + esc(q) + '”.</strong> ' : '<strong>Don’t see your kind of business?</strong> ') +
+      'We build for shops, boutiques and any local business — tell us about yours.' +
+      '<span class="sr-foot-links"><a class="btn btn-sm" href="' + BASE + 'business.html#enquire">Get a quote</a><a href="' + BASE + 'business.html#samples">All sample sites</a></span></div>';
+    panel.innerHTML = html;
+  };
+
   var render = function () {
     var q = input.value.trim();
+    if (BIZ) { renderBiz(q); return; }
     if (!q) {
       panel.innerHTML = '<p class="sr-hint">Try <button type="button" data-q="B Tech">B Tech</button> <button type="button" data-q="nurse">nurse</button> ' +
         '<button type="button" data-q="CA">CA</button> <button type="button" data-q="fresher">fresher</button> <button type="button" data-q="photographer">photographer</button> ' +
@@ -242,7 +305,7 @@
     place(); render();
     void form.offsetWidth;                                   // lay the box out small first, so it grows
     window.requestAnimationFrame(function () { form.classList.add('open'); input.focus(); });
-    getData();
+    if (!BIZ) getData();
   };
   var close = function () {
     form.classList.remove('open');
@@ -260,11 +323,14 @@
   form.addEventListener('submit', function (e) {           // Enter: the first result
     e.preventDefault();
     var first = panel.querySelector('a.sr-item');
-    if (first) window.location.href = first.getAttribute('href');
+    if (first) { if (BIZ) close(); window.location.href = first.getAttribute('href'); }
   });
   panel.addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('button[data-q]') : null;
-    if (b) { input.value = b.getAttribute('data-q'); render(); input.focus(); }
+    if (b) { input.value = b.getAttribute('data-q'); render(); input.focus(); return; }
+    // a jump within this page (Prices, How it works…) should close the search, not leave it over the page
+    var a = e.target.closest ? e.target.closest('a[href*="#"]') : null;
+    if (a && a.pathname === location.pathname) close();
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && header.classList.contains('searching')) { e.preventDefault(); close(); }
