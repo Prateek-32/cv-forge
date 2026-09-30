@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table cards — Monsoon Café &amp; Kitchen (sample QR menu)</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --brand: #2F5D50; --accent: #E3A857; --ink: #1F2A26; --paper: #F7F3EA; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #E9E5DC; color: var(--ink); font: 400 16px/1.45 'Mukta', system-ui, sans-serif; }
+  .screen { max-width: 1040px; margin: 0 auto; padding: 28px 18px 60px; }
+  .screen h1 { margin: 0 0 6px; font: 600 30px/1.15 'Fraunces', Georgia, serif; }
+  .screen > p { margin: 0 0 18px; color: #5B6660; max-width: 62ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+  .actions button, .actions a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 10px;
+    border: 1px solid var(--brand); background: var(--brand); color: #fff; font: 600 15px 'Mukta', sans-serif; text-decoration: none; cursor: pointer;
+  }
+  .actions a { background: transparent; color: var(--brand); }
+  .table-no { display: inline-flex; align-items: center; gap: 8px; }
+  .table-no input { width: 70px; min-height: 44px; padding: 0 10px; border: 1px solid #C8C2B4; border-radius: 10px; font: inherit; }
+  .sheet { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+  .label { margin: 10px 0 0; font-size: 13.5px; color: #5B6660; text-align: center; }
+
+  /* A6 standee card: 105 x 148 mm */
+  .card {
+    width: 105mm; height: 148mm; display: flex; flex-direction: column; overflow: hidden;
+    background: var(--paper); border-radius: 4mm; box-shadow: 0 20px 50px -24px rgba(0,0,0,.45);
+  }
+  .card-top {
+    padding: 8mm 7mm 6mm; color: #fff; text-align: center;
+    background: radial-gradient(120% 90% at 100% 0%, rgba(227,168,87,.55), transparent 60%), linear-gradient(160deg, var(--brand), #1C3A32);
+  }
+  .card-top .logo { width: 12mm; height: 12mm; margin: 0 auto 2.5mm; display: grid; place-items: center; border-radius: 3.5mm; background: rgba(255,255,255,.14); border: .3mm solid rgba(255,255,255,.3); }
+  .card-top .logo svg { width: 7mm; height: 7mm; }
+  .card-top h2 { margin: 0; font: 600 7.2mm/1.05 'Fraunces', Georgia, serif; }
+  .card-top p { margin: 1.5mm 0 0; font-size: 3.2mm; opacity: .85; }
+  .card-mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5mm 7mm 2mm; text-align: center; }
+  .scan { margin: 0; font: 700 5.6mm/1.1 'Mukta', sans-serif; color: var(--brand); }
+  .scan-other { margin: 1mm 0 3.5mm; font-size: 3.4mm; color: #5B6660; }
+  .qr { width: 44mm; height: 44mm; padding: 2.5mm; background: #fff; border-radius: 3mm; box-shadow: 0 0 0 .4mm rgba(47,93,80,.25); }
+  .qr svg { display: block; width: 100%; height: 100%; }
+  .card-bot { display: flex; align-items: center; justify-content: space-between; gap: 3mm; padding: 3mm 6mm 5mm; font-size: 2.9mm; color: #6F7A74; }
+  .card-bot strong { font-size: 4.6mm; color: var(--ink); }
+
+  /* round sticker: 70 mm */
+  .sticker {
+    width: 70mm; height: 70mm; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--brand); color: #fff; text-align: center; box-shadow: 0 20px 50px -24px rgba(0,0,0,.45);
+  }
+  .sticker .qr { width: 34mm; height: 34mm; padding: 2mm; box-shadow: none; }
+  .sticker b { display: block; margin: 0 0 2mm; font: 700 4.2mm/1 'Mukta', sans-serif; letter-spacing: .02em; }
+  .sticker small { display: block; margin-top: 2mm; font-size: 2.8mm; opacity: .85; }
+
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff; }
+    .screen { padding: 0; max-width: none; }
+    .screen > h1, .screen > p, .actions, .label { display: none; }
+    .sheet { gap: 8mm; }
+    .card, .sticker { box-shadow: none; outline: .2mm dashed #bbb; outline-offset: 1.5mm; break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="screen">
+  <h1>Table cards for Monsoon Café</h1>
+  <p>This is what Fieldcraft sends with every QR menu: a print-ready A6 card for an acrylic stand
+  and a round sticker for tables and counters. The QR opens the live menu, so when prices change
+  we update the menu and these cards stay the same. (Monsoon Café is a made-up example.)</p>
+  <div class="actions">
+    <button type="button" onclick="window.print()">Print or save as PDF</button>
+    <label class="table-no">Table no. <input id="tno" type="text" inputmode="numeric" maxlength="3" placeholder="—"></label>
+    <a href="./">Open the menu</a>
+    <a href="../../business.html#qr-menu">Back to Fieldcraft</a>
+  </div>
+
+  <div class="sheet">
+    <div>
+      <div class="card">
+        <div class="card-top">
+          <div class="logo" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14h17v5a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z"/><path d="M23 16h2a3 3 0 0 1 0 6h-2"/><path d="M11 4c-1.5 2 1.5 3 0 5M16 4c-1.5 2 1.5 3 0 5"/></svg></div>
+          <h2>Monsoon Café &amp; Kitchen</h2>
+          <p>Coffee · Brunch · Small plates</p>
+        </div>
+        <div class="card-mid">
+          <p class="scan">Scan for our menu</p>
+          <p class="scan-other" lang="hi">मेन्यू के लिए स्कैन करें · <span lang="mr">मेनूसाठी स्कॅन करा</span></p>
+          <div class="qr" data-qr></div>
+        </div>
+        <div class="card-bot">
+          <span>Wi-Fi: MonsoonGuest</span>
+          <span>Table <strong data-tno>—</strong></span>
+        </div>
+      </div>
+      <p class="label">A6 card for a table stand (105 × 148 mm)</p>
+    </div>
+    <div>
+      <div class="sticker">
+        <b>SCAN FOR MENU</b>
+        <div class="qr" data-qr></div>
+        <small>Monsoon Café &amp; Kitchen</small>
+      </div>
+      <p class="label">Round sticker (70 mm)</p>
+    </div>
+  </div>
+</div>
+<script src="../../vendor/qrcode.js"></script>
+<script>
+(function () {
+  var url = 'https://fieldcraft.co.in/menu/monsoon-cafe/';
+  var qr = qrcode(0, 'M');
+  qr.addData(url);
+  qr.make();
+  var svg = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true, alt: 'QR code: ' + url });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-qr]'), function (n) { n.innerHTML = svg; });
+  var input = document.getElementById('tno');
+  input.addEventListener('input', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tno]'), function (n) { n.textContent = input.value || '—'; });
+  });
+})();
+</script>
+</body>
+</html>

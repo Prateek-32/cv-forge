@@ -44,6 +44,10 @@
     intern: /entry|early|graduate|trainee/i, senior: /senior|head|director|vp|partner|staff|manager/i, manager: /manager|head|director/i,
     executive: /executive|director|vp|head|founder|partner/i };
   var PAGES = [
+    ['Websites & QR menus for businesses', 'Cafés, salons, clinics, gyms, coaching, bakeries', 'business.html', 'business website shop restaurant cafe hotel salon clinic doctor dentist gym coaching tuition class bakery store local google qr menu'],
+    ['QR menu for restaurants', 'Scan-to-open menu in English, Hindi and Marathi', 'business.html#qr-menu', 'qr menu restaurant cafe table scan digital menu card hotel dhaba food'],
+    ['Demo QR menu', 'Monsoon Café — try it on your phone', 'menu/monsoon-cafe/', 'demo menu qr sample cafe restaurant'],
+    ['Sample business websites', 'Café, bakery, salon, dental clinic, gym, coaching', 'business.html#samples', 'sample business site website example restaurant salon clinic gym coaching bakery'],
     ['Free ATS resume checker', 'Your score and top fixes in seconds', 'ats-checker.html', 'ats checker check score free resume review scan'],
     ['Pricing', 'Resume ₹99 · CV ₹199 · LinkedIn ₹149 · Portfolio ₹699', 'pricing.html', 'price prices pricing cost fees rupees bundle offer'],
     ['Resume templates', '17 ATS-safe templates to choose from', 'templates.html', 'template templates format design layout'],
