@@ -37,7 +37,13 @@ window.MENU = {
         { type: 'veg', price: 35, name: { en: 'Sulemani chai', hi: 'सुलेमानी चाय', mr: 'सुलेमानी चहा' },
           desc: { en: 'Black tea, lemon, a hint of mint.', hi: 'काली चाय, नींबू, हल्का पुदीना।', mr: 'कोरा चहा, लिंबू, थोडा पुदिना.' } },
         { type: 'veg', price: 50, name: { en: 'Filter coffee', hi: 'फ़िल्टर कॉफ़ी', mr: 'फिल्टर कॉफी' } },
-        { type: 'veg', price: 70, name: { en: 'Cold coffee', hi: 'कोल्ड कॉफ़ी', mr: 'कोल्ड कॉफी' } }
+        { type: 'veg', price: 70, name: { en: 'Cold coffee', hi: 'कोल्ड कॉफ़ी', mr: 'कोल्ड कॉफी' } },
+        { type: 'veg', price: 40, name: { en: 'Malai chai', hi: 'मलाई चाय', mr: 'मलई चहा' },
+          desc: { en: 'Irani chai finished with a spoon of fresh malai.', hi: 'ईरानी चाय, ऊपर से ताज़ी मलाई का एक चम्मच।', mr: 'इराणी चहा, वरून ताज्या मलईचा एक चमचा.' } },
+        { type: 'veg', price: 35, name: { en: 'Ginger chai', hi: 'अदरक वाली चाय', mr: 'आल्याचा चहा' } },
+        { type: 'veg', price: 35, name: { en: 'Pudina chai', hi: 'पुदीना चाय', mr: 'पुदिना चहा' } },
+        { type: 'veg', price: 80, name: { en: 'Hot chocolate', hi: 'हॉट चॉकलेट', mr: 'हॉट चॉकलेट' },
+          desc: { en: 'Thick, not too sweet, made with whole milk.', hi: 'गाढ़ी, ज़्यादा मीठी नहीं, फुल क्रीम दूध से बनी।', mr: 'घट्ट, फार गोड नाही, पूर्ण दुधात केलेली.' } }
       ] },
     { id: 'bun', name: { en: 'Bun & bread', hi: 'बन और ब्रेड', mr: 'बन आणि ब्रेड' },
       note: { en: 'Baked in our own oven every morning.', hi: 'रोज़ सुबह हमारे अपने ओवन में बने।', mr: 'रोज सकाळी आमच्याच ओव्हनमध्ये भाजलेले.' },
@@ -48,14 +54,28 @@ window.MENU = {
           desc: { en: 'Crusty brun, crackly outside, buttered.', hi: 'कड़क परत वाला ब्रून, मक्खन के साथ।', mr: 'कडक कवचाचा ब्रून, लोण्यासोबत.' } },
         { type: 'veg', price: 60, name: { en: 'Bun maska jam', hi: 'बन मस्का जैम', mr: 'बन मस्का जॅम' } },
         { type: 'egg', price: 95, name: { en: 'Bun omelette', hi: 'बन ऑमलेट', mr: 'बन ऑम्लेट' } },
-        { type: 'veg', price: 80, name: { en: 'Cheese toast', hi: 'चीज़ टोस्ट', mr: 'चीज टोस्ट' } }
+        { type: 'veg', price: 80, name: { en: 'Cheese toast', hi: 'चीज़ टोस्ट', mr: 'चीज टोस्ट' } },
+        { type: 'veg', price: 45, name: { en: 'Bun jam', hi: 'बन जैम', mr: 'बन जॅम' } },
+        { type: 'egg', price: 100, name: { en: 'Brun omelette', hi: 'ब्रून ऑमलेट', mr: 'ब्रून ऑम्लेट' },
+          desc: { en: 'Masala omelette folded into a buttered brun.', hi: 'मक्खन लगे ब्रून में मसाला ऑमलेट।', mr: 'लोणी लावलेल्या ब्रूनमध्ये मसाला ऑम्लेट.' } },
+        { type: 'veg', price: 90, name: { en: 'Cheese chutney sandwich', hi: 'चीज़ चटनी सैंडविच', mr: 'चीज चटणी सँडविच' },
+          desc: { en: 'Green chutney and grated cheese on buttered white bread.', hi: 'मक्खन लगी सफ़ेद ब्रेड पर हरी चटनी और कद्दूकस किया चीज़।', mr: 'लोणी लावलेल्या पांढऱ्या ब्रेडवर हिरवी चटणी आणि किसलेले चीज.' } },
+        { type: 'nonveg', price: 130, name: { en: 'Chicken mayo sandwich', hi: 'चिकन मेयो सैंडविच', mr: 'चिकन मेयो सँडविच' } },
+        { type: 'veg', price: 110, name: { en: 'Bombay sandwich', hi: 'बॉम्बे सैंडविच', mr: 'बॉम्बे सँडविच' },
+          desc: { en: 'Potato, beetroot, cucumber, tomato and chutney, toasted.', hi: 'आलू, चुकंदर, खीरा, टमाटर और चटनी, टोस्ट किया हुआ।', mr: 'बटाटा, बीट, काकडी, टोमॅटो आणि चटणी, टोस्ट केलेले.' } }
       ] },
     { id: 'eggs', name: { en: 'Eggs', hi: 'अंडे', mr: 'अंडी' },
       items: [
         { type: 'egg', price: 150, tags: ['best', 'spicy'], name: { en: 'Akuri on toast', hi: 'अकूरी टोस्ट', mr: 'अकुरी टोस्ट' },
           desc: { en: 'Parsi-style scrambled eggs with green chilli and coriander.', hi: 'हरी मिर्च और धनिये वाली पारसी भुर्जी।', mr: 'हिरवी मिरची आणि कोथिंबीर घातलेली पारशी भुर्जी.' } },
         { type: 'egg', price: 120, name: { en: 'Masala omelette pav', hi: 'मसाला ऑमलेट पाव', mr: 'मसाला ऑम्लेट पाव' } },
-        { type: 'egg', price: 110, name: { en: 'Half fry, two eggs', hi: 'हाफ़ फ़्राई, दो अंडे', mr: 'हाफ फ्राय, दोन अंडी' } }
+        { type: 'egg', price: 110, name: { en: 'Half fry, two eggs', hi: 'हाफ़ फ़्राई, दो अंडे', mr: 'हाफ फ्राय, दोन अंडी' } },
+        { type: 'egg', price: 110, name: { en: 'Egg bhurji pav', hi: 'अंडा भुर्जी पाव', mr: 'अंडा भुर्जी पाव' } },
+        { type: 'egg', price: 140, tags: ['chef'], name: { en: 'Parsi poro omelette', hi: 'पारसी पोरो ऑमलेट', mr: 'पारशी पोरो ऑम्लेट' },
+          desc: { en: 'Fluffy omelette with onion, tomato, green chilli and coriander.', hi: 'प्याज़, टमाटर, हरी मिर्च और धनिये वाला फूला हुआ ऑमलेट।', mr: 'कांदा, टोमॅटो, हिरवी मिरची आणि कोथिंबीर घातलेले फुगीर ऑम्लेट.' } },
+        { type: 'egg', price: 150, tags: ['spicy'], name: { en: 'Egg kejriwal', hi: 'एग केजरीवाल', mr: 'एग केजरीवाल' },
+          desc: { en: 'Fried eggs on cheese toast with green chilli.', hi: 'चीज़ टोस्ट पर तले अंडे और हरी मिर्च।', mr: 'चीज टोस्टवर तळलेली अंडी आणि हिरवी मिरची.' } },
+        { type: 'egg', price: 50, name: { en: 'Boiled eggs, two', hi: 'उबले अंडे, दो', mr: 'उकडलेली अंडी, दोन' } }
       ] },
     { id: 'meals', name: { en: 'From the kitchen', hi: 'रसोई से', mr: 'स्वयंपाकघरातून' },
       items: [
@@ -64,7 +84,21 @@ window.MENU = {
         { type: 'nonveg', price: 220, name: { en: 'Chicken cutlet & gravy', hi: 'चिकन कटलेट और ग्रेवी', mr: 'चिकन कटलेट आणि ग्रेव्ही' } },
         { type: 'veg', price: 140, name: { en: 'Veg puff', hi: 'वेज पफ़', mr: 'व्हेज पफ' } },
         { type: 'nonveg', price: 320, tags: ['chef'], name: { en: 'Chicken dhansak (Sundays)', hi: 'चिकन धनसाक (रविवार)', mr: 'चिकन धनसाक (रविवार)' },
-          desc: { en: 'Lentils cooked with chicken and vegetables, brown rice, kachumber.', hi: 'दाल, चिकन और सब्ज़ियों के साथ, ब्राउन राइस और कचूमर।', mr: 'डाळ, चिकन आणि भाज्यांसोबत, ब्राऊन राईस आणि कचुंबर.' } }
+          desc: { en: 'Lentils cooked with chicken and vegetables, brown rice, kachumber.', hi: 'दाल, चिकन और सब्ज़ियों के साथ, ब्राउन राइस और कचूमर।', mr: 'डाळ, चिकन आणि भाज्यांसोबत, ब्राऊन राईस आणि कचुंबर.' } },
+        { type: 'nonveg', price: 160, name: { en: 'Keema pattice (2 pcs)', hi: 'खीमा पैटीस (2 पीस)', mr: 'खिमा पॅटिस (2 नग)' },
+          desc: { en: 'Potato cakes stuffed with mutton mince, shallow-fried.', hi: 'मटन खीमा भरी आलू की टिक्की, हल्की तली हुई।', mr: 'मटण खिमा भरलेले बटाट्याचे पॅटिस, कमी तेलात तळलेले.' } },
+        { type: 'nonveg', price: 240, name: { en: 'Mutton cutlet', hi: 'मटन कटलेट', mr: 'मटण कटलेट' } },
+        { type: 'nonveg', price: 260, name: { en: 'Chicken farcha', hi: 'चिकन फ़रचा', mr: 'चिकन फरचा' },
+          desc: { en: 'Parsi fried chicken, dipped in egg and crumbed.', hi: 'पारसी फ़्राइड चिकन, अंडे और ब्रेडक्रम्ब में लिपटा।', mr: 'पारशी फ्राइड चिकन, अंड्यात बुडवून ब्रेडक्रम्ब लावलेले.' } },
+        { type: 'nonveg', price: 340, tags: ['chef'], name: { en: 'Patra ni machhi (weekends)', hi: 'पात्रा नी मच्छी (वीकेंड)', mr: 'पात्रा नी मच्छी (शनिवार-रविवार)' },
+          desc: { en: 'Pomfret in green coconut chutney, steamed in banana leaf.', hi: 'हरी नारियल चटनी में पॉम्फ़्रेट, केले के पत्ते में भाप से पका।', mr: 'हिरव्या नारळाच्या चटणीतले पापलेट, केळीच्या पानात वाफवलेले.' } },
+        { type: 'nonveg', price: 330, tags: ['best'], name: { en: 'Salli boti with pav', hi: 'सल्ली बोटी और पाव', mr: 'सल्ली बोटी आणि पाव' },
+          desc: { en: 'Sweet-sour mutton curry under a heap of crisp potato straws.', hi: 'खट्टी-मीठी मटन करी, ऊपर ढेर सारी कुरकुरी आलू की सल्ली।', mr: 'आंबट-गोड मटण करी, वरून भरपूर कुरकुरीत बटाट्याची सळी.' } },
+        { type: 'nonveg', price: 280, name: { en: 'Chicken berry pulao', hi: 'चिकन बेरी पुलाव', mr: 'चिकन बेरी पुलाव' },
+          desc: { en: 'Fragrant rice, spiced chicken, fried onions and tart barberries.', hi: 'खुशबूदार चावल, मसालेदार चिकन, तला प्याज़ और खट्टी बेरी।', mr: 'सुगंधी भात, मसालेदार चिकन, तळलेला कांदा आणि आंबट बेरी.' } },
+        { type: 'veg', price: 180, name: { en: 'Veg pulao', hi: 'वेज पुलाव', mr: 'व्हेज पुलाव' } },
+        { type: 'veg', price: 190, name: { en: 'Dal pulao with kachumber', hi: 'दाल पुलाव और कचूमर', mr: 'डाळ पुलाव आणि कचुंबर' },
+          desc: { en: 'Yellow dal, spiced pulao and onion-tomato kachumber.', hi: 'पीली दाल, मसाला पुलाव और प्याज़-टमाटर का कचूमर।', mr: 'पिवळी डाळ, मसाला पुलाव आणि कांदा-टोमॅटो कचुंबर.' } }
       ] },
     { id: 'sweet', name: { en: 'Sweets & bakery', hi: 'मिठाई और बेकरी', mr: 'गोड आणि बेकरी' },
       items: [
@@ -72,14 +106,43 @@ window.MENU = {
         { type: 'egg', price: 35, name: { en: 'Mawa cake', hi: 'मावा केक', mr: 'मावा केक' } },
         { type: 'veg', price: '480 / kg', name: { en: 'Butter biscuits', hi: 'बटर बिस्कुट', mr: 'बटर बिस्किटे' } },
         { type: 'veg', price: '420 / kg', name: { en: 'Nankhatai', hi: 'नानखटाई', mr: 'नानकटाई' } },
-        { type: 'egg', price: 200, tags: ['new'], name: { en: 'Mawa cakes, box of 6', hi: 'मावा केक, 6 का बॉक्स', mr: 'मावा केक, 6 चा बॉक्स' } }
+        { type: 'egg', price: 200, tags: ['new'], name: { en: 'Mawa cakes, box of 6', hi: 'मावा केक, 6 का बॉक्स', mr: 'मावा केक, 6 चा बॉक्स' } },
+        { type: 'egg', price: 130, tags: ['chef'], name: { en: 'Lagan nu custard', hi: 'लगन नु कस्टर्ड', mr: 'लगन नु कस्टर्ड' },
+          desc: { en: 'The Parsi wedding custard: baked, with nutmeg and charoli on top.', hi: 'पारसी शादियों वाला बेक्ड कस्टर्ड, ऊपर जायफल और चिरौंजी।', mr: 'पारशी लग्नातले बेक केलेले कस्टर्ड, वरून जायफळ आणि चारोळी.' } },
+        { type: 'egg', price: 90, name: { en: 'Bread pudding', hi: 'ब्रेड पुडिंग', mr: 'ब्रेड पुडिंग' } },
+        { type: 'veg', price: 30, name: { en: 'Cream roll', hi: 'क्रीम रोल', mr: 'क्रीम रोल' },
+          desc: { en: 'Flaky pastry horn filled with vanilla cream.', hi: 'परतदार पेस्ट्री में भरी वनीला क्रीम।', mr: 'पापुद्र्यांच्या पेस्ट्रीत भरलेले व्हॅनिला क्रीम.' } },
+        { type: 'veg', price: 30, name: { en: 'Jam tart', hi: 'जैम टार्ट', mr: 'जॅम टार्ट' } },
+        { type: 'egg', price: 40, name: { en: 'Coconut macaroons, two', hi: 'कोकोनट मैकरून, दो', mr: 'कोकोनट मॅकरून, दोन' },
+          desc: { en: 'Chewy, golden and mostly coconut.', hi: 'नरम, सुनहरे और नारियल से भरपूर।', mr: 'मऊसर, सोनेरी आणि भरपूर खोबऱ्याचे.' } },
+        { type: 'egg', price: 45, name: { en: 'Fruit cake slice', hi: 'फ्रूट केक स्लाइस', mr: 'फ्रूट केक स्लाइस' } }
+      ] },
+    { id: 'box', name: { en: 'Biscuits & boxes', hi: 'बिस्कुट और बॉक्स', mr: 'बिस्किटे आणि बॉक्स' },
+      note: { en: 'By weight or by the box. Order ahead on WhatsApp.', hi: 'वज़न से या बॉक्स में। WhatsApp पर पहले से ऑर्डर करें।', mr: 'वजनावर किंवा बॉक्समध्ये. WhatsApp वर आधी ऑर्डर द्या.' },
+      items: [
+        { type: 'veg', price: 260, tags: ['best'], name: { en: 'Shrewsbury-style butter biscuits, 400 g box', hi: 'श्रूसबरी-स्टाइल बटर बिस्कुट, 400 ग्राम बॉक्स', mr: 'श्रूसबरी-स्टाइल बटर बिस्किटे, 400 ग्रॅम बॉक्स' },
+          desc: { en: 'Crumbly, buttery, a little lemon zest. Gone by noon most days.', hi: 'भुरभुरे, मक्खनी, हल्की नींबू की महक। ज़्यादातर दोपहर तक ख़त्म।', mr: 'भुसभुशीत, लोण्याची चव, थोडा लिंबाचा सुगंध. बहुतेक दिवशी दुपारपर्यंत संपतात.' } },
+        { type: 'veg', price: '360 / kg', name: { en: 'Khari biscuits', hi: 'खारी बिस्कुट', mr: 'खारी बिस्किटे' },
+          desc: { en: 'Flaky, salted puff pastry. Made for dunking.', hi: 'परतदार, नमकीन खारी। चाय में डुबोने के लिए ही बनी।', mr: 'पापुद्रेदार, खारट. चहात बुडवण्यासाठीच.' } },
+        { type: 'veg', price: '240 / kg', name: { en: 'Toast rusk', hi: 'टोस्ट रस्क', mr: 'टोस्ट रस्क' } },
+        { type: 'egg', price: '420 / kg', name: { en: 'Cake rusk', hi: 'केक रस्क', mr: 'केक रस्क' } },
+        { type: 'veg', price: '440 / kg', name: { en: 'Jeera biscuits', hi: 'जीरा बिस्कुट', mr: 'जिरे बिस्किटे' } },
+        { type: 'egg', price: '720 / kg', name: { en: 'Plum cake (December)', hi: 'प्लम केक (दिसंबर)', mr: 'प्लम केक (डिसेंबर)' },
+          desc: { en: 'Dark, fruit-heavy Christmas cake. Orders open 1 December.', hi: 'सूखे मेवों से भरा क्रिसमस केक। ऑर्डर 1 दिसंबर से।', mr: 'सुक्या मेव्याने भरलेला ख्रिसमस केक. ऑर्डर 1 डिसेंबरपासून.' } }
       ] },
     { id: 'drinks', name: { en: 'Cold drinks', hi: 'ठंडे पेय', mr: 'थंड पेये' },
       items: [
         { type: 'veg', price: 90, tags: ['best'], name: { en: 'Raspberry soda', hi: 'रास्पबेरी सोडा', mr: 'रास्पबेरी सोडा' },
           desc: { en: 'The pink fizzy one. You know the one.', hi: 'वही गुलाबी सोडा।', mr: 'तोच गुलाबी सोडा.' } },
         { type: 'veg', price: 80, name: { en: 'Lemon soda', hi: 'लेमन सोडा', mr: 'लेमन सोडा' } },
-        { type: 'veg', price: 110, name: { en: 'Falooda', hi: 'फ़ालूदा', mr: 'फालुदा' } }
+        { type: 'veg', price: 110, name: { en: 'Falooda', hi: 'फ़ालूदा', mr: 'फालुदा' } },
+        { type: 'veg', price: 70, tags: ['new'], name: { en: 'Rose milk', hi: 'रोज़ मिल्क', mr: 'रोझ मिल्क' },
+          desc: { en: 'Chilled milk with rose syrup and sabja seeds.', hi: 'ठंडा दूध, गुलाब सिरप और सब्जा।', mr: 'थंड दूध, गुलाबाचे सरबत आणि सब्जा.' } },
+        { type: 'veg', price: 60, name: { en: 'Kala khatta', hi: 'काला खट्टा', mr: 'काला खट्टा' },
+          desc: { en: 'Jamun syrup, black salt, lemon and soda.', hi: 'जामुन सिरप, काला नमक, नींबू और सोडा।', mr: 'जांभळाचे सरबत, काळे मीठ, लिंबू आणि सोडा.' } },
+        { type: 'veg', price: 110, name: { en: 'Cold coffee with ice cream', hi: 'आइसक्रीम वाली कोल्ड कॉफ़ी', mr: 'आईस्क्रीमसह कोल्ड कॉफी' } },
+        { type: 'veg', price: 120, name: { en: 'Chocolate milkshake', hi: 'चॉकलेट मिल्कशेक', mr: 'चॉकलेट मिल्कशेक' } },
+        { type: 'veg', price: 120, name: { en: 'Strawberry milkshake', hi: 'स्ट्रॉबेरी मिल्कशेक', mr: 'स्ट्रॉबेरी मिल्कशेक' } }
       ] }
   ]
 };
