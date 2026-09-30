@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en-IN" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nimbus Rooftop Kitchen &amp; Bar — Kalyani Nagar, Pune (sample site)</title>
+<meta name="description" content="Nimbus Rooftop Kitchen &amp; Bar is a rooftop restro-bar in Kalyani Nagar, Pune: sunset views, global small plates and grills, craft cocktails, beer on tap, live music and DJ nights. A sample website by Fieldcraft for a made-up business.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#070A13">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className = 'js';</script>
+<style>
+:root{
+  --bg:#070A13; --bg-2:#0A0F1E; --panel:#0F1629; --panel-2:#141C33; --panel-3:#1A2340;
+  --text:#EFE8DA; --muted:#A9AFC1; --dim:#7F879E;
+  --line:rgba(232,180,92,.16); --line-2:rgba(239,232,218,.12);
+  --gold:#E8B45C; --gold-2:#F6D18B; --amber:#EE9A3C; --neon:#FF5D8F; --neon-soft:#FFC7D8; --cyan:#7BE3E0;
+  --wa:#157A43; --wa-d:#0F6636;
+  --veg:#128A3E; --nonveg:#B3261E;
+  --radius:20px;
+  --serif:'Instrument Serif','Iowan Old Style','Palatino Linotype',Georgia,serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--bg);color-scheme:dark}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);overflow-x:hidden;overflow-wrap:break-word}
+img,svg{max-width:100%;display:block}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;margin:0;letter-spacing:-.005em}
+h1 em,h2 em{font-style:italic;color:var(--gold-2)}
+p{margin:0}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold-2);outline-offset:3px;border-radius:8px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+@media (min-width:768px){.wrap{padding:0 36px}}
+.skip{position:absolute;left:12px;top:-60px;z-index:2000;background:var(--gold);color:#1A1206;padding:10px 16px;border-radius:10px;font-weight:700}
+.skip:focus{top:64px}
+.btn,.hero-kicker{white-space:nowrap}
+@media (max-width:479px){.hide-xs{display:none}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 12px/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor}
+.sec{padding:80px 0;position:relative}
+@media (min-width:900px){.sec{padding:120px 0}}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(2.35rem,6vw,3.9rem);margin-top:16px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:1.06rem;max-width:560px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.center p{margin-left:auto;margin-right:auto}
+.center .eyebrow::after{content:"";width:26px;height:1px;background:currentColor}
+@media (max-width:479px){.eyebrow{letter-spacing:.16em}.center .eyebrow::before,.center .eyebrow::after,.happy .eyebrow::before,.happy .eyebrow::after{width:16px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:0;
+  font:700 15.5px/1.2 var(--sans);letter-spacing:.01em;text-decoration:none;cursor:pointer;text-align:center;
+  transition:transform .2s ease,background-color .2s ease,box-shadow .25s ease,border-color .2s ease,color .2s ease}
+.btn svg{width:19px;height:19px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,#F8D895 0%,#E8B45C 55%,#DA9440 100%);color:#1A1206;box-shadow:0 14px 34px -14px rgba(232,180,92,.75)}
+.btn-gold:hover{box-shadow:0 18px 40px -12px rgba(246,209,139,.9)}
+.btn-ghost{background:rgba(10,15,30,.35);color:#fff;border:1.5px solid rgba(239,232,218,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 12px 26px -14px rgba(21,122,67,.9)}
+.btn-wa:hover{background:var(--wa-d)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:14.5px}
+
+/* header */
+.site-head{position:relative;z-index:5;background:var(--bg);border-bottom:1px solid var(--line-2)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+.brand-mark{width:40px;height:40px;flex:none}
+.brand-name{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-name b{font:400 26px/1 var(--serif);letter-spacing:.02em;color:#fff}
+.brand-name small{font:600 10px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:4px;white-space:nowrap}
+.nav{display:none;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-weight:600;font-size:14.5px;color:#D6D2C8;padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--gold-2);border-color:var(--gold-2)}
+.head-cta{display:flex;gap:8px;align-items:center}
+.icon-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(239,232,218,.25);color:#fff;text-decoration:none}
+.icon-btn svg{width:19px;height:19px}
+.icon-btn:hover{border-color:var(--gold-2);color:var(--gold-2)}
+@media (min-width:1000px){.nav{display:flex}}
+@media (max-width:380px){.brand-name small{letter-spacing:.16em}.head-cta .btn{padding:0 14px}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:#0B0F1C;display:flex;align-items:flex-end;
+  min-height:max(560px,calc(100svh - 122px))}
+@media (min-width:768px){.hero{min-height:min(860px,max(620px,calc(100svh - 122px)))}}
+.hero-img{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:28% 62%}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(120% 70% at 20% 55%,rgba(238,154,60,.18),rgba(238,154,60,0) 60%),
+  linear-gradient(180deg,rgba(7,10,19,.88) 0%,rgba(7,10,19,.42) 20%,rgba(7,10,19,.62) 38%,rgba(7,10,19,.86) 62%,rgba(7,10,19,.97) 100%)}
+@media (min-width:900px){.hero::before{background:
+  radial-gradient(80% 70% at 18% 60%,rgba(238,154,60,.16),rgba(238,154,60,0) 60%),
+  linear-gradient(90deg,rgba(7,10,19,.86) 0%,rgba(7,10,19,.45) 45%,rgba(7,10,19,.15) 75%),
+  linear-gradient(180deg,rgba(7,10,19,.85) 0%,rgba(7,10,19,.1) 30%,rgba(7,10,19,.2) 60%,rgba(7,10,19,.95) 100%)}}
+.festoon{position:absolute;left:0;right:0;top:0;z-index:-1;width:100%;height:clamp(110px,17vw,230px);pointer-events:none}
+.festoon .wire{fill:none;stroke:#05070D;stroke-width:1.6}
+.festoon .wire.back{stroke-width:1;opacity:.8}
+@media (prefers-reduced-motion:no-preference){
+  .festoon use{animation:twinkle 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.62}}
+.hero-in{position:relative;padding-top:104px;padding-bottom:32px}
+@media (min-width:768px){.hero-in{padding-top:150px;padding-bottom:64px}}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font:700 11.5px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);
+  padding:8px 14px;border:1px solid rgba(246,209,139,.35);border-radius:999px;background:rgba(7,10,19,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-kicker i{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 3px rgba(255,93,143,.2),0 0 12px var(--neon)}
+.hero h1{font-size:clamp(2.9rem,8.2vw + .6rem,6.2rem);max-width:7.8em;margin-top:18px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.45)}
+.hero h1 em{display:inline-block;background:linear-gradient(100deg,#FFEBC2 0%,#F8CD7F 45%,#F0A24A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 22px rgba(238,154,60,.35));padding-right:.08em}
+.hero-lede{max-width:520px;margin-top:18px;font-size:1.08rem;line-height:1.6;color:#E4DDD0}
+.hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px;max-width:520px}
+.hero-cta .btn-gold{grid-column:1 / -1}
+.hero-cta .btn-ghost{padding:0 14px}
+@media (min-width:600px){.hero-cta{display:flex;flex-wrap:wrap;max-width:none}}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin:24px 0 0;padding:0;list-style:none;font-size:14px;color:#D8D1C3}
+.hero-facts li{display:flex;align-items:center;gap:8px}
+.hero-facts svg{width:15px;height:15px;color:var(--gold)}
+@media (max-width:420px){.hero-facts li:nth-child(3){display:none}}
+
+/* tonight strip */
+.tonight{background:linear-gradient(180deg,var(--bg-2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line-2);padding:28px 0 30px}
+.tonight-grid{display:grid;gap:22px;align-items:center}
+@media (min-width:1000px){.tonight-grid{gap:18px}.tonight-now{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px}.tonight-now h2{margin-top:0;order:-1}.tonight-now p:last-child{margin-top:0}.week{grid-auto-flow:row;grid-template-columns:repeat(7,minmax(0,1fr));overflow:visible}}
+.status{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14.5px;color:#BFF0CF;padding:8px 14px;border-radius:999px;background:rgba(40,160,90,.12);border:1px solid rgba(90,210,140,.3)}
+.status i{width:9px;height:9px;border-radius:50%;background:#46D483;box-shadow:0 0 0 0 rgba(70,212,131,.6)}
+@media (prefers-reduced-motion:no-preference){.status i{animation:ping 2s ease-out infinite}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(70,212,131,.55)}100%{box-shadow:0 0 0 10px rgba(70,212,131,0)}}
+.status.closed{color:#FFD1C4;background:rgba(200,80,60,.12);border-color:rgba(240,130,110,.3)}
+.status.closed i{background:#F07A5E;animation:none}
+.tonight-now h2{font-size:clamp(1.7rem,4vw,2.1rem);margin-top:14px}
+.tonight-now h2 em{color:var(--gold-2)}
+.tonight-now p{color:var(--muted);font-size:14.5px;margin-top:6px}
+.week{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(148px,1fr);gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;margin:0;list-style:none;
+  scrollbar-width:thin;scrollbar-color:rgba(232,180,92,.35) transparent;min-width:0}
+.week li{scroll-snap-align:start;position:relative;border:1px solid var(--line-2);border-radius:16px;padding:14px 14px 15px;background:rgba(20,28,51,.55);min-height:118px;display:flex;flex-direction:column;gap:4px}
+.week .d{font:800 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.week b{font:400 20px/1.1 var(--serif);color:#fff;margin-top:6px}
+.week span{font-size:13px;color:var(--muted);line-height:1.35}
+.week li.is-today{border-color:rgba(246,209,139,.65);background:linear-gradient(160deg,rgba(232,180,92,.2),rgba(20,28,51,.7) 70%);box-shadow:0 16px 36px -22px rgba(232,180,92,.8)}
+.week li.is-today .d{color:var(--gold-2)}
+.week li.is-today::after{content:"Tonight";position:absolute;top:11px;right:11px;font:800 9.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:var(--neon);color:#2A0612;padding:4px 7px;border-radius:999px}
+
+/* about */
+.about{display:grid;gap:48px;align-items:center}
+@media (min-width:960px){.about{grid-template-columns:1fr 1fr;gap:80px}}
+.collage{position:relative;margin:0 0 30px;padding-right:16%}
+.collage .big{width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:24px;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.collage .small{position:absolute;right:0;bottom:-30px;width:46%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:5px solid var(--bg);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.collage .seal{position:absolute;left:-8px;top:-18px;width:112px;height:112px}
+@media (min-width:960px){.collage .seal{left:-34px;top:-30px;width:132px;height:132px}}
+@media (prefers-reduced-motion:no-preference){.seal .spin{transform-origin:60px 60px;animation:spin 28s linear infinite}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about-copy h2{font-size:clamp(2.35rem,6vw,3.9rem);margin-top:16px}
+.about-copy p{color:var(--muted);margin-top:18px;font-size:1.05rem}
+.about-copy p.lead{color:var(--text);font-size:1.2rem;line-height:1.55}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
+.stats b{display:block;font:400 clamp(2.2rem,7vw,3rem)/1 var(--serif);color:var(--gold-2)}
+.stats span{display:block;font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+.spaces{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding:0;list-style:none}
+.spaces li{font-size:13.5px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:#DCD5C7}
+
+/* cocktails */
+.drinks{background:
+  radial-gradient(60% 34% at 15% 28%,rgba(255,93,143,.10),rgba(255,93,143,0) 70%),
+  radial-gradient(50% 34% at 90% 55%,rgba(232,180,92,.10),rgba(232,180,92,0) 70%),
+  linear-gradient(180deg,var(--bg) 0%,#0B1124 50%,var(--bg) 100%);overflow:hidden}
+.drinks::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(239,232,218,.07) 1px,transparent 1px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);pointer-events:none}
+.cocktails{position:relative;display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:640px){.cocktails{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+@media (min-width:1040px){.cocktails{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+.ck{--glow:232,180,92;position:relative;display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 16px;align-items:center;padding:18px 18px 18px 10px;border-radius:var(--radius);
+  background:linear-gradient(165deg,rgba(26,35,64,.75),rgba(12,18,34,.85));border:1px solid rgba(239,232,218,.09);overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.ck::before{content:"";position:absolute;left:-10%;top:-20%;width:70%;height:90%;background:radial-gradient(closest-side,rgba(var(--glow),.28),rgba(var(--glow),0));pointer-events:none;transition:opacity .35s;opacity:.8}
+.ck:hover{transform:translateY(-6px);border-color:rgba(var(--glow),.45);box-shadow:0 30px 60px -34px rgba(var(--glow),.55)}
+.ck:hover::before{opacity:1}
+.ck svg{position:relative;width:104px;height:auto}
+.ck-body{position:relative;min-width:0}
+.ck-tag{font:700 10.5px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgb(var(--glow))}
+.ck h3{font-size:1.65rem;margin-top:6px;color:#fff}
+.ck p{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.ck .price{display:inline-block;margin-top:12px;font:600 15px/1 var(--sans);color:var(--gold-2);letter-spacing:.02em}
+.zp{display:inline-block;margin-left:8px;font:800 10px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#082A28;background:var(--cyan);padding:4px 7px;border-radius:999px;vertical-align:3px}
+@media (min-width:640px){
+  .ck{grid-template-columns:1fr;text-align:center;padding:30px 26px 30px;justify-items:center}
+  .ck::before{left:15%;top:-6%;width:70%;height:62%}
+  .ck svg{width:164px;margin-bottom:6px}
+  .ck p{max-width:32ch;margin-left:auto;margin-right:auto}
+}
+.gl{fill:none;stroke:#F3D59B;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gl-soft{fill:none;stroke:#F3D59B;stroke-width:1.2;opacity:.55}
+.shine{fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;opacity:.22}
+@media (prefers-reduced-motion:no-preference){
+  .smoke{animation:smoke 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+  .smoke.s2{animation-delay:-2.5s}
+  .bub{animation:bub 3.4s ease-in infinite;transform-box:fill-box}
+  .bub.b2{animation-delay:-1.1s}.bub.b3{animation-delay:-2.2s}.bub.b4{animation-delay:-.6s}
+}
+@keyframes smoke{0%{opacity:0;transform:translateY(8px) scaleY(.8)}35%{opacity:.7}100%{opacity:0;transform:translateY(-14px) scaleY(1.15)}}
+@keyframes bub{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-58px);opacity:0}}
+.drinks-note{position:relative;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;margin-top:36px;font-size:14px;color:var(--muted)}
+.drinks-note span{display:inline-flex;align-items:center;gap:8px}
+.drinks-note svg{width:16px;height:16px;color:var(--gold)}
+
+/* kitchen */
+.kitchen{display:grid;gap:40px}
+@media (min-width:960px){.kitchen{grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}}
+.k-media{position:relative;margin:0;border-radius:24px;overflow:hidden;isolation:isolate}
+.k-media img{width:100%;aspect-ratio:16/11;object-fit:cover}
+@media (min-width:960px){.k-media{position:sticky;top:76px}.k-media img{aspect-ratio:4/5.2}}
+.k-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,19,0) 45%,rgba(7,10,19,.92));z-index:0}
+.k-media figcaption{position:absolute;left:22px;right:22px;bottom:20px;z-index:1}
+.k-media figcaption b{display:block;font:400 clamp(1.7rem,4vw,2.3rem)/1.05 var(--serif);color:#fff}
+.k-media figcaption span{display:block;font-size:14px;color:#D8D1C3;margin-top:6px}
+.dishes{list-style:none;margin:0;padding:0}
+.dish{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:22px 0;border-bottom:1px solid var(--line-2)}
+.dish:first-child{padding-top:4px}
+.dish-top{display:flex;align-items:baseline;gap:12px}
+.dish h3{font-size:1.6rem;color:#fff}
+.dish .dots{flex:1;min-width:16px;border-bottom:1px dotted rgba(232,180,92,.45);transform:translateY(-5px)}
+.dish .price{font:700 16px/1 var(--sans);color:var(--gold-2);white-space:nowrap}
+.dish p{color:var(--muted);font-size:14.8px;margin-top:6px;line-height:1.55}
+.chip{display:inline-block;margin-top:10px;font:700 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;border-radius:999px;color:var(--gold-2);border:1px solid rgba(246,209,139,.4)}
+.mark{flex:none;width:17px;height:17px;margin-top:8px;border:2px solid var(--veg);border-radius:3px;display:inline-grid;place-items:center;background:#fff}
+.mark::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--veg)}
+.mark.nv{border-color:var(--nonveg)}
+.mark.nv::after{width:9px;height:8px;border-radius:0;background:var(--nonveg);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:22px;font-size:13.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend .mark{margin-top:0}
+.k-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* happy hours */
+.happy{position:relative;overflow:hidden;isolation:isolate;padding:90px 0}
+@media (min-width:900px){.happy{padding:130px 0}}
+.happy>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(1.2)}
+.happy::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(7,10,19,.72) 22%,rgba(7,10,19,.72) 78%,var(--bg) 100%),radial-gradient(60% 60% at 50% 50%,rgba(7,10,19,.2),rgba(7,10,19,.7))}
+.neon{font:italic 400 clamp(3.2rem,12vw,7rem)/1 var(--serif);color:#FFE6EE;text-align:center;letter-spacing:.01em;
+  text-shadow:0 0 4px #fff,0 0 12px rgba(255,93,143,.95),0 0 28px rgba(255,93,143,.75),0 0 60px rgba(255,93,143,.5),0 0 110px rgba(255,93,143,.35)}
+@media (prefers-reduced-motion:no-preference){.neon.in{animation:flicker 2.6s linear 1 .3s}}
+@keyframes flicker{0%,18%,22%,25%,53%,57%,100%{opacity:1}20%,24%,55%{opacity:.35}}
+.happy .eyebrow{display:flex;justify-content:center;color:var(--gold-2)}
+.happy .eyebrow::after{content:"";width:26px;height:1px;background:currentColor}
+.offers{display:grid;gap:18px;margin-top:44px}
+@media (min-width:860px){.offers{grid-template-columns:1.25fr 1fr;gap:24px}}
+.offer{position:relative;border-radius:24px;padding:30px 26px;background:rgba(10,15,30,.72);border:1px solid rgba(246,209,139,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@media (min-width:600px){.offer{padding:38px 40px}}
+.offer .when{font:800 11.5px/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.offer .time{display:block;font:400 clamp(3.6rem,13vw,6.2rem)/.95 var(--serif);margin-top:10px;background:linear-gradient(100deg,#FFE7B5,#F2B85E 60%,#E48A34);-webkit-background-clip:text;background-clip:text;color:transparent}
+.offer h3{font-size:clamp(1.6rem,4vw,2.1rem);margin-top:12px;color:#fff}
+.offer p{color:#CFC8BA;margin-top:10px;font-size:15px}
+.offer.ladies{border-color:rgba(255,93,143,.4);background:linear-gradient(160deg,rgba(60,14,38,.7),rgba(10,15,30,.78))}
+.offer.ladies .when{color:#FF8DB0}
+.offer.ladies .big{display:block;font:italic 400 clamp(2.6rem,8vw,3.6rem)/1 var(--serif);color:#FFE6EE;margin-top:12px;text-shadow:0 0 18px rgba(255,93,143,.6)}
+.offer .perf{position:absolute;left:0;right:0;top:auto;height:0}
+.fine{font-size:12.5px !important;color:#9DA3B6 !important;margin-top:18px !important}
+
+/* events */
+.events{display:grid;gap:14px;list-style:none;margin:0;padding:0}
+@media (min-width:640px){.events{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1040px){.events{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}}
+.ev{position:relative;display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;align-items:center;padding:10px;border-radius:20px;background:var(--panel);border:1px solid var(--line-2);overflow:hidden;isolation:isolate;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s}
+.ev:hover{transform:translateY(-5px);border-color:rgba(246,209,139,.45)}
+.ev-media{position:relative;width:104px;height:104px;border-radius:14px;overflow:hidden;background:#1a1330}
+.ev-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.ev:hover .ev-media img{transform:scale(1.06)}
+.ev-media .art{position:absolute;inset:0;display:grid;place-items:center}
+.ev-media .art svg{width:46%;height:auto;filter:drop-shadow(0 0 10px rgba(255,93,143,.8))}
+.ev-body{min-width:0;padding-right:6px}
+.ev .day{display:inline-flex;align-items:center;gap:8px;font:800 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ev h3{font-size:1.55rem;margin-top:7px;color:#fff}
+.ev p{font-size:13.8px;color:var(--muted);margin-top:5px;line-height:1.45}
+.ev .t{display:inline-block;margin-top:8px;font:700 12.5px/1 var(--sans);color:#fff;padding:6px 10px;border-radius:999px;background:rgba(239,232,218,.1)}
+@media (min-width:1040px){
+  .ev{display:block;aspect-ratio:3/4.4;padding:0;border-radius:22px}
+  .ev-media{position:absolute;inset:0;width:auto;height:auto;border-radius:0;z-index:-1}
+  .ev-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,19,.1) 20%,rgba(7,10,19,.55) 50%,rgba(7,10,19,.96) 100%)}
+  .ev-media .art{place-items:start center;padding-top:14%}
+  .ev-media .art svg{width:38%}
+  .ev-body{position:absolute;left:0;right:0;bottom:0;padding:20px 18px 20px}
+  .ev .day{font-size:12px}
+  .ev h3{font-size:1.85rem}
+  .ev p{color:#CFC8BA}
+}
+.ev.bw img{filter:grayscale(1) contrast(1.1) sepia(.35) hue-rotate(-12deg)}
+.match{position:relative;margin-top:18px;border-radius:22px;overflow:hidden;isolation:isolate;display:grid;gap:18px;align-items:center;padding:26px 22px;border:1px solid var(--line-2)}
+.match>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.match::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(95deg,rgba(7,10,19,.96) 25%,rgba(7,10,19,.72) 60%,rgba(7,10,19,.5))}
+@media (min-width:760px){.match{grid-template-columns:auto 1fr auto;padding:26px 32px;gap:26px}}
+.match .screen{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;background:rgba(123,227,224,.12);border:1px solid rgba(123,227,224,.4);color:var(--cyan)}
+.match .screen svg{width:30px;height:30px}
+.match h3{font-size:clamp(1.6rem,4vw,2rem);color:#fff}
+.match p{color:#CFC8BA;font-size:14.8px;margin-top:4px}
+
+/* parties */
+.parties{position:relative;overflow:hidden;isolation:isolate}
+.parties>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 40%;z-index:-2;opacity:.8}
+.parties::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(7,10,19,.5) 22%,rgba(7,10,19,.6) 75%,var(--bg) 100%),linear-gradient(90deg,rgba(7,10,19,.92) 10%,rgba(7,10,19,.55) 55%,rgba(7,10,19,.35))}
+.party-grid{display:grid;gap:40px}
+@media (min-width:980px){.party-grid{grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}}
+.party-copy h2{font-size:clamp(2.35rem,6vw,3.9rem);margin-top:16px}
+.party-copy>p{color:#CFC8BA;margin-top:18px;font-size:1.06rem;max-width:520px}
+.cap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:30px}
+.cap div{border:1px solid var(--line);border-radius:16px;padding:16px 12px;background:rgba(10,15,30,.55);text-align:center}
+.cap b{display:block;font:400 clamp(2rem,6vw,2.6rem)/1 var(--serif);color:var(--gold-2)}
+.cap span{display:block;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.35}
+.party-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.pkgs{display:grid;gap:14px;list-style:none;margin:0;padding:0}
+.pkg{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:start;padding:22px 22px;border-radius:20px;background:rgba(15,22,41,.8);border:1px solid var(--line-2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.pkg h3{font-size:1.65rem;color:#fff}
+.pkg p{grid-column:1 / -1;color:var(--muted);font-size:14.5px;line-height:1.5}
+.pkg .from{text-align:right;font-size:12px;color:var(--dim);line-height:1.2;white-space:nowrap}
+.pkg .from b{display:block;font:700 18px/1.2 var(--sans);color:var(--gold-2)}
+.pkg.star{border-color:rgba(246,209,139,.55);background:linear-gradient(150deg,rgba(232,180,92,.16),rgba(15,22,41,.85) 60%)}
+.pkg .ribbon{position:absolute;top:-10px;left:22px;font:800 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:#1A1206;padding:5px 9px;border-radius:999px}
+
+/* booking */
+.book{display:grid;gap:36px}
+@media (min-width:980px){.book{grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}}
+.book-card{border-radius:26px;padding:26px 20px;background:linear-gradient(170deg,var(--panel-2),var(--panel));border:1px solid var(--line);box-shadow:0 40px 80px -50px rgba(0,0,0,.9)}
+@media (min-width:600px){.book-card{padding:36px 36px}}
+.fields{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1 / -1}
+.field label{font:700 12px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#CFC8BA}
+.field input,.field select{width:100%;min-width:0;min-height:52px;padding:0 14px;border-radius:14px;border:1px solid rgba(239,232,218,.18);background:#0A0F1E;color:#fff;font-size:16px;
+  -webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8B45C' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:18px;padding-right:38px}
+.field input::placeholder{color:#737B92}
+.field input:focus,.field select:focus{outline:none;border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(246,209,139,.25)}
+.field input[type=date]{padding-right:10px}
+.field input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.8) sepia(1) saturate(3) hue-rotate(-10deg);cursor:pointer}
+@media (max-width:420px){.fields{grid-template-columns:1fr}}
+.book-card .btn{width:100%;margin-top:22px}
+.book-card .hint{font-size:13px;color:var(--dim);margin-top:12px;text-align:center}
+.preview{border-radius:26px;overflow:hidden;border:1px solid var(--line-2);background:#0B141A}
+.pv-head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#1F2C33;color:#E9EDEF}
+.pv-head .av{width:40px;height:40px;border-radius:50%;flex:none}
+.pv-head b{display:block;font-size:15px}
+.pv-head small{display:block;font-size:12px;color:#9FB0B8}
+.pv-body{padding:22px 16px 26px;min-height:250px;background:#0B141A;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:18px 18px;display:flex;flex-direction:column;gap:10px}
+.bubble{align-self:flex-end;max-width:88%;background:#005C4B;color:#E9EDEF;padding:10px 12px 20px;border-radius:12px 4px 12px 12px;font-size:14.5px;line-height:1.5;white-space:pre-line;position:relative;
+  transition:transform .3s ease,box-shadow .3s}
+.bubble small{position:absolute;right:10px;bottom:4px;font-size:11px;color:#9FD3C6}
+.bubble.pop{transform:scale(1.03);box-shadow:0 0 0 3px rgba(246,209,139,.5)}
+.bubble.in-msg{align-self:flex-start;background:#202C33;border-radius:4px 12px 12px 12px;padding-bottom:10px}
+.pv-note{font-size:13px;color:var(--dim);margin-top:14px}
+
+/* gallery */
+.gallery{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:16px;background:var(--panel)}
+.gallery img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;transition:transform .8s ease}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figure:first-child{grid-column:span 2}
+.gallery figure:first-child img,.gallery figure:last-child img{aspect-ratio:16/10}
+.gallery figure:last-child{grid-column:span 2}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:rgba(7,10,19,.78);color:#fff;font-size:12.5px;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+@media (min-width:860px){
+  .gallery{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:14px}
+  .gallery img{aspect-ratio:auto}
+  .gallery figure:first-child{grid-column:span 2;grid-row:span 2}
+  .gallery figure:first-child img{aspect-ratio:auto}
+  .gallery figure:nth-child(n+4){grid-column:span 2}
+  .gallery figure:last-child img{aspect-ratio:auto}
+}
+
+/* reviews */
+.rating-sum{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;color:var(--muted);justify-content:center}
+.rating-sum b{font:400 3rem/1 var(--serif);color:#fff}
+.reviews{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.review{margin:0;border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:18px;background:linear-gradient(165deg,var(--panel-2),var(--panel));border:1px solid var(--line-2);position:relative}
+.review::before{content:"\201C";position:absolute;right:20px;top:4px;font:400 90px/1 var(--serif);color:rgba(232,180,92,.22)}
+.stars{display:flex;gap:3px;color:var(--gold)}
+.stars svg{width:17px;height:17px}
+.stars .off{color:#3A4260}
+.review blockquote{margin:0;font:400 1.4rem/1.35 var(--serif);color:#F4EEE2}
+.review figcaption{display:flex;align-items:center;gap:12px;margin-top:auto;font-size:14px;color:var(--muted)}
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:400 20px/1 var(--serif);color:#1A1206;flex:none}
+.review figcaption b{color:#fff;display:block;font-size:15px}
+
+/* visit */
+.visit{display:grid;gap:36px}
+@media (min-width:980px){.visit{grid-template-columns:1.15fr 1fr;gap:64px;align-items:start}.visit .map{position:sticky;top:24px}}
+.map{position:relative;margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#0C1224;box-shadow:0 40px 80px -50px rgba(0,0,0,.9)}
+.map svg{width:100%;height:auto}
+@media (max-width:600px){.map svg{aspect-ratio:1.02}}
+.map-card{position:absolute;left:14px;bottom:14px;right:14px;max-width:340px;background:rgba(10,15,30,.92);border:1px solid var(--line);border-radius:16px;padding:13px 15px;font-size:14px;line-height:1.45;color:#D8D1C3;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.map-card b{font:400 19px/1.2 var(--serif);color:#fff}
+@media (max-width:480px){.map-card{position:static;max-width:none;border-radius:0;border:0;border-top:1px solid var(--line)}}
+.pulse{transform-origin:center;transform-box:fill-box;animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.4);opacity:.8}100%{transform:scale(1.8);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:.25}}
+.visit h2{font-size:clamp(2.35rem,6vw,3.6rem);margin-top:16px}
+.addr{font-style:normal;margin-top:18px;font-size:1.06rem;color:#fff}
+.addr span{display:block;color:var(--muted);font-size:14.5px;margin-top:8px}
+.visit .status{margin-top:22px}
+.hours{width:100%;border-collapse:collapse;margin-top:16px;font-size:15px}
+.hours th,.hours td{padding:13px 4px;border-bottom:1px solid var(--line-2);text-align:left;font-weight:400;vertical-align:top}
+.hours th{color:#fff}
+.hours th small{display:block;color:var(--dim);font-size:12.5px;margin-top:2px}
+.hours td{text-align:right;white-space:nowrap;color:var(--gold-2)}
+.perks{display:grid;gap:10px;margin:20px 0 0;padding:0;list-style:none;font-size:14.5px;color:#CFC8BA}
+.perks li{display:flex;gap:10px;align-items:flex-start}
+.perks svg{width:18px;height:18px;flex:none;color:var(--gold);margin-top:3px}
+.visit-cta{display:grid;gap:10px;margin-top:26px}
+@media (min-width:520px){.visit-cta{grid-template-columns:1fr 1fr}.visit-cta .btn:first-child{grid-column:span 2}}
+
+/* footer */
+.site-foot{background:#05070E;color:#BDB6A8;padding:70px 0 34px;font-size:15px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;gap:36px}
+@media (min-width:860px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr}}
+.site-foot h3{font:800 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.site-foot a{color:#E6DFD1;text-decoration:none}
+.site-foot a:hover{color:var(--gold-2);text-decoration:underline}
+.foot-about{margin-top:16px;max-width:380px}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(239,232,218,.22);transition:background-color .2s,border-color .2s}
+.social a:hover{background:rgba(232,180,92,.12);border-color:var(--gold);text-decoration:none}
+.social svg{width:19px;height:19px}
+.responsible{margin-top:44px;padding:16px 18px;border-radius:14px;border:1px solid var(--line-2);background:rgba(239,232,218,.03);display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#CFC8BA}
+.responsible b{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold-2);font:800 12px/1 var(--sans)}
+.foot-base{margin-top:28px;padding-top:22px;border-top:1px solid rgba(239,232,218,.1);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:#8E95A8}
+@media (max-width:899px){.site-foot{padding-bottom:104px}}
+
+/* floating WhatsApp + toast */
+.fab{position:fixed;right:16px;bottom:16px;z-index:900;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;
+  box-shadow:0 14px 30px -10px rgba(0,0,0,.7),0 0 0 4px rgba(21,122,67,.2);text-decoration:none}
+.fab svg{width:30px;height:30px}
+.fab:hover{background:var(--wa-d)}
+@media (min-width:900px){.fab{display:none}}
+.toast{position:fixed;left:50%;bottom:92px;z-index:1100;transform:translate(-50%,20px);opacity:0;pointer-events:none;width:max-content;max-width:calc(100% - 32px);
+  background:#161E36;color:#fff;border:1px solid rgba(246,209,139,.35);padding:13px 18px;border-radius:14px;font-size:14.5px;line-height:1.4;box-shadow:0 18px 40px -12px rgba(0,0,0,.8);
+  transition:opacity .25s ease,transform .25s ease;display:flex;gap:10px;align-items:flex-start}
+.toast svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--gold-2)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (min-width:900px){.toast{bottom:28px}}
+
+/* reveal (below the fold only) */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .reveal.d1{transition-delay:.08s}.js .reveal.d2{transition-delay:.16s}.js .reveal.d3{transition-delay:.24s}.js .reveal.d4{transition-delay:.32s}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 19.5V4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Zm0 0A2.5 2.5 0 0 1 6.5 17H20M9 7h7M9 11h5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.5 2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 18a5 5 0 0 0-10 0M12 2v5M4.2 10.2l1.4 1.4M1 18h2M21 18h2M18.4 11.6l1.4-1.4M23 22H1M8 6l4-4 4 4"/></g></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></g></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0v-4l2.2-5.2A3 3 0 0 1 6 6h12a3 3 0 0 1 2.8 1.8L23 13v4a2 2 0 1 1-4 0M5 17H3M19 17h2M3 12h18"/><circle cx="7" cy="14.5" r=".5"/><circle cx="17" cy="14.5" r=".5"/></g></symbol>
+  <symbol id="i-lift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="m8 9 2-2.5L12 9M12 15l2 2.5 2-2.5M12 2v20"/></g></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 22h8M12 18v4M7 1.5 12 5l5-3.5"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Zm-9 1c0-3 1.9-5.4 5.1-6"/></symbol>
+  <symbol id="i-beer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8ZM16 11h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2M9 12v6M12 12v6"/><path d="M5 8a3 3 0 0 1 3-4 3.5 3.5 0 0 1 5.5-.5A3 3 0 0 1 16 8"/></g></symbol>
+</svg>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Nimbus Rooftop Kitchen &amp; Bar, home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="bm-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8D895"/><stop offset="1" stop-color="#DA9440"/></linearGradient></defs>
+        <circle cx="20" cy="20" r="19" fill="#0F1629" stroke="url(#bm-g)" stroke-width="1.5"/>
+        <path d="M24.5 8.5a7.2 7.2 0 1 0 6.8 9.6 5.6 5.6 0 1 1-6.8-9.6Z" fill="url(#bm-g)"/>
+        <path d="M9.5 29h15.2a3.6 3.6 0 0 0 .4-7.2 5.4 5.4 0 0 0-10.2-1.6A4.4 4.4 0 0 0 9.5 29Z" fill="#EFE8DA"/>
+        <circle cx="12.5" cy="12" r="1" fill="#F6D18B"/><circle cx="16.5" cy="8.5" r=".7" fill="#F6D18B"/>
+      </svg>
+      <span class="brand-name"><b>Nimbus</b><small>Rooftop Kitchen &amp; Bar</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#tonight">Tonight</a>
+      <a href="#drinks">Cocktails</a>
+      <a href="#kitchen">Kitchen</a>
+      <a href="#events">Events</a>
+      <a href="#parties">Parties</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="head-cta">
+      <a class="icon-btn" href="#" data-demo="call" aria-label="Call Nimbus"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+      <a class="btn btn-gold btn-sm" href="#book"><span>Book<span class="hide-xs"> a table</span></span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <img class="hero-img" src="img/restrobar/hero-sunset.jpg" alt="The sun setting over misty hills, seen from high up" fetchpriority="high" width="1600" height="1067">
+    <svg class="festoon" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMin slice" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="glow"><stop offset="0" stop-color="#FFD58A" stop-opacity=".75"/><stop offset=".35" stop-color="#FFB54D" stop-opacity=".28"/><stop offset="1" stop-color="#FFB54D" stop-opacity="0"/></radialGradient>
+        <radialGradient id="bulbfill" cx=".45" cy=".35"><stop offset="0" stop-color="#FFFBEA"/><stop offset=".55" stop-color="#FFE0A0"/><stop offset="1" stop-color="#F3A646"/></radialGradient>
+        <g id="bulb"><circle cy="14" r="26" fill="url(#glow)"/><path d="M0 0v6" stroke="#05070D" stroke-width="2"/><rect x="-2.6" y="4.5" width="5.2" height="4" rx="1" fill="#1B1B1F"/><ellipse cy="14" rx="5" ry="6.4" fill="url(#bulbfill)"/></g>
+        <g id="bulbs"><circle cy="8" r="14" fill="url(#glow)" opacity=".8"/><path d="M0 0v3" stroke="#05070D" stroke-width="1.4"/><ellipse cy="8" rx="3" ry="3.8" fill="url(#bulbfill)" opacity=".9"/></g>
+      </defs>
+      <path class="wire back" d="M-20 -6Q720 110 1460 -6"/>
+      <g><use href="#bulbs" x="57.9" y="5.6" style="--d:0.37s"/><use href="#bulbs" x="135.8" y="15.9" style="--d:0.74s"/><use href="#bulbs" x="213.7" y="24.8" style="--d:1.11s"/><use href="#bulbs" x="291.6" y="32.6" style="--d:1.48s"/><use href="#bulbs" x="369.5" y="39" style="--d:1.85s"/><use href="#bulbs" x="447.4" y="44.1" style="--d:2.22s"/><use href="#bulbs" x="525.3" y="48" style="--d:0.19s"/><use href="#bulbs" x="603.2" y="50.6" style="--d:0.56s"/><use href="#bulbs" x="681.1" y="51.8" style="--d:0.93s"/><use href="#bulbs" x="758.9" y="51.8" style="--d:1.3s"/><use href="#bulbs" x="836.8" y="50.6" style="--d:1.67s"/><use href="#bulbs" x="914.7" y="48" style="--d:2.04s"/><use href="#bulbs" x="992.6" y="44.1" style="--d:0.01s"/><use href="#bulbs" x="1070.5" y="39" style="--d:0.38s"/><use href="#bulbs" x="1148.4" y="32.6" style="--d:0.75s"/><use href="#bulbs" x="1226.3" y="24.8" style="--d:1.12s"/><use href="#bulbs" x="1304.2" y="15.9" style="--d:1.49s"/><use href="#bulbs" x="1382.1" y="5.6" style="--d:1.86s"/></g>
+      <path class="wire" d="M-20 20Q350 190 720 26"/>
+      <path class="wire" d="M720 26Q1090 176 1460 12"/>
+      <g><use href="#bulb" x="36.9" y="44.2" style="--d:0.37s"/><use href="#bulb" x="93.8" y="64.4" style="--d:0.74s"/><use href="#bulb" x="150.8" y="80.7" style="--d:1.11s"/><use href="#bulb" x="207.7" y="93" style="--d:1.48s"/><use href="#bulb" x="264.6" y="101.4" style="--d:1.85s"/><use href="#bulb" x="321.5" y="105.8" style="--d:2.22s"/><use href="#bulb" x="378.5" y="106.2" style="--d:0.19s"/><use href="#bulb" x="435.4" y="102.7" style="--d:0.56s"/><use href="#bulb" x="492.3" y="95.3" style="--d:0.93s"/><use href="#bulb" x="549.2" y="83.9" style="--d:1.3s"/><use href="#bulb" x="606.2" y="68.6" style="--d:1.67s"/><use href="#bulb" x="663.1" y="49.3" style="--d:2.04s"/><use href="#bulb" x="720" y="26" style="--d:1.2s"/>
+      <use href="#bulb" x="776.9" y="47.2" style="--d:0.37s"/><use href="#bulb" x="833.8" y="64.7" style="--d:0.74s"/><use href="#bulb" x="890.8" y="78.5" style="--d:1.11s"/><use href="#bulb" x="947.7" y="88.6" style="--d:1.48s"/><use href="#bulb" x="1004.6" y="94.9" style="--d:1.85s"/><use href="#bulb" x="1061.5" y="97.6" style="--d:2.22s"/><use href="#bulb" x="1118.5" y="96.5" style="--d:0.19s"/><use href="#bulb" x="1175.4" y="91.7" style="--d:0.56s"/><use href="#bulb" x="1232.3" y="83.2" style="--d:0.93s"/><use href="#bulb" x="1289.2" y="71" style="--d:1.3s"/><use href="#bulb" x="1346.2" y="55" style="--d:1.67s"/><use href="#bulb" x="1403.1" y="35.4" style="--d:2.04s"/></g>
+    </svg>
+    <div class="wrap hero-in">
+      <p class="hero-kicker"><i aria-hidden="true"></i><span><span class="hide-xs">9th-floor </span>Rooftop · Kalyani Nagar</span></p>
+      <h1 id="hero-title">Sunsets, small plates <em>&amp; slow pours.</em></h1>
+      <p class="hero-lede">Pune's golden hour, nine floors up. Global small plates, charcoal grills, craft cocktails and live music under an open sky.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#book"><svg aria-hidden="true"><use href="#i-cal"/></svg>Book a table</a>
+        <a class="btn btn-ghost" href="../menu/nimbus-rooftop/"><svg aria-hidden="true"><use href="#i-menu"/></svg>View menu</a>
+        <a class="btn btn-ghost" href="#" data-demo="call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+      </div>
+      <ul class="hero-facts">
+        <li><svg aria-hidden="true"><use href="#i-star"/></svg>4.8 from 2,300+ guests</li>
+        <li><svg aria-hidden="true"><use href="#i-music"/></svg>Live music Thu – Sat</li>
+        <li><svg aria-hidden="true"><use href="#i-car"/></svg>Valet parking</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tonight" id="tonight" aria-labelledby="tonight-title">
+    <div class="wrap tonight-grid">
+      <div class="tonight-now">
+        <p class="status" id="status"><i aria-hidden="true"></i><span>Open daily · 12 PM – 1:30 AM</span></p>
+        <h2 id="tonight-title">This week <em>at Nimbus</em></h2>
+        <p id="tonight-line">Kitchen till 12:30 AM · Happy hours Mon – Thu, 4 – 8 PM</p>
+      </div>
+      <ul class="week" id="week" aria-label="This week's events">
+        <li data-day="1"><span class="d">Mon</span><b>Sunset Sessions</b><span>Chill-house playlist · happy hours 4 – 8 PM</span></li>
+        <li data-day="2"><span class="d">Tue</span><b>Big-match night</b><span>Cricket &amp; football on the 12-ft screen</span></li>
+        <li data-day="3"><span class="d">Wed</span><b>Karaoke</b><span>Ladies' night · mic's open 8:30 PM</span></li>
+        <li data-day="4"><span class="d">Thu</span><b>Acoustic live</b><span>Unplugged sets from 8 PM</span></li>
+        <li data-day="5"><span class="d">Fri</span><b>Live band</b><span>Rock, funk &amp; retro · 9 PM</span></li>
+        <li data-day="6"><span class="d">Sat</span><b>DJ night</b><span>House &amp; Bolly-tech · 9:30 PM</span></li>
+        <li data-day="0"><span class="d">Sun</span><b>Sundowner brunch</b><span>Grills &amp; a sunset set · 1 – 5 PM</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <figure class="collage reveal">
+        <img class="big" src="img/restrobar/string-lights.jpg" alt="Strings of warm festoon lights glowing over a lane at night" loading="lazy" width="1200" height="800">
+        <img class="small" src="img/restrobar/city-night.jpg" alt="City tower windows lit up after dark" loading="lazy" width="1200" height="800">
+        <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="seal-c" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+          <circle cx="60" cy="60" r="58" fill="#0A0F1E" stroke="#E8B45C" stroke-width="1.2"/>
+          <g class="spin"><text font-family="Manrope,Arial,sans-serif" font-size="9.6" font-weight="700" fill="#F6D18B"><textPath href="#seal-c" textLength="270" lengthAdjust="spacing">NINE FLOORS UP · OPEN SKY · SINCE 2021 ·</textPath></text></g>
+          <path d="M60 44c1.6 5.7 4.3 8.4 10 10-5.7 1.6-8.4 4.3-10 10-1.6-5.7-4.3-8.4-10-10 5.7-1.6 8.4-4.3 10-10Z" fill="#F6D18B"/>
+          <circle cx="60" cy="76" r="2" fill="#FF5D8F"/>
+        </svg>
+      </figure>
+      <div class="about-copy">
+        <p class="eyebrow reveal">The rooftop</p>
+        <h2 id="about-title" class="reveal d1">Above the trees, <em>under the sky</em></h2>
+        <p class="lead reveal d2">Nimbus sits on the ninth floor above Kalyani Nagar, where the city goes gold at six and glitters by eight.</p>
+        <p class="reveal d2">We built it for long evenings: an open-air deck strung with lights for sunset drinks, and a glass-walled lounge for monsoon nights and air-conditioned dinners. Our kitchen cooks global small plates and charcoal grills with a Pune accent, and the bar pours cocktails built around Indian flavours — kokum, jaggery, chai, kala khatta.</p>
+        <div class="stats reveal d3">
+          <div><b>120</b><span>covers, indoor &amp; open-air</span></div>
+          <div><b>9th</b><span>floor, with west-facing sunset views</span></div>
+          <div><b>8</b><span>craft beers on tap</span></div>
+        </div>
+        <ul class="spaces reveal d3" aria-label="Spaces">
+          <li>Open-air sunset deck</li><li>Glass-walled lounge</li><li>Cocktail bar</li><li>Private dining for 16</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec drinks" id="drinks" aria-labelledby="drinks-title">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow reveal">Signature cocktails</p>
+        <h2 id="drinks-title" class="reveal d1">Poured slow, <em>built to glow</em></h2>
+        <p class="reveal d2">Six house favourites from our bar team — Indian flavours, classic technique. Every one of them is worth watching the sun go down with.</p>
+      </div>
+      <div class="cocktails">
+        <!-- 1 Kokum Negroni: rocks glass, ice sphere -->
+        <article class="ck reveal" style="--glow:238,84,122">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0527C"/><stop offset=".55" stop-color="#B8184A"/><stop offset="1" stop-color="#5E0A2C"/></linearGradient>
+              <clipPath id="cp1"><path d="M37.4 58 41 146q1 5 7 5h44q6 0 7-5l3.6-88Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="42" ry="5" fill="rgb(238,84,122)" opacity=".18"/>
+            <g clip-path="url(#cp1)">
+              <rect x="30" y="86" width="80" height="70" fill="url(#lq1)" opacity=".92"/>
+              <ellipse cx="70" cy="86" rx="34" ry="4" fill="#FF8FAB" opacity=".75"/>
+            </g>
+            <circle cx="68" cy="104" r="19" fill="#fff" opacity=".12" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/>
+            <path d="M57 97q4-7 12-8" class="shine" style="opacity:.55;stroke-width:2"/>
+            <path class="gl" d="M36 58 40 146q1 6 8 6h44q7 0 8-6l4-88"/>
+            <ellipse class="gl" cx="70" cy="58" rx="34" ry="4.6"/>
+            <path class="gl-soft" d="M41 139q29 4 58 0"/>
+            <path class="shine" d="M44 68l3 66"/>
+            <path d="M92 60c6-9 16-12 24-8-5 2-9 6-12 12-3 1-8 0-12-4Z" fill="#F39A3A" stroke="#FFD08A" stroke-width=".8"/>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Gin · stirred</p>
+            <h3>Kokum Negroni</h3>
+            <p>Gin, bitter aperitivo and our house kokum vermouth. Tart, ruby-red, stirred over a hand-cut ice ball.</p>
+            <span class="price">₹495</span>
+          </div>
+        </article>
+
+        <!-- 2 Smoked Old Fashioned -->
+        <article class="ck reveal d1" style="--glow:238,154,60">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F8B75A"/><stop offset=".6" stop-color="#C66A1C"/><stop offset="1" stop-color="#6E3308"/></linearGradient>
+              <clipPath id="cp2"><path d="M37.4 58 41 146q1 5 7 5h44q6 0 7-5l3.6-88Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="42" ry="5" fill="rgb(238,154,60)" opacity=".2"/>
+            <path class="smoke" d="M58 50c-8-8 6-12-2-22s4-14 0-22" fill="none" stroke="#DCE2F0" stroke-width="2.2" stroke-linecap="round" opacity=".5"/>
+            <path class="smoke s2" d="M80 50c6-7-6-12 2-20s-3-12 2-20" fill="none" stroke="#DCE2F0" stroke-width="1.8" stroke-linecap="round" opacity=".45"/>
+            <g clip-path="url(#cp2)">
+              <rect x="30" y="92" width="80" height="64" fill="url(#lq2)" opacity=".92"/>
+              <ellipse cx="70" cy="92" rx="34" ry="4" fill="#FFD28A" opacity=".7"/>
+            </g>
+            <rect x="52" y="84" width="30" height="30" rx="4" transform="rotate(-12 67 99)" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/>
+            <path class="gl" d="M36 58 40 146q1 6 8 6h44q7 0 8-6l4-88"/>
+            <ellipse class="gl" cx="70" cy="58" rx="34" ry="4.6"/>
+            <path class="gl-soft" d="M41 139q29 4 58 0"/>
+            <path class="shine" d="M44 68l3 66"/>
+            <path d="M44 62c-6-3-10-8-10-14 4 3 9 4 14 4Z" fill="#F39A3A" stroke="#FFD08A" stroke-width=".8"/>
+            <path d="M88 44 76 104" stroke="#F3D59B" stroke-width="1.2"/><circle cx="86" cy="52" r="5" fill="#B3122E"/><circle cx="84.5" cy="50.5" r="1.4" fill="#fff" opacity=".6"/>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Rum · smoked at your table</p>
+            <h3>Smoked Old Fashioned</h3>
+            <p>Dark rum, jaggery syrup and orange bitters, smoked with cinnamon under a glass cloche.</p>
+            <span class="price">₹545</span>
+          </div>
+        </article>
+
+        <!-- 3 Chai-spiced Whisky Sour: coupe -->
+        <article class="ck reveal d2" style="--glow:222,170,100">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8B46A"/><stop offset="1" stop-color="#9A5A1E"/></linearGradient>
+              <clipPath id="cp3"><path d="M30 52q2 38 40 40 38-2 40-40Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="34" ry="4.5" fill="rgb(222,170,100)" opacity=".2"/>
+            <g clip-path="url(#cp3)">
+              <rect x="20" y="58" width="100" height="40" fill="url(#lq3)"/>
+              <rect x="20" y="56" width="100" height="10" fill="#F7EAD0"/>
+              <ellipse cx="70" cy="58" rx="38" ry="4" fill="#FFF7E6"/>
+            </g>
+            <g fill="#8A4A18" opacity=".7"><circle cx="58" cy="58" r=".9"/><circle cx="64" cy="57" r=".7"/><circle cx="83" cy="59" r=".8"/><circle cx="77" cy="56.8" r=".6"/><circle cx="52" cy="59.3" r=".6"/></g>
+            <path d="M70 51.5l1.6 3.4 3.6-1.2-1.2 3.6 3.4 1.6-3.4 1.6 1.2 3.6-3.6-1.2L70 66.3l-1.6-3.4-3.6 1.2 1.2-3.6L62.6 58.9l3.4-1.6-1.2-3.6 3.6 1.2Z" fill="#6B3410" stroke="#C98A4A" stroke-width=".6" transform="translate(0 -1) scale(1 .6) translate(0 39)"/>
+            <path class="gl" d="M30 52q2 38 40 40 38-2 40-40"/>
+            <ellipse class="gl" cx="70" cy="52" rx="40" ry="5"/>
+            <path class="gl" d="M68 92.5l.6 53M72 92.5l-.6 53"/>
+            <ellipse class="gl" cx="70" cy="150" rx="24" ry="4.5"/>
+            <path class="shine" d="M38 62q4 16 16 22"/>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Whisky · shaken</p>
+            <h3>Chai-spiced Whisky Sour</h3>
+            <p>Whisky shaken with masala-chai syrup, lemon and silky foam, finished with star anise.</p>
+            <span class="price">₹525</span>
+          </div>
+        </article>
+
+        <!-- 4 Kala Khatta Margarita -->
+        <article class="ck reveal" style="--glow:170,90,240">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C77DFF"/><stop offset=".5" stop-color="#7A2FC0"/><stop offset="1" stop-color="#3A0E62"/></linearGradient>
+              <clipPath id="cp4"><path d="M24 44q3 22 28 24 10 1 12 10 2 14 6 18 4-4 6-18 2-9 12-10 25-2 28-24Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="34" ry="4.5" fill="rgb(170,90,240)" opacity=".22"/>
+            <g clip-path="url(#cp4)">
+              <rect x="10" y="50" width="120" height="50" fill="url(#lq4)"/>
+              <ellipse cx="70" cy="50" rx="45" ry="4" fill="#E2B6FF" opacity=".7"/>
+            </g>
+            <path class="gl" d="M24 44q3 22 28 24 10 1 12 10 2 14 6 18 4-4 6-18 2-9 12-10 25-2 28-24"/>
+            <ellipse class="gl" cx="70" cy="44" rx="46" ry="5"/>
+            <ellipse cx="70" cy="44" rx="46" ry="5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.1 3.4" opacity=".75"/>
+            <path class="gl" d="M70 96v50"/>
+            <ellipse class="gl" cx="70" cy="150" rx="24" ry="4.5"/>
+            <path class="shine" d="M32 52q5 11 18 13"/>
+            <g transform="translate(110 40)">
+              <circle r="12.5" fill="#B7DB4F" stroke="#E8F7A8" stroke-width="1"/>
+              <circle r="10" fill="#DDF28A"/>
+              <path d="M0-10V10M-8.7-5l17.4 10M-8.7 5l17.4-10" stroke="#B4D24F" stroke-width="1.1"/>
+            </g>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Tequila · shaken</p>
+            <h3>Kala Khatta Margarita</h3>
+            <p>Tequila, kala khatta, fresh lime and a black-salt rim. The gola-stall flavour, all grown up.</p>
+            <span class="price">₹495</span>
+          </div>
+        </article>
+
+        <!-- 5 Butterfly Cloud Cooler: highball, zero-proof -->
+        <article class="ck reveal d1" style="--glow:123,160,255">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8CC6"/><stop offset=".45" stop-color="#9A5CFF"/><stop offset="1" stop-color="#2E62E8"/></linearGradient>
+              <clipPath id="cp5"><path d="M45.3 30 48 146q.5 5 6 5h32q5.5 0 6-5l2.7-116Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="32" ry="4.5" fill="rgb(123,160,255)" opacity=".22"/>
+            <g clip-path="url(#cp5)">
+              <rect x="40" y="46" width="60" height="110" fill="url(#lq5)" opacity=".9"/>
+              <ellipse cx="70" cy="46" rx="26" ry="3" fill="#FFC2E0" opacity=".8"/>
+              <circle class="bub" cx="58" cy="140" r="1.6" fill="#fff" opacity=".8"/>
+              <circle class="bub b2" cx="76" cy="138" r="1.2" fill="#fff" opacity=".8"/>
+              <circle class="bub b3" cx="66" cy="142" r="1.9" fill="#fff" opacity=".8"/>
+              <circle class="bub b4" cx="84" cy="136" r="1.3" fill="#fff" opacity=".8"/>
+            </g>
+            <rect x="52" y="54" width="22" height="22" rx="3" transform="rotate(14 63 65)" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".55" stroke-width="1.1"/>
+            <rect x="64" y="80" width="20" height="20" rx="3" transform="rotate(-10 74 90)" fill="#fff" fill-opacity=".1" stroke="#fff" stroke-opacity=".45" stroke-width="1.1"/>
+            <path d="M84 12 70 136" stroke="#F6D18B" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M84 12 70 136" stroke="#0A0F1E" stroke-width="3.4" stroke-dasharray="4 6" opacity=".55"/>
+            <path class="gl" d="M44 30 47 146q.5 6 7 6h32q6.5 0 7-6l3-116"/>
+            <ellipse class="gl" cx="70" cy="30" rx="26" ry="3.6"/>
+            <path class="shine" d="M51 40l2 96"/>
+            <path d="M50 30c-6-10-2-18 6-20-1 8-2 14-6 20Z" fill="#5FC77A"/><path d="M52 29c2-9 9-13 15-11-4 6-8 10-15 11Z" fill="#47B066"/>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Butterfly pea · lemongrass</p>
+            <h3>Butterfly Cloud Cooler <span class="zp">Zero-proof</span></h3>
+            <p>Butterfly-pea flower, lemongrass, lime and soda. Turns from blue to violet as you stir.</p>
+            <span class="price">₹295</span>
+          </div>
+        </article>
+
+        <!-- 6 Aam Panna Spritz: wine glass, zero-proof -->
+        <article class="ck reveal d2" style="--glow:236,190,70">
+          <svg viewBox="0 0 140 170" aria-hidden="true">
+            <defs>
+              <linearGradient id="lq6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E27A"/><stop offset=".6" stop-color="#E0A92C"/><stop offset="1" stop-color="#B7741A"/></linearGradient>
+              <clipPath id="cp6"><path d="M42 34q-4 42 14 58 8 6 14 6t14-6q18-16 14-58Z"/></clipPath>
+            </defs>
+            <ellipse cx="70" cy="160" rx="34" ry="4.5" fill="rgb(236,190,70)" opacity=".2"/>
+            <g clip-path="url(#cp6)">
+              <rect x="30" y="56" width="80" height="50" fill="url(#lq6)" opacity=".92"/>
+              <ellipse cx="70" cy="56" rx="28" ry="3.4" fill="#FFF3B0" opacity=".85"/>
+              <circle class="bub" cx="62" cy="90" r="1.4" fill="#fff" opacity=".85"/>
+              <circle class="bub b2" cx="74" cy="92" r="1.1" fill="#fff" opacity=".85"/>
+              <circle class="bub b3" cx="68" cy="94" r="1.6" fill="#fff" opacity=".85"/>
+            </g>
+            <path class="gl" d="M42 34q-4 42 14 58 8 6 14 6t14-6q18-16 14-58"/>
+            <ellipse class="gl" cx="70" cy="34" rx="28" ry="4"/>
+            <path class="gl" d="M70 98v48"/>
+            <ellipse class="gl" cx="70" cy="150" rx="24" ry="4.5"/>
+            <path class="shine" d="M48 44q-1 24 8 38"/>
+            <path d="M88 36c4-12 14-16 22-14-4 8-11 13-22 14Z" fill="#5FC77A"/><path d="M86 36c-1-10 3-17 10-20 1 8-3 15-10 20Z" fill="#47B066"/>
+            <path d="M84 40q4-10 10-14" stroke="#3E8F52" stroke-width="1.2" fill="none"/>
+          </svg>
+          <div class="ck-body">
+            <p class="ck-tag">Raw mango · roasted cumin</p>
+            <h3>Aam Panna Spritz <span class="zp">Zero-proof</span></h3>
+            <p>Raw-mango panna, roasted cumin, mint and sparkling soda. Summer in a glass, all year.</p>
+            <span class="price">₹295</span>
+          </div>
+        </article>
+      </div>
+      <div class="drinks-note reveal">
+        <span><svg aria-hidden="true"><use href="#i-beer"/></svg>8 craft beers on tap</span>
+        <span><svg aria-hidden="true"><use href="#i-leaf"/></svg>Zero-proof menu, made with the same care</span>
+        <span><svg aria-hidden="true"><use href="#i-menu"/></svg>40+ cocktails on the <a href="../menu/nimbus-rooftop/" style="color:var(--gold-2)">full menu</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="kitchen" aria-labelledby="kitchen-title">
+    <div class="wrap kitchen">
+      <figure class="k-media reveal">
+        <img src="img/restrobar/spices.jpg" alt="Whole spices, a mortar and pestle and small bowls on a dark wooden counter" loading="lazy" width="900" height="600">
+        <figcaption><b>Charcoal, tandoor &amp; a good wok</b><span>Global small plates with a Pune accent</span></figcaption>
+      </figure>
+      <div>
+        <div class="sec-head" style="margin-bottom:26px">
+          <p class="eyebrow reveal">From the kitchen</p>
+          <h2 id="kitchen-title" class="reveal d1">Plates made <em>for sharing</em></h2>
+          <p class="reveal d2">Order a few for the table and keep them coming. Prices in ₹; taxes extra.</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish reveal"><span class="mark" role="img" aria-label="Vegetarian"></span><div>
+            <div class="dish-top"><h3>Tandoori broccoli</h3><span class="dots" aria-hidden="true"></span><span class="price">₹425</span></div>
+            <p>Florets in hung curd, mustard oil and cheese, charred in the tandoor. Mint-coriander chutney.</p></div></li>
+          <li class="dish reveal"><span class="mark" role="img" aria-label="Vegetarian"></span><div>
+            <div class="dish-top"><h3>Mushroom galouti</h3><span class="dots" aria-hidden="true"></span><span class="price">₹445</span></div>
+            <p>Melt-in-the-mouth mushroom kebabs on saffron ulta-tawa paratha, with pickled onions.</p><span class="chip">Chef's pick</span></div></li>
+          <li class="dish reveal"><span class="mark nv" role="img" aria-label="Non-vegetarian"></span><div>
+            <div class="dish-top"><h3>Chicken 65 bao</h3><span class="dots" aria-hidden="true"></span><span class="price">₹465</span></div>
+            <p>Fiery Chicken 65 in pillowy steamed bao with curry-leaf mayo and crunchy slaw.</p></div></li>
+          <li class="dish reveal"><span class="mark nv" role="img" aria-label="Non-vegetarian"></span><div>
+            <div class="dish-top"><h3>Ghee roast prawns</h3><span class="dots" aria-hidden="true"></span><span class="price">₹695</span></div>
+            <p>Mangalorean-style ghee roast masala and crisp curry leaves, with soft neer dosa.</p><span class="chip">Bestseller</span></div></li>
+          <li class="dish reveal"><span class="mark nv" role="img" aria-label="Non-vegetarian"></span><div>
+            <div class="dish-top"><h3>Lamb seekh platter</h3><span class="dots" aria-hidden="true"></span><span class="price">₹745</span></div>
+            <p>Four hand-minced lamb seekh off the charcoal grill, roomali roti, onion salad and smoked-chilli dip.</p></div></li>
+          <li class="dish reveal"><span class="mark nv" role="img" aria-label="Non-vegetarian"></span><div>
+            <div class="dish-top"><h3>Burnt garlic butter fish</h3><span class="dots" aria-hidden="true"></span><span class="price">₹725</span></div>
+            <p>Grilled fillet of the day in burnt-garlic butter with lemon, herbed potatoes and greens.</p></div></li>
+        </ul>
+        <div class="legend reveal" aria-hidden="true">
+          <span><span class="mark"></span>Vegetarian</span>
+          <span><span class="mark nv"></span>Non-vegetarian</span>
+        </div>
+        <div class="k-cta reveal">
+          <a class="btn btn-gold" href="../menu/nimbus-rooftop/"><svg aria-hidden="true"><use href="#i-menu"/></svg>See the full menu</a>
+          <a class="btn btn-ghost" href="#book">Reserve for tonight</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="happy" id="happy" aria-labelledby="happy-title">
+    <img src="img/restrobar/bokeh.jpg" alt="" loading="lazy" width="1400" height="800">
+    <div class="wrap">
+      <p class="eyebrow reveal">Every week at Nimbus</p>
+      <h2 id="happy-title" class="neon reveal d1">Happy hours</h2>
+      <div class="offers">
+        <article class="offer reveal">
+          <p class="when">Monday – Thursday</p>
+          <span class="time">4 – 8 PM</span>
+          <h3>1+1 on select beers &amp; house spirits</h3>
+          <p>Catch the sunset from the deck with a drink on us for every one you order. Small-plate specials at the bar, too.</p>
+          <p class="fine">Select beers and house pours only. Not valid on public holidays or with other offers.</p>
+        </article>
+        <article class="offer ladies reveal d1">
+          <p class="when">Every Wednesday · 8 PM – close</p>
+          <span class="big">Ladies' night</span>
+          <h3>Karaoke, a welcome drink &amp; special prices</h3>
+          <p>A complimentary welcome mocktail or cocktail, special prices on house cocktails, and the mic is all yours.</p>
+          <p class="fine">For guests of legal drinking age. Welcome drink one per guest.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="events" aria-labelledby="events-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Events calendar</p>
+        <h2 id="events-title" class="reveal d1">Five nights of <em>something good</em></h2>
+        <p class="reveal d2">Music every weekend, a mic in the middle of the week and a long, lazy Sunday. No cover charge on weeknights.</p>
+      </div>
+      <ul class="events">
+        <li class="ev reveal">
+          <div class="ev-media"><img src="img/restrobar/bokeh.jpg" alt="" loading="lazy" width="1400" height="800" style="filter:hue-rotate(-40deg) saturate(1.4)">
+            <span class="art" aria-hidden="true"><svg viewBox="0 0 48 64"><g fill="none" stroke="#FFD1E0" stroke-width="2.6" stroke-linecap="round"><rect x="14" y="3" width="20" height="32" rx="10"/><path d="M8 27a16 16 0 0 0 32 0M24 43v14M14 59h20M14 13h7M14 20h7M27 13h7M27 20h7"/></g></svg></span></div>
+          <div class="ev-body"><span class="day">Wed</span><h3>Karaoke night</h3><p>Duets encouraged, Bollywood mandatory. Ladies' night too.</p><span class="t">8:30 PM</span></div>
+        </li>
+        <li class="ev bw reveal d1">
+          <div class="ev-media"><img src="img/restrobar/live-band.jpg" alt="A singer with a guitar on a dimly lit stage" loading="lazy" width="900" height="600"></div>
+          <div class="ev-body"><span class="day">Thu</span><h3>Acoustic live</h3><p>Pune's singer-songwriters, unplugged and up close.</p><span class="t">8 PM</span></div>
+        </li>
+        <li class="ev reveal d2">
+          <div class="ev-media"><img src="img/restrobar/light-beams.jpg" alt="Stage lights beaming over a crowd" loading="lazy" width="900" height="600"></div>
+          <div class="ev-body"><span class="day">Fri</span><h3>Live band</h3><p>Rock, funk and retro Bollywood sets till late.</p><span class="t">9 PM</span></div>
+        </li>
+        <li class="ev reveal d3">
+          <div class="ev-media"><img src="img/restrobar/dj-night.jpg" alt="Hands in the air under blue club lights" loading="lazy" width="900" height="600"></div>
+          <div class="ev-body"><span class="day">Sat</span><h3>DJ night</h3><p>House, Afro and Bolly-tech on the open-air deck.</p><span class="t">9:30 PM</span></div>
+        </li>
+        <li class="ev reveal d4">
+          <div class="ev-media"><img src="img/restrobar/hero-sunset.jpg" alt="Sunset glow over the city" loading="lazy" width="1600" height="1067" style="object-position:18% 60%"></div>
+          <div class="ev-body"><span class="day">Sun</span><h3>Sundowner brunch</h3><p>Grills, coolers and an acoustic sunset set.</p><span class="t">1 – 5 PM</span></div>
+        </li>
+      </ul>
+      <div class="match reveal">
+        <img src="img/restrobar/stadium.jpg" alt="" loading="lazy" width="1200" height="600">
+        <span class="screen" aria-hidden="true"><svg><use href="#i-tv"/></svg></span>
+        <div><h3>Big-match screenings</h3><p>Cricket and football on a 12-ft screen with proper sound. Book the deck for the big games.</p></div>
+        <a class="btn btn-ghost btn-sm" href="#" data-demo="social">See fixtures on Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec parties" id="parties" aria-labelledby="parties-title">
+    <img src="img/restrobar/sparkler.jpg" alt="" loading="lazy" width="900" height="600">
+    <div class="wrap party-grid">
+      <div class="party-copy">
+        <p class="eyebrow reveal">Private parties &amp; corporate</p>
+        <h2 id="parties-title" class="reveal d1">Take over <em>the rooftop</em></h2>
+        <p class="reveal d2">Birthdays, anniversaries, team nights and launches. We handle the menu, the bar, the music and the fairy lights — you just bring the people.</p>
+        <div class="cap reveal d3">
+          <div><b>16</b><span>private dining room</span></div>
+          <div><b>80</b><span>on the open-air deck</span></div>
+          <div><b>180</b><span>whole rooftop, standing</span></div>
+        </div>
+        <div class="party-cta reveal d3">
+          <a class="btn btn-gold" href="#" data-demo="enquire"><svg aria-hidden="true"><use href="#i-cal"/></svg>Send an enquiry</a>
+          <a class="btn btn-wa" href="#" data-demo="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp our events team</a>
+        </div>
+      </div>
+      <ul class="pkgs">
+        <li class="pkg reveal"><h3>Sundowner Social</h3><span class="from">from<b>₹1,499</b>per guest</span>
+          <p>3 hours on the deck, six sharing small plates and two drinks or mocktails each. Great for birthdays of 15 – 40.</p></li>
+        <li class="pkg star reveal d1"><span class="ribbon">Most booked</span><h3>Rooftop Soirée</h3><span class="from">from<b>₹2,299</b>per guest</span>
+          <p>4 hours, live counters and a grill spread, premium bar package, a dedicated host and your own playlist.</p></li>
+        <li class="pkg reveal d2"><h3>Corporate evenings</h3><span class="from">from<b>₹1,899</b>per guest</span>
+          <p>Team nights, offsites and client dinners, with a screen and mic for speeches and GST invoicing.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="book" aria-labelledby="book-title" style="padding-top:40px">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Reservations</p>
+        <h2 id="book-title" class="reveal d1">Book a table <em>in 20 seconds</em></h2>
+        <p class="reveal d2">Pick a time and we'll confirm on WhatsApp. Sunset tables on the deck go first — book before 5 PM for the best seats.</p>
+      </div>
+      <div class="book">
+        <form class="book-card reveal" id="book-form" novalidate>
+          <div class="fields">
+            <div class="field"><label for="f-date">Date</label><input id="f-date" name="date" type="date" required></div>
+            <div class="field"><label for="f-time">Time</label>
+              <select id="f-time" name="time">
+                <option>12:30 PM</option><option>1:30 PM</option><option>3:00 PM</option><option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option>
+                <option>7:00 PM</option><option>7:30 PM</option><option selected>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option><option>9:30 PM</option><option>10:00 PM</option><option>10:30 PM</option><option>11:00 PM</option>
+              </select></div>
+            <div class="field"><label for="f-guests">Guests</label>
+              <select id="f-guests" name="guests">
+                <option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option>
+                <option value="8">7 – 8 guests</option><option value="10">9 – 12 guests</option><option value="13">13+ (party)</option>
+              </select></div>
+            <div class="field"><label for="f-occ">Occasion</label>
+              <select id="f-occ" name="occasion">
+                <option>Just because</option><option>Birthday</option><option>Anniversary</option><option>Date night</option><option>Team outing</option><option>Celebration</option>
+              </select></div>
+            <div class="field full"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="e.g. Riya" required></div>
+          </div>
+          <button class="btn btn-wa" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg>Send booking on WhatsApp</button>
+          <p class="hint">No payment needed. We hold tables for 15 minutes.</p>
+        </form>
+        <div class="reveal d1">
+          <div class="preview" aria-live="polite">
+            <div class="pv-head">
+              <svg class="av" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0F1629"/><path d="M24.5 8.5a7.2 7.2 0 1 0 6.8 9.6 5.6 5.6 0 1 1-6.8-9.6Z" fill="#E8B45C"/><path d="M9.5 29h15.2a3.6 3.6 0 0 0 .4-7.2 5.4 5.4 0 0 0-10.2-1.6A4.4 4.4 0 0 0 9.5 29Z" fill="#EFE8DA"/></svg>
+              <span><b>Nimbus Rooftop</b><small>Usually replies in 5 minutes</small></span>
+            </div>
+            <div class="pv-body">
+              <p class="bubble in-msg">Hi! Tell us when you're coming and we'll save you a spot with a view.</p>
+              <p class="bubble" id="pv-msg">Hi Nimbus! I'd like to book a table.</p>
+            </div>
+          </div>
+          <p class="pv-note">Preview of the message your guest sends. On your real site it opens WhatsApp with this ready to send.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="gallery" aria-labelledby="gallery-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Gallery</p>
+        <h2 id="gallery-title" class="reveal d1">After dark <em>at Nimbus</em></h2>
+      </div>
+      <div class="gallery">
+        <figure class="reveal"><img src="img/restrobar/string-lights.jpg" alt="Festoon lights glowing over a cobbled lane at night" loading="lazy" width="1200" height="800"><figcaption>The deck, after sunset</figcaption></figure>
+        <figure class="reveal d1"><img src="img/restrobar/dj-night.jpg" alt="Crowd with hands raised at a DJ night" loading="lazy" width="900" height="600"></figure>
+        <figure class="reveal d2"><img src="img/restrobar/kitchen-table.jpg" alt="A dessert of poached pears and cream on a dark table with small bowls of nuts" loading="lazy" width="900" height="600"></figure>
+        <figure class="reveal d1"><img src="img/restrobar/city-night.jpg" alt="Lit windows of a tall building at night" loading="lazy" width="1200" height="800"><figcaption>The view from table 12</figcaption></figure>
+        <figure class="reveal d2"><img src="img/restrobar/sparkler.jpg" alt="A guest holding a lit sparkler" loading="lazy" width="900" height="600"></figure>
+        <figure class="reveal d3"><img src="img/restrobar/light-beams.jpg" alt="Beams of stage light over a crowd" loading="lazy" width="900" height="600"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reviews" aria-labelledby="reviews-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow reveal">Reviews</p>
+        <h2 id="reviews-title" class="reveal d1">What guests say</h2>
+        <div class="rating-sum reveal d2"><b>4.8</b>
+          <span class="stars" role="img" aria-label="4.8 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <span>from 2,300+ guest reviews</span></div>
+      </div>
+      <div class="reviews">
+        <figure class="review reveal">
+          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <blockquote><p>“Came for the sunset, stayed till closing. The Kokum Negroni is the best cocktail I've had in Pune, and the ghee roast prawns vanished in a minute.”</p></blockquote>
+          <figcaption><span class="avatar" style="background:#F6D18B" aria-hidden="true">S</span><span><b>Sneha</b>Birthday dinner on the deck</span></figcaption>
+        </figure>
+        <figure class="review reveal d1">
+          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <blockquote><p>“The Friday band was brilliant and the sound is well balanced — you can still talk. They set up a corner table for eight without any fuss.”</p></blockquote>
+          <figcaption><span class="avatar" style="background:#FF9DBB" aria-hidden="true">A</span><span><b>Arjun</b>Team night out</span></figcaption>
+        </figure>
+        <figure class="review reveal d2">
+          <span class="stars" role="img" aria-label="4 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg class="off"><use href="#i-star"/></svg></span>
+          <blockquote><p>“Gorgeous views and the chai whisky sour is a must. Weekends get busy, so book ahead and ask for the deck.”</p></blockquote>
+          <figcaption><span class="avatar" style="background:#9FE3E0" aria-hidden="true">M</span><span><b>Meher</b>Weekend regular</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit" aria-labelledby="visit-title" style="padding-top:0">
+    <div class="wrap visit">
+      <figure class="map reveal">
+        <svg viewBox="0 0 640 480" preserveAspectRatio="xMaxYMid slice" role="img" aria-label="Map: Nimbus is on the 9th floor of Skyview Point, Lane 4, off Main Road, Kalyani Nagar">
+          <rect width="640" height="480" fill="#0C1224"/>
+          <!-- river -->
+          <path d="M-20 430C90 380 170 450 280 420S470 330 660 380" fill="none" stroke="#0F2B44" stroke-width="54" stroke-linecap="round"/>
+          <path d="M-20 430C90 380 170 450 280 420S470 330 660 380" fill="none" stroke="#153A5A" stroke-width="2" stroke-dasharray="2 10" opacity=".7"/>
+          <text x="468" y="382" font-family="Instrument Serif,Georgia,serif" font-size="19" font-style="italic" fill="#6F97BA" transform="rotate(-4 468 382)">Mula-Mutha River</text>
+          <!-- blocks -->
+          <g fill="#121A31">
+            <rect x="18" y="20" width="150" height="110" rx="10"/><rect x="200" y="20" width="130" height="110" rx="10"/><rect x="362" y="20" width="110" height="110" rx="10"/><rect x="504" y="20" width="118" height="110" rx="10"/>
+            <rect x="18" y="170" width="150" height="100" rx="10"/><rect x="362" y="170" width="110" height="100" rx="10"/><rect x="504" y="170" width="118" height="100" rx="10"/>
+            <rect x="18" y="300" width="150" height="60" rx="10"/><rect x="200" y="300" width="130" height="62" rx="10"/><rect x="504" y="300" width="118" height="40" rx="10"/>
+          </g>
+          <!-- park -->
+          <rect x="200" y="170" width="130" height="100" rx="12" fill="#0E2721"/>
+          <g fill="#15382C"><circle cx="226" cy="196" r="9"/><circle cx="256" cy="214" r="11"/><circle cx="296" cy="192" r="8"/><circle cx="238" cy="244" r="10"/><circle cx="302" cy="240" r="9"/><circle cx="276" cy="252" r="6"/></g>
+          <text x="265" y="229" font-family="Manrope,Arial,sans-serif" font-size="12" font-weight="700" fill="#4F8C73" text-anchor="middle" letter-spacing="1">JOGGERS' PARK</text>
+          <!-- roads -->
+          <g fill="none" stroke-linecap="round">
+            <g stroke="#1C2744" stroke-width="30"><path d="M-10 150H650"/></g>
+            <g stroke="#1C2744" stroke-width="20"><path d="M184 -10V380"/><path d="M346 -10V380"/><path d="M488 -10V360"/><path d="M-10 285H650"/></g>
+            <g stroke="#28365C" stroke-width="24"><path d="M-10 150H650"/></g>
+            <g stroke="#243152" stroke-width="14"><path d="M184 -10V380"/><path d="M346 -10V380"/><path d="M488 -10V360"/><path d="M-10 285H650"/></g>
+            <path d="M-10 150H650" stroke="#E8B45C" stroke-width="2" stroke-dasharray="14 12" opacity=".55"/>
+            <path d="M346 150V234" stroke="#E8B45C" stroke-width="4" stroke-dasharray="1 9" opacity=".9"/>
+          </g>
+          <g font-family="Manrope,Arial,sans-serif" font-weight="700" fill="#7F89A8" letter-spacing="1.5">
+            <text x="200" y="144" font-size="12.5">MAIN ROAD</text>
+            <text x="520" y="279" font-size="11">LANE 6</text>
+            <text x="-120" y="180" font-size="11" transform="rotate(-90)">LANE 3</text>
+            <text x="-120" y="342" font-size="11" transform="rotate(-90)">LANE 4</text>
+            <text x="-272" y="484" font-size="11" transform="rotate(-90)">LANE 5</text>
+          </g>
+          <!-- lit windows on blocks -->
+          <g fill="#E8B45C" opacity=".35">
+            <rect x="40" y="44" width="6" height="4"/><rect x="52" y="44" width="6" height="4"/><rect x="64" y="56" width="6" height="4"/><rect x="220" y="44" width="6" height="4"/><rect x="238" y="60" width="6" height="4"/>
+            <rect x="520" y="40" width="6" height="4"/><rect x="540" y="52" width="6" height="4"/><rect x="530" y="200" width="6" height="4"/><rect x="40" y="200" width="6" height="4"/><rect x="60" y="214" width="6" height="4"/>
+          </g>
+          <!-- valet -->
+          <g transform="translate(392 222)">
+            <rect x="-15" y="-13" width="30" height="26" rx="7" fill="#1A2B55" stroke="#7BE3E0" stroke-width="1.2"/>
+            <text y="5" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="14" font-weight="800" fill="#7BE3E0">P</text>
+          </g>
+          <text x="392" y="252" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-size="11" font-weight="700" fill="#7BE3E0">Valet</text>
+          <!-- pin -->
+          <circle class="pulse" cx="410" cy="190" r="26" fill="rgba(246,209,139,.12)" stroke="#F6D18B" stroke-width="2"/>
+          <ellipse cx="410" cy="200" rx="11" ry="3.5" fill="#000" opacity=".4"/>
+          <path d="M410 200c-4-10-21-23-21-39a21 21 0 0 1 42 0c0 16-17 29-21 39Z" fill="#E8B45C" stroke="#0C1224" stroke-width="3"/>
+          <path d="M414.5 151.5a6 6 0 1 0 5.6 8 4.6 4.6 0 1 1-5.6-8Z" fill="#0C1224"/>
+          <g transform="translate(436 100)">
+            <rect width="168" height="40" rx="20" fill="#0A0F1E" stroke="#E8B45C" stroke-width="1.2"/>
+            <text x="84" y="26" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-size="19" fill="#fff">Nimbus · 9th floor</text>
+          </g>
+        </svg>
+        <figcaption class="map-card"><b>Skyview Point, Lane 4</b><br>Off Main Road, opposite Joggers' Park. Lift lobby on the left; press 9.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow reveal">Timings &amp; location</p>
+        <h2 id="visit-title" class="reveal d1">Nine floors up, <em>Lane 4</em></h2>
+        <address class="addr reveal d1">Nimbus Rooftop Kitchen &amp; Bar<br>9th floor, Skyview Point, Lane 4, Kalyani Nagar, Pune 411006<span>Ten minutes from Pune Airport Road. Lift access to the rooftop; both floors are step-free.</span></address>
+        <p class="status" id="status-2"><i aria-hidden="true"></i><span>Open daily · 12 PM – 1:30 AM</span></p>
+        <table class="hours reveal d2" aria-label="Opening hours">
+          <tbody>
+            <tr><th scope="row">Bar &amp; rooftop<small>Every day</small></th><td>12 PM – 1:30 AM</td></tr>
+            <tr><th scope="row">Kitchen<small>Every day · last orders</small></th><td>12 PM – 12:30 AM</td></tr>
+            <tr><th scope="row">Happy hours<small>Monday – Thursday</small></th><td>4 – 8 PM</td></tr>
+            <tr><th scope="row">Sundowner brunch<small>Sunday</small></th><td>1 – 5 PM</td></tr>
+          </tbody>
+        </table>
+        <ul class="perks reveal d2">
+          <li><svg aria-hidden="true"><use href="#i-car"/></svg><span>Complimentary valet from 6 PM at the Lane 4 entrance; basement parking for two-wheelers.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-lift"/></svg><span>Two lifts straight to the 9th floor. Smart-casual dress code after 8 PM.</span></li>
+        </ul>
+        <div class="visit-cta reveal d3">
+          <a class="btn btn-gold" href="#" data-demo="directions"><svg aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+          <a class="btn btn-ghost" href="#" data-demo="call"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+          <a class="btn btn-wa" href="#" data-demo="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Nimbus Rooftop Kitchen &amp; Bar, back to top">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" fill="#0F1629" stroke="#E8B45C" stroke-width="1.5"/>
+            <path d="M24.5 8.5a7.2 7.2 0 1 0 6.8 9.6 5.6 5.6 0 1 1-6.8-9.6Z" fill="#E8B45C"/>
+            <path d="M9.5 29h15.2a3.6 3.6 0 0 0 .4-7.2 5.4 5.4 0 0 0-10.2-1.6A4.4 4.4 0 0 0 9.5 29Z" fill="#EFE8DA"/>
+          </svg>
+          <span class="brand-name"><b>Nimbus</b><small>Rooftop Kitchen &amp; Bar</small></span>
+        </a>
+        <p class="foot-about">A ninth-floor rooftop in Kalyani Nagar, Pune: sunsets, small plates, craft cocktails and live music.</p>
+        <div class="social">
+          <a href="#" data-demo="social" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" data-demo="social" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></svg></a>
+          <a href="#" data-demo="social" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#drinks">Signature cocktails</a></li>
+          <li><a href="#kitchen">From the kitchen</a></li>
+          <li><a href="../menu/nimbus-rooftop/">Full menu</a></li>
+          <li><a href="#events">Events calendar</a></li>
+          <li><a href="#parties">Private parties</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul>
+          <li><a href="#book">Book a table</a></li>
+          <li><a href="#" data-demo="whatsapp">WhatsApp us</a></li>
+          <li><a href="#" data-demo="call">Call the rooftop</a></li>
+          <li><a href="#" data-demo="directions">Get directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="responsible"><b aria-hidden="true">ID</b><span>We serve alcohol only to guests of legal drinking age and may ask for ID. Please drink responsibly and don't drink and drive.</span></p>
+    <div class="foot-base">
+      <span>© 2026 Nimbus Rooftop Kitchen &amp; Bar · Kalyani Nagar, Pune</span>
+      <span>Photos: Elaine Li, Matthew Skinner, Vladimir Kudinov, Todd Quackenbush, Maria Carrasco, Gonzalo Poblete, Daniel Robert, Desi Mendoza, Annie Spratt, Morgan Sessions, Liane Metzler / Unsplash (placeholder images). Cocktail illustrations drawn for this sample.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="#" data-demo="whatsapp" aria-label="Chat with us on WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg aria-hidden="true"><use href="#i-info"/></svg><span></span></div>
+
+<script>
+(function () {
+  // Demo buttons: explain instead of dialling / opening apps.
+  var msgs = {
+    whatsapp: 'Demo button — on your real site this opens WhatsApp with your number.',
+    call: 'Demo button — on your real site this calls your number.',
+    directions: 'Demo button — on your real site this opens Google Maps directions to you.',
+    social: 'Demo button — on your real site this opens your Instagram or Facebook page.',
+    enquire: 'Demo button — on your real site this opens WhatsApp or an enquiry form for your events team.',
+    booking: 'Demo — on your real site this opens WhatsApp with this booking message, ready to send to your number.'
+  };
+  var toast = document.getElementById('toast'), toastText = toast.querySelector('span'), timer;
+  function say(key) {
+    toastText.textContent = msgs[key] || msgs.call;
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('show'); }, 4000);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-demo]');
+    if (!a) return;
+    e.preventDefault();
+    say(a.getAttribute('data-demo'));
+  });
+
+  // Live status + tonight. Open 12 PM – 1:30 AM, kitchen till 12:30 AM.
+  var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
+  var night = mins < 90 ? (day + 6) % 7 : day; // after midnight it's still last night
+  var isOpen = mins >= 720 || mins < 90;
+  var kitchen = mins >= 720 || mins < 30;
+  var label = !isOpen ? 'Closed now · opens at 12 PM'
+    : kitchen ? 'Open now · Kitchen till 12:30 AM' : 'Open now · Bar till 1:30 AM';
+  ['status', 'status-2'].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.querySelector('span').textContent = label;
+    if (!isOpen) el.classList.add('closed');
+  });
+  var week = document.getElementById('week');
+  var li = week.querySelector('[data-day="' + night + '"]');
+  if (li) {
+    li.classList.add('is-today');
+    li.setAttribute('aria-current', 'date');
+    document.getElementById('tonight-line').textContent =
+      (isOpen || mins < 720 ? 'Tonight: ' : '') + li.querySelector('b').textContent + ' · ' + li.querySelectorAll('span')[1].textContent;
+    var scroll = function () {
+      if (week.scrollWidth > week.clientWidth) week.scrollLeft = Math.max(0, li.offsetLeft - week.offsetLeft - 4);
+    };
+    scroll(); window.addEventListener('load', scroll);
+  }
+
+  // Booking form: build the WhatsApp message and preview it.
+  var form = document.getElementById('book-form'), pv = document.getElementById('pv-msg');
+  var dateIn = document.getElementById('f-date');
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var iso = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+  dateIn.min = iso; dateIn.value = iso;
+  var fmtDate = function (v) {
+    if (!v) return '';
+    var p = v.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+  };
+  function build() {
+    var f = form.elements, g = f.guests.options[f.guests.selectedIndex].text;
+    var name = f.name.value.trim();
+    var lines = ["Hi Nimbus! I'd like to book a table.", '', 'Date: ' + fmtDate(f.date.value), 'Time: ' + f.time.value, 'Guests: ' + g];
+    if (f.occasion.value !== 'Just because') lines.push('Occasion: ' + f.occasion.value);
+    lines.push('Name: ' + (name || '…'));
+    pv.innerHTML = '';
+    pv.appendChild(document.createTextNode(lines.join('\n')));
+    var t = document.createElement('small'); t.textContent = 'now'; pv.appendChild(t);
+    return name;
+  }
+  form.addEventListener('input', build);
+  form.addEventListener('change', build);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = build(), nameIn = form.elements.name;
+    if (!dateIn.value) { dateIn.focus(); return; }
+    if (!name) { nameIn.setAttribute('aria-invalid', 'true'); nameIn.focus(); nameIn.placeholder = 'Please add your name'; return; }
+    nameIn.removeAttribute('aria-invalid');
+    pv.classList.add('pop'); setTimeout(function () { pv.classList.remove('pop'); }, 900);
+    say('booking');
+  });
+  build();
+
+  // Gentle reveal on scroll (below the fold only).
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script src="sample-bar.js" data-type="Restro-bar" defer></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu — Swaad Wada, Maharashtrian kitchen (sample QR menu)</title>
+<meta name="description" content="A sample QR menu by Fieldcraft for a made-up Maharashtrian restaurant in Sadashiv Peth, Pune: misal, thalipeeth, thalis and puran poli, in Marathi, Hindi and English.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#7A1F1F">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../menu.css">
+</head>
+<body>
+<div id="menu"><noscript><p style="padding:20px">मेनू पाहण्यासाठी JavaScript सुरू करा, किंवा आमच्या कर्मचाऱ्यांना विचारा.</p></noscript></div>
+<script>
+window.MENU = {
+  demo: true,
+  name: { en: 'Swaad Wada', hi: 'स्वाद वाडा', mr: 'स्वाद वाडा' },
+  tagline: { en: 'Maharashtrian kitchen · Sadashiv Peth', hi: 'महाराष्ट्रीयन रसोई · सदाशिव पेठ', mr: 'अस्सल महाराष्ट्रीय जेवण · सदाशिव पेठ' },
+  cover: 'cover.jpg',
+  logo: '<svg viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="17" r="10"/><circle cx="16" cy="17" r="5"/><path d="M16 3v4M9 5l2 3M23 5l-2 3"/></svg>',
+  theme: { brand: '#7A1F1F', accent: '#E8A33D', ink: '#2A1A14', muted: '#7B665A', paper: '#FBF4E8', card: '#FFFDF8' },
+  languages: ['mr', 'hi', 'en'],
+  notice: { en: 'Unlimited thali 12 – 3:30 PM and 7 – 10:30 PM', hi: 'अनलिमिटेड थाली दोपहर 12 – 3:30 और शाम 7 – 10:30', mr: 'अनलिमिटेड थाळी दुपारी 12 – 3:30 आणि रात्री 7 – 10:30' },
+  info: {
+    hours: { en: '8 AM – 10:30 PM', hi: 'सुबह 8 – रात 10:30', mr: 'सकाळी 8 – रात्री 10:30' },
+    address: { en: 'Sadashiv Peth, Pune', hi: 'सदाशिव पेठ, पुणे', mr: 'सदाशिव पेठ, पुणे' }
+  },
+  footerNote: { en: 'Pure vegetarian. Jain food on request. Header photo: Annie Spratt / Unsplash.', hi: 'शुद्ध शाकाहारी। जैन भोजन अनुरोध पर।', mr: 'शुद्ध शाकाहारी. जैन जेवण मागणीनुसार.' },
+  categories: [
+    { id: 'breakfast', name: { en: 'Breakfast', hi: 'नाश्ता', mr: 'न्याहारी' },
+      items: [
+        { type: 'veg', price: 110, tags: ['best', 'spicy'], name: { en: 'Misal pav', hi: 'मिसल पाव', mr: 'मिसळ पाव' },
+          desc: { en: 'Sprouted matki in fiery kat, farsan, onion, lemon and two pav. Ask for it tikhat or medium.', hi: 'अंकुरित मटकी, तीखा कट, फरसाण, प्याज़, नींबू और दो पाव।', mr: 'मोड आलेली मटकी, झणझणीत कट, फरसाण, कांदा, लिंबू आणि दोन पाव. तिखट की मध्यम — सांगा.' } },
+        { type: 'veg', price: 60, tags: ['jain'], name: { en: 'Kanda pohe', hi: 'कांदा पोहे', mr: 'कांदा पोहे' },
+          desc: { en: 'With peanuts, coriander and fresh coconut.', hi: 'मूंगफली, धनिया और ताज़े नारियल के साथ।', mr: 'शेंगदाणे, कोथिंबीर आणि ओल्या खोबऱ्यासोबत.' } },
+        { type: 'veg', price: 70, name: { en: 'Upma', hi: 'उपमा', mr: 'उपमा' } },
+        { type: 'veg', price: 90, tags: ['chef'], name: { en: 'Sabudana khichdi', hi: 'साबूदाना खिचड़ी', mr: 'साबुदाणा खिचडी' },
+          desc: { en: 'Fasting-friendly, with peanuts and a cup of curd.', hi: 'उपवास के लिए, मूंगफली और दही के साथ।', mr: 'उपवासाची, शेंगदाणे आणि दह्यासोबत.' } },
+        { type: 'veg', price: 50, name: { en: 'Vada pav', hi: 'वड़ा पाव', mr: 'वडा पाव' } }
+      ] },
+    { id: 'snacks', name: { en: 'Snacks', hi: 'नाश्ते', mr: 'चटपटीत' },
+      items: [
+        { type: 'veg', price: 120, tags: ['best'], name: { en: 'Thalipeeth with white butter', hi: 'थालीपीठ और सफ़ेद मक्खन', mr: 'थालीपीठ आणि लोणी' },
+          desc: { en: 'Multigrain bhajani flatbread, loni and curd.', hi: 'भाजणी के आटे का थालीपीठ, मक्खन और दही।', mr: 'भाजणीचे थालीपीठ, लोणी आणि दही.' } },
+        { type: 'veg', price: 110, name: { en: 'Kothimbir vadi', hi: 'कोथिंबीर वड़ी', mr: 'कोथिंबीर वडी' } },
+        { type: 'veg', price: 90, name: { en: 'Batata vada', hi: 'बटाटा वड़ा', mr: 'बटाटा वडा' } },
+        { type: 'veg', price: 100, tags: ['spicy'], name: { en: 'Sabudana vada', hi: 'साबूदाना वड़ा', mr: 'साबुदाणा वडा' } }
+      ] },
+    { id: 'thali', name: { en: 'Thalis', hi: 'थाली', mr: 'थाळी' },
+      note: { en: 'Served on a brass plate. Refills on everything except sweets in the Special thali.', hi: 'पीतल की थाली में। स्पेशल थाली में मिठाई छोड़कर सब कुछ दोबारा।', mr: 'पितळेच्या ताटात. स्पेशल थाळीत गोड सोडून सगळे पुन्हा मिळेल.' },
+      items: [
+        { type: 'veg', price: 260, tags: ['best'], name: { en: 'Maharashtrian thali (unlimited)', hi: 'महाराष्ट्रीयन थाली (अनलिमिटेड)', mr: 'महाराष्ट्रीय थाळी (अनलिमिटेड)' },
+          desc: { en: 'Two sabzis, amti, koshimbir, chutneys, chapati or bhakri, rice, papad and a sweet.', hi: 'दो सब्ज़ी, आमटी, कोशिंबीर, चटनी, चपाती या भाकरी, चावल, पापड़ और मिठाई।', mr: 'दोन भाज्या, आमटी, कोशिंबीर, चटण्या, पोळी किंवा भाकरी, भात, पापड आणि गोड.' } },
+        { type: 'veg', price: 360, tags: ['chef'], name: { en: 'Special thali with puran poli', hi: 'पूरण पोळी के साथ स्पेशल थाली', mr: 'पुरणपोळीसह स्पेशल थाळी' } },
+        { type: 'veg', price: 180, name: { en: 'Pithla bhakri', hi: 'पिठला भाकरी', mr: 'पिठलं भाकरी' },
+          desc: { en: 'Gram-flour pithla, jowar bhakri, thecha and onion.', hi: 'बेसन का पिठला, ज्वार की भाकरी, ठेचा और प्याज़।', mr: 'बेसनाचे पिठलं, ज्वारीची भाकरी, ठेचा आणि कांदा.' } },
+        { type: 'veg', price: 150, name: { en: 'Varan bhaat & tup', hi: 'वरण भात और घी', mr: 'वरण भात आणि तूप' } }
+      ] },
+    { id: 'sweets', name: { en: 'Sweets', hi: 'मिठाई', mr: 'गोड' },
+      items: [
+        { type: 'veg', price: 90, tags: ['best'], name: { en: 'Puran poli with ghee', hi: 'घी के साथ पूरण पोळी', mr: 'तुपासोबत पुरणपोळी' } },
+        { type: 'veg', price: 80, name: { en: 'Shrikhand', hi: 'श्रीखंड', mr: 'श्रीखंड' } },
+        { type: 'veg', price: 120, tags: ['new'], name: { en: 'Aamras (in season)', hi: 'आमरस (सीज़न में)', mr: 'आमरस (हंगामात)' } },
+        { type: 'veg', price: 60, name: { en: 'Ukadiche modak (Tuesdays)', hi: 'उकडीचे मोदक (मंगलवार)', mr: 'उकडीचे मोदक (मंगळवारी)' } }
+      ] },
+    { id: 'drinks', name: { en: 'Drinks', hi: 'पेय', mr: 'पेये' },
+      items: [
+        { type: 'veg', price: 40, tags: ['best'], name: { en: 'Solkadhi', hi: 'सोलकढ़ी', mr: 'सोलकढी' },
+          desc: { en: 'Kokum and coconut milk, cool and tangy.', hi: 'कोकम और नारियल का दूध, ठंडा और खट्टा।', mr: 'कोकम आणि नारळाचे दूध, थंड आणि आंबट.' } },
+        { type: 'veg', price: 40, name: { en: 'Masala taak', hi: 'मसाला छाछ', mr: 'मसाला ताक' } },
+        { type: 'veg', price: 30, name: { en: 'Cutting chai', hi: 'कटिंग चाय', mr: 'कटिंग चहा' } },
+        { type: 'veg', price: 60, name: { en: 'Kokum sarbat', hi: 'कोकम शरबत', mr: 'कोकम सरबत' } }
+      ] }
+  ]
+};
+</script>
+<script src="../menu.js"></script>
+</body>
+</html>

@@ -178,6 +178,52 @@ a { color: inherit; }
   border: 1px solid var(--line); text-decoration: none; font-size: 12.5px; color: var(--muted);
 }
 
+/* a photo behind the header */
+.mn-head.has-cover {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .55) 55%, color-mix(in srgb, var(--brand) 85%, #000) 100%),
+    var(--cover) center / cover no-repeat, var(--brand);
+  padding-top: 120px;
+}
+.mn-head.has-cover::after { display: none; }
+.mn-head.has-cover h1 { text-shadow: 0 2px 18px rgba(0, 0, 0, .45); }
+
+/* a notice strip: happy hours, kitchen timings */
+.mn-notice {
+  margin: 0; padding: 10px 16px; text-align: center; font-size: 14px; font-weight: 600;
+  background: color-mix(in srgb, var(--accent) 22%, var(--paper)); color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Food | Bar */
+.mn-groups { display: flex; gap: 6px; padding: 12px 14px 0; }
+.mn-groups button {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink);
+  font-size: 16px; font-weight: 700; letter-spacing: .01em; cursor: pointer;
+}
+.mn-groups button svg { width: 20px; height: 20px; }
+.mn-groups button[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* 30 ml / 60 ml */
+.mn-price.has-sizes { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.mn-size { display: flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.mn-size small { font-size: 11.5px; font-weight: 500; color: var(--muted); }
+.mn-tag-signature { background: color-mix(in srgb, var(--accent) 35%, var(--card)); color: var(--ink); }
+.mn-tag-zero { background: #E3F4EE; color: #1B6B4F; }
+.mn-footnote { font-size: 12.5px; opacity: .9; }
+
+/* dark themes (bars, fine dining) */
+.mn-dark body, .mn-dark .mn { color-scheme: dark; }
+.mn-dark .mn-bar { background: color-mix(in srgb, var(--paper) 90%, transparent); }
+.mn-dark .mn-mark { background: #fff; }
+.mn-dark .mn-tag-spicy { background: rgba(232, 93, 72, .18); color: #FF9E8C; }
+.mn-dark .mn-tag-new { background: rgba(96, 165, 250, .18); color: #9CC8FF; }
+.mn-dark .mn-tag-jain, .mn-dark .mn-tag-zero { background: rgba(52, 211, 153, .16); color: #7FE3BD; }
+.mn-dark .mn-tag-best { background: color-mix(in srgb, var(--accent) 22%, var(--card)); color: var(--accent); }
+.mn-dark .mn-clear { background: var(--paper); }
+.mn-dark .mn-langs button[aria-pressed="true"] { color: #111; }
+
 @media (max-width: 360px) {
   .mn-vegbtn { padding: 0 9px; font-size: 13px; }
   .mn-langs button { min-width: 34px; padding: 0 6px; }
