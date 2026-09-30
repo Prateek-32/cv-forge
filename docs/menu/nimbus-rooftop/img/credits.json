@@ -1,0 +1,938 @@
+{
+    "aam-panna-collins":  {
+                              "dish":  "Aam Panna Collins",
+                              "file":  "aam-panna-collins.jpg",
+                              "title":  "File:Tom Collins cocktail.jpg",
+                              "author":  "Daniel Nguyen",
+                              "licence":  "CC BY 2.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Tom_Collins_cocktail.jpg",
+                              "query":  "File:Tom Collins cocktail.jpg"
+                          },
+    "aam-panna-cooler":  {
+                             "dish":  "Aam Panna Cooler",
+                             "file":  "aam-panna-cooler.jpg",
+                             "title":  "File:Aam Panna - Summer Cooler.JPG",
+                             "author":  "Zeel Patel",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Aam_Panna_-_Summer_Cooler.JPG",
+                             "query":  "Aam Panna Cooler"
+                         },
+    "aerated-drinks":  {
+                           "dish":  "Aerated drinks",
+                           "file":  "aerated-drinks.jpg",
+                           "title":  "File:Tumbler of cola with ice (cropped).jpg",
+                           "author":  "Simon Cousins from High Wycombe, England",
+                           "licence":  "CC BY 2.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Tumbler_of_cola_with_ice_(cropped).jpg",
+                           "query":  "File:Tumbler of cola with ice (cropped).jpg"
+                       },
+    "aged-caribbean-rum":  {
+                               "dish":  "Aged Caribbean rum",
+                               "file":  "aged-caribbean-rum.jpg",
+                               "title":  "File:Cognac glass.jpg",
+                               "author":  "Didier Descouens",
+                               "licence":  "CC BY-SA 3.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Cognac_glass.jpg",
+                               "query":  "File:Cognac glass.jpg"
+                           },
+    "b-52":  {
+                 "dish":  "B-52",
+                 "file":  "b-52.jpg",
+                 "title":  "File:Cocktail b52.jpg",
+                 "author":  "Christian",
+                 "licence":  "Public domain",
+                 "page":  "https://commons.wikimedia.org/wiki/File:Cocktail_b52.jpg",
+                 "query":  "File:Cocktail b52.jpg"
+             },
+    "beer-bucket-5-premium-lager-bottles-650-ml":  {
+                                                       "dish":  "Beer bucket — 5 premium lager bottles (650 ml)",
+                                                       "file":  "beer-bucket-5-premium-lager-bottles-650-ml.jpg",
+                                                       "title":  "File:Bucket of beer on ice.jpg",
+                                                       "author":  "Atsme",
+                                                       "licence":  "CC BY-SA 4.0",
+                                                       "page":  "https://commons.wikimedia.org/wiki/File:Bucket_of_beer_on_ice.jpg",
+                                                       "query":  "File:Bucket of beer on ice.jpg"
+                                                   },
+    "beer-bucket-6-craft-cans-330-ml":  {
+                                            "dish":  "Beer bucket — 6 craft cans (330 ml)",
+                                            "file":  "beer-bucket-6-craft-cans-330-ml.jpg",
+                                            "title":  "File:Beer cans.jpg",
+                                            "author":  "Shuntaro Kawasaki",
+                                            "licence":  "CC0",
+                                            "page":  "https://commons.wikimedia.org/wiki/File:Beer_cans.jpg",
+                                            "query":  "File:Beer cans.jpg"
+                                        },
+    "blanco-tequila-100-agave":  {
+                                     "dish":  "Blanco tequila, 100% agave",
+                                     "file":  "blanco-tequila-100-agave.jpg",
+                                     "title":  "File:Tequila shots.jpg",
+                                     "author":  "Prayitno / Thank you for (8 millions +) views from Los Angeles, USA",
+                                     "licence":  "CC BY 2.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Tequila_shots.jpg",
+                                     "query":  "File:Tequila shots.jpg"
+                                 },
+    "brut-sparkling":  {
+                           "dish":  "Brut sparkling",
+                           "file":  "brut-sparkling.jpg",
+                           "title":  "File:Sparkling wine in a flute.jpg",
+                           "author":  "Lachlan Hardy",
+                           "licence":  "CC BY 2.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Sparkling_wine_in_a_flute.jpg",
+                           "query":  "File:Sparkling wine in a flute.jpg"
+                       },
+    "burnt-garlic-butter-fish":  {
+                                     "dish":  "Burnt garlic butter fish",
+                                     "file":  "burnt-garlic-butter-fish.jpg",
+                                     "title":  "File:Grilled fish fillet.jpg",
+                                     "author":  "François Nguyen",
+                                     "licence":  "CC BY 2.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Grilled_fish_fillet.jpg",
+                                     "query":  "File:Grilled fish fillet.jpg"
+                                 },
+    "burnt-garlic-fried-rice":  {
+                                    "dish":  "Burnt garlic fried rice",
+                                    "file":  "burnt-garlic-fried-rice.jpg",
+                                    "title":  "File:Chilli chicken, burnt garlic rice pk014.jpg",
+                                    "author":  "PallaviKhale",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Chilli_chicken,_burnt_garlic_rice_pk014.jpg",
+                                    "query":  "Burnt garlic fried rice"
+                                },
+    "butter-chicken-garlic-naan":  {
+                                       "dish":  "Butter chicken \u0026 garlic naan",
+                                       "file":  "butter-chicken-garlic-naan.jpg",
+                                       "title":  "File:Butter Chicken with Garlic Naan.jpg",
+                                       "author":  "Miscellaneous contributor",
+                                       "licence":  "CC BY-SA 4.0",
+                                       "page":  "https://commons.wikimedia.org/wiki/File:Butter_Chicken_with_Garlic_Naan.jpg",
+                                       "query":  "Butter chicken \u0026 garlic naan"
+                                   },
+    "butter-naan":  {
+                        "dish":  "Butter naan",
+                        "file":  "butter-naan.jpg",
+                        "title":  "File:New Punjab Club food spread.jpg",
+                        "author":  "Hongkongfoodlover123",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:New_Punjab_Club_food_spread.jpg",
+                        "query":  "Butter naan"
+                    },
+    "chai-spiced-whisky-sour":  {
+                                    "dish":  "Chai-spiced Whisky Sour",
+                                    "file":  "chai-spiced-whisky-sour.jpg",
+                                    "title":  "File:Whiskey sour in coupe glass with garnishes.jpg",
+                                    "author":  "Ilikefood",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Whiskey_sour_in_coupe_glass_with_garnishes.jpg",
+                                    "query":  "File:Whiskey sour in coupe glass with garnishes.jpg"
+                                },
+    "chakna-platter":  {
+                           "dish":  "Chakna platter",
+                           "file":  "chakna-platter.jpg",
+                           "title":  "File:Chakna.jpg",
+                           "author":  "Mrudit161187",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Chakna.jpg",
+                           "query":  "File:Chakna.jpg"
+                       },
+    "cheese-chilli-kulcha":  {
+                                 "dish":  "Cheese chilli kulcha",
+                                 "file":  "cheese-chilli-kulcha.jpg",
+                                 "title":  "File:Kulcha, Indian stuffed bread.jpg",
+                                 "author":  "Jason Lam",
+                                 "licence":  "CC BY-SA 2.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Kulcha,_Indian_stuffed_bread.jpg",
+                                 "query":  "File:Kulcha, Indian stuffed bread.jpg"
+                             },
+    "chenin-blanc":  {
+                         "dish":  "Chenin Blanc",
+                         "file":  "chenin-blanc.jpg",
+                         "title":  "File:White Wine Glas.jpg",
+                         "author":  "André Karwath aka Aka",
+                         "licence":  "CC BY-SA 2.5",
+                         "page":  "https://commons.wikimedia.org/wiki/File:White_Wine_Glas.jpg",
+                         "query":  "File:White Wine Glas.jpg"
+                     },
+    "chicken-65-bao":  {
+                           "dish":  "Chicken 65 bao",
+                           "file":  "chicken-65-bao.jpg",
+                           "title":  "File:Night Market Fried Chicken Bao- 5 spice buttermilk fried chicken, kale pea sprout sesame slaw, steamed bun.jpg",
+                           "author":  "T.Tseng",
+                           "licence":  "CC BY 2.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Night_Market_Fried_Chicken_Bao-_5_spice_buttermilk_fried_chicken,_kale_pea_sprout_sesame_slaw,_steamed_bun.jpg",
+                           "query":  "Chicken 65 bao"
+                       },
+    "chicken-dum-biryani":  {
+                                "dish":  "Chicken dum biryani",
+                                "file":  "chicken-dum-biryani.jpg",
+                                "title":  "File:Chicken Dum Biryani 03.jpg",
+                                "author":  "Vis M",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Chicken_Dum_Biryani_03.jpg",
+                                "query":  "Chicken dum biryani"
+                            },
+    "chicken-lollipop":  {
+                             "dish":  "Chicken lollipop",
+                             "file":  "chicken-lollipop.jpg",
+                             "title":  "File:Chicken lollipop in Goa.jpg",
+                             "author":  "Peiling Tan from Singapore, Singapore",
+                             "licence":  "CC BY 2.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Chicken_lollipop_in_Goa.jpg",
+                             "query":  "Chicken lollipop"
+                         },
+    "chicken-sui-mai":  {
+                            "dish":  "Chicken sui mai",
+                            "file":  "chicken-sui-mai.jpg",
+                            "title":  "File:Lucky 12 - Stack of 3 Sui Mai with black vinegar chicha de jora dipping sauce. (Chifa) POLLO - Chicken, scallion, cloud ear mushroom, ají amarillo.jpg",
+                            "author":  "Lou Stejskal",
+                            "licence":  "CC BY 2.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Lucky_12_-_Stack_of_3_Sui_Mai_with_black_vinegar_chicha_de_jora_dipping_sauce._(Chifa)_POLLO_-_Chicken,_scallion,_cloud_ear_mushroom,_aj%C3%AD_amarillo.jpg",
+                            "query":  "Chicken sui mai"
+                        },
+    "chilli-guava-shooter":  {
+                                 "dish":  "Chilli Guava Shooter",
+                                 "file":  "chilli-guava-shooter.jpg",
+                                 "title":  "File:Guava juice (3110765359).jpg",
+                                 "author":  "Eugene Peretz from Northampton, MA, USA",
+                                 "licence":  "CC BY-SA 2.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Guava_juice_(3110765359).jpg",
+                                 "query":  "File:Guava juice (3110765359).jpg"
+                             },
+    "chilli-paneer-dry":  {
+                              "dish":  "Chilli paneer, dry",
+                              "file":  "chilli-paneer-dry.jpg",
+                              "title":  "File:Chilly Paneer 01.jpg",
+                              "author":  "Marajozkee",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Chilly_Paneer_01.jpg",
+                              "query":  "Chilli paneer"
+                          },
+    "coffee-liqueur":  {
+                           "dish":  "Coffee liqueur",
+                           "file":  "coffee-liqueur.jpg",
+                           "title":  "File:White Russian Cocktail.jpg",
+                           "author":  "Will Shenton",
+                           "licence":  "CC BY-SA 3.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:White_Russian_Cocktail.jpg",
+                           "query":  "File:White Russian Cocktail.jpg"
+                       },
+    "cosmopolitan":  {
+                         "dish":  "Cosmopolitan",
+                         "file":  "cosmopolitan.jpg",
+                         "title":  "File:Cosmopolitan cocktail drink.jpg",
+                         "author":  "Jon Sullivan",
+                         "licence":  "Public domain",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Cosmopolitan_cocktail_drink.jpg",
+                         "query":  "File:Cosmopolitan cocktail drink.jpg"
+                     },
+    "crispy-bombil-fry":  {
+                              "dish":  "Crispy bombil fry",
+                              "file":  "crispy-bombil-fry.jpg",
+                              "title":  "File:Fried Bombay Duck.JPG",
+                              "author":  "Durvankur Patil",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Fried_Bombay_Duck.JPG",
+                              "query":  "File:Fried Bombay Duck.JPG"
+                          },
+    "crispy-corn-kalyani-style":  {
+                                      "dish":  "Crispy corn, Kalyani style",
+                                      "file":  "crispy-corn-kalyani-style.jpg",
+                                      "title":  "File:Crispy chilli baby corn.....jpg",
+                                      "author":  "Dikshita Bairagi",
+                                      "licence":  "CC BY-SA 4.0",
+                                      "page":  "https://commons.wikimedia.org/wiki/File:Crispy_chilli_baby_corn.....jpg",
+                                      "query":  "Crispy corn"
+                                  },
+    "dal-nimbus":  {
+                       "dish":  "Dal Nimbus",
+                       "file":  "dal-nimbus.jpg",
+                       "title":  "File:Dal Makhani.jpg",
+                       "author":  "Charles Haynes",
+                       "licence":  "CC BY-SA 2.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Dal_Makhani.jpg",
+                       "query":  "File:Dal Makhani.jpg"
+                   },
+    "dark-rum":  {
+                     "dish":  "Dark rum",
+                     "file":  "dark-rum.jpg",
+                     "title":  "File:Cuba Libre 01.jpg",
+                     "author":  "Arnaud 25",
+                     "licence":  "CC BY-SA 4.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Cuba_Libre_01.jpg",
+                     "query":  "File:Cuba Libre 01.jpg"
+                 },
+    "espresso-martini":  {
+                             "dish":  "Espresso Martini",
+                             "file":  "espresso-martini.jpg",
+                             "title":  "File:Espresso martini - November 2024 - Sarah Stierch.jpg",
+                             "author":  "Missvain",
+                             "licence":  "CC0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Espresso_martini_-_November_2024_-_Sarah_Stierch.jpg",
+                             "query":  "Espresso Martini"
+                         },
+    "filter-coffee-tiramisu":  {
+                                   "dish":  "Filter-coffee tiramisu",
+                                   "file":  "filter-coffee-tiramisu.jpg",
+                                   "title":  "File:Tiramisu dessert.jpg",
+                                   "author":  "Navneet Sharma",
+                                   "licence":  "CC BY-SA 4.0",
+                                   "page":  "https://commons.wikimedia.org/wiki/File:Tiramisu_dessert.jpg",
+                                   "query":  "File:Tiramisu dessert.jpg"
+                               },
+    "fresh-lime-soda":  {
+                            "dish":  "Fresh lime soda",
+                            "file":  "fresh-lime-soda.jpg",
+                            "title":  "File:Fresh Lime.JPG",
+                            "author":  "Siddhantsahni28",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Fresh_Lime.JPG",
+                            "query":  "Fresh lime soda"
+                        },
+    "garlic-naan":  {
+                        "dish":  "Garlic naan",
+                        "file":  "garlic-naan.jpg",
+                        "title":  "File:Garlic naan 1.jpg",
+                        "author":  "Joy",
+                        "licence":  "CC BY 2.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Garlic_naan_1.jpg",
+                        "query":  "Garlic naan"
+                    },
+    "ghee-roast-prawns":  {
+                              "dish":  "Ghee roast prawns",
+                              "file":  "ghee-roast-prawns.jpg",
+                              "title":  "File:Prawns ghee roast from Coast 2 Coast in Brigade Road.jpg",
+                              "author":  "Abyventura",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Prawns_ghee_roast_from_Coast_2_Coast_in_Brigade_Road.jpg",
+                              "query":  "Ghee roast prawns"
+                          },
+    "grilled-chicken-caesar":  {
+                                   "dish":  "Grilled chicken Caesar",
+                                   "file":  "grilled-chicken-caesar.jpg",
+                                   "title":  "File:Caesar Salad \u0026 Grilled Chicken (30548011308).jpg",
+                                   "author":  "Prayitno / Thank you for (12 millions +) view from Los Angeles, USA",
+                                   "licence":  "CC BY 2.0",
+                                   "page":  "https://commons.wikimedia.org/wiki/File:Caesar_Salad_%26_Grilled_Chicken_(30548011308).jpg",
+                                   "query":  "Grilled chicken Caesar"
+                               },
+    "gulab-jamun-with-vanilla-ice-cream":  {
+                                               "dish":  "Gulab jamun with vanilla ice cream",
+                                               "file":  "gulab-jamun-with-vanilla-ice-cream.jpg",
+                                               "title":  "File:Gulab Jamun with Ice Cream - Worthing Indian Cafe \u0026 Bar 2026-04-27.jpg",
+                                               "author":  "Andy Li",
+                                               "licence":  "CC0",
+                                               "page":  "https://commons.wikimedia.org/wiki/File:Gulab_Jamun_with_Ice_Cream_-_Worthing_Indian_Cafe_%26_Bar_2026-04-27.jpg",
+                                               "query":  "Gulab jamun with vanilla ice cream"
+                                           },
+    "hazy-wheat-on-tap":  {
+                              "dish":  "Hazy wheat, on tap",
+                              "file":  "hazy-wheat-on-tap.jpg",
+                              "title":  "File:Beertaccini\u0027s lablanche 2014 - IMG 0424 (14346781869).jpg",
+                              "author":  "N i c o l a from Fiumicino (Rome), Italy",
+                              "licence":  "CC BY 2.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Beertaccini%27s_lablanche_2014_-_IMG_0424_(14346781869).jpg",
+                              "query":  "Hazy wheat"
+                          },
+    "house-blended-whisky":  {
+                                 "dish":  "House blended whisky",
+                                 "file":  "house-blended-whisky.jpg",
+                                 "title":  "File:A Glass of Whiskey on the Rocks.jpg",
+                                 "author":  "Benjamin Thompson",
+                                 "licence":  "CC BY 3.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:A_Glass_of_Whiskey_on_the_Rocks.jpg",
+                                 "query":  "File:A Glass of Whiskey on the Rocks.jpg"
+                             },
+    "house-vodka":  {
+                        "dish":  "House vodka",
+                        "file":  "house-vodka.jpg",
+                        "title":  "File:Vodka glass in Baku, Azerbaijan.jpg",
+                        "author":  "Aykhan Zayedzadeh",
+                        "licence":  "CC BY 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Vodka_glass_in_Baku,_Azerbaijan.jpg",
+                        "query":  "File:Vodka glass in Baku, Azerbaijan.jpg"
+                    },
+    "indian-craft-gin":  {
+                             "dish":  "Indian craft gin",
+                             "file":  "indian-craft-gin.jpg",
+                             "title":  "File:Gin and tonic cocktail with wedge of lime.jpg",
+                             "author":  "Davidnuescheler",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Gin_and_tonic_cocktail_with_wedge_of_lime.jpg",
+                             "query":  "File:Gin and tonic cocktail with wedge of lime.jpg"
+                         },
+    "indian-single-malt":  {
+                               "dish":  "Indian single malt",
+                               "file":  "indian-single-malt.jpg",
+                               "title":  "File:Glencairn Whisky Glass...jpg",
+                               "author":  "Amiko82",
+                               "licence":  "CC BY-SA 4.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Glencairn_Whisky_Glass...jpg",
+                               "query":  "File:Glencairn Whisky Glass...jpg"
+                           },
+    "ipa-on-tap":  {
+                       "dish":  "IPA, on tap",
+                       "file":  "ipa-on-tap.jpg",
+                       "title":  "File:IPA in a pint glass in a hand.jpeg",
+                       "author":  "User:misterkong",
+                       "licence":  "CC BY-SA 3.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:IPA_in_a_pint_glass_in_a_hand.jpeg",
+                       "query":  "File:IPA in a pint glass in a hand.jpeg"
+                   },
+    "irish-cream-liqueur":  {
+                                "dish":  "Irish cream liqueur",
+                                "file":  "irish-cream-liqueur.jpg",
+                                "title":  "File:Wikipedia Irish Cream glass.png",
+                                "author":  "Bruce The Deus",
+                                "licence":  "CC BY-SA 4.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Wikipedia_Irish_Cream_glass.png",
+                                "query":  "File:Wikipedia Irish Cream glass.png"
+                            },
+    "islay-single-malt-peated":  {
+                                     "dish":  "Islay single malt, peated",
+                                     "file":  "islay-single-malt-peated.jpg",
+                                     "title":  "File:Glencairn whisky glass and lights.jpg",
+                                     "author":  "Trogain",
+                                     "licence":  "CC BY-SA 4.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Glencairn_whisky_glass_and_lights.jpg",
+                                     "query":  "File:Glencairn whisky glass and lights.jpg"
+                                 },
+    "jeera-rice":  {
+                       "dish":  "Jeera rice",
+                       "file":  "jeera-rice.jpg",
+                       "title":  "File:Jeera-rice.JPG",
+                       "author":  "Sonia Goyal",
+                       "licence":  "CC BY-SA 2.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Jeera-rice.JPG",
+                       "query":  "Jeera rice"
+                   },
+    "kala-khatta-margarita":  {
+                                  "dish":  "Kala Khatta Margarita",
+                                  "file":  "kala-khatta-margarita.jpg",
+                                  "title":  "File:Margarita with lime in a margarita glass - Evan Swigart.jpg",
+                                  "author":  "Evan Swigart from Chicago, USA",
+                                  "licence":  "CC BY 2.0",
+                                  "page":  "https://commons.wikimedia.org/wiki/File:Margarita_with_lime_in_a_margarita_glass_-_Evan_Swigart.jpg",
+                                  "query":  "File:Margarita with lime in a margarita glass - Evan Swigart.jpg"
+                              },
+    "kamikaze":  {
+                     "dish":  "Kamikaze",
+                     "file":  "kamikaze.jpg",
+                     "title":  "File:Kamikaze-cocktail.jpg",
+                     "author":  "Bevvy",
+                     "licence":  "CC BY-SA 3.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Kamikaze-cocktail.jpg",
+                     "query":  "File:Kamikaze-cocktail.jpg"
+                 },
+    "keema-pav-sliders":  {
+                              "dish":  "Keema pav sliders",
+                              "file":  "keema-pav-sliders.jpg",
+                              "title":  "File:Kheema Pav.jpg",
+                              "author":  "Dr. Vinay Satish Parmar",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Kheema_Pav.jpg",
+                              "query":  "File:Kheema Pav.jpg"
+                          },
+    "kentucky-straight-bourbon":  {
+                                      "dish":  "Kentucky straight bourbon",
+                                      "file":  "kentucky-straight-bourbon.jpg",
+                                      "title":  "File:Glass of Scotch and soda.jpg",
+                                      "author":  "DoubleGrazing",
+                                      "licence":  "CC BY-SA 4.0",
+                                      "page":  "https://commons.wikimedia.org/wiki/File:Glass_of_Scotch_and_soda.jpg",
+                                      "query":  "File:Glass of Scotch and soda.jpg"
+                                  },
+    "kokum-fizz":  {
+                       "dish":  "Kokum Fizz",
+                       "file":  "kokum-fizz.jpg",
+                       "title":  "File:Kokum or Punarpuli sharbat.jpg",
+                       "author":  "Prajna Prabhu",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Kokum_or_Punarpuli_sharbat.jpg",
+                       "query":  "File:Kokum or Punarpuli sharbat.jpg"
+                   },
+    "kokum-mojito-pitcher":  {
+                                 "dish":  "Kokum Mojito pitcher",
+                                 "file":  "kokum-mojito-pitcher.jpg",
+                                 "title":  "File:Cherry beer margaritas in a glass with straws and pitcher on a table (18492331420).jpg",
+                                 "author":  "Personal Creations",
+                                 "licence":  "CC BY 2.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Cherry_beer_margaritas_in_a_glass_with_straws_and_pitcher_on_a_table_(18492331420).jpg",
+                                 "query":  "File:Cherry beer margaritas in a glass with straws and pitcher on a table (18492331420).jpg"
+                             },
+    "kokum-negroni":  {
+                          "dish":  "Kokum Negroni",
+                          "file":  "kokum-negroni.jpg",
+                          "title":  "File:Negroni on the Rocks.jpg",
+                          "author":  "Will Shenton",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Negroni_on_the_Rocks.jpg",
+                          "query":  "File:Negroni on the Rocks.jpg"
+                      },
+    "kolhapuri-mutton-bhakri":  {
+                                    "dish":  "Kolhapuri mutton \u0026 bhakri",
+                                    "file":  "kolhapuri-mutton-bhakri.jpg",
+                                    "title":  "File:Mutton Curry 2.jpg",
+                                    "author":  "Gaurav Dhwaj Khadka",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Mutton_Curry_2.jpg",
+                                    "query":  "File:Mutton Curry 2.jpg"
+                                },
+    "kulfi-falooda":  {
+                          "dish":  "Kulfi falooda",
+                          "file":  "kulfi-falooda.jpg",
+                          "title":  "File:Falooda kulfi from India.jpg",
+                          "author":  "Aashita Kawatra",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Falooda_kulfi_from_India.jpg",
+                          "query":  "Kulfi falooda"
+                      },
+    "laccha-paratha":  {
+                           "dish":  "Laccha paratha",
+                           "file":  "laccha-paratha.jpg",
+                           "title":  "File:Laccha Paratha.JPG",
+                           "author":  "Durvankur Patil",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Laccha_Paratha.JPG",
+                           "query":  "Laccha paratha"
+                       },
+    "lamb-seekh-platter":  {
+                               "dish":  "Lamb seekh platter",
+                               "file":  "lamb-seekh-platter.jpg",
+                               "title":  "File:Seekh Kebab.JPG",
+                               "author":  "raasiel",
+                               "licence":  "CC BY 2.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Seekh_Kebab.JPG",
+                               "query":  "File:Seekh Kebab.JPG"
+                           },
+    "lemon-coriander-chicken-soup":  {
+                                         "dish":  "Lemon coriander chicken soup",
+                                         "file":  "lemon-coriander-chicken-soup.jpg",
+                                         "title":  "File:Bowl of chicken soup.jpg",
+                                         "author":  "RWS",
+                                         "licence":  "CC BY-SA 3.0",
+                                         "page":  "https://commons.wikimedia.org/wiki/File:Bowl_of_chicken_soup.jpg",
+                                         "query":  "File:Bowl of chicken soup.jpg"
+                                     },
+    "lemon-drop":  {
+                       "dish":  "Lemon Drop",
+                       "file":  "lemon-drop.jpg",
+                       "title":  "File:Lemon Drop Martini.jpg",
+                       "author":  "The Dana Files from Plover, WI, United States",
+                       "licence":  "CC BY 2.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Lemon_Drop_Martini.jpg",
+                       "query":  "File:Lemon Drop Martini.jpg"
+                   },
+    "loaded-nachos":  {
+                          "dish":  "Loaded nachos",
+                          "file":  "loaded-nachos.jpg",
+                          "title":  "File:The Beanery Nachos.jpg",
+                          "author":  "Navajcmer",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:The_Beanery_Nachos.jpg",
+                          "query":  "Loaded nachos"
+                      },
+    "london-dry-gin":  {
+                           "dish":  "London dry gin",
+                           "file":  "london-dry-gin.jpg",
+                           "title":  "File:Gin and Tonic with ingredients.jpg",
+                           "author":  "NotFromUtrecht",
+                           "licence":  "CC BY-SA 3.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Gin_and_Tonic_with_ingredients.jpg",
+                           "query":  "File:Gin and Tonic with ingredients.jpg"
+                       },
+    "long-island-iced-tea":  {
+                                 "dish":  "Long Island Iced Tea",
+                                 "file":  "long-island-iced-tea.jpg",
+                                 "title":  "File:Long Island Iced Tea with Lemon and Straw.jpg",
+                                 "author":  "Alisdair McDiarmid from Glasgow, United Kingdom",
+                                 "licence":  "CC BY 2.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Long_Island_Iced_Tea_with_Lemon_and_Straw.jpg",
+                                 "query":  "Long Island Iced Tea"
+                             },
+    "long-island-iced-tea-pitcher":  {
+                                         "dish":  "Long Island Iced Tea pitcher",
+                                         "file":  "long-island-iced-tea-pitcher.jpg",
+                                         "title":  "File:Pitcher and glass of iced tea - Evan Swigart.jpg",
+                                         "author":  "Evan Swigart from Chicago, USA",
+                                         "licence":  "CC BY 2.0",
+                                         "page":  "https://commons.wikimedia.org/wiki/File:Pitcher_and_glass_of_iced_tea_-_Evan_Swigart.jpg",
+                                         "query":  "File:Pitcher and glass of iced tea - Evan Swigart.jpg"
+                                     },
+    "malvani-fish-curry-rice":  {
+                                    "dish":  "Malvani fish curry \u0026 rice",
+                                    "file":  "malvani-fish-curry-rice.jpg",
+                                    "title":  "File:Pomplet Fry Thali.jpg",
+                                    "author":  "Amitkumar Si",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Pomplet_Fry_Thali.jpg",
+                                    "query":  "Malvani fish curry \u0026 rice"
+                                },
+    "masala-papad":  {
+                         "dish":  "Masala papad",
+                         "file":  "masala-papad.jpg",
+                         "title":  "File:Masala Papad , The Ocean Pearl Hotel.jpg",
+                         "author":  "Yakshitha",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Masala_Papad_,_The_Ocean_Pearl_Hotel.jpg",
+                         "query":  "Masala papad"
+                     },
+    "masala-peanuts":  {
+                           "dish":  "Masala peanuts",
+                           "file":  "masala-peanuts.jpg",
+                           "title":  "File:Spicy peanut1.jpg",
+                           "author":  "Rocky231293",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Spicy_peanut1.jpg",
+                           "query":  "File:Spicy peanut1.jpg"
+                       },
+    "mezcal":  {
+                   "dish":  "Mezcal",
+                   "file":  "mezcal.jpg",
+                   "title":  "File:Mezcal flight from Suerte.jpg",
+                   "author":  "Cerebral726",
+                   "licence":  "CC BY-SA 4.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Mezcal_flight_from_Suerte.jpg",
+                   "query":  "File:Mezcal flight from Suerte.jpg"
+               },
+    "mojito":  {
+                   "dish":  "Mojito",
+                   "file":  "mojito.jpg",
+                   "title":  "File:Mojito, Mazatlán, 30 de noviembre de 2022.jpg",
+                   "author":  "El Nuevo Doge",
+                   "licence":  "CC0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Mojito,_Mazatl%C3%A1n,_30_de_noviembre_de_2022.jpg",
+                   "query":  "Mojito"
+               },
+    "monsoon-mule":  {
+                         "dish":  "Monsoon Mule",
+                         "file":  "monsoon-mule.jpg",
+                         "title":  "File:Moscow Mule.jpg",
+                         "author":  "edseloh",
+                         "licence":  "CC BY-SA 2.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Moscow_Mule.jpg",
+                         "query":  "File:Moscow Mule.jpg"
+                     },
+    "murgh-malai-tikka":  {
+                              "dish":  "Murgh malai tikka",
+                              "file":  "murgh-malai-tikka.jpg",
+                              "title":  "File:Murgh Malai Kabab (Tikka).JPG",
+                              "author":  "Miansari66",
+                              "licence":  "CC0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Murgh_Malai_Kabab_(Tikka).JPG",
+                              "query":  "Murgh malai tikka"
+                          },
+    "mushroom-galouti-on-sheermal":  {
+                                         "dish":  "Mushroom galouti on sheermal",
+                                         "file":  "mushroom-galouti-on-sheermal.jpg",
+                                         "title":  "File:Galouti Kebab.jpg",
+                                         "author":  "Visheshvik",
+                                         "licence":  "CC BY-SA 4.0",
+                                         "page":  "https://commons.wikimedia.org/wiki/File:Galouti_Kebab.jpg",
+                                         "query":  "File:Galouti Kebab.jpg"
+                                     },
+    "mutton-dum-biryani":  {
+                               "dish":  "Mutton dum biryani",
+                               "file":  "mutton-dum-biryani.jpg",
+                               "title":  "File:Mutton Dum Biryani layering.jpg",
+                               "author":  "Truptii Gaikwad",
+                               "licence":  "CC BY-SA 4.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Mutton_Dum_Biryani_layering.jpg",
+                               "query":  "Mutton dum biryani"
+                           },
+    "nimbus-spritz":  {
+                          "dish":  "Nimbus Spritz",
+                          "file":  "nimbus-spritz.jpg",
+                          "title":  "File:Spritz rosso e bianco.JPG",
+                          "author":  "DracoRoboter at Italian Wikipedia",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Spritz_rosso_e_bianco.JPG",
+                          "query":  "File:Spritz rosso e bianco.JPG"
+                      },
+    "pale-ale-on-tap":  {
+                            "dish":  "Pale ale, on tap",
+                            "file":  "pale-ale-on-tap.jpg",
+                            "title":  "File:India Pale Ale picture from Jacksonville, FL.jpg",
+                            "author":  "ZLGragg19",
+                            "licence":  "CC BY-SA 3.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:India_Pale_Ale_picture_from_Jacksonville,_FL.jpg",
+                            "query":  "File:India Pale Ale picture from Jacksonville, FL.jpg"
+                        },
+    "paneer-tikka-three-ways":  {
+                                    "dish":  "Paneer tikka, three ways",
+                                    "file":  "paneer-tikka-three-ways.jpg",
+                                    "title":  "File:Panir Tikka Indian cheese grilled.jpg",
+                                    "author":  "Sonja Pauen -Stanhopea",
+                                    "licence":  "CC BY 2.0 de",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Panir_Tikka_Indian_cheese_grilled.jpg",
+                                    "query":  "Paneer tikka"
+                                },
+    "peri-peri-fries":  {
+                            "dish":  "Peri-peri fries",
+                            "file":  "peri-peri-fries.jpg",
+                            "title":  "File:Fries (Peri Peri) 2026.jpg",
+                            "author":  "Gpkp",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Fries_(Peri_Peri)_2026.jpg",
+                            "query":  "Peri-peri fries"
+                        },
+    "premium-blended-scotch":  {
+                                   "dish":  "Premium blended scotch",
+                                   "file":  "premium-blended-scotch.jpg",
+                                   "title":  "File:Scotch whisky in Aino Aalto glass.jpg",
+                                   "author":  "JIP",
+                                   "licence":  "CC BY-SA 4.0",
+                                   "page":  "https://commons.wikimedia.org/wiki/File:Scotch_whisky_in_Aino_Aalto_glass.jpg",
+                                   "query":  "File:Scotch whisky in Aino Aalto glass.jpg"
+                               },
+    "premium-lager-bottle-650-ml":  {
+                                        "dish":  "Premium lager, bottle (650 ml)",
+                                        "file":  "premium-lager-bottle-650-ml.jpg",
+                                        "title":  "File:Beer bottles 2018 G1.jpg",
+                                        "author":  "George Chernilevsky",
+                                        "licence":  "Public domain",
+                                        "page":  "https://commons.wikimedia.org/wiki/File:Beer_bottles_2018_G1.jpg",
+                                        "query":  "File:Beer bottles 2018 G1.jpg"
+                                    },
+    "rasmalai-tres-leches":  {
+                                 "dish":  "Rasmalai tres leches",
+                                 "file":  "rasmalai-tres-leches.jpg",
+                                 "title":  "File:Rasmalai 3.jpg",
+                                 "author":  "Harpreet 712",
+                                 "licence":  "CC BY-SA 4.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Rasmalai_3.jpg",
+                                 "query":  "File:Rasmalai 3.jpg"
+                             },
+    "reposado-tequila":  {
+                             "dish":  "Reposado tequila",
+                             "file":  "reposado-tequila.jpg",
+                             "title":  "File:Caballito con tequila Tierra Mexicana.jpg",
+                             "author":  "Tierra Mexicana",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Caballito_con_tequila_Tierra_Mexicana.jpg",
+                             "query":  "File:Caballito con tequila Tierra Mexicana.jpg"
+                         },
+    "sangria-pitcher":  {
+                            "dish":  "Sangria pitcher",
+                            "file":  "sangria-pitcher.jpg",
+                            "title":  "File:Red Wine Sangria with lemon, lime, apple, and orange served in a glass - Evan Swigart.jpg",
+                            "author":  "Evan Swigart from Chicago, USA",
+                            "licence":  "CC BY 2.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Red_Wine_Sangria_with_lemon,_lime,_apple,_and_orange_served_in_a_glass_-_Evan_Swigart.jpg",
+                            "query":  "Sangria pitcher"
+                        },
+    "sauvignon-blanc":  {
+                            "dish":  "Sauvignon Blanc",
+                            "file":  "sauvignon-blanc.jpg",
+                            "title":  "File:Glass of White Wine shot with a bottle of white wine - Evan Swigart.jpg",
+                            "author":  "Evan Swigart from Chicago, USA",
+                            "licence":  "CC BY 2.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Glass_of_White_Wine_shot_with_a_bottle_of_white_wine_-_Evan_Swigart.jpg",
+                            "query":  "File:Glass of White Wine shot with a bottle of white wine - Evan Swigart.jpg"
+                        },
+    "shiraz":  {
+                   "dish":  "Shiraz",
+                   "file":  "shiraz.jpg",
+                   "title":  "File:Red Wine Glass.jpg",
+                   "author":  "André Karwath aka Aka",
+                   "licence":  "CC BY-SA 3.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Red_Wine_Glass.jpg",
+                   "query":  "File:Red Wine Glass.jpg"
+               },
+    "sizzling-brownie":  {
+                             "dish":  "Sizzling brownie",
+                             "file":  "sizzling-brownie.jpg",
+                             "title":  "File:Sizzling brownie (2065099914).jpg",
+                             "author":  "Sankarshan Mukhopadhyay from Pune, India",
+                             "licence":  "CC BY-SA 2.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Sizzling_brownie_(2065099914).jpg",
+                             "query":  "Sizzling brownie"
+                         },
+    "smoked-old-fashioned":  {
+                                 "dish":  "Smoked Old Fashioned",
+                                 "file":  "smoked-old-fashioned.jpg",
+                                 "title":  "File:Smoked Old Fashioned, Restaurant R\u0027Evolution, the French Quarter, New Orleans, Louisiana.jpg",
+                                 "author":  "Cory Doctorow",
+                                 "licence":  "CC BY-SA 2.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Smoked_Old_Fashioned,_Restaurant_R%27Evolution,_the_French_Quarter,_New_Orleans,_Louisiana.jpg",
+                                 "query":  "Smoked Old Fashioned"
+                             },
+    "speyside-single-malt-12-yrs":  {
+                                        "dish":  "Speyside single malt, 12 yrs",
+                                        "file":  "speyside-single-malt-12-yrs.jpg",
+                                        "title":  "File:Whisky (5561103311).jpg",
+                                        "author":  "cyclonebill from Copenhagen, Denmark",
+                                        "licence":  "CC BY-SA 2.0",
+                                        "page":  "https://commons.wikimedia.org/wiki/File:Whisky_(5561103311).jpg",
+                                        "query":  "File:Whisky (5561103311).jpg"
+                                    },
+    "stout-on-tap":  {
+                         "dish":  "Stout, on tap",
+                         "file":  "stout-on-tap.jpg",
+                         "title":  "File:A glass of Stout from Cloudwater.jpg",
+                         "author":  "55belgianbeerfan",
+                         "licence":  "CC0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:A_glass_of_Stout_from_Cloudwater.jpg",
+                         "query":  "File:A glass of Stout from Cloudwater.jpg"
+                     },
+    "strong-lager-bottle-650-ml":  {
+                                       "dish":  "Strong lager, bottle (650 ml)",
+                                       "file":  "strong-lager-bottle-650-ml.jpg",
+                                       "title":  "File:Glass beer mug full.jpg",
+                                       "author":  "AxtImHause",
+                                       "licence":  "CC BY 4.0",
+                                       "page":  "https://commons.wikimedia.org/wiki/File:Glass_beer_mug_full.jpg",
+                                       "query":  "File:Glass beer mug full.jpg"
+                                   },
+    "subz-dum-biryani":  {
+                             "dish":  "Subz dum biryani",
+                             "file":  "subz-dum-biryani.jpg",
+                             "title":  "File:Vegetable Biryani IMG 001.jpg",
+                             "author":  "Phadke09",
+                             "licence":  "CC BY-SA 4.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Vegetable_Biryani_IMG_001.jpg",
+                             "query":  "File:Vegetable Biryani IMG 001.jpg"
+                         },
+    "tandoori-broccoli":  {
+                              "dish":  "Tandoori broccoli",
+                              "file":  "tandoori-broccoli.jpg",
+                              "title":  "File:Cerulean Restaurant - 2015-10-15 - Edsel Little 01.jpg",
+                              "author":  "Edsel Little",
+                              "licence":  "CC BY-SA 2.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Cerulean_Restaurant_-_2015-10-15_-_Edsel_Little_01.jpg",
+                              "query":  "Tandoori broccoli"
+                          },
+    "tandoori-chicken":  {
+                             "dish":  "Tandoori chicken",
+                             "file":  "tandoori-chicken.jpg",
+                             "title":  "File:Tandoori chicken Indian.jpg",
+                             "author":  "pelican",
+                             "licence":  "CC BY-SA 2.0",
+                             "page":  "https://commons.wikimedia.org/wiki/File:Tandoori_chicken_Indian.jpg",
+                             "query":  "Tandoori chicken"
+                         },
+    "tandoori-mushroom":  {
+                              "dish":  "Tandoori mushroom",
+                              "file":  "tandoori-mushroom.jpg",
+                              "title":  "File:Mushroom tikkā at Kitchen of Awadh, DLF Phase 4, Gurgaon (2025-09-28).jpg",
+                              "author":  "Contrapunctus-1",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Mushroom_tikk%C4%81_at_Kitchen_of_Awadh,_DLF_Phase_4,_Gurgaon_(2025-09-28).jpg",
+                              "query":  "File:Mushroom tikkā at Kitchen of Awadh, DLF Phase 4, Gurgaon (2025-09-28).jpg"
+                          },
+    "tandoori-roti":  {
+                          "dish":  "Tandoori roti",
+                          "file":  "tandoori-roti.jpg",
+                          "title":  "File:Tandoori Roti in clay oven.JPG",
+                          "author":  "Kamalsahansi",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Tandoori_Roti_in_clay_oven.JPG",
+                          "query":  "Tandoori roti"
+                      },
+    "tequila-slammer":  {
+                            "dish":  "Tequila Slammer",
+                            "file":  "tequila-slammer.jpg",
+                            "title":  "File:Tequila Flag Style (17151507190).jpg",
+                            "author":  "cogdogblog",
+                            "licence":  "CC BY 2.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Tequila_Flag_Style_(17151507190).jpg",
+                            "query":  "File:Tequila Flag Style (17151507190).jpg"
+                        },
+    "tomato-dhaniya-shorba":  {
+                                  "dish":  "Tomato dhaniya shorba",
+                                  "file":  "tomato-dhaniya-shorba.jpg",
+                                  "title":  "File:Tomato soup.jpg",
+                                  "author":  "",
+                                  "licence":  "CC BY-SA 2.0",
+                                  "page":  "https://commons.wikimedia.org/wiki/File:Tomato_soup.jpg",
+                                  "query":  "File:Tomato soup.jpg"
+                              },
+    "tonic-water-or-ginger-ale":  {
+                                      "dish":  "Tonic water or ginger ale",
+                                      "file":  "tonic-water-or-ginger-ale.jpg",
+                                      "title":  "File:Lime tonic water.jpg",
+                                      "author":  "Corn cheese",
+                                      "licence":  "CC BY-SA 4.0",
+                                      "page":  "https://commons.wikimedia.org/wiki/File:Lime_tonic_water.jpg",
+                                      "query":  "File:Lime tonic water.jpg"
+                                  },
+    "truffle-mushroom-risotto":  {
+                                     "dish":  "Truffle mushroom risotto",
+                                     "file":  "truffle-mushroom-risotto.jpg",
+                                     "title":  "File:Mushroom risotto (3990739885).jpg",
+                                     "author":  "Karen and Brad Emerson",
+                                     "licence":  "CC BY 2.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Mushroom_risotto_(3990739885).jpg",
+                                     "query":  "File:Mushroom risotto (3990739885).jpg"
+                                 },
+    "veg-crystal-dim-sum":  {
+                                "dish":  "Veg crystal dim sum",
+                                "file":  "veg-crystal-dim-sum.jpg",
+                                "title":  "File:Har gow (27871753892).jpg",
+                                "author":  "T.Tseng",
+                                "licence":  "CC BY 2.0",
+                                "page":  "https://commons.wikimedia.org/wiki/File:Har_gow_(27871753892).jpg",
+                                "query":  "File:Har gow (27871753892).jpg"
+                            },
+    "veg-hakka-noodles":  {
+                              "dish":  "Veg Hakka noodles",
+                              "file":  "veg-hakka-noodles.jpg",
+                              "title":  "File:Hakka Noodles, Veg Manchurian PK009.jpg",
+                              "author":  "PallaviKhale",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Hakka_Noodles,_Veg_Manchurian_PK009.jpg",
+                              "query":  "Veg Hakka noodles"
+                          },
+    "virgin-guava-mary":  {
+                              "dish":  "Virgin Guava Mary",
+                              "file":  "virgin-guava-mary.jpg",
+                              "title":  "File:Bloody Mary Coctail with celery stalk - Evan Swigart.jpg",
+                              "author":  "Evan Swigart from Chicago, USA",
+                              "licence":  "CC BY 2.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Bloody_Mary_Coctail_with_celery_stalk_-_Evan_Swigart.jpg",
+                              "query":  "File:Bloody Mary Coctail with celery stalk - Evan Swigart.jpg"
+                          },
+    "virgin-mojito":  {
+                          "dish":  "Virgin Mojito",
+                          "file":  "virgin-mojito.jpg",
+                          "title":  "File:Virgin Mojito 01.jpg",
+                          "author":  "Pratishkhedekar",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Virgin_Mojito_01.jpg",
+                          "query":  "File:Virgin Mojito 01.jpg"
+                      },
+    "watermelon-feta-mint-salad":  {
+                                       "dish":  "Watermelon, feta \u0026 mint salad",
+                                       "file":  "watermelon-feta-mint-salad.jpg",
+                                       "title":  "File:Watermelon \u0026 Feta Salad.jpg",
+                                       "author":  "Shoshanah",
+                                       "licence":  "CC BY 2.0",
+                                       "page":  "https://commons.wikimedia.org/wiki/File:Watermelon_%26_Feta_Salad.jpg",
+                                       "query":  "File:Watermelon \u0026 Feta Salad.jpg"
+                                   },
+    "whisky-sour":  {
+                        "dish":  "Whisky Sour",
+                        "file":  "whisky-sour.jpg",
+                        "title":  "File:Free whisky sour at Dubrovnik.jpg",
+                        "author":  "JIP",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Free_whisky_sour_at_Dubrovnik.jpg",
+                        "query":  "Whisky Sour"
+                    },
+    "white-rum":  {
+                      "dish":  "White rum",
+                      "file":  "white-rum.jpg",
+                      "title":  "File:Two shot glasses.jpg",
+                      "author":  "Doug butler",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Two_shot_glasses.jpg",
+                      "query":  "File:Two shot glasses.jpg"
+                  },
+    "zinfandel-rose":  {
+                           "dish":  "Zinfandel rosé",
+                           "file":  "zinfandel-rose.jpg",
+                           "title":  "File:Rose Wine Glass.jpg",
+                           "author":  "E. Dronkert",
+                           "licence":  "CC BY 2.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Rose_Wine_Glass.jpg",
+                           "query":  "File:Rose Wine Glass.jpg"
+                       }
+}

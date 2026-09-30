@@ -1,0 +1,596 @@
+{
+    "badam-milk":  {
+                       "dish":  "Badam milk",
+                       "file":  "badam-milk.jpg",
+                       "title":  "File:A cup of chilled Badam milk.jpg",
+                       "author":  "Thamizhpparithi Maari",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:A_cup_of_chilled_Badam_milk.jpg",
+                       "query":  "File:A cup of chilled Badam milk.jpg"
+                   },
+    "benne-dosa":  {
+                       "dish":  "Benne dosa",
+                       "file":  "benne-dosa.jpg",
+                       "title":  "File:Davanagere Benne Dosa.jpg",
+                       "author":  "Ravi Dwivedi",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Davanagere_Benne_Dosa.jpg",
+                       "query":  "Benne dosa"
+                   },
+    "bisi-bele-bath":  {
+                           "dish":  "Bisi bele bath",
+                           "file":  "bisi-bele-bath.jpg",
+                           "title":  "File:Bisi Bele Bath (Bisibelebath).JPG",
+                           "author":  "Food and Remedy, LLC",
+                           "licence":  "CC BY-SA 3.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Bisi_Bele_Bath_(Bisibelebath).JPG",
+                           "query":  "Bisi bele bath"
+                       },
+    "butter-masala-dosa":  {
+                               "dish":  "Butter masala dosa",
+                               "file":  "butter-masala-dosa.jpg",
+                               "title":  "File:Butter Masala Dosa.png",
+                               "author":  "Sameer.siddhanti",
+                               "licence":  "CC BY-SA 3.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Butter_Masala_Dosa.png",
+                               "query":  "Butter masala dosa"
+                           },
+    "butter-one-cube":  {
+                            "dish":  "Butter (one cube)",
+                            "file":  "butter-one-cube.jpg",
+                            "title":  "File:Block of butter in butter dish.jpg",
+                            "author":  "Qwertyxp2000",
+                            "licence":  "CC BY 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Block_of_butter_in_butter_dish.jpg",
+                            "query":  "File:Block of butter in butter dish.jpg"
+                        },
+    "button-idli-fourteen":  {
+                                 "dish":  "Button idli (fourteen)",
+                                 "file":  "button-idli-fourteen.jpg",
+                                 "title":  "File:Button idli.JPG",
+                                 "author":  "Randhirreddy at English Wikipedia",
+                                 "licence":  "CC BY-SA 3.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Button_idli.JPG",
+                                 "query":  "Button idli"
+                             },
+    "cheese-masala-dosa":  {
+                               "dish":  "Cheese masala dosa",
+                               "file":  "cheese-masala-dosa.jpg",
+                               "title":  "File:Cheese paneer dosa.jpg",
+                               "author":  "Murale Vaishnavi",
+                               "licence":  "CC BY-SA 4.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Cheese_paneer_dosa.jpg",
+                               "query":  "cheese dosa"
+                           },
+    "cheese-uttapam":  {
+                           "dish":  "Cheese uttapam",
+                           "file":  "cheese-uttapam.jpg",
+                           "title":  "File:Mixed uthappam at Marksmen, Hazratganj, Lucknow (2025-08-02).jpg",
+                           "author":  "Contrapunctus-1",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Mixed_uthappam_at_Marksmen,_Hazratganj,_Lucknow_(2025-08-02).jpg",
+                           "query":  "Cheese uttapam"
+                       },
+    "chow-chow-bath":  {
+                           "dish":  "Chow chow bath",
+                           "file":  "chow-chow-bath.jpg",
+                           "title":  "File:Chow chow bath ( khara bath \u0026 kesari bath ).jpg",
+                           "author":  "Apoorva lakshmi",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Chow_chow_bath_(_khara_bath_%26_kesari_bath_).jpg",
+                           "query":  "Chow chow bath"
+                       },
+    "curd-bowl":  {
+                      "dish":  "Curd (bowl)",
+                      "file":  "curd-bowl.jpg",
+                      "title":  "File:Plain Curd Rice.jpg",
+                      "author":  "5boi38",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Plain_Curd_Rice.jpg",
+                      "query":  "dahi curd bowl"
+                  },
+    "curd-rice":  {
+                      "dish":  "Curd rice",
+                      "file":  "curd-rice.jpg",
+                      "title":  "File:Curd rice in ICH Bhopal.jpg",
+                      "author":  "Suyash Dwivedi",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Curd_rice_in_ICH_Bhopal.jpg",
+                      "query":  "Curd rice"
+                  },
+    "dahi-vada":  {
+                      "dish":  "Dahi vada",
+                      "file":  "dahi-vada.jpg",
+                      "title":  "File:Odia Style Dahi bara Puri Odisha-IMG 953.jpg",
+                      "author":  "Subhransuphotography",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Odia_Style_Dahi_bara_Puri_Odisha-IMG_953.jpg",
+                      "query":  "Dahi vada"
+                  },
+    "extra-chutney":  {
+                          "dish":  "Extra chutney",
+                          "file":  "extra-chutney.jpg",
+                          "title":  "File:Butter Dosa served with coconut chutney and sambhar.jpg",
+                          "author":  "Ravi Dwivedi",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Butter_Dosa_served_with_coconut_chutney_and_sambhar.jpg",
+                          "query":  "coconut chutney"
+                      },
+    "extra-sambar":  {
+                         "dish":  "Extra sambar",
+                         "file":  "extra-sambar.jpg",
+                         "title":  "File:Boiled yellow lentil tomato ginger garlic.jpg",
+                         "author":  "CNEcija12345",
+                         "licence":  "CC BY-SA 4.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Boiled_yellow_lentil_tomato_ginger_garlic.jpg",
+                         "query":  "sambar lentil"
+                     },
+    "filter-coffee":  {
+                          "dish":  "Filter coffee",
+                          "file":  "filter-coffee.jpg",
+                          "title":  "File:Indian filter coffee in Dabarah.jpg",
+                          "author":  "",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Indian_filter_coffee_in_Dabarah.jpg",
+                          "query":  "Filter coffee"
+                      },
+    "fresh-lime-soda":  {
+                            "dish":  "Fresh lime soda",
+                            "file":  "fresh-lime-soda.jpg",
+                            "title":  "File:Fresh Lime.JPG",
+                            "author":  "Siddhantsahni28",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Fresh_Lime.JPG",
+                            "query":  "Fresh lime soda"
+                        },
+    "ghee-one-spoon":  {
+                           "dish":  "Ghee (one spoon)",
+                           "file":  "ghee-one-spoon.jpg",
+                           "title":  "File:Ghee 2.jpg",
+                           "author":  "Gaurav Dhwaj Khadka",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Ghee_2.jpg",
+                           "query":  "ghee clarified butter"
+                       },
+    "ghee-rice-with-veg-kurma":  {
+                                     "dish":  "Ghee rice with veg kurma",
+                                     "file":  "ghee-rice-with-veg-kurma.jpg",
+                                     "title":  "File:Ghee Rice and Beef Kondattam.jpg",
+                                     "author":  "Ayshamarjana",
+                                     "licence":  "CC BY-SA 4.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:Ghee_Rice_and_Beef_Kondattam.jpg",
+                                     "query":  "ghee rice"
+                                 },
+    "ghee-roast-dosa":  {
+                            "dish":  "Ghee roast dosa",
+                            "file":  "ghee-roast-dosa.jpg",
+                            "title":  "File:Ghee roast 05.jpg",
+                            "author":  "Vis M",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Ghee_roast_05.jpg",
+                            "query":  "Ghee roast dosa"
+                        },
+    "goli-baje":  {
+                      "dish":  "Goli baje",
+                      "file":  "goli-baje.jpg",
+                      "title":  "File:Goli baje or Mangalore bajji.jpg",
+                      "author":  "Rayabhari",
+                      "licence":  "CC BY-SA 3.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Goli_baje_or_Mangalore_bajji.jpg",
+                      "query":  "Goli baje"
+                  },
+    "gulab-jamun-two":  {
+                            "dish":  "Gulab jamun (two)",
+                            "file":  "gulab-jamun-two.jpg",
+                            "title":  "File:Two Gulab Jamun in a plate 01.jpg",
+                            "author":  "Suyash.dwivedi",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Two_Gulab_Jamun_in_a_plate_01.jpg",
+                            "query":  "Gulab jamun"
+                        },
+    "idli-two":  {
+                     "dish":  "Idli (two)",
+                     "file":  "idli-two.jpg",
+                     "title":  "File:Idli Sambar.JPG",
+                     "author":  "Soumya dey at English Wikipedia",
+                     "licence":  "CC BY-SA 3.0",
+                     "page":  "https://commons.wikimedia.org/wiki/File:Idli_Sambar.JPG",
+                     "query":  "Idli"
+                 },
+    "idli-vada-combo":  {
+                            "dish":  "Idli–vada combo",
+                            "file":  "idli-vada-combo.jpg",
+                            "title":  "File:Idli vada (Tirupati, Andrapradesh).jpg",
+                            "author":  "ChiK",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Idli_vada_(Tirupati,_Andrapradesh).jpg",
+                            "query":  "idli vada"
+                        },
+    "jalebi":  {
+                   "dish":  "Jalebi",
+                   "file":  "jalebi.jpg",
+                   "title":  "File:Jalebi PK013.jpg",
+                   "author":  "PallaviKhale",
+                   "licence":  "CC BY-SA 4.0",
+                   "page":  "https://commons.wikimedia.org/wiki/File:Jalebi_PK013.jpg",
+                   "query":  "Jalebi"
+               },
+    "kesari-bath":  {
+                        "dish":  "Kesari bath",
+                        "file":  "kesari-bath.jpg",
+                        "title":  "File:Kesari bhath.jpg",
+                        "author":  "AntanO",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Kesari_bhath.jpg",
+                        "query":  "Kesari bath"
+                    },
+    "lemon-rice":  {
+                       "dish":  "Lemon rice",
+                       "file":  "lemon-rice.jpg",
+                       "title":  "File:Lemon Rice in Kerala.jpg",
+                       "author":  "Ganesh Gore",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Lemon_Rice_in_Kerala.jpg",
+                       "query":  "Lemon rice"
+                   },
+    "mangalore-buns":  {
+                           "dish":  "Mangalore buns",
+                           "file":  "mangalore-buns.jpg",
+                           "title":  "File:Banana puri.jpg",
+                           "author":  "Vidya pmysore",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Banana_puri.jpg",
+                           "query":  "banana buns"
+                       },
+    "masala-chai":  {
+                        "dish":  "Masala chai",
+                        "file":  "masala-chai.jpg",
+                        "title":  "File:Masala Chai.jpg",
+                        "author":  "Ganesh Mohan T",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Masala_Chai.jpg",
+                        "query":  "Masala chai"
+                    },
+    "masala-dosa":  {
+                        "dish":  "Masala dosa",
+                        "file":  "masala-dosa.jpg",
+                        "title":  "File:Masala dosa 01.jpg",
+                        "author":  "Marajozkee",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Masala_dosa_01.jpg",
+                        "query":  "Masala dosa"
+                    },
+    "medu-vada-two":  {
+                          "dish":  "Medu vada (two)",
+                          "file":  "medu-vada-two.jpg",
+                          "title":  "File:ഉഴുന്നുവടകൾ.JPG",
+                          "author":  "Sugeesh at ml.wikipedia",
+                          "licence":  "CC BY-SA 3.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:%E0%B4%89%E0%B4%B4%E0%B5%81%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%81%E0%B4%B5%E0%B4%9F%E0%B4%95%E0%B5%BE.JPG",
+                          "query":  "Medu vada"
+                      },
+    "mini-meals":  {
+                       "dish":  "Mini meals",
+                       "file":  "mini-meals.jpg",
+                       "title":  "File:South Indian Thali Cropped.jpg",
+                       "author":  "Tracy Hunter",
+                       "licence":  "CC BY 2.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:South_Indian_Thali_Cropped.jpg",
+                       "query":  "south indian thali"
+                   },
+    "mirchi-bajji":  {
+                         "dish":  "Mirchi bajji",
+                         "file":  "mirchi-bajji.jpg",
+                         "title":  "File:Stuffed mirchi bajji (16164286908).jpg",
+                         "author":  "balu from fremont, ca, usa",
+                         "licence":  "CC BY 2.0",
+                         "page":  "https://commons.wikimedia.org/wiki/File:Stuffed_mirchi_bajji_(16164286908).jpg",
+                         "query":  "Mirchi bajji"
+                     },
+    "mixed-veg-uttapam":  {
+                              "dish":  "Mixed veg uttapam",
+                              "file":  "mixed-veg-uttapam.jpg",
+                              "title":  "File:Mixed uthappam at Marksmen, Hazratganj, Lucknow (2025-08-02).jpg",
+                              "author":  "Contrapunctus-1",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Mixed_uthappam_at_Marksmen,_Hazratganj,_Lucknow_(2025-08-02).jpg",
+                              "query":  "File:Mixed uthappam at Marksmen, Hazratganj, Lucknow (2025-08-02).jpg"
+                          },
+    "mysore-bonda-four":  {
+                              "dish":  "Mysore bonda (four)",
+                              "file":  "mysore-bonda-four.jpg",
+                              "title":  "File:Aloo Bonda 1.jpg",
+                              "author":  "లలిత వూరకరణం",
+                              "licence":  "CC BY-SA 4.0",
+                              "page":  "https://commons.wikimedia.org/wiki/File:Aloo_Bonda_1.jpg",
+                              "query":  "File:Aloo Bonda 1.jpg"
+                          },
+    "mysore-masala-dosa":  {
+                               "dish":  "Mysore masala dosa",
+                               "file":  "mysore-masala-dosa.jpg",
+                               "title":  "File:Mysore masala dosa in Mysuru, July 2013.jpg",
+                               "author":  "Sunnya343",
+                               "licence":  "CC BY-SA 4.0",
+                               "page":  "https://commons.wikimedia.org/wiki/File:Mysore_masala_dosa_in_Mysuru,_July_2013.jpg",
+                               "query":  "Mysore masala dosa"
+                           },
+    "mysore-pak-two-pieces":  {
+                                  "dish":  "Mysore pak (two pieces)",
+                                  "file":  "mysore-pak-two-pieces.jpg",
+                                  "title":  "File:Ghee Mysore Pak.jpg",
+                                  "author":  "Vaidehi Pujary",
+                                  "licence":  "CC BY-SA 4.0",
+                                  "page":  "https://commons.wikimedia.org/wiki/File:Ghee_Mysore_Pak.jpg",
+                                  "query":  "Mysore pak"
+                              },
+    "neer-dosa-three":  {
+                            "dish":  "Neer dosa (three)",
+                            "file":  "neer-dosa-three.jpg",
+                            "title":  "File:Neer Dosa( Neer Tellavu).jpg",
+                            "author":  "Yakshitha",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Neer_Dosa(_Neer_Tellavu).jpg",
+                            "query":  "Neer dosa"
+                        },
+    "neer-majjige-spiced-buttermilk":  {
+                                           "dish":  "Neer majjige (spiced buttermilk)",
+                                           "file":  "neer-majjige-spiced-buttermilk.jpg",
+                                           "title":  "File:Buttermilk glass (cropped).jpg",
+                                           "author":  "Dr. Satish Upalkar",
+                                           "licence":  "CC BY-SA 4.0",
+                                           "page":  "https://commons.wikimedia.org/wiki/File:Buttermilk_glass_(cropped).jpg",
+                                           "query":  "buttermilk glass"
+                                       },
+    "obbattu-holige":  {
+                           "dish":  "Obbattu (holige)",
+                           "file":  "obbattu-holige.jpg",
+                           "title":  "File:Obbattu.jpg",
+                           "author":  "GaneshDatta (talk) (Uploads)",
+                           "licence":  "CC BY 3.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Obbattu.jpg",
+                           "query":  "Obbattu"
+                       },
+    "onion-tomato-uttapam":  {
+                                 "dish":  "Onion tomato uttapam",
+                                 "file":  "onion-tomato-uttapam.jpg",
+                                 "title":  "File:Onion-Tomato Uttapam.jpg",
+                                 "author":  "Nish1892",
+                                 "licence":  "CC BY-SA 4.0",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Onion-Tomato_Uttapam.jpg",
+                                 "query":  "Onion tomato uttapam"
+                             },
+    "open-butter-masala-dosa":  {
+                                    "dish":  "Open butter masala dosa",
+                                    "file":  "open-butter-masala-dosa.jpg",
+                                    "title":  "File:Open butter masale dose.jpg",
+                                    "author":  "Gangaasoonu",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Open_butter_masale_dose.jpg",
+                                    "query":  "Open butter masala dosa"
+                                },
+    "paper-dosa-family-size":  {
+                                   "dish":  "Paper dosa (family size)",
+                                   "file":  "paper-dosa-family-size.jpg",
+                                   "title":  "File:Dosa 4.jpg",
+                                   "author":  "Sri Namagiri Mahalakshmi Baskaran",
+                                   "licence":  "CC BY 3.0",
+                                   "page":  "https://commons.wikimedia.org/wiki/File:Dosa_4.jpg",
+                                   "query":  "Paper dosa"
+                               },
+    "pav-bhaji":  {
+                      "dish":  "Pav bhaji",
+                      "file":  "pav-bhaji.jpg",
+                      "title":  "File:Bhaji pav 2.jpg",
+                      "author":  "BHAAGIi",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Bhaji_pav_2.jpg",
+                      "query":  "Pav bhaji"
+                  },
+    "payasam":  {
+                    "dish":  "Payasam",
+                    "file":  "payasam.jpg",
+                    "title":  "File:Kheer (Payasam).jpg",
+                    "author":  "Ayshamarjana",
+                    "licence":  "CC BY-SA 4.0",
+                    "page":  "https://commons.wikimedia.org/wiki/File:Kheer_(Payasam).jpg",
+                    "query":  "Payasam"
+                },
+    "pesarattu":  {
+                      "dish":  "Pesarattu",
+                      "file":  "pesarattu.jpg",
+                      "title":  "File:Pesarattu.jpg",
+                      "author":  "Ryallabandi at en.wikipedia",
+                      "licence":  "CC BY-SA 3.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Pesarattu.jpg",
+                      "query":  "Pesarattu"
+                  },
+    "plain-dosa":  {
+                       "dish":  "Plain dosa",
+                       "file":  "plain-dosa.jpg",
+                       "title":  "File:Plain Dosa from North India.jpg",
+                       "author":  "Libreravi",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Plain_Dosa_from_North_India.jpg",
+                       "query":  "Plain dosa"
+                   },
+    "plain-uttapam":  {
+                          "dish":  "Plain uttapam",
+                          "file":  "plain-uttapam.jpg",
+                          "title":  "File:Uthappam with chutney.jpg",
+                          "author":  "Amol Sinha",
+                          "licence":  "CC BY-SA 4.0",
+                          "page":  "https://commons.wikimedia.org/wiki/File:Uthappam_with_chutney.jpg",
+                          "query":  "File:Uthappam with chutney.jpg"
+                      },
+    "podi-ghee-idli":  {
+                           "dish":  "Podi ghee idli",
+                           "file":  "podi-ghee-idli.jpg",
+                           "title":  "File:Ghee Podi Idli - Murugan Idli Shop, Chennai - TamilNadu - PXL0246.jpg",
+                           "author":  "Harikrishnan N",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Ghee_Podi_Idli_-_Murugan_Idli_Shop,_Chennai_-_TamilNadu_-_PXL0246.jpg",
+                           "query":  "Podi ghee idli"
+                       },
+    "puliyogare-tamarind-rice":  {
+                                     "dish":  "Puliyogare (tamarind rice)",
+                                     "file":  "puliyogare-tamarind-rice.jpg",
+                                     "title":  "File:LEMON PULIHORA.JPG",
+                                     "author":  "Mkr.lines",
+                                     "licence":  "CC BY-SA 4.0",
+                                     "page":  "https://commons.wikimedia.org/wiki/File:LEMON_PULIHORA.JPG",
+                                     "query":  "Puliyogare"
+                                 },
+    "ragi-dosa":  {
+                      "dish":  "Ragi dosa",
+                      "file":  "ragi-dosa.jpg",
+                      "title":  "File:Ragi Dosa Mumbai.jpg",
+                      "author":  "Pradeep717",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Ragi_Dosa_Mumbai.jpg",
+                      "query":  "Ragi dosa"
+                  },
+    "rasam-rice":  {
+                       "dish":  "Rasam rice",
+                       "file":  "rasam-rice.jpg",
+                       "title":  "File:Midday meals with rasam,pappad,plantain shaft fry and cooked rice.JPG",
+                       "author":  "V.S.Pooja",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Midday_meals_with_rasam,pappad,plantain_shaft_fry_and_cooked_rice.JPG",
+                       "query":  "Rasam rice"
+                   },
+    "rava-idli":  {
+                      "dish":  "Rava idli",
+                      "file":  "rava-idli.jpg",
+                      "title":  "File:MTR Rava Idli.jpg",
+                      "author":  "Maharana7573",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:MTR_Rava_Idli.jpg",
+                      "query":  "Rava idli"
+                  },
+    "rava-onion-dosa":  {
+                            "dish":  "Rava onion dosa",
+                            "file":  "rava-onion-dosa.jpg",
+                            "title":  "File:Rava onion masala dosa at Udupi Upahar, Wilson Garden, Bangalore (2025-09-19).jpg",
+                            "author":  "Contrapunctus-1",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Rava_onion_masala_dosa_at_Udupi_Upahar,_Wilson_Garden,_Bangalore_(2025-09-19).jpg",
+                            "query":  "Rava onion dosa"
+                        },
+    "rose-milk":  {
+                      "dish":  "Rose milk",
+                      "file":  "rose-milk.jpg",
+                      "title":  "File:Rose milk ice cream with candied pistachios.jpg",
+                      "author":  "Bhuvana Meenakshi",
+                      "licence":  "CC BY-SA 4.0",
+                      "page":  "https://commons.wikimedia.org/wiki/File:Rose_milk_ice_cream_with_candied_pistachios.jpg",
+                      "query":  "Rose milk"
+                  },
+    "sambar-idli-two":  {
+                            "dish":  "Sambar idli (two)",
+                            "file":  "sambar-idli-two.jpg",
+                            "title":  "File:Idli Sambar-Noida-UP-SP004.jpg",
+                            "author":  "Sutapa Pal",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:Idli_Sambar-Noida-UP-SP004.jpg",
+                            "query":  "Sambar idli"
+                        },
+    "sambar-vada-two":  {
+                            "dish":  "Sambar vada (two)",
+                            "file":  "sambar-vada-two.jpg",
+                            "title":  "File:COMBO OF SAMBAR VADA WITH GULAB JAMUN.jpg",
+                            "author":  "Trishahitk2012",
+                            "licence":  "CC BY-SA 4.0",
+                            "page":  "https://commons.wikimedia.org/wiki/File:COMBO_OF_SAMBAR_VADA_WITH_GULAB_JAMUN.jpg",
+                            "query":  "Sambar vada"
+                        },
+    "seasonal-fresh-juice":  {
+                                 "dish":  "Seasonal fresh juice",
+                                 "file":  "seasonal-fresh-juice.jpg",
+                                 "title":  "File:Orange juice 1 edit1.jpg",
+                                 "author":  "Agency of the United States Department of Agriculture Edited Version by: Arad",
+                                 "licence":  "Public domain",
+                                 "page":  "https://commons.wikimedia.org/wiki/File:Orange_juice_1_edit1.jpg",
+                                 "query":  "orange juice glass"
+                             },
+    "set-dosa-three":  {
+                           "dish":  "Set dosa (three)",
+                           "file":  "set-dosa-three.jpg",
+                           "title":  "File:SouthIndianDosas.jpg",
+                           "author":  "Amar Nath Adak",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:SouthIndianDosas.jpg",
+                           "query":  "set dosa sagu"
+                       },
+    "south-indian-meals-on-a-banana-leaf":  {
+                                                "dish":  "South Indian meals on a banana leaf",
+                                                "file":  "south-indian-meals-on-a-banana-leaf.jpg",
+                                                "title":  "File:South indian meals 24.jpg",
+                                                "author":  "Swathi sri srinivasa raghavan",
+                                                "licence":  "CC0",
+                                                "page":  "https://commons.wikimedia.org/wiki/File:South_indian_meals_24.jpg",
+                                                "query":  "South Indian meals on a banana leaf"
+                                            },
+    "special-thali-unlimited":  {
+                                    "dish":  "Special thali (unlimited)",
+                                    "file":  "special-thali-unlimited.jpg",
+                                    "title":  "File:Thali with special taste.JPG",
+                                    "author":  "babinbubun",
+                                    "licence":  "CC BY-SA 4.0",
+                                    "page":  "https://commons.wikimedia.org/wiki/File:Thali_with_special_taste.JPG",
+                                    "query":  "Special thali"
+                                },
+    "spring-dosa":  {
+                        "dish":  "Spring dosa",
+                        "file":  "spring-dosa.jpg",
+                        "title":  "File:Hyderabadi Spring Dosa - Bajrang Dosa - Jamnagar, Gujarat.jpg",
+                        "author":  "Mon!l1991",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Hyderabadi_Spring_Dosa_-_Bajrang_Dosa_-_Jamnagar,_Gujarat.jpg",
+                        "query":  "Spring dosa"
+                    },
+    "tender-coconut":  {
+                           "dish":  "Tender coconut",
+                           "file":  "tender-coconut.jpg",
+                           "title":  "File:Coconuts - single and cracked open.jpg",
+                           "author":  "Ivar Leidus",
+                           "licence":  "CC BY-SA 4.0",
+                           "page":  "https://commons.wikimedia.org/wiki/File:Coconuts_-_single_and_cracked_open.jpg",
+                           "query":  "Tender coconut"
+                       },
+    "thatte-idli":  {
+                        "dish":  "Thatte idli",
+                        "file":  "thatte-idli.jpg",
+                        "title":  "File:Thatte Idli (2).jpg",
+                        "author":  "solarisgirl from pune, india",
+                        "licence":  "CC BY-SA 2.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Thatte_Idli_(2).jpg",
+                        "query":  "Thatte idli"
+                    },
+    "tomato-rice":  {
+                        "dish":  "Tomato rice",
+                        "file":  "tomato-rice.jpg",
+                        "title":  "File:Parboiled rice with chicken, peppers, cucurbita, peas and tomato.jpg",
+                        "author":  "Petar Milošević",
+                        "licence":  "CC BY-SA 4.0",
+                        "page":  "https://commons.wikimedia.org/wiki/File:Parboiled_rice_with_chicken,_peppers,_cucurbita,_peas_and_tomato.jpg",
+                        "query":  "Tomato rice"
+                    },
+    "upma":  {
+                 "dish":  "Upma",
+                 "file":  "upma.jpg",
+                 "title":  "File:Upma South India.JPG",
+                 "author":  "Intodustin",
+                 "licence":  "CC BY-SA 4.0",
+                 "page":  "https://commons.wikimedia.org/wiki/File:Upma_South_India.JPG",
+                 "query":  "Upma"
+             },
+    "vangi-bath":  {
+                       "dish":  "Vangi bath",
+                       "file":  "vangi-bath.jpg",
+                       "title":  "File:Vaanghi Baath.jpg",
+                       "author":  "Sherin",
+                       "licence":  "CC BY-SA 4.0",
+                       "page":  "https://commons.wikimedia.org/wiki/File:Vaanghi_Baath.jpg",
+                       "query":  "Vangi bath"
+                   }
+}

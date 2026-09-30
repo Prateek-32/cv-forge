@@ -14,13 +14,15 @@
        { name: {en,hi,mr} | 'text', desc: {…} | 'text', price: 180 | '180 / 240',
          sizes: ['30 ml', '60 ml'],            // optional: one label per price
          type: 'veg' | 'nonveg' | 'egg' | 'none', // 'none' = no mark (drinks)
-         tags: ['best','spicy','new','chef','jain','signature','zero'] }
+         tags: ['best','spicy','new','chef','jain','signature','zero'],
+         img: 'img/dish.jpg' }                 // optional square-ish thumbnail
      ]}],
      // optional extras
      groups: [{ id: 'food', name: {…} }, { id: 'bar', name: {…} }],  // top-level switch
      notice: {…},        // a strip under the header (happy hours, "kitchen closes at…")
      cover: 'photo.jpg', // a photo behind the header
-     footerNote: {…}     // e.g. responsible drinking
+     footerNote: {…},    // e.g. responsible drinking
+     photoCredits: 'img/credits.html' // link to photo attributions
    }
 */
 (function () {
@@ -33,21 +35,21 @@
           best: 'Bestseller', spicy: 'Spicy', new: 'New', chef: "Chef's pick", jain: 'Jain available',
           signature: 'Signature', zero: 'Zero-proof', search_all: 'Searching the whole menu',
           prices: 'Prices in ₹. Taxes as applicable.', allergy: 'Please tell our staff about any allergies.',
-          call: 'Call', hours: 'Open', wifi: 'Wi-Fi', by: 'Menu by Fieldcraft', items: 'dishes',
+          call: 'Call', hours: 'Open', wifi: 'Wi-Fi', by: 'Menu by Fieldcraft', items: 'dishes', photos: 'Dish photo credits',
           vegMark: 'Vegetarian', nonvegMark: 'Non-vegetarian', eggMark: 'Contains egg', clear: 'Clear',
           demo: 'Sample menu for a made-up restaurant', demoCta: 'Get one for your restaurant', lang: 'Language' },
     hi: { search: 'मेन्यू में खोजें', veg: 'केवल शाकाहारी', none: 'कोई डिश नहीं मिली। कोई और शब्द आज़माएँ।',
           best: 'बेस्टसेलर', spicy: 'तीखा', new: 'नया', chef: 'शेफ़ की पसंद', jain: 'जैन उपलब्ध',
           signature: 'सिग्नेचर', zero: 'बिना अल्कोहल', search_all: 'पूरे मेन्यू में खोज',
           prices: 'कीमतें ₹ में। कर लागू।', allergy: 'किसी भी एलर्जी के बारे में हमारे स्टाफ़ को बताएँ।',
-          call: 'कॉल करें', hours: 'खुला', wifi: 'वाई-फ़ाई', by: 'मेन्यू: Fieldcraft', items: 'डिश',
+          call: 'कॉल करें', hours: 'खुला', wifi: 'वाई-फ़ाई', by: 'मेन्यू: Fieldcraft', items: 'डिश', photos: 'डिश फ़ोटो क्रेडिट',
           vegMark: 'शाकाहारी', nonvegMark: 'मांसाहारी', eggMark: 'अंडा युक्त', clear: 'हटाएँ',
           demo: 'एक काल्पनिक रेस्टोरेंट का सैंपल मेन्यू', demoCta: 'अपने रेस्टोरेंट के लिए बनवाएँ', lang: 'भाषा' },
     mr: { search: 'मेनूमध्ये शोधा', veg: 'फक्त शाकाहारी', none: 'एकही पदार्थ सापडला नाही. दुसरा शब्द वापरून पाहा.',
           best: 'बेस्टसेलर', spicy: 'तिखट', new: 'नवीन', chef: 'शेफची निवड', jain: 'जैन उपलब्ध',
           signature: 'सिग्नेचर', zero: 'अल्कोहोलशिवाय', search_all: 'संपूर्ण मेनूमध्ये शोध',
           prices: 'किमती ₹ मध्ये. कर लागू.', allergy: 'कोणत्याही ॲलर्जीबद्दल आमच्या कर्मचाऱ्यांना सांगा.',
-          call: 'कॉल करा', hours: 'सुरू', wifi: 'वाय-फाय', by: 'मेनू: Fieldcraft', items: 'पदार्थ',
+          call: 'कॉल करा', hours: 'सुरू', wifi: 'वाय-फाय', by: 'मेनू: Fieldcraft', items: 'पदार्थ', photos: 'फोटो श्रेय',
           vegMark: 'शाकाहारी', nonvegMark: 'मांसाहारी', eggMark: 'अंडे असलेले', clear: 'काढा',
           demo: 'एका काल्पनिक रेस्टॉरंटचा नमुना मेनू', demoCta: 'तुमच्या रेस्टॉरंटसाठी बनवा', lang: 'भाषा' }
   };
@@ -231,6 +233,7 @@
         '</span><span>' + mark('nonveg') + ' ' + esc(u('nonvegMark')) + '</span></div>' +
       '<p>' + esc(u('prices')) + ' ' + esc(u('allergy')) + '</p>' +
       (M.footerNote ? '<p class="mn-footnote">' + esc(t(M.footerNote)) + '</p>' : '') +
+      (M.photoCredits ? '<p class="mn-footnote"><a href="' + esc(M.photoCredits) + '">' + esc(u('photos')) + '</a></p>' : '') +
       (M.hideCredit ? '' : '<a class="mn-by" href="https://fieldcraft.co.in/business.html#qr-menu" target="_blank" rel="noopener">' + esc(u('by')) + '</a>');
   }
 
