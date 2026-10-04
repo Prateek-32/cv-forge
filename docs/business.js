@@ -41,7 +41,8 @@
   var wantType = TYPE_FROM[(params.get('type') || '').toLowerCase()];
   if (wantType) form.elements.type.value = wantType;
   var need = params.get('need');
-  var ticks = { website: ['Website'], qr: ['QR menu'], both: ['Website', 'QR menu'] }[need] ||
+  var TRIAL = 'Free 7-day QR menu trial';
+  var ticks = { website: ['Website'], qr: ['QR menu'], both: ['Website', 'QR menu'], trial: [TRIAL] }[need] ||
               (params.get('type') ? ['Website'] : []);
   Array.prototype.forEach.call(form.querySelectorAll('input[name="need"]'), function (b) {
     if (ticks.indexOf(b.value) > -1) b.checked = true;
@@ -63,9 +64,11 @@
   var syncWa = function () {
     if (!wa) return;
     var bits = ['Hi Fieldcraft, I would like a quote'];
-    var what = needs().filter(function (n) { return n !== 'Not sure yet'; })
+    var picked = needs();
+    var what = picked.filter(function (n) { return n !== 'Not sure yet' && n !== TRIAL; })
       .map(function (n) { return n === 'Website' ? 'website' : n; });
     if (what.length) bits[0] += ' for a ' + what.join(' and a ');
+    if (picked.indexOf(TRIAL) > -1) bits[0] = what.length ? bits[0] + ', and the free 7-day QR menu trial' : 'Hi Fieldcraft, I would like the free 7-day QR menu trial';
     if (val('business')) bits.push('Business: ' + val('business') + ' (' + val('type') + (val('area') ? ', ' + val('area') : '') + ')');
     wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(bits.join('\n'));
   };
