@@ -301,14 +301,24 @@
   var BIZ = document.documentElement.classList.contains('biz');
   var BIZ_PRICES = {
     qr: 1499, qrLarge: 2499, onePage: 3999, fullSite: 6999,
-    onePageQr: 4999, fullSiteQr: 7999, yearly: 799
+    onePageQr: 4999, fullSiteQr: 7999, yearly: 799,
+    founding: 999   // QR menu, for the first 5 restaurants who keep their free trial
   };
   var rs = function (n) { return R + String(n).replace(/(\d)(\d{3})$/, '$1,$2'); };
 
   var BIZ_TOPICS = [
     { id: 'greet', keys: ['hi', 'hello', 'hey', 'hii', 'namaste', 'namaskar', 'good morning', 'good evening', 'good afternoon'],
-      answer: function () { return 'Hi! I can help with prices for QR menus and websites, how long they take, how updates work, or what happens after the first year. What would you like to know?'; },
-      chips: ['bprices', 'bqr', 'bsite', 'bturnaround'] },
+      answer: function () { return 'Hi! I can help with prices for QR menus and websites, the free 7-day QR menu trial, how long things take, or what happens after the first year. What would you like to know?'; },
+      chips: ['bprices', 'btrial', 'bqr', 'bsite'] },
+
+    { id: 'btrial', keys: ['trial', 'free trial', 'try', 'try it', 'try first', 'test', 'testing', 'try for free', 'free week', 'free for a week', 'before paying', 'before i pay', 'risk', 'not sure',
+                           'founding', 'founding offer', '999'],
+      answer: function () {
+        return 'QR menus come with a <strong>free 7-day trial</strong> for the first 10 restaurants. Send your menu, we set it up in 2–3 days, and you use it on your tables for a week — no payment and no card details. ' +
+          'If you keep it, the first 5 pay a founding price of <strong>' + rs(BIZ_PRICES.founding) + '</strong> instead of ' + rs(BIZ_PRICES.qr) + '. If not, you pay nothing and we take it down. ' +
+          'Websites are not part of the trial, but you see a full preview before you pay. <a href="#trial">How the trial works</a>';
+      },
+      chips: ['bsend', 'bqr', 'bstart'] },
 
     { id: 'thanks', keys: ['thanks', 'thank', 'thx', 'ty', 'dhanyavad', 'shukriya', 'great', 'awesome', 'perfect', 'ok thanks'],
       answer: function () { return 'Happy to help. The <a href="#enquire">quote form</a> takes two minutes, or just WhatsApp us a photo of your menu — nothing is charged until you approve what we build.'; },
@@ -317,9 +327,9 @@
     { id: 'bqr', keys: ['qr', 'qr menu', 'qr code', 'digital menu', 'menu card', 'e menu', 'scan', 'scanner', 'restaurant', 'restaurants', 'cafe', 'hotel', 'dhaba', 'bar', 'pub', 'food menu'],
       answer: function () {
         return 'A <strong>QR menu</strong> is <strong>' + rs(BIZ_PRICES.qr) + ' one-time</strong> for up to about 60 dishes, or <strong>' + rs(BIZ_PRICES.qrLarge) + '</strong> for 60–150 dishes or separate food and bar menus. ' +
-          'That includes English, Hindi and Marathi, veg / non-veg / egg marks, search, a table card design, and a year of updates. It is live in 2–3 days. <a href="menu/monsoon-cafe/">Try the demo menu</a>';
+          'That includes English, Hindi and Marathi, veg / non-veg / egg marks, search, a table card design, and a year of updates. It is live in 2–3 days, and you can <a href="#trial">try it free for 7 days</a> first. <a href="menu/monsoon-cafe/">Try the demo menu</a>';
       },
-      chips: ['brenew', 'bupdates', 'bprint', 'bstart'] },
+      chips: ['btrial', 'brenew', 'bupdates', 'bstart'] },
 
     { id: 'bsite', keys: ['website', 'site', 'web', 'webpage', 'web page', 'online presence', 'landing page', 'business page', 'one page', 'pages'],
       answer: function () {
@@ -348,9 +358,10 @@
         return 'Launch prices, all one-time:<br>• QR menu — ' + rs(BIZ_PRICES.qr) + ' (large menus ' + rs(BIZ_PRICES.qrLarge) + ')' +
           '<br>• One-page website — ' + rs(BIZ_PRICES.onePage) + '<br>• Full website — ' + rs(BIZ_PRICES.fullSite) +
           '<br>• Website + QR menu — from ' + rs(BIZ_PRICES.onePageQr) +
-          '<br>No monthly fee: the first year is included, then ' + rs(BIZ_PRICES.yearly) + ' a year. <a href="#prices">All prices</a>';
+          '<br>No monthly fee: the first year is included, then ' + rs(BIZ_PRICES.yearly) + ' a year.' +
+          '<br>QR menus: a free 7-day trial for the first 10 restaurants. <a href="#prices">All prices</a>';
       },
-      chips: ['brenew', 'bpayment', 'bturnaround'] },
+      chips: ['btrial', 'brenew', 'bpayment'] },
 
     { id: 'bupdates', keys: ['update', 'updates', 'change price', 'change prices', 'price change', 'new dish', 'new item', 'sold out', 'edit menu', 'change menu', 'reprint', 'change', 'edit', 'modify'],
       answer: function () {
@@ -390,9 +401,10 @@
 
     { id: 'bpayment', keys: ['pay', 'payment', 'upi', 'gpay', 'google pay', 'phonepe', 'paytm', 'advance', 'pay first', 'when do i pay', 'invoice'],
       answer: function () {
-        return 'You pay <strong>after you approve</strong>. We confirm the price first, build it, and send a preview to check on your phone. Once you are happy, you pay and we put it live.';
+        return 'You pay <strong>after you approve</strong>. We confirm the price first, build it, and send a preview to check on your phone. Once you are happy, you pay and we put it live. ' +
+          'QR menus can go one step further: <a href="#trial">use it free on your tables for 7 days</a>, then decide.';
       },
-      chips: ['bprocess', 'bprices'] },
+      chips: ['btrial', 'bprocess', 'bprices'] },
 
     { id: 'blangs', keys: ['hindi', 'marathi', 'language', 'languages', 'english', 'bhasha', 'translate', 'translation'],
       answer: function () {
@@ -426,13 +438,14 @@
 
     { id: 'bdiscount', keys: ['discount', 'coupon', 'offer', 'cheaper', 'negotiate', 'less price', 'kam', 'best price', 'reduce'],
       answer: function () {
-        return 'These are launch prices, and they are already well below what menu apps (' + R + '499 or more every month) and most website designers charge — with no monthly fee. Getting a website and a QR menu together saves the most.';
+        return '<strong>Founding offer:</strong> the first 10 restaurants get a free 7-day QR menu trial, and the first 5 who keep it pay ' + rs(BIZ_PRICES.founding) + ' instead of ' + rs(BIZ_PRICES.qr) + '. ' +
+          'Beyond that, these are launch prices, already well below what menu apps (' + R + '499 or more every month) and most website designers charge — with no monthly fee. Getting a website and a QR menu together saves the most.';
       },
-      chips: ['bboth', 'bprices'] },
+      chips: ['btrial', 'bboth', 'bprices'] },
 
     { id: 'bwho', keys: ['who are you', 'about you', 'legit', 'genuine', 'trust', 'scam', 'real company', 'reviews', 'clients', 'references'],
       answer: function () {
-        return 'Fieldcraft is based in Pune and has just started building for businesses, so there are no client reviews yet. What you can do instead: open the <a href="#samples">sample sites</a> and <a href="#menus">menus</a> on your phone, and see your own preview before you pay anything.';
+        return 'Fieldcraft is based in Pune and has just started building for businesses, so there are no client reviews yet. What you can do instead: open the <a href="#samples">sample sites</a> and <a href="#menus">menus</a> on your phone, see your own preview before you pay anything, or <a href="#trial">try a QR menu free for 7 days</a>.';
       },
       chips: ['bsamples', 'bpayment'] },
 
@@ -458,7 +471,7 @@
     bprices: 'Prices', bqr: 'QR menu', bsite: 'Website', bboth: 'Website + menu', brenew: 'Any yearly fee?',
     bupdates: 'Changing prices', bdomain: 'Own domain', bprint: 'Table cards', bturnaround: 'How long?',
     bprocess: 'How it works', bsend: 'What do I send?', bpayment: 'When do I pay?', bsamples: 'See samples',
-    bstart: 'Get a quote'
+    bstart: 'Get a quote', btrial: 'Free 7-day trial'
   };
   Object.keys(BIZ_LABELS).forEach(function (k) { CHIP_LABELS[k] = BIZ_LABELS[k]; });
 
@@ -756,8 +769,8 @@
     if (!started) {
       started = true;
       if (BIZ) {
-        addBot('Hi, I am the Fieldcraft assistant. Ask me about QR menu and website prices, how long it takes, yearly fees or how updates work. What can I help with?',
-               ['bprices', 'bqr', 'bsite', 'brenew', 'bturnaround', 'bprocess', 'contact']);
+        addBot('Hi, I am the Fieldcraft assistant. Ask me about QR menu and website prices, the free 7-day QR menu trial, how long it takes or how updates work. What can I help with?',
+               ['bprices', 'btrial', 'bqr', 'bsite', 'brenew', 'bturnaround', 'contact']);
       } else {
         addBot('Hi, I am the Fieldcraft assistant. Ask me about prices, turnaround, portfolios or how it works — or raise an issue. What can I help with?',
                ['prices', 'templates', 'turnaround', 'process', 'portfolio', 'issue', 'contact']);
